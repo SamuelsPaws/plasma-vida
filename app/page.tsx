@@ -21,7 +21,7 @@ export default async function Home() {
         </h1>
       </section>
       <section className="
-        lg:min-h-[400px] p-8 lg:p-12
+        lg:min-h-[400px] p-6 lg:p-12
         flex flex-col lg:flex-row gap-8
         bg-[#ececec]"
       >
