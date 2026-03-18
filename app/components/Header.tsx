@@ -12,7 +12,10 @@ const Header = () => {
         href="/"
         className="text-white-1"
       >INICIO</Link>
-      <nav className="text-white-1 text-lg">
+      <nav className="
+        hidden lg:block
+        text-white-1 text-lg"
+      >
         <ul className="flex gap-8">
           <li><Link
             href='/nigga'
@@ -34,6 +37,9 @@ const Header = () => {
           </Link></li>
         </ul>
       </nav>
+      <div className="lg:hidden text-white-1">
+        <i className="fa fa-bars" aria-hidden="true"></i>
+      </div>
     </header>
   )
 }
