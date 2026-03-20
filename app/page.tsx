@@ -18,12 +18,12 @@ export default async function Home() {
       <section className="lg:hidden h-[400px] px-6 py-12 bg-[#ececec]">
         <BannerPromotions
             promotions={promotions}
-            className="h-full w-[80%] mx-auto py-0 relative"
+            className="h-full w-full mx-auto py-0 relative"
         />
       </section>
       {/* Custom serum */}
       <section className="
-        min-h-[300px] p-12 lg:p-16 relative
+        min-h-[300px] px-6 lg:px-12 py-12 lg:py-16 relative
         bg-[#ececec]"
       >
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[1px] bg-black/20"></div>

@@ -11,7 +11,7 @@ const CatalogItemCard = ({ imgUrl, title, descriptionList, price }: CatalogItemC
 
   return (
     <div className="
-        w-[90%] lg:w-full h-[420px] lg:h-[540px] p-4 lg:p-6 place-self-center
+        w-full h-[420px] lg:h-[540px] p-4 lg:p-6 place-self-center
         flex flex-col gap-2 lg:gap-6
         bg-white-1 rounded-2xl shadow-sm"
     >
