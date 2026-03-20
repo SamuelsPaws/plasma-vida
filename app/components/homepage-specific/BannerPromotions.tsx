@@ -2,9 +2,14 @@
 import numToPriceStr from "@/app/utils/numToPriceStr";
 import { Promotion } from "@/lib/models/promotion";
 import { AnimatePresence, motion } from "motion/react";
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 
-const BannerPromotions = ({ promotions }: { promotions: Promotion[] }) => {
+interface BannerPromotionsProps {
+    promotions: Promotion[];
+    className: string;
+}
+
+const BannerPromotions = ({ promotions, className }: BannerPromotionsProps) => {
     const [index, setIndex] = useState<number>(0);
 
     useEffect(() => {
@@ -16,12 +21,13 @@ const BannerPromotions = ({ promotions }: { promotions: Promotion[] }) => {
     }, [promotions.length]);
 
   return (
-    <div className="
-        h-full w-[60%] py-12 place-self-center relative"
-    >
+    <div className={className}>
         <AnimatePresence mode="wait">
             <motion.div
-                className="w-[80%] h-full mx-auto flex flex-col gap-2"
+                className="
+                    absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+                    w-full h-full
+                    flex flex-col gap-2"
                 key={index}
                 initial={{ opacity: 0, x: 30, y: 2 }}
                 animate={{ opacity: 1, x: 0, y: 0 }}
@@ -30,7 +36,7 @@ const BannerPromotions = ({ promotions }: { promotions: Promotion[] }) => {
             >
                 {/* White part (card) */}
                 <div className="
-                    w-full flex-1 relative
+                    w-full flex-1
                     p-4 bg-white-1
                     flex flex-col
                     rounded-2xl shadow-md"
@@ -45,7 +51,7 @@ const BannerPromotions = ({ promotions }: { promotions: Promotion[] }) => {
                     {/* Div with image, price and button */}
                     <div className="flex-1 flex">
                         {/* Image */}
-                        <div className="w-[70%] h-[160px] self-center rounded-2xl overflow-hidden">
+                        <div className="w-[70%] h-[140px] self-center rounded-2xl overflow-hidden">
                             <img
                                 src={promotions[index].imageUrls[0]}
                                 className="w-full h-full object-cover"
@@ -53,9 +59,9 @@ const BannerPromotions = ({ promotions }: { promotions: Promotion[] }) => {
                             />
                         </div>
                         {/* Div with price and button */}
-                        <div className="flex-1 flex flex-col justify-between items-end">
+                        <div className="flex-1 flex flex-col justify-end items-end gap-4 lg:gap-6">
                             {/* Price */}
-                            <div className="flex flex-col items-end gap-1">
+                            <div className="flex flex-col items-end lg:gap-1">
                                 {/* Previous price */}
                                 <div className="relative text-lg text-gray-400">
                                     <div>${numToPriceStr(promotions[index].prevPrice)}</div>
@@ -68,7 +74,7 @@ const BannerPromotions = ({ promotions }: { promotions: Promotion[] }) => {
                             </div>
                             {/* Button */}
                             <button className="
-                                px-6 py-1
+                                px-6 py-2
                                 bg-blue-700
                                 text-md text-white-1 rounded-full"
                             >

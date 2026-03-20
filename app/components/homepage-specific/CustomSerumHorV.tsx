@@ -22,7 +22,7 @@ const CustomSerumHorV = ({ name, isHomeo, setIsHomeo, thisHomeo }: CustomSerumHo
             setIsHomeo(thisHomeo);
         }}
         className={clsx(
-            'flex-1 text-xl',
+            'flex-1 text-md lg:text-xl',
             'grid place-content-center cursor-pointer duration-200',
             !isSelected && 'lg:hover:bg-[#b1cff6] lg:hover:border-[#b1cff6]',
             isSelected ? 'bg-mainblue-original text-white-1' : 'bg-white-1 text-gray-600',

@@ -6,13 +6,13 @@ import { Promotion } from "@/lib/models/promotion"
 const Banner = ({ promotions }: { promotions: Promotion[] }) => {
   return (
     <div className="
-        h-[200px] lg:h-[420px] p-8 lg:p-0 relative
-        grid grid-cols-2 gap-0
-        bg-[url('/assets/hero-img.webp')] bg-cover bg-position-[0_-42px]
-        before:content-[''] before:absolute before:inset-0 before:bg-[linear-gradient(to_right,#0006,#0002)]"
+        h-[200px] lg:h-[420px] p-8 lg:p-10 relative
+        grid grid-cols-[70%_1fr] lg:grid-cols-2 gap-0
+        bg-[url('/assets/hero-img.webp')] bg-cover lg:bg-position-[0_-42px]
+        before:content-[''] before:absolute before:inset-0 before:bg-[linear-gradient(to_right,#0007_30%,#0002)]"
     >
         {/* Left div */}
-        <div className="lg:p-16 flex flex-col justify-end">
+        <div className="lg:p-6 flex flex-col justify-end">
             <motion.h1
                 className="
                     relative
@@ -31,9 +31,12 @@ const Banner = ({ promotions }: { promotions: Promotion[] }) => {
             >
                 Plasma Vida Center
             </motion.h1>
-            <p className="mt-4 text-2xl text-white-1 relative">Te escuchamos, te entendemos y cuidamos de ti de forma natural.</p>
+            <p className="mt-1 lg:mt-4 text-sm lg:text-2xl text-white-1 relative">Te escuchamos, te entendemos y cuidamos de ti de forma natural.</p>
         </div>
-        <BannerPromotions promotions={promotions} />
+        <BannerPromotions
+            promotions={promotions}
+            className="hidden lg:block h-full w-[60%] place-self-center relative"
+        />
     </div>
   )
 }

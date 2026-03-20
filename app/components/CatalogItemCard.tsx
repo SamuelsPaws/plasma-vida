@@ -11,12 +11,12 @@ const CatalogItemCard = ({ imgUrl, title, descriptionList, price }: CatalogItemC
 
   return (
     <div className="
-        w-full h-[420px] lg:h-[540px] p-4 lg:p-6
-        flex flex-col gap-4 lg:gap-6
+        w-[90%] lg:w-full h-[420px] lg:h-[540px] p-4 lg:p-6 place-self-center
+        flex flex-col gap-2 lg:gap-6
         bg-white-1 rounded-2xl shadow-sm"
     >
         {/* Div with image */}
-        <div className="h-[60%] lg:h-[55%] rounded-2xl overflow-hidden">
+        <div className="h-[50%] lg:h-[55%] rounded-2xl overflow-hidden">
             <img
             src={imgUrl}
             className="w-full h-full object-cover drag-none"
@@ -29,11 +29,11 @@ const CatalogItemCard = ({ imgUrl, title, descriptionList, price }: CatalogItemC
             flex flex-col justify-between"
         >
             <div className="w-full">
-                <p className="lg:mb-2 text-lg lg:text-xl font-bold">{title}</p>
+                <p className="mb-2 text-lg lg:text-xl font-bold">{title}</p>
                 {descriptionList.map((el, index) => (
                     <p
                         key={index}
-                        className="text-sm lg:text-[0.85rem] text-gray-600"
+                        className="text-xs lg:text-[0.85rem] text-gray-600"
                     ><i className="fa fa-check mr-1 scale-[0.9]" aria-hidden="true"></i>{el}</p>
                 ))}
             </div>

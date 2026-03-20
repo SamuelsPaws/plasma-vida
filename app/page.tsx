@@ -2,6 +2,7 @@ import { getCatalogItems, getCustomHomeoSerums, getCustomVitaSerums, getPromotio
 import CatalogItemCard from "./components/CatalogItemCard";
 import Banner from "./components/Banner";
 import CustomSerumContainer from "./components/homepage-specific/CustomSerumContainer";
+import BannerPromotions from "./components/homepage-specific/BannerPromotions";
 
 export default async function Home() {
   const catalogItems = await getCatalogItems();
@@ -13,16 +14,35 @@ export default async function Home() {
     <main className="pt-mob-header-height lg:pt-header-height">
       {/* Banner */}
       <Banner promotions={promotions} />
-      <section className="min-h-[300px] p-16 bg-[#ececec]">
-        <h2 className="mb-16 text-5xl text-center font-bold">Obtén tu suero personalizado</h2>
-        <CustomSerumContainer customHomeoSerums={customHomeoSerums} customVitaSerums={customVitaSerums} />
+      {/* Mobile carrousel section */}
+      <section className="lg:hidden h-[400px] px-6 py-12 bg-[#ececec]">
+        <BannerPromotions
+            promotions={promotions}
+            className="h-full w-[80%] mx-auto py-0 relative"
+        />
       </section>
+      {/* Custom serum */}
       <section className="
-        lg:min-h-[400px] p-6 lg:p-12 relative
+        min-h-[300px] p-12 lg:p-16 relative
         bg-[#ececec]"
       >
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[1px] bg-black/20"></div>
-        <h3 className="mb-12 text-5xl font-semibold">Nuestro Catálogo</h3>
+        <h2 className="
+          mb-12 lg:mb-16
+          text-3xl lg:text-5xl text-center font-bold"
+        >Obtén tu suero personalizado</h2>
+        <CustomSerumContainer customHomeoSerums={customHomeoSerums} customVitaSerums={customVitaSerums} />
+      </section>
+      {/* Catalog */}
+      <section className="
+        lg:min-h-[400px] px-6 lg:px-12 py-12 lg:py-16 relative
+        bg-[#ececec]"
+      >
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[1px] bg-black/20"></div>
+        <h3 className="
+          mb-12 lg:mb-16
+          text-3xl lg:text-5xl text-center lg:text-left font-semibold"
+        >Nuestro Catálogo</h3>
         <div className="w-full flex flex-col lg:flex-row gap-6 lg:gap-8">
           {/* Left div with items */}
           <div className="
