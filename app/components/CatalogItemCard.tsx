@@ -38,7 +38,7 @@ const CatalogItemCard = ({ imgUrl, title, description, price }: CatalogItemCardP
                     bg-blue-700 lg:hover:bg-blue-800 duration-200
                     text-white-1 text-sm lg:text-md rounded-full"
                 >Ver producto</button>
-                <div className="text-md lg:text-lg text-[#74671d]">
+                <div className="text-md lg:text-lg text-[#a69742] font-semibold">
                     ${numToPriceStr(price)}
                 </div>
             </div>

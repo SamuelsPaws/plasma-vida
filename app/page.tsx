@@ -1,5 +1,7 @@
 import { getCatalogItems } from "@/lib/contentful-queries";
 import CatalogItemCard from "./components/CatalogItemCard";
+import { motion } from "motion/react";
+import Banner from "./components/Banner";
 
 export default async function Home() {
   const catalogItems = await getCatalogItems();
@@ -7,22 +9,21 @@ export default async function Home() {
   return (
     <main className="pt-mob-header-height lg:pt-header-height">
       {/* Banner */}
-      <section className="
-        h-[200px] lg:h-[340px] p-8 lg:p-16 relative
-        flex items-end
-        bg-[url('/assets/hero-img.webp')] bg-cover
-        before:content-[''] before:absolute before:inset-0 before:bg-[linear-gradient(to_right,#0007_60%,#fff1)]"
-      >
-        <h1 className="
-          relative
-          text-3xl lg:text-7xl text-white-1 font-bold"
-        >
-          Hola soy Salome Naranjo
-        </h1>
+      <Banner />
+      <section className="min-h-[300px] p-16 bg-[#ececec]">
+        <h2 className="mb-16 text-5xl text-center font-bold">Obtén tu suero personalizado</h2>
+        <div className="w-[500px] p-8 mx-auto bg-white-1 rounded-2xl">
+          <p className="font-semibold text-center text-xl text-gray-700">Escoge las opciones que se adaptan a tus necesidades</p>
+          <p>Quiero un suero:</p>
+          <div className="w-full h-16 flex">
+            <div className="flex-1 blue-border">Homeopático</div>
+            <div className="flex-1 blue-border">Vitamínico</div>
+          </div>
+        </div>
       </section>
       <section className="
         lg:min-h-[400px] p-6 lg:p-12
-        flex flex-col lg:flex-row gap-8
+        flex flex-col lg:flex-row gap-6 lg:gap-8
         bg-[#ececec]"
       >
         {/* Left div with items */}
@@ -30,6 +31,7 @@ export default async function Home() {
           w-full lg:w-[75%] lg:min-w-[1000px] lg:pr-4
           flex flex-col lg:grid grid-cols-3 gap-6 lg:gap-8"
         >
+          <div className="w-full lg:hidden">Filtros</div>
           {catalogItems.map((item, index) =>
             <CatalogItemCard
               key={index}
