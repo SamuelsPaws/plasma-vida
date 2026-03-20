@@ -12,6 +12,7 @@
   --color-foreground: var(--foreground);
   --color-white-1: #fafafa;
   --color-mainblue-original: #0f3b73;
+  --color-maingold-original: #b4a017;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }

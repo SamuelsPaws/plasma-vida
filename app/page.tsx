@@ -1,4 +1,4 @@
-import { getCatalogItems, getCustomHomeoSerums, getCustomVitaSerums } from "@/lib/contentful-queries";
+import { getCatalogItems, getCustomHomeoSerums, getCustomVitaSerums, getPromotions } from "@/lib/contentful-queries";
 import CatalogItemCard from "./components/CatalogItemCard";
 import Banner from "./components/Banner";
 import CustomSerumContainer from "./components/homepage-specific/CustomSerumContainer";
@@ -7,11 +7,12 @@ export default async function Home() {
   const catalogItems = await getCatalogItems();
   const customHomeoSerums = await getCustomHomeoSerums();
   const customVitaSerums = await getCustomVitaSerums();
+  const promotions = await getPromotions();
 
   return (
     <main className="pt-mob-header-height lg:pt-header-height">
       {/* Banner */}
-      <Banner />
+      <Banner promotions={promotions} />
       <section className="min-h-[300px] p-16 bg-[#ececec]">
         <h2 className="mb-16 text-5xl text-center font-bold">Obtén tu suero personalizado</h2>
         <CustomSerumContainer customHomeoSerums={customHomeoSerums} customVitaSerums={customVitaSerums} />
