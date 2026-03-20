@@ -7,7 +7,7 @@ const Banner = () => {
         h-[200px] lg:h-[340px] p-8 lg:p-16 relative
         flex flex-col justify-end
         bg-[url('/assets/hero-img.webp')] bg-cover bg-position-[0_-42px]
-        before:content-[''] before:absolute before:inset-0 before:bg-[linear-gradient(to_right,#000a_20%,#fff1)]"
+        before:content-[''] before:absolute before:inset-0 before:bg-[linear-gradient(to_right,#000b,#fff1)]"
     >
         <motion.h1
             className="

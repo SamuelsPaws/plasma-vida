@@ -17,35 +17,38 @@ export default async function Home() {
         <CustomSerumContainer customHomeoSerums={customHomeoSerums} customVitaSerums={customVitaSerums} />
       </section>
       <section className="
-        lg:min-h-[400px] p-6 lg:p-12
-        flex flex-col lg:flex-row gap-6 lg:gap-8
+        lg:min-h-[400px] p-6 lg:p-12 relative
         bg-[#ececec]"
       >
-        {/* Left div with items */}
-        <div className="
-          w-full lg:w-[75%] lg:min-w-[1000px] lg:pr-4
-          flex flex-col lg:grid grid-cols-3 gap-6 lg:gap-8"
-        >
-          <div className="w-full lg:hidden">Filtros</div>
-          {catalogItems.map((item, index) =>
-            <CatalogItemCard
-              key={index}
-              title={item.title}
-              descriptionList={item.descriptionList}
-              price={item.price}
-              imgUrl={item.imageUrls[0]}
-            />
-          )}
-        </div>
-        {/* Right div with table */}
-        <div className="
-          flex-1 lg:min-w-[260px] px-6 py-3 relative
-          hidden lg:block
-          bg-white-1 rounded-2xl"
-        >
-          <div className="w-full py-3 sticky top-mob-header-height lg:top-header-height">
-            <p className="mb-2 font-bold text-xl">Categorías</p>
-            <p className="text-md text-gray-600">Suero homeopático</p>
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[1px] bg-black/20"></div>
+        <h3 className="mb-12 text-5xl font-semibold">Nuestro Catálogo</h3>
+        <div className="w-full flex flex-col lg:flex-row gap-6 lg:gap-8">
+          {/* Left div with items */}
+          <div className="
+            w-full lg:w-[75%] lg:min-w-[1000px] lg:pr-4
+            flex flex-col lg:grid grid-cols-3 gap-6 lg:gap-8"
+          >
+            <div className="w-full lg:hidden">Filtros</div>
+            {catalogItems.map((item, index) =>
+              <CatalogItemCard
+                key={index}
+                title={item.title}
+                descriptionList={item.descriptionList}
+                price={item.price}
+                imgUrl={item.imageUrls[0]}
+              />
+            )}
+          </div>
+          {/* Right div with table */}
+          <div className="
+            flex-1 lg:min-w-[260px] px-6 py-3 relative
+            hidden lg:block
+            bg-white-1 rounded-2xl"
+          >
+            <div className="w-full py-3 sticky top-mob-header-height lg:top-header-height">
+              <p className="mb-2 font-bold text-xl">Categorías</p>
+              <p className="text-md text-gray-600">Suero homeopático</p>
+            </div>
           </div>
         </div>
       </section>
