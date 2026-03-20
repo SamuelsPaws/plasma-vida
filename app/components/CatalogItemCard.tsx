@@ -3,11 +3,12 @@ import numToPriceStr from "../utils/numToPriceStr";
 interface CatalogItemCardProps {
     imgUrl: string;
     title: string;
-    description: string;
+    descriptionList: string[];
     price: number;
 }
 
-const CatalogItemCard = ({ imgUrl, title, description, price }: CatalogItemCardProps) => {
+const CatalogItemCard = ({ imgUrl, title, descriptionList, price }: CatalogItemCardProps) => {
+
   return (
     <div className="
         w-full h-[420px] lg:h-[540px] p-4 lg:p-6
@@ -29,7 +30,12 @@ const CatalogItemCard = ({ imgUrl, title, description, price }: CatalogItemCardP
         >
             <div className="w-full">
                 <p className="lg:mb-2 text-lg lg:text-xl font-bold">{title}</p>
-                <p className="text-sm lg:text-md text-gray-600">{description}</p>
+                {descriptionList.map((el, index) => (
+                    <p
+                        key={index}
+                        className="text-sm lg:text-[0.85rem] text-gray-600"
+                    ><i className="fa fa-check mr-1 scale-[0.9]" aria-hidden="true"></i>{el}</p>
+                ))}
             </div>
             {/* Div with button and price */}
             <div className="flex justify-between items-end">

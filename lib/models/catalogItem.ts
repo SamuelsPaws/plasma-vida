@@ -1,6 +1,6 @@
 export interface CatalogItem {
   title: string;
-  description: string;
+  descriptionList: string[];
   price: number;
   imageUrls: string[];
 }
