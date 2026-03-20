@@ -1,6 +1,5 @@
 import { getCatalogItems } from "@/lib/contentful-queries";
 import CatalogItemCard from "./components/CatalogItemCard";
-import { motion } from "motion/react";
 import Banner from "./components/Banner";
 
 export default async function Home() {
