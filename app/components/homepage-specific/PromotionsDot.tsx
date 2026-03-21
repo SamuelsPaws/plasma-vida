@@ -1,7 +1,4 @@
 import clsx from "clsx";
-import React from "react";
-
-type Interval = ReturnType<typeof setInterval>;
 
 interface PromotionsDotProps {
     keyProp: number;
