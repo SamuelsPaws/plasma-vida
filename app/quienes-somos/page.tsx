@@ -16,12 +16,12 @@ export default function About() {
                 bg-[#ececec]"
             >
                 <div className="
-                    w-full lg:w-[60%] px-8 lg:px-16 py-8
+                    w-full lg:w-[60%] px-4 lg:px-16 py-8
                     bg-white-1 rounded-2xl"
                 >
                     <h2 className="
                         mb-4 lg:mb-4
-                        text-2xl lg:text-3xl text-center lg:text-left font-bold lg:leading-10"
+                        text-xl lg:text-3xl text-center lg:text-left font-bold lg:leading-10"
                     >Un equipo comprometido en ofrecer productos y servicios de calidad.</h2>
                     <AboutP margin={true}>Plasma Vida Center nació en Quito del esfuerzo y la determinación de cuatro personas que, movidas por la necesidad de crecer y salir adelante, decidieron construir algo con propósito.</AboutP>
                     <AboutP margin={false}>Más que un emprendimiento, somos un equipo comprometido con el bienestar natural del paciente, convencidos de que la salud debe tratarse con responsabilidad, calidez humana y verdadera vocación de servicio.</AboutP>

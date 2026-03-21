@@ -2,7 +2,7 @@ import { motion } from "motion/react"
 
 const ImagesGrid = () => {
   return (
-    <div className="h-[400px] lg:h-auto lg:flex-1 grid grid-cols-2 auto-rows-fr lg:auto-rows-[240px]">
+    <div className="h-[380px] lg:h-auto lg:flex-1 grid grid-cols-2 auto-rows-fr lg:auto-rows-[240px]">
         <motion.div
             className="w-[110%] h-[110%] rounded-2xl overflow-hidden z-0"
             initial={{
