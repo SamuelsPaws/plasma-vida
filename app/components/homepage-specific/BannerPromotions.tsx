@@ -47,7 +47,7 @@ const BannerPromotions = ({ promotions, className }: BannerPromotionsProps) => {
                 <motion.div
                     className="
                         w-full flex-1
-                        p-4 bg-white-1
+                        p-4 bg-white-1/80 backdrop-blur-sm
                         flex flex-col justify-between
                         rounded-2xl shadow-none lg:shadow-md"
                     key={index}
@@ -58,8 +58,8 @@ const BannerPromotions = ({ promotions, className }: BannerPromotionsProps) => {
                 >
                     <p className="
                         self-start px-2 py-0 mb-2
-                        bg-red-700
-                        text-2xl text-white-1 font-bold"
+                        bg-red-700 -rotate-2
+                        text-2xl text-white-1 font-bold rounded-sm"
                     >¡Promoción!</p>
                     {/* Title */}
                     <p className="mb-2 text-xl font-bold">{promotions[index].title}</p>

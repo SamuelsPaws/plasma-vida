@@ -1,9 +1,7 @@
 'use client'
-import { motion } from "motion/react"
-import BannerPromotions from "./homepage-specific/BannerPromotions"
-import { Promotion } from "@/lib/models/promotion"
+import { motion } from "motion/react";
 
-const Banner = ({ promotions }: { promotions: Promotion[] }) => {
+const BannerPages = ({ title }: { title: string }) => {
   return (
     <div className="
         h-[216px] lg:h-[420px] p-8 lg:p-10 relative
@@ -22,21 +20,17 @@ const Banner = ({ promotions }: { promotions: Promotion[] }) => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
             >
-                Plasma Vida Center
+                {title}
             </motion.h1>
             <motion.p
                 className="mt-1 lg:mt-4 text-md lg:text-2xl text-white-1 font-semibold relative"
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-            >Te escuchamos, te entendemos y cuidamos de ti de forma natural.</motion.p>
+            ></motion.p>
         </div>
-        <BannerPromotions
-            promotions={promotions}
-            className="hidden lg:block h-full w-[60%] min-w-[400px] place-self-center relative"
-        />
     </div>
   )
 }
 
-export default Banner
+export default BannerPages

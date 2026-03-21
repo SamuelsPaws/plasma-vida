@@ -41,7 +41,7 @@ const ImagesGrid = () => {
             }}
         >
             <img
-                src="/assets/item-1.png"
+                src="/assets/hero-img.webp"
                 className="w-full h-full object-cover"
                 alt=""
             />
