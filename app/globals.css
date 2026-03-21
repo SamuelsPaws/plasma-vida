@@ -13,6 +13,8 @@
   --color-white-1: #fafafa;
   --color-mainblue-original: #0f3b73;
   --color-maingold-original: #b4a017;
+  --color-maingold-dark-1: #AB9816;
+  --color-maingold-dark-2: #9C8814;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }

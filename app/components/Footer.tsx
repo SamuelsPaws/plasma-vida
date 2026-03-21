@@ -4,7 +4,7 @@ const Footer = () => {
         <div className="
             w-full lg:h-full p-8 lg:p-0
             flex flex-col lg:flex-row lg:justify-evenly items-center gap-8 lg:gap-0
-            bg-maingold-original rounded-2xl"
+            bg-maingold-dark-1 rounded-2xl"
         >
             <div className="flex flex-col gap-1 lg:gap-4 items-center lg:items-start">
                 <p className="mb-2 text-xl lg:text-2xl font-bold text-white-1">
