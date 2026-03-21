@@ -6,23 +6,10 @@ type Interval = ReturnType<typeof setInterval>;
 interface PromotionsDotProps {
     keyProp: number;
     index: number;
-    setIndex: React.Dispatch<React.SetStateAction<number>>;
-    intervalRef: Interval | null;
-    createInterval: () => Interval;
-    setIntervalRef: React.Dispatch<React.SetStateAction<Interval | null>>;
+    handleClick: () => void;
 }
 
-const PromotionsDot = ({ keyProp, index, setIndex, intervalRef, createInterval, setIntervalRef }: PromotionsDotProps) => {
-    const handleClick = () => {
-        if (index !== keyProp) {
-            setIndex(keyProp);
-            if (intervalRef !== null) {
-                clearInterval(intervalRef);
-                const newInterval = createInterval();
-                setIntervalRef(newInterval);
-            }
-        }
-    }
+const PromotionsDot = ({ keyProp, index, handleClick }: PromotionsDotProps) => {
 
   return (
     <div

@@ -32,7 +32,7 @@ const Banner = ({ promotions }: { promotions: Promotion[] }) => {
         </div>
         <BannerPromotions
             promotions={promotions}
-            className="hidden lg:block h-full w-[60%] place-self-center relative"
+            className="hidden lg:block h-full w-[60%] min-w-[400px] place-self-center relative"
         />
     </div>
   )

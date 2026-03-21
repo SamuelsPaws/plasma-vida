@@ -15,7 +15,7 @@ export default async function Home() {
       {/* Banner */}
       <Banner promotions={promotions} />
       {/* Mobile carrousel section */}
-      <section className="lg:hidden h-[400px] px-6 py-12 bg-[#ececec]">
+      <section className="lg:hidden h-[400px] px-6 py-12 bg-[#d5d5d5]">
         <BannerPromotions
             promotions={promotions}
             className="h-full w-full mx-auto py-0 relative"
@@ -26,7 +26,6 @@ export default async function Home() {
         min-h-[300px] px-6 lg:px-12 py-12 lg:py-16 relative
         bg-[#ececec]"
       >
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[1px] bg-black/20"></div>
         <h2 className="
           mb-12 lg:mb-16
           text-3xl lg:text-5xl text-center font-bold"

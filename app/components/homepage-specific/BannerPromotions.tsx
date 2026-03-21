@@ -2,7 +2,7 @@
 import numToPriceStr from "@/app/utils/numToPriceStr";
 import { Promotion } from "@/lib/models/promotion";
 import { AnimatePresence, motion } from "motion/react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import PromotionsDot from "./PromotionsDot";
 
 type Interval = ReturnType<typeof setInterval>;
@@ -14,23 +14,25 @@ interface BannerPromotionsProps {
 
 const BannerPromotions = ({ promotions, className }: BannerPromotionsProps) => {
     const [index, setIndex] = useState<number>(0);
-    const [intervalRef, setIntervalRef] = useState<Interval | null>(null);
+    const intervalRef = useRef<Interval | null>(null);
 
-    const createInterval = () => {
-        const interval = setInterval(() => {
+    const startInterval = () => {
+        clearInterval(intervalRef.current!);
+        intervalRef.current =  setInterval(() => {
             setIndex((i) => (i + 1) % promotions.length);
         }, 4500);
-
-        return interval;
     };
 
     useEffect(() => {
-        const intervalEff = createInterval();
+        startInterval();
 
-        setIntervalRef(intervalEff);
-
-        return () => clearInterval(intervalEff);
+        return () => clearInterval(intervalRef.current!);
     }, [promotions.length]);
+
+    const handleDotClick = (i: number) => {
+        setIndex(i);
+        startInterval();
+    }
 
   return (
     <div className={className}>
@@ -47,7 +49,7 @@ const BannerPromotions = ({ promotions, className }: BannerPromotionsProps) => {
                         w-full flex-1
                         p-4 bg-white-1
                         flex flex-col justify-between
-                        rounded-2xl shadow-md"
+                        rounded-2xl shadow-none lg:shadow-md"
                     key={index}
                     initial={{ opacity: 0, x: 30, y: 2 }}
                     animate={{ opacity: 1, x: 0, y: 0 }}
@@ -81,17 +83,21 @@ const BannerPromotions = ({ promotions, className }: BannerPromotionsProps) => {
                                     <div className="absolute h-[2px] w-full left-0 top-1/2 bg-gray-600/70"></div>
                                 </div>
                                 {/* Current price */}
-                                <div className="text-xl text-maingold-original font-semibold">
+                                <div className="
+                                    px-2 py-1
+                                    text-xl bg-maingold-original text-white-1 font-semibold
+                                    rounded-lg"
+                                >
                                     ${numToPriceStr(promotions[index].currPrice)}
                                 </div>
                             </div>
                             {/* Button */}
                             <button className="
-                                px-4 py-2
+                                px-4 lg:px-6 py-2
                                 bg-blue-700
-                                text-sm lg:text-sm text-white-1 rounded-full"
+                                text-sm lg:text-md text-white-1 rounded-full"
                             >
-                                Ver producto
+                                Ver
                             </button>
                         </div>
                     </div>
@@ -99,7 +105,7 @@ const BannerPromotions = ({ promotions, className }: BannerPromotionsProps) => {
             </AnimatePresence>
             {/* Little dots */}
             <div className="
-                h-6 w-full
+                h-8 w-full
                 flex justify-center items-center gap-2"
             >
                 {promotions.map((item, i) => (
@@ -107,10 +113,7 @@ const BannerPromotions = ({ promotions, className }: BannerPromotionsProps) => {
                         key={i}
                         keyProp={i}
                         index={index}
-                        setIndex={setIndex}
-                        intervalRef={intervalRef}
-                        createInterval={createInterval}
-                        setIntervalRef={setIntervalRef}
+                        handleClick={() => handleDotClick(i)}
                     />
                 ))}
             </div>

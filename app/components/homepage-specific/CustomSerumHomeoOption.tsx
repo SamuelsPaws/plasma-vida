@@ -8,18 +8,18 @@ const CustomSerumHomeoOption = ({ name, description, price }: CustomSerumHomeoOp
   return (
     <div className="
         w-full p-4
-        flex gap-4 lg:gap-8 lg:group cursor-pointer
+        flex gap-4 lg:gap-8 group cursor-pointer
         border-2 border-green-600 rounded-2xl"
     >
         <div className="
-            flex-1 group-hover:pl-2 duration-200
+            flex-1 lg:group-hover:pl-2 duration-200
             flex flex-col gap-1 lg:gap-2"
         >
             <p className="text-md lg:text-lg text-black font-semibold">{name}</p>
             <p className="text-sm lg:text-sm text-gray-600">{description}</p>
         </div>
         <div className="
-            w-[10%] self-stretch group-hover:pl-2 duration-200
+            w-[10%] self-stretch lg:group-hover:pl-2 duration-200
             grid place-content-center
             text-xl lg:text-2xl text-green-600"
         >
