@@ -29,11 +29,11 @@ const CatalogItemCard = ({ imgUrl, title, descriptionList, price }: CatalogItemC
             flex flex-col justify-between"
         >
             <div className="w-full">
-                <p className="mb-2 text-lg lg:text-xl font-bold">{title}</p>
+                <p className="lg:mb-2 text-lg lg:text-xl font-bold">{title}</p>
                 {descriptionList.map((el, index) => (
                     <p
                         key={index}
-                        className="text-xs lg:text-[0.85rem] text-gray-600"
+                        className="mt-1 text-xs lg:text-[0.85rem] text-gray-600"
                     ><i className="fa fa-check mr-1 scale-[0.9]" aria-hidden="true"></i>{el}</p>
                 ))}
             </div>

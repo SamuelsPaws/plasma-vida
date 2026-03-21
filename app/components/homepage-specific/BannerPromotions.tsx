@@ -2,7 +2,10 @@
 import numToPriceStr from "@/app/utils/numToPriceStr";
 import { Promotion } from "@/lib/models/promotion";
 import { AnimatePresence, motion } from "motion/react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import PromotionsDot from "./PromotionsDot";
+
+type Interval = ReturnType<typeof setInterval>;
 
 interface BannerPromotionsProps {
     promotions: Promotion[];
@@ -11,35 +14,45 @@ interface BannerPromotionsProps {
 
 const BannerPromotions = ({ promotions, className }: BannerPromotionsProps) => {
     const [index, setIndex] = useState<number>(0);
+    const [intervalRef, setIntervalRef] = useState<Interval | null>(null);
 
-    useEffect(() => {
+    const createInterval = () => {
         const interval = setInterval(() => {
             setIndex((i) => (i + 1) % promotions.length);
         }, 4500);
 
-        return () => clearInterval(interval);
+        return interval;
+    };
+
+    useEffect(() => {
+        const intervalEff = createInterval();
+
+        setIntervalRef(intervalEff);
+
+        return () => clearInterval(intervalEff);
     }, [promotions.length]);
 
   return (
     <div className={className}>
-        <AnimatePresence mode="wait">
-            <motion.div
-                className="
-                    absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-                    w-full h-full
-                    flex flex-col gap-2"
-                key={index}
-                initial={{ opacity: 0, x: 30, y: 2 }}
-                animate={{ opacity: 1, x: 0, y: 0 }}
-                exit={{ opacity: 0, x: -30, y: 2 }}
-                transition={{ duration: 0.5 }}
-            >
+        <div
+            className="
+                absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+                w-full h-full
+                flex flex-col gap-0"
+        >
+            <AnimatePresence mode="wait">
                 {/* White part (card) */}
-                <div className="
-                    w-full flex-1
-                    p-4 bg-white-1
-                    flex flex-col
-                    rounded-2xl shadow-md"
+                <motion.div
+                    className="
+                        w-full flex-1
+                        p-4 bg-white-1
+                        flex flex-col justify-between
+                        rounded-2xl shadow-md"
+                    key={index}
+                    initial={{ opacity: 0, x: 30, y: 2 }}
+                    animate={{ opacity: 1, x: 0, y: 0 }}
+                    exit={{ opacity: 0, x: -30, y: 2 }}
+                    transition={{ duration: 0.5 }}
                 >
                     <p className="
                         self-start px-2 py-0 mb-2
@@ -49,9 +62,9 @@ const BannerPromotions = ({ promotions, className }: BannerPromotionsProps) => {
                     {/* Title */}
                     <p className="mb-2 text-xl font-bold">{promotions[index].title}</p>
                     {/* Div with image, price and button */}
-                    <div className="flex-1 flex">
+                    <div className="h-[164px] lg:h-[200px] flex">
                         {/* Image */}
-                        <div className="w-[70%] h-[140px] self-center rounded-2xl overflow-hidden">
+                        <div className="w-[70%] h-full self-center rounded-2xl overflow-hidden">
                             <img
                                 src={promotions[index].imageUrls[0]}
                                 className="w-full h-full object-cover"
@@ -59,13 +72,13 @@ const BannerPromotions = ({ promotions, className }: BannerPromotionsProps) => {
                             />
                         </div>
                         {/* Div with price and button */}
-                        <div className="flex-1 flex flex-col justify-end items-end gap-4 lg:gap-6">
+                        <div className="flex-1 flex flex-col justify-between items-end gap-4 lg:gap-6">
                             {/* Price */}
                             <div className="flex flex-col items-end lg:gap-1">
                                 {/* Previous price */}
-                                <div className="relative text-lg text-gray-400">
+                                <div className="relative text-lg text-gray-600">
                                     <div>${numToPriceStr(promotions[index].prevPrice)}</div>
-                                    <div className="absolute h-[2px] w-[90%] left-0 top-1/2 bg-gray-500/50"></div>
+                                    <div className="absolute h-[2px] w-full left-0 top-1/2 bg-gray-600/70"></div>
                                 </div>
                                 {/* Current price */}
                                 <div className="text-xl text-maingold-original font-semibold">
@@ -74,19 +87,34 @@ const BannerPromotions = ({ promotions, className }: BannerPromotionsProps) => {
                             </div>
                             {/* Button */}
                             <button className="
-                                px-6 py-2
+                                px-4 py-2
                                 bg-blue-700
-                                text-md text-white-1 rounded-full"
+                                text-sm lg:text-sm text-white-1 rounded-full"
                             >
-                                Ver
+                                Ver producto
                             </button>
                         </div>
                     </div>
-                </div>
-                {/* Little dots */}
-                <div className="h-4"></div>
-            </motion.div>
-        </AnimatePresence>
+                </motion.div>
+            </AnimatePresence>
+            {/* Little dots */}
+            <div className="
+                h-6 w-full
+                flex justify-center items-center gap-2"
+            >
+                {promotions.map((item, i) => (
+                    <PromotionsDot
+                        key={i}
+                        keyProp={i}
+                        index={index}
+                        setIndex={setIndex}
+                        intervalRef={intervalRef}
+                        createInterval={createInterval}
+                        setIntervalRef={setIntervalRef}
+                    />
+                ))}
+            </div>
+        </div>
     </div>
   )
 }

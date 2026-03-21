@@ -17,21 +17,18 @@ const Banner = ({ promotions }: { promotions: Promotion[] }) => {
                 className="
                     relative
                     text-3xl lg:text-7xl text-white-1 font-bold"
-                initial={{
-                    opacity: 0,
-                    y: -20
-                }}
-                animate={{
-                    opacity: 1,
-                    y: 0
-                }}
-                transition={{
-                    duration: 0.6
-                }}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
             >
                 Plasma Vida Center
             </motion.h1>
-            <p className="mt-1 lg:mt-4 text-sm lg:text-2xl text-white-1 relative">Te escuchamos, te entendemos y cuidamos de ti de forma natural.</p>
+            <motion.p
+                className="mt-1 lg:mt-4 text-sm lg:text-2xl text-white-1 relative"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+            >Te escuchamos, te entendemos y cuidamos de ti de forma natural.</motion.p>
         </div>
         <BannerPromotions
             promotions={promotions}
