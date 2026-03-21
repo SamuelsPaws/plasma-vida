@@ -2,7 +2,7 @@
 import numToPriceStr from "@/app/utils/numToPriceStr";
 import { Promotion } from "@/lib/models/promotion";
 import { AnimatePresence, motion } from "motion/react";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import PromotionsDot from "./PromotionsDot";
 
 type Interval = ReturnType<typeof setInterval>;
