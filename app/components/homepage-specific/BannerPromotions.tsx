@@ -78,14 +78,14 @@ const BannerPromotions = ({ promotions, className }: BannerPromotionsProps) => {
                             {/* Price */}
                             <div className="flex flex-col items-end lg:gap-1">
                                 {/* Previous price */}
-                                <div className="relative text-lg text-gray-600">
+                                <div className="relative text-mg lg:text-lg text-gray-600">
                                     <div>${numToPriceStr(promotions[index].prevPrice)}</div>
                                     <div className="absolute h-[2px] w-full left-0 top-1/2 bg-gray-600/70"></div>
                                 </div>
                                 {/* Current price */}
                                 <div className="
                                     px-2 py-1
-                                    text-xl bg-maingold-original text-white-1 font-semibold
+                                    bg-maingold-original text-lg lg:text-xl text-white-1 font-semibold
                                     rounded-lg"
                                 >
                                     ${numToPriceStr(promotions[index].currPrice)}
