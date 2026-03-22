@@ -1,4 +1,5 @@
 import Link from "next/link"
+import BurgerMenu from "./BurgerMenu"
 
 const Header = () => {
   return (
@@ -44,9 +45,7 @@ const Header = () => {
           </Link></li>
         </ul>
       </nav>
-      <div className="lg:hidden text-white-1">
-        <i className="fa fa-bars" aria-hidden="true"></i>
-      </div>
+      <BurgerMenu />
     </header>
   )
 }

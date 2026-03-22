@@ -48,7 +48,7 @@ export default async function Home() {
             w-full lg:w-[75%] lg:min-w-[1000px] lg:pr-4
             flex flex-col lg:grid grid-cols-3 gap-6 lg:gap-8"
           >
-            <div className="w-full lg:hidden">Filtros</div>
+            {/* <div className="w-full lg:hidden">Filtros</div> */}
             {catalogItems.map((item, index) =>
               <CatalogItemCard
                 key={index}
