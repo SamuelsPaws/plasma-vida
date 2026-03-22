@@ -1,3 +1,4 @@
+import Link from "next/link";
 import numToPriceStr from "../utils/numToPriceStr";
 
 interface CatalogItemCardProps {
@@ -5,9 +6,10 @@ interface CatalogItemCardProps {
     title: string;
     descriptionList: string[];
     price: number;
+    slug: string;
 }
 
-const CatalogItemCard = ({ imgUrl, title, descriptionList, price }: CatalogItemCardProps) => {
+const CatalogItemCard = ({ imgUrl, title, descriptionList, price, slug }: CatalogItemCardProps) => {
 
   return (
     <div className="
@@ -39,11 +41,13 @@ const CatalogItemCard = ({ imgUrl, title, descriptionList, price }: CatalogItemC
             </div>
             {/* Div with button and price */}
             <div className="flex justify-between items-end">
-                <button className="
-                    px-4 py-2
-                    bg-blue-700 lg:hover:bg-blue-800 duration-200
-                    text-white-1 text-sm lg:text-md rounded-full"
-                >Ver producto</button>
+                <Link
+                    href={`/catalogo/${slug}`}
+                    className="
+                        px-4 py-2
+                        bg-blue-700 lg:hover:bg-blue-800 duration-200
+                        text-white-1 text-sm lg:text-md rounded-full"
+                >Ver producto</Link>
                 <div className="text-md lg:text-lg text-[#a69742] font-semibold">
                     ${numToPriceStr(price)}
                 </div>

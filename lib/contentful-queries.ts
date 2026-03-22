@@ -7,6 +7,14 @@ export async function getCatalogItemEntry(id: string) {
   return entry;
 }
 
+export async function getCatalogItemBySlug(slug: string) {
+  const entries = await contentful.getEntries<CatalogItemFieldsSkeleton>({
+    content_type: 'item',
+    'fields.slug': slug
+  });
+  return entries.items.map(mapCatalogItem)[0];
+}
+
 export async function getCatalogItems() {
   const entries = await contentful.getEntries<CatalogItemFieldsSkeleton>({
     content_type: 'item'

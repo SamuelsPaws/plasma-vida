@@ -31,6 +31,7 @@ export function mapCatalogItem(
     descriptionList: entry.fields.descriptionList,
     price: entry.fields.price,
     imageUrls: entry.fields.images.filter(isAsset).filter(hasFileUrl).map(img => img.fields.file.url),
+    slug: entry.fields.slug
   };
 
 }

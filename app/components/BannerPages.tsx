@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 const BannerPages = ({ title }: { title: string }) => {
   return (
     <div className="
-        h-[216px] lg:h-[420px] p-8 lg:p-10 relative
+        h-[216px] lg:h-[380px] p-8 lg:p-10 relative
         grid grid-cols-[80%_1fr] lg:grid-cols-2 gap-0
         bg-[url('/assets/hero-img.webp')] bg-cover lg:bg-position-[0_-164px]
         before:content-[''] before:absolute before:inset-0

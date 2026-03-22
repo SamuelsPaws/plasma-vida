@@ -3,4 +3,5 @@ export interface CatalogItem {
   descriptionList: string[];
   price: number;
   imageUrls: string[];
+  slug: string;
 }

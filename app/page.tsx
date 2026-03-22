@@ -56,6 +56,7 @@ export default async function Home() {
                 descriptionList={item.descriptionList}
                 price={item.price}
                 imgUrl={item.imageUrls[0]}
+                slug={item.slug}
               />
             )}
           </div>

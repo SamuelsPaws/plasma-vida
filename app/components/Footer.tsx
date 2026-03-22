@@ -11,10 +11,10 @@ const Footer = () => {
                     Contacto
                 </p>
                 <p className="text-md lg:text-lg text-white-1/80">
-                    Teléfono: +593 97 877 4224
+                    Teléfono: <a href={`tel:+593978774224`} className="underline decoration-dotted">097 877 4224</a>
                 </p>
                 <p className="text-md lg:text-lg text-white-1/80">
-                    E-mail: cpaciente1626@gmail.com
+                    E-mail: <a href="mailto:cpaciente1626@gmail.com" className="underline decoration-dotted">cpaciente1626@gmail.com</a>
                 </p>
             </div>
             <div className="flex flex-col gap-1 lg:gap-4 items-center lg:items-start">
@@ -22,7 +22,12 @@ const Footer = () => {
                     Redes Sociales
                 </p>
                 <p className="text-md lg:text-lg text-white-1/80">
-                    <i className="fa fa-instagram mr-2"></i><span>@plasmavidacenter</span>
+                    <i className="fa fa-instagram scale-[1.1] mr-2"></i>
+                    <a
+                        href="https://www.instagram.com/plasma_vida_center/"
+                        className="underline underline-offset-2"
+                        target="_blank"
+                    >@plasma_vida_center</a>
                 </p>
             </div>
             <div className="flex flex-col gap-2 lg:gap-4 items-center">
