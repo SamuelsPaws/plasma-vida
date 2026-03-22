@@ -10,7 +10,7 @@ const ItemBuy = ({ item }: { item: CatalogItem }) => {
     <div
       className="
         absolute right-0 bottom-0
-        h-10 lg:h-12"
+        h-12 lg:h-12"
     >
         {!isOpen &&
           <button
@@ -31,7 +31,7 @@ const ItemBuy = ({ item }: { item: CatalogItem }) => {
             transition={{ duration: 0.4 }}
           >
             <motion.div
-              className="w-full h-full flex items-center gap-4"
+              className="w-full h-full flex items-center gap-2 lg:gap-4"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.2, delay: 0.4 }}
