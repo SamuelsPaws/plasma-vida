@@ -10,14 +10,14 @@ const ItemBuy = ({ item }: { item: CatalogItem }) => {
     <div
       className="
         absolute right-0 bottom-0
-        h-12"
+        h-10 lg:h-12"
     >
         {!isOpen &&
           <button
             onClick={() => setIsOpen(true)}
             className="
               px-4 h-full
-              bg-blue-700 text-lg text-white-1 rounded-full"
+              bg-blue-700 text-md lg:text-lg text-white-1 rounded-full"
           >Comprar</button>
         }
         {/* Options slider */}
@@ -38,7 +38,7 @@ const ItemBuy = ({ item }: { item: CatalogItem }) => {
             >
               <button
                 onClick={() => setIsOpen(false)}
-                className="h-full aspect-square text-2xl text-gray-700"
+                className="h-full aspect-square text-xl lg:text-2xl text-gray-700"
               >
                 <i className="fa fa-times"></i>
               </button>
@@ -48,7 +48,7 @@ const ItemBuy = ({ item }: { item: CatalogItem }) => {
                 className="
                   h-[80%] px-4
                   grid place-content-center
-                  text-white-1 text-md
+                  text-white-1 text-sm lg:text-md
                   bg-green-600 rounded-full"
               >WhatsApp</a>
               <a
@@ -56,7 +56,7 @@ const ItemBuy = ({ item }: { item: CatalogItem }) => {
                 className="
                   h-[80%] px-4
                   grid place-content-center
-                  text-white-1 text-md
+                  text-white-1 text-sm lg:text-md
                   bg-black rounded-full"
               >
                 <i className="fa fa-phone"></i>
@@ -66,7 +66,7 @@ const ItemBuy = ({ item }: { item: CatalogItem }) => {
                 className="
                   h-[80%] px-4
                   grid place-content-center
-                  text-white-1 text-md
+                  text-white-1 text-sm lg:text-md
                   bg-black rounded-full"
               >
                 <i className="fa fa-envelope"></i>
