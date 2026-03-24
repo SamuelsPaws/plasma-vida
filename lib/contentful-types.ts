@@ -12,6 +12,7 @@ export interface CustomSerumFields {
   name: EntryFieldTypes.Text;
   description: EntryFieldTypes.Text;
   price: EntryFieldTypes.Number;
+  slug: EntryFieldTypes.Text;
 }
 
 export interface PromotionFields {

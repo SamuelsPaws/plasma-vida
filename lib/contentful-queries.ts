@@ -15,6 +15,22 @@ export async function getCatalogItemBySlug(slug: string) {
   return entries.items.map(mapCatalogItem)[0];
 }
 
+export async function getCustomHomeoSerumFromSlug(slug: string) {
+  const entries = await contentful.getEntries<CustomHomeoSerumSkeleton>({
+    content_type: 'homeoSerum',
+    'fields.slug': slug
+  });
+  return entries.items.map(mapCustomHomeoSerum)[0];
+}
+
+export async function getCustomVitaSerumFromSlug(slug: string) {
+  const entries = await contentful.getEntries<CustomVitaSerumSkeleton>({
+    content_type: 'vitaSerum',
+    'fields.slug': slug
+  });
+  return entries.items.map(mapCustomVitaSerum)[0];
+}
+
 export async function getCatalogItems() {
   const entries = await contentful.getEntries<CatalogItemFieldsSkeleton>({
     content_type: 'item'

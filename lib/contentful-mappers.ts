@@ -44,6 +44,7 @@ export function mapCustomHomeoSerum(
     name: entry.fields.name,
     description: entry.fields.description,
     price: entry.fields.price,
+    slug: entry.fields.slug
   };
 
 }
@@ -56,6 +57,7 @@ export function mapCustomVitaSerum(
     name: entry.fields.name,
     description: entry.fields.description,
     price: entry.fields.price,
+    slug: entry.fields.slug
   };
 
 }

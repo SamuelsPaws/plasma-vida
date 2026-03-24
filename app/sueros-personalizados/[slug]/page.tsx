@@ -1,8 +1,8 @@
 import numToPriceStr from "@/app/utils/numToPriceStr";
-import { getCatalogItemBySlug } from "@/lib/contentful-queries";
-import ItemBuy from "../components/ItemBuy";
+import { getCustomHomeoSerumFromSlug } from "@/lib/contentful-queries";
 import { Suspense } from "react";
 import SimilarContainer from "../components/SimilarContainer";
+import ItemBuy from "../components/ItemBuy";
 
 type Props = {
     params: Promise<{
@@ -10,9 +10,9 @@ type Props = {
     }>
 }
 
-export default async function CatalogItemPage({ params }: Props) {
+export default async function CustomSerumPage({ params }: Props) {
     const { slug } = await params;
-    const catalogItem = await getCatalogItemBySlug(slug);
+    const serum = await getCustomHomeoSerumFromSlug(slug);
 
     return (
         <main className="pt-mob-header-height lg:pt-header-height">
@@ -29,12 +29,12 @@ export default async function CatalogItemPage({ params }: Props) {
                     {/* Title */}
                     <h1 className="
                         mb-4 lg:mb-8 text-2xl lg:text-5xl text-center lg:text-left font-bold"
-                    >{catalogItem.title}</h1>
+                    >{serum.name}</h1>
                     {/* Price */}
                     <p className="
                         mb-4 lg:mb-8
                         text-xl lg:text-2xl text-maingold-original font-bold"
-                    >${numToPriceStr(catalogItem.price)}</p>
+                    >${numToPriceStr(serum.price)}</p>
                     {/* Div with image and info */}
                     <div className="
                         w-full relative
@@ -46,7 +46,7 @@ export default async function CatalogItemPage({ params }: Props) {
                             rounded-2xl overflow-hidden"
                         >
                             <img
-                                src={catalogItem.imageUrls[0]}
+                                src='/assets/hero-img.webp'
                                 className="w-full h-full object-cover"
                                 alt=""
                             />
@@ -55,19 +55,8 @@ export default async function CatalogItemPage({ params }: Props) {
                         <div className="pb-32 lg:pb-0 lg:flex-1">
                             {/* Long description */}
                             <p className="text-md text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto at, exercitationem ab magni non perspiciatis fugit harum commodi, fugiat molestias ducimus asperiores ex dolorum consequuntur quia! Nihil rem, consectetur, reprehenderit minima nesciunt voluptatum officia quo, cum quidem minus iste eos.</p>
-                            {/* Benefits */}
-                            <h2 className="
-                                py-2 lg:py-4
-                                text-xl lg:text-2xl text-sky-700 font-semibold"
-                            >Beneficios:</h2>
-                            {catalogItem.descriptionList.map((el, index) => (
-                                <p
-                                    key={index}
-                                    className="mb-1 text-md lg:text-md text-gray-600"
-                                ><i className="fa fa-check mr-1 scale-[0.9]" aria-hidden="true"></i>{el}</p>
-                            ))}
                         </div>
-                        <ItemBuy item={catalogItem} />
+                        <ItemBuy item={serum} />
                     </div>
                 </div>
                 {/* Side bar */}

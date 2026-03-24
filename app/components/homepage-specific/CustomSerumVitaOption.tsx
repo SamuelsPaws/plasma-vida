@@ -1,10 +1,11 @@
 interface CustomSerumVitaOptionProps {
     name: string;
     description: string;
-    price: number
+    price: number;
+    slug: string;
 }
 
-const CustomSerumVitaOption = ({ name, description, price }: CustomSerumVitaOptionProps) => {
+const CustomSerumVitaOption = ({ name, description, price, slug }: CustomSerumVitaOptionProps) => {
   return (
     <div className="
         w-full p-4

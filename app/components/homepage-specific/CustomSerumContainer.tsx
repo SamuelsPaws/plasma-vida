@@ -61,6 +61,7 @@ const CustomSerumContainer = ({ customHomeoSerums, customVitaSerums }: CustomSer
                                 name={serum.name}
                                 description={serum.description}
                                 price={serum.price}
+                                slug={serum.slug}
                             />
                         ))}
                     </div>
@@ -74,6 +75,7 @@ const CustomSerumContainer = ({ customHomeoSerums, customVitaSerums }: CustomSer
                                 name={serum.name}
                                 description={serum.description}
                                 price={serum.price}
+                                slug={serum.slug}
                             />
                         ))}
                     </div>

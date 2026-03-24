@@ -35,7 +35,9 @@ const Footer = () => {
                     Ubicación
                 </p>
                 <p className="text-7xl text-white/50"><i className="fa fa-map-marker" aria-hidden="true"></i></p>
-                <p className="text-md lg:text-lg text-white-1/80">Quito, Ecuador</p>
+                <p className="w-[60%] text-md lg:text-lg text-white-1/80 text-center">
+                    Av. La Prensa y Edmundo Carvajal, Quito, Ecuador
+                </p>
             </div>
         </div>
     </footer>
