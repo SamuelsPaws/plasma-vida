@@ -66,7 +66,9 @@ const CatalogContainer = ({ items, categoryParam }: CatalogItemsContainerProps) 
         const translatedFromValue = Number(fromPriceValue + '00');
         const translatedToValue = Number(toPriceValue + '00');
 
-        setFilters({ ...filters, price: [translatedFromValue, translatedToValue] });
+        if (!Number.isNaN(translatedFromValue) && !Number.isNaN(translatedToValue)) {
+            setFilters({ ...filters, price: [translatedFromValue, translatedToValue] });
+        }
     }
 
     useEffect(() => {
