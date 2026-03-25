@@ -1,6 +1,6 @@
 'use client'
 import { motion } from "motion/react"
-import BannerPromotions from "../catalogo/components/BannerPromotions"
+import BannerPromotions from "./BannerPromotions"
 import { Promotion } from "@/lib/models/promotion"
 
 interface BannerProps {

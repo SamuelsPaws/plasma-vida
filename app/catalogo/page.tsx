@@ -1,8 +1,7 @@
 import Banner from "@/components/Banner";
-import BannerPromotions from "./components/BannerPromotions";
+import BannerPromotions from "@/components/BannerPromotions";
 import { getCatalogItems, getCustomHomeoSerums, getCustomVitaSerums, getPromotions } from "@/lib/contentful-queries";
 import CustomSerumContainer from "./components/CustomSerumContainer";
-import CatalogItemCard from "./components/CatalogItemCard";
 import CatalogContainer from "./components/CatalogContainer";
 
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
