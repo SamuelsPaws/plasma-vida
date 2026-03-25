@@ -88,16 +88,25 @@ const CatalogContainer = ({ items, categoryParam }: CatalogItemsContainerProps) 
             w-full lg:w-[75%] lg:min-w-[1000px] lg:pr-4
             flex flex-col lg:grid grid-cols-3 gap-6 lg:gap-8"
         >
-            {filteredItems.sort(sortingFns[sortingKey]).map((item, index) =>
-                <CatalogItemCard
-                    key={index}
-                    title={item.title}
-                    descriptionList={item.descriptionList}
-                    price={item.price}
-                    imgUrl={item.imageUrls[0]}
-                    slug={item.slug}
-                />
-            )}
+            {filteredItems.length ?
+                filteredItems.sort(sortingFns[sortingKey]).map((item, index) =>
+                    <CatalogItemCard
+                        key={index}
+                        title={item.title}
+                        descriptionList={item.descriptionList}
+                        price={item.price}
+                        imgUrl={item.imageUrls[0]}
+                        slug={item.slug}
+                    />
+                )
+                :
+                <>
+                    <div></div>
+                    <div className="place-self-center text-2xl text-sky-800 text-center font-semibold">
+                        ¡Lo sentimos! Ningún producto coincide con tus filtros.
+                    </div>
+                </>
+            }
         </div>
         {/* Right div with table */}
         <div className="
