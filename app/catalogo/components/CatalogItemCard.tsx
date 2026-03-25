@@ -1,5 +1,5 @@
 import Link from "next/link";
-import numToPriceStr from "../utils/numToPriceStr";
+import numToPriceStr from "../../utils/numToPriceStr";
 
 interface CatalogItemCardProps {
     imgUrl: string;

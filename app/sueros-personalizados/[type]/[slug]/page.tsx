@@ -1,18 +1,32 @@
 import numToPriceStr from "@/app/utils/numToPriceStr";
-import { getCustomHomeoSerumFromSlug } from "@/lib/contentful-queries";
+import { getCustomHomeoSerumFromSlug, getCustomVitaSerumFromSlug } from "@/lib/contentful-queries";
 import { Suspense } from "react";
-import SimilarContainer from "../components/SimilarContainer";
-import ItemBuy from "../components/ItemBuy";
+import SimilarContainer from "../../components/SimilarContainer";
+import ItemBuy from "../../components/ItemBuy";
+import { notFound } from "next/navigation";
+
+const queries = {
+    homeopaticos: getCustomHomeoSerumFromSlug,
+    vitaminicos: getCustomVitaSerumFromSlug,
+} as const;
+
+type ProductType = keyof typeof queries;
 
 type Props = {
     params: Promise<{
-        slug: string
+        type: ProductType;
+        slug: string;
     }>
 }
 
 export default async function CustomSerumPage({ params }: Props) {
-    const { slug } = await params;
-    const serum = await getCustomHomeoSerumFromSlug(slug);
+    const { slug, type } = await params;
+    const fn = queries[type];
+
+    if (!fn) {
+        notFound();
+    }
+    const serum = await fn(slug);
 
     return (
         <main className="pt-mob-header-height lg:pt-header-height">
@@ -54,7 +68,18 @@ export default async function CustomSerumPage({ params }: Props) {
                         {/* Right div */}
                         <div className="pb-32 lg:pb-0 lg:flex-1">
                             {/* Long description */}
-                            <p className="text-md text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto at, exercitationem ab magni non perspiciatis fugit harum commodi, fugiat molestias ducimus asperiores ex dolorum consequuntur quia! Nihil rem, consectetur, reprehenderit minima nesciunt voluptatum officia quo, cum quidem minus iste eos.</p>
+                            <p className="text-md text-gray-600">{serum.description}</p>
+                            {/* Benefits */}
+                            <h2 className="
+                                py-2 lg:py-4
+                                text-xl lg:text-2xl text-sky-700 font-semibold"
+                            >Beneficios:</h2>
+                            {serum.benefitsList.map((el, index) => (
+                                <p
+                                    key={index}
+                                    className="mb-1 text-md lg:text-md text-gray-600"
+                                ><i className="fa fa-check mr-1 scale-[0.9]" aria-hidden="true"></i>{el}</p>
+                            ))}
                         </div>
                         <ItemBuy item={serum} />
                     </div>
@@ -75,7 +100,7 @@ export default async function CustomSerumPage({ params }: Props) {
                             <i className="fa fa-clock-o"></i>
                         </div>
                     }>
-                        <SimilarContainer productSlug={slug} />
+                        <SimilarContainer productSlug={slug} productType={type} />
                     </Suspense>
                 </div>
             </section>

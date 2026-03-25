@@ -25,13 +25,13 @@ function hasFileUrl(
 export function mapCatalogItem(
   entry: Entry<CatalogItemFieldsSkeleton, undefined, 'en-US'>
 ): CatalogItem {
-
   return {
     title: entry.fields.title,
     descriptionList: entry.fields.descriptionList,
     price: entry.fields.price,
     imageUrls: entry.fields.images.filter(isAsset).filter(hasFileUrl).map(img => img.fields.file.url),
-    slug: entry.fields.slug
+    slug: entry.fields.slug,
+    category: entry.fields.category
   };
 
 }
@@ -44,7 +44,8 @@ export function mapCustomHomeoSerum(
     name: entry.fields.name,
     description: entry.fields.description,
     price: entry.fields.price,
-    slug: entry.fields.slug
+    slug: entry.fields.slug,
+    benefitsList: entry.fields.benefitsList,
   };
 
 }
@@ -57,7 +58,8 @@ export function mapCustomVitaSerum(
     name: entry.fields.name,
     description: entry.fields.description,
     price: entry.fields.price,
-    slug: entry.fields.slug
+    slug: entry.fields.slug,
+    benefitsList: entry.fields.benefitsList,
   };
 
 }

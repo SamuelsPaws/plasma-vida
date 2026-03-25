@@ -1,20 +1,38 @@
 import numToPriceStr from "@/app/utils/numToPriceStr";
-import { getCatalogItems } from "@/lib/contentful-queries";
+import { getCustomHomeoSerums, getCustomVitaSerums } from "@/lib/contentful-queries";
 import Link from "next/link";
 
-export default async function SimilarContainer({ productSlug }: { productSlug: string }) {
-    const items = await getCatalogItems();
+const queries = {
+    homeopaticos: getCustomHomeoSerums,
+    vitaminicos: getCustomVitaSerums,
+} as const;
+
+type ProductType = keyof typeof queries;
+
+interface SimilarContainerProps {
+    productSlug: string;
+    productType: ProductType;
+}
+
+export default async function SimilarContainer({ productSlug, productType }: SimilarContainerProps) {
+    const fn = queries[productType];
+
+    if (!fn) {
+        return <div></div>
+    }
+
+    const items = await fn();
     const similarItems = items.filter(item => item.slug !== productSlug).slice(0, 4);
 
     return (
         <div className="
             w-full flex-1
-            flex flex-col justify-center gap-4 lg:gap-6"
+            flex flex-col gap-4 lg:gap-4"
         >
             {similarItems.map((item, index) =>
                 <Link
                     key={index}
-                    href={`/catalogo/${item.slug}`}
+                    href={`/sueros-personalizados/${productType}/${item.slug}`}
                     className="
                         w-full px-3 lg:px-4 py-2 lg:py-3
                         flex gap-4
@@ -26,11 +44,11 @@ export default async function SimilarContainer({ productSlug }: { productSlug: s
                         flex-1
                         flex flex-col justify-between"
                     >
-                        <p className="mb-2 text-md text-gray-700 font-semibold">{item.title}</p>
+                        <p className="mb-2 text-md text-gray-700 font-semibold">{item.name}</p>
                         <div className="text-md text-maingold-original font-semibold">${numToPriceStr(item.price)}</div>
                     </div>
                     {/* Image */}
-                    <div className="
+                    {/* <div className="
                         h-20 lg:h-24 aspect-square
                         rounded-2xl overflow-hidden"
                     >
@@ -39,7 +57,7 @@ export default async function SimilarContainer({ productSlug }: { productSlug: s
                             className="w-full h-full object-cover"
                             alt=""
                         />
-                    </div>
+                    </div> */}
                 </Link>
             )}
         </div>

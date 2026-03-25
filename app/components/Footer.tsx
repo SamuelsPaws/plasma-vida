@@ -2,7 +2,7 @@ const Footer = () => {
   return (
     <footer className='lg:h-[400px] px-6 lg:px-8 pb-6 lg:pb-8 bg-[#ececec]'>
         <div className="
-            w-full lg:h-full py-12 lg:py-0
+            w-full lg:h-full py-12 lg:py-0 relative
             flex flex-col lg:flex-row lg:justify-evenly items-center gap-16 lg:gap-0
             bg-maingold-dark-1 rounded-2xl"
         >
@@ -35,10 +35,18 @@ const Footer = () => {
                     Ubicación
                 </p>
                 <p className="text-7xl text-white/50"><i className="fa fa-map-marker" aria-hidden="true"></i></p>
-                <p className="w-[60%] text-md lg:text-lg text-white-1/80 text-center">
+                <a
+                    href="https://maps.app.goo.gl/YGjuE4BiDqd9mkiM6"
+                    target="_blank"
+                    className="w-[60%] text-md lg:text-lg text-white-1/80 text-center underline underline-offset-2"
+                >
                     Av. La Prensa y Edmundo Carvajal, Quito, Ecuador
-                </p>
+                </a>
             </div>
+            <div className="
+                lg:absolute bottom-4 left-1/2 lg:-translate-x-1/2
+                text-center text-sm lg:text-md text-white-1/80"
+            >© 2026 Plasma Vida Center. Todos los derechos reservados.</div>
         </div>
     </footer>
   )

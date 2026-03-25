@@ -1,4 +1,5 @@
-import type { EntryFieldTypes, EntrySkeletonType, Asset } from 'contentful';
+import type { EntryFieldTypes, EntrySkeletonType } from 'contentful';
+import type { CatalogItemCategory } from '@/types/types';
 
 export interface CatalogItemFields {
   title: EntryFieldTypes.Text;
@@ -6,6 +7,7 @@ export interface CatalogItemFields {
   price: EntryFieldTypes.Number;
   images: EntryFieldTypes.Array<EntryFieldTypes.AssetLink>;
   slug: EntryFieldTypes.Text;
+  category: EntryFieldTypes.Symbol<CatalogItemCategory>;
 }
 
 export interface CustomSerumFields {
@@ -13,6 +15,7 @@ export interface CustomSerumFields {
   description: EntryFieldTypes.Text;
   price: EntryFieldTypes.Number;
   slug: EntryFieldTypes.Text;
+  benefitsList: EntryFieldTypes.Array<EntryFieldTypes.Symbol>;
 }
 
 export interface PromotionFields {

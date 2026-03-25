@@ -1,0 +1,1 @@
+export type CatalogItemCategory = 'suero' | 'plasma';

@@ -64,6 +64,13 @@ const BurgerMenu = () => {
                 >
                     <li>
                         <Link
+                            href='/catalogo'
+                            className="px-2"
+                            onClick={toggleMenu}
+                        >Catálogo</Link>
+                    </li>
+                    <li>
+                        <Link
                             href='/quienes-somos'
                             className="px-2"
                             onClick={toggleMenu}

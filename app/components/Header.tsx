@@ -1,5 +1,5 @@
 import Link from "next/link"
-import BurgerMenu from "./BurgerMenu"
+import BurgerMenu from "@/components/BurgerMenu"
 
 const Header = () => {
   return (
@@ -26,7 +26,7 @@ const Header = () => {
       >
         <ul className="flex gap-8">
           <li><Link
-            href='/nigga'
+            href='/catalogo'
             className="hover:text-white-1/80 duration-200"
           >
             Catálogo
