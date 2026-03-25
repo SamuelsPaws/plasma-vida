@@ -57,7 +57,7 @@ const CatalogContainer = ({ items, categoryParam }: CatalogItemsContainerProps) 
         setter: React.Dispatch<SetStateAction<string>>
     ) => {
         const strippedComma = e.target.value.split(',')[0];
-        const strippedDot = e.target.value.split('.')[0]
+        const strippedDot = strippedComma.split('.')[0]
 
         setter(strippedDot);
     }
@@ -66,9 +66,7 @@ const CatalogContainer = ({ items, categoryParam }: CatalogItemsContainerProps) 
         const translatedFromValue = Number(fromPriceValue + '00');
         const translatedToValue = Number(toPriceValue + '00');
 
-        if (translatedFromValue && translatedToValue) {
-            setFilters({ ...filters, price: [translatedFromValue, translatedToValue] });
-        }
+        setFilters({ ...filters, price: [translatedFromValue, translatedToValue] });
     }
 
     useEffect(() => {
