@@ -8,13 +8,28 @@
 @theme inline {
   --spacing-header-height: 4rem;
   --spacing-mob-header-height: 3.5rem;
+  --spacing-footer-height: 500px;
+  --spacing-section-py: 4rem;
+  --spacing-section-px: 4rem;
+  --spacing-mob-section-px: 1rem;
+  --spacing-mob-section-py: 1rem;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-white-1: #fafafa;
+  --color-white-2: #F7F5F5;
   --color-mainblue-original: #0f3b73;
+  --color-mainblue-light-1: #134990;
+  --color-mainblue-light-2: #185EB9;
+  --color-mainblue-light-3: #1D72E2;
+  --color-mainblue-light-4: #468CE7;
+  --color-mainblue-light-5: #6FA5EC;
+  --color-mainblue-light-6: #97BEF2;
+  --color-mainblue-light-7: #BFD8F7;
+  --color-mainblue-dark-1: #0C3469;
   --color-maingold-original: #b4a017;
   --color-maingold-dark-1: #AB9816;
   --color-maingold-dark-2: #9C8814;
+  --text-section-title: 4rem;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }

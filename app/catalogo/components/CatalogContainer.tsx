@@ -1,10 +1,11 @@
 'use client'
 import { CatalogItem } from "@/lib/models/catalogItem";
-import { ChangeEvent, SetStateAction, useEffect, useMemo, useState } from "react";
+import { ChangeEvent, SetStateAction, useEffect, useMemo, useRef, useState } from "react";
 import CatalogItemCard from "./CatalogItemCard";
 import TableCategoryFilter from "./TableCategoryFilter";
 import { CategoryParam, Filters } from "../types/types";
 import TablePriceSortFilter from "./TablePriceSortFilter";
+import clsx from "clsx";
 
 type SortingFn = (a: CatalogItem, b: CatalogItem) => number;
 
@@ -38,6 +39,9 @@ const CatalogContainer = ({ items, categoryParam }: CatalogItemsContainerProps) 
     const [fromPriceValue, setFromPriceValue] = useState<string>('');
     const [toPriceValue, setToPriceValue] = useState<string>('');
     const [sortingKey, setSortingKey] = useState<SortingFnsKey>('ascendingPriceFn');
+    const [isPriceRangeApplied, setIsPriceRangeApplied] = useState<boolean>(false);
+    const fromInputRef = useRef<HTMLInputElement | null>(null);
+    const toInputRef = useRef<HTMLInputElement | null>(null);
 
     const checkFilters = (el: CatalogItem, fil: Filters): boolean => {
         const conditions = [
@@ -63,11 +67,22 @@ const CatalogContainer = ({ items, categoryParam }: CatalogItemsContainerProps) 
     }
 
     const handleApplyPriceClick = () => {
-        const translatedFromValue = Number(fromPriceValue + '00');
-        const translatedToValue = Number(toPriceValue + '00');
+        const translatedFromValue = fromPriceValue.length ? Number(fromPriceValue + '00') : NaN;
+        const translatedToValue = toPriceValue.length ? Number(toPriceValue + '00') : NaN;
 
         if (!Number.isNaN(translatedFromValue) && !Number.isNaN(translatedToValue)) {
             setFilters({ ...filters, price: [translatedFromValue, translatedToValue] });
+            setIsPriceRangeApplied(true);
+        }
+    }
+
+    const handleClearPriceClick = () => {
+        setFilters({ ...filters, price: [0, PRICE_CAP] });
+
+        if (fromInputRef.current && toInputRef.current) {
+            fromInputRef.current.value = '';
+            toInputRef.current.value = '';
+            setIsPriceRangeApplied(false);
         }
     }
 
@@ -110,7 +125,7 @@ const CatalogContainer = ({ items, categoryParam }: CatalogItemsContainerProps) 
         </div>
         {/* Right div with table */}
         <div className="
-            flex-1 lg:min-w-[260px] px-6 py-3 relative
+            flex-1 lg:min-w-fit px-6 py-3 relative
             hidden lg:block
             bg-white-1 rounded-2xl"
         >
@@ -135,23 +150,50 @@ const CatalogContainer = ({ items, categoryParam }: CatalogItemsContainerProps) 
                 />
                 <p className="mt-8 mb-2 text-lg text-gray-600">Filtrar por precio</p>
                 {/* Price input container */}
-                <div className="grid grid-cols-[80px_1fr] gap-y-2 text-teal-600 text-md">
+                <div className="grid grid-cols-[80px_1fr_1fr] gap-y-2 text-teal-600 text-md">
                     <div className="grid items-center">Desde:</div>
-                    <div>
+                    {/* Div for grid slot with From input */}
+                    <div className="flex items-center">
                         <span>$</span>
                         <input
                             onChange={e => handlePriceOnChange(e, setFromPriceValue)}
                             type="number"
-                            className="w-24 ml-1 px-2 py-1 border border-teal-600 rounded-md focus:outline-none"
+                            ref={fromInputRef}
+                            className={clsx(
+                                "w-24 ml-1 px-2 py-1 border border-teal-600 rounded-md focus:outline-none",
+                                isPriceRangeApplied ? 'bg-teal-100' : 'bg-none'
+                            )}
                         />
                     </div>
+                    {/* Div for slot spanning 2 rows with X */}
+                    <div className="
+                        row-span-2 p-4
+                        grid place-content-center"
+                    >
+                        {isPriceRangeApplied &&
+                            <button
+                                onClick={handleClearPriceClick}
+                                className="
+                                    w-10 aspect-square
+                                    bg-teal-600
+                                    text-xl text-white-1 rounded-md"
+                            >
+                                <i className="fa fa-times"></i>
+                            </button>
+                        }
+                    </div>
                     <div className="grid items-center">Hasta:</div>
-                    <div>
+                    {/* Div for grid slot with To input */}
+                    <div className="flex items-center">
                         <span>$</span>
                         <input
                             onChange={e => handlePriceOnChange(e, setToPriceValue)}
                             type="number"
-                            className="w-24 ml-1 px-2 py-1 border border-teal-600 rounded-md focus:outline-none"
+                            ref={toInputRef}
+                            className={clsx(
+                                "w-24 ml-1 px-2 py-1 border border-teal-600 rounded-md focus:outline-none",
+                                isPriceRangeApplied ? 'bg-teal-100' : 'bg-none'
+                            )}
                         />
                     </div>
                 </div>

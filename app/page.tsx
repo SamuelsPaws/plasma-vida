@@ -33,9 +33,9 @@ export default async function Home() {
           ]}
           href="/catalogo?category=suero"
           linkText="Mira nuestro catálogo de sueros"
-          imageUrl="/assets/hero-img.webp"
+          imageUrl="/assets/serum.png"
         />
-        <div className="h-16"></div>
+        <div className="h-12 lg:h-20"></div>
         <HomeCategoryCard
           title="Plasma Rico en Plaquetas (PRP)"
           descriptionParagraphs={[
@@ -44,18 +44,18 @@ export default async function Home() {
           ]}
           href="/catalogo?category=plasma#productos"
           linkText="Mira nuestro catálogo de plasma"
-          imageUrl="/assets/hero-img.webp"
+          imageUrl="/assets/plasma.png"
         />
-        <div className="h-16"></div>
+        <div className="h-12 lg:h-20"></div>
         <HomeCategoryCard
           title="Servicios de Enfermería"
           descriptionParagraphs={[
             'Nuestros sueros son una forma rápida y efectiva de revitalizar tu cuerpo a través de vitaminas, minerales y nutrientes esenciales. De esta forma potenciamos tu energía, fortalecemos tus defensas y mejoramos tu bienestar general.',
             'Dale a tu cuerpo el impulso que merece y siéntete mejor, más fuerte y equilibrado desde la primera sesión.',
           ]}
-          href="/catalogo"
+          href="/servicios-de-enfermeria"
           linkText="Mira nuestros servicios de enfermería"
-          imageUrl="/assets/hero-img.webp"
+          imageUrl="/assets/nurse.png"
         />
       </section>
     </main>
