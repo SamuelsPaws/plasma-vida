@@ -76,13 +76,13 @@ const HomeCategoryCard = ({ title, descriptionParagraphs, href, linkText, imageU
         {/* Description */}
         <motion.div
             className="
-                lg:flex-1 lg:min-w-[340px] px-6 lg:px-12
+                lg:flex-1 lg:min-w-[340px] px-4 lg:px-12
                 flex flex-col justify-center items-center gap-4
                 text-sky-800"
             variants={itemVariants}
         >
             {descriptionParagraphs.map((el, index) =>
-                <p key={index} className="text-lg lg:text-xl text-center">{el}</p>
+                <p key={index} className="text-md lg:text-xl text-center">{el}</p>
             )}
         </motion.div>
         {/* Link */}
