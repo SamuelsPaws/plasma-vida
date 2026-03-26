@@ -2,9 +2,11 @@ import { contentful } from './contentful';
 import { mapCatalogItem, mapCustomHomeoSerum, mapCustomVitaSerum, mapNursingService, mapPromotions } from './contentful-mappers';
 import { CatalogItemFieldsSkeleton, CustomHomeoSerumSkeleton, CustomVitaSerumSkeleton, NursingServiceSkeleton, PromotionSkeleton } from './contentful-types';
 
-export async function getCatalogItemEntry(id: string) {
-  const entry = await contentful.getEntry<CatalogItemFieldsSkeleton>(id);
-  return entry;
+export async function getCatalogItems() {
+  const entries = await contentful.getEntries<CatalogItemFieldsSkeleton>({
+    content_type: 'item'
+  });
+  return entries.items.map(mapCatalogItem);
 }
 
 export async function getCatalogItemBySlug(slug: string) {
@@ -13,6 +15,11 @@ export async function getCatalogItemBySlug(slug: string) {
     'fields.slug': slug
   });
   return entries.items.map(mapCatalogItem)[0];
+}
+
+export async function getCatalogItemEntry(id: string) {
+  const entry = await contentful.getEntry<CatalogItemFieldsSkeleton>(id);
+  return entry;
 }
 
 export async function getCustomHomeoSerumFromSlug(slug: string) {
@@ -31,13 +38,6 @@ export async function getCustomVitaSerumFromSlug(slug: string) {
   return entries.items.map(mapCustomVitaSerum)[0];
 }
 
-export async function getCatalogItems() {
-  const entries = await contentful.getEntries<CatalogItemFieldsSkeleton>({
-    content_type: 'item'
-  });
-  return entries.items.map(mapCatalogItem);
-}
-
 export async function getCustomHomeoSerums() {
   const entries = await contentful.getEntries<CustomHomeoSerumSkeleton>({
     content_type: 'homeoSerum'
@@ -50,13 +50,6 @@ export async function getCustomVitaSerums() {
     content_type: 'vitaSerum'
   });
   return entries.items.map(mapCustomVitaSerum);
-}
-
-export async function getPromotions() {
-  const entries = await contentful.getEntries<PromotionSkeleton>({
-    content_type: 'promotions'
-  });
-  return entries.items.map(mapPromotions);
 }
 
 export async function getNursingServices() {

@@ -30,6 +30,7 @@ export function mapCatalogItem(
     title: entry.fields.title,
     descriptionList: entry.fields.descriptionList,
     price: entry.fields.price,
+    noPromotionPrice: entry.fields.noPromotionPrice,
     imageUrls: entry.fields.images.filter(isAsset).filter(hasFileUrl).map(img => img.fields.file.url),
     slug: entry.fields.slug,
     category: entry.fields.category

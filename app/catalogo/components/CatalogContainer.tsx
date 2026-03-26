@@ -7,8 +7,6 @@ import { CategoryParam, Filters } from "../types/types";
 import TablePriceSortFilter from "./TablePriceSortFilter";
 import clsx from "clsx";
 
-type SortingFn = (a: CatalogItem, b: CatalogItem) => number;
-
 interface CatalogItemsContainerProps {
     items: CatalogItem[];
     categoryParam: CategoryParam;
@@ -41,7 +39,11 @@ const CatalogContainer = ({ items, categoryParam }: CatalogItemsContainerProps) 
     const [sortingKey, setSortingKey] = useState<SortingFnsKey>('ascendingPriceFn');
     const [isPriceRangeApplied, setIsPriceRangeApplied] = useState<boolean>(false);
     const fromInputRef = useRef<HTMLInputElement | null>(null);
+    const fromInputMobRef = useRef<HTMLInputElement | null>(null);
     const toInputRef = useRef<HTMLInputElement | null>(null);
+    const toInputMobRef = useRef<HTMLInputElement | null>(null);
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+    const modalRef = useRef<HTMLDialogElement | null>(null)
 
     const checkFilters = (el: CatalogItem, fil: Filters): boolean => {
         const conditions = [
@@ -82,8 +84,34 @@ const CatalogContainer = ({ items, categoryParam }: CatalogItemsContainerProps) 
         if (fromInputRef.current && toInputRef.current) {
             fromInputRef.current.value = '';
             toInputRef.current.value = '';
-            setIsPriceRangeApplied(false);
         }
+        
+        if (fromInputMobRef.current && toInputMobRef.current) {
+            fromInputMobRef.current.value = '';
+            toInputMobRef.current.value = '';
+        }
+
+        setFromPriceValue('');
+        setToPriceValue('');
+        setIsPriceRangeApplied(false);
+    }
+
+    const handleMobApplyFiltersClick = () => {
+        const translatedFromValue = fromPriceValue.length ? Number(fromPriceValue + '00') : NaN;
+        const translatedToValue = toPriceValue.length ? Number(toPriceValue + '00') : NaN;
+
+        if (!Number.isNaN(translatedFromValue) && !Number.isNaN(translatedToValue)) {
+            setFilters({ ...filters, price: [translatedFromValue, translatedToValue] });
+            setIsPriceRangeApplied(true);
+            if (fromInputRef.current) {
+                fromInputRef.current.value = fromPriceValue;
+            }
+            if (toInputRef.current) {
+                toInputRef.current.value = toPriceValue;
+            }
+        }
+
+        setIsModalOpen(false);
     }
 
     useEffect(() => {
@@ -96,8 +124,131 @@ const CatalogContainer = ({ items, categoryParam }: CatalogItemsContainerProps) 
         }
     }, [filters.ascendingPrice]);
 
+    useEffect(() => {
+        if (isModalOpen) {
+            modalRef.current?.showModal();
+            if (fromInputMobRef.current) {
+                fromInputMobRef.current.value = fromPriceValue;
+            }
+            if (toInputMobRef.current) {
+                toInputMobRef.current.value = toPriceValue;
+            }
+        } else {
+            modalRef.current?.close();
+        }
+    }, [isModalOpen]);
+
   return (
-    <div className="w-full flex flex-col lg:flex-row gap-6 lg:gap-8">
+    <div className="w-full flex flex-col lg:flex-row items-start gap-6 lg:gap-8">
+        <button
+            onClick={() => setIsModalOpen(true)}
+            className="lg:hidden text-lg text-gray-600"
+        >
+            <i className="fa fa-sliders mr-2"></i>
+            Filtros
+        </button>
+        {isModalOpen &&
+            <dialog
+                ref={modalRef}
+                className="
+                    fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2
+                    w-full p-6
+                    flex flex-col items-start gap-2
+                    rounded-2xl shadow-sm"
+            >
+                <button
+                    onClick={() => setIsModalOpen(false)}
+                    className="absolute top-3 right-3 w-8 aspect-square text-xl text-black"
+                >
+                    <i className="fa fa-times"></i>
+                </button>
+                <p className="text-lg font-semibold">Filtros</p>
+                <TableCategoryFilter
+                    filters={filters}
+                    setFilters={setFilters}
+                    text="Sueros"
+                    category="suero"
+                />
+                <TableCategoryFilter
+                    filters={filters}
+                    setFilters={setFilters}
+                    text="Plasmas"
+                    category="plasma"
+                />
+                <p className="mt-4 mb-2 text-md text-gray-600">Filtrar por precio</p>
+                {/* Price input container */}
+                <div className="
+                    mb-4
+                    grid grid-cols-[0.8fr_1fr_1fr] gap-y-2
+                    text-teal-600 text-md"
+                >
+                    <div className="flex items-center">Desde:</div>
+                    {/* Div for grid slot with From input */}
+                    <div className="flex items-center">
+                        <span>$</span>
+                        <input
+                            onChange={e => handlePriceOnChange(e, setFromPriceValue)}
+                            type="number"
+                            ref={fromInputMobRef}
+                            className={clsx(
+                                "w-24 ml-1 px-2 py-1 border border-teal-600 rounded-md focus:outline-none",
+                                isPriceRangeApplied ? 'bg-teal-100' : 'bg-none'
+                            )}
+                        />
+                    </div>
+                    {/* X that spans 2 rows */}
+                    <div className="
+                        row-span-2 p-4
+                        grid place-content-center"
+                    >
+                        {isPriceRangeApplied &&
+                            <button
+                                onClick={handleClearPriceClick}
+                                className="
+                                    w-10 aspect-square
+                                    bg-teal-600
+                                    text-xl text-white-1 rounded-md"
+                            >
+                                <i className="fa fa-times"></i>
+                            </button>
+                        }
+                    </div>
+                    <div className="grid items-center">Hasta:</div>
+                    {/* Div for grid slot with To input */}
+                    <div className="flex items-center">
+                        <span>$</span>
+                        <input
+                            onChange={e => handlePriceOnChange(e, setToPriceValue)}
+                            type="number"
+                            ref={toInputMobRef}
+                            className={clsx(
+                                "w-24 ml-1 px-2 py-1 border border-teal-600 rounded-md focus:outline-none",
+                                isPriceRangeApplied ? 'bg-teal-100' : 'bg-none'
+                            )}
+                        />
+                    </div>
+                </div>
+                {/* Ascending or descending price */}
+                <TablePriceSortFilter
+                    filters={filters}
+                    setFilters={setFilters}
+                    text="Precio más bajo primero"
+                    ascendingPriceValue={true}
+                />
+                <TablePriceSortFilter
+                    filters={filters}
+                    setFilters={setFilters}
+                    text="Precio más alto primero"
+                    ascendingPriceValue={false}
+                />
+                <button
+                    onClick={handleMobApplyFiltersClick}
+                    className="self-center mt-4 px-4 py-2 bg-sky-600 text-white-1 rounded-md"
+                >
+                    Aplicar filtros
+                </button>
+            </dialog>
+        }
         {/* Left div with items */}
         <div className="
             w-full lg:w-[75%] lg:min-w-[1000px] lg:pr-4
@@ -110,6 +261,7 @@ const CatalogContainer = ({ items, categoryParam }: CatalogItemsContainerProps) 
                         title={item.title}
                         descriptionList={item.descriptionList}
                         price={item.price}
+                        noPromotionPrice={item.noPromotionPrice}
                         imgUrl={item.imageUrls[0]}
                         slug={item.slug}
                     />
@@ -125,7 +277,7 @@ const CatalogContainer = ({ items, categoryParam }: CatalogItemsContainerProps) 
         </div>
         {/* Right div with table */}
         <div className="
-            flex-1 lg:min-w-fit px-6 py-3 relative
+            flex-1 lg:min-w-fit px-6 py-3 relative self-stretch
             hidden lg:block
             bg-white-1 rounded-2xl"
         >
@@ -148,7 +300,7 @@ const CatalogContainer = ({ items, categoryParam }: CatalogItemsContainerProps) 
                     text="Plasmas"
                     category="plasma"
                 />
-                <p className="mt-8 mb-2 text-lg text-gray-600">Filtrar por precio</p>
+                <p className="mt-4 mb-2 text-lg text-gray-600">Filtrar por precio</p>
                 {/* Price input container */}
                 <div className="grid grid-cols-[80px_1fr_1fr] gap-y-2 text-teal-600 text-md">
                     <div className="grid items-center">Desde:</div>

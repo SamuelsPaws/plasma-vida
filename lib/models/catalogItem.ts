@@ -4,6 +4,7 @@ export interface CatalogItem {
   title: string;
   descriptionList: string[];
   price: number;
+  noPromotionPrice: number | undefined;
   imageUrls: string[];
   slug: string;
   category: CatalogItemCategory;

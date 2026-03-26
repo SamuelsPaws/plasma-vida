@@ -1,13 +1,12 @@
 'use client'
 import { motion } from "motion/react"
-import BannerPromotions from "./BannerPromotions"
-import { Promotion } from "@/lib/models/promotion"
 import PromotionsCarrousel from "./PromotionsCarrousel";
+import { CatalogItem } from "@/lib/models/catalogItem";
 
 interface BannerProps {
     title: string;
     subheadline: string | null;
-    promotions: Promotion[];
+    promotions: CatalogItem[];
 }
 
 const Banner = ({ title, subheadline, promotions }: BannerProps) => {

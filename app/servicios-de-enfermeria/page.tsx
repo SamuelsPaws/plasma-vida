@@ -28,7 +28,7 @@ export default async function Services() {
                 linkText="Ver más"
                 imageUrl="/assets/elderly.svg"
             />
-            <div className="h-12 lg:h-20"></div>
+            <div className="h-12 lg:h-24"></div>
             <ServiceCategoryCard
                 title="Cuidado a personas con discapacidad"
                 descriptionParagraphs={[
@@ -39,7 +39,7 @@ export default async function Services() {
                 linkText="Ver más"
                 imageUrl="/assets/disability.svg"
             />
-            <div className="h-12 lg:h-20"></div>
+            <div className="h-12 lg:h-24"></div>
             <ServiceCategoryCard
                 title="Cuidado prehospitalario"
                 descriptionParagraphs={[
@@ -50,7 +50,7 @@ export default async function Services() {
                 linkText="Ver más"
                 imageUrl="/assets/prehospital.svg"
             />
-            <div className="h-12 lg:h-20"></div>
+            <div className="h-12 lg:h-24"></div>
             <ServiceCategoryCard
                 title="Cuidado posthospitalario"
                 descriptionParagraphs={[

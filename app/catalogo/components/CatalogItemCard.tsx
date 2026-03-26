@@ -1,15 +1,17 @@
 import Link from "next/link";
 import numToPriceStr from "../../utils/numToPriceStr";
+import clsx from "clsx";
 
 interface CatalogItemCardProps {
     imgUrl: string;
     title: string;
     descriptionList: string[];
     price: number;
+    noPromotionPrice: number | undefined;
     slug: string;
 }
 
-const CatalogItemCard = ({ imgUrl, title, descriptionList, price, slug }: CatalogItemCardProps) => {
+const CatalogItemCard = ({ imgUrl, title, descriptionList, price, noPromotionPrice, slug }: CatalogItemCardProps) => {
 
   return (
     <div className="
@@ -30,6 +32,7 @@ const CatalogItemCard = ({ imgUrl, title, descriptionList, price, slug }: Catalo
             flex-1
             flex flex-col justify-between"
         >
+            {/* Div with title and benefits */}
             <div className="w-full">
                 <p className="lg:mb-2 text-lg lg:text-xl font-bold">{title}</p>
                 {descriptionList.map((el, index) => (
@@ -47,9 +50,29 @@ const CatalogItemCard = ({ imgUrl, title, descriptionList, price, slug }: Catalo
                         px-4 py-2
                         bg-blue-700 lg:hover:bg-blue-800 duration-200
                         text-white-1 text-sm lg:text-md rounded-full"
-                >Ver producto</Link>
-                <div className="text-md lg:text-lg text-[#a69742] font-semibold">
-                    ${numToPriceStr(price)}
+                >
+                    Ver producto
+                </Link>
+                <div className="flex items-end gap-2">
+                    {/* Previous price if it's on sale */}
+                    {noPromotionPrice &&
+                        <div className="
+                            text-md lg:text-lg text-gray-600 relative
+                            after:content-[''] after:absolute after:top-1/2 after:left-0
+                            after:w-full after:h-[2px] after:bg-gray-600/70"
+                        >
+                            ${numToPriceStr(noPromotionPrice)}
+                        </div>
+                    }
+                    {/* Current price */}
+                    <div
+                        className={clsx(
+                            "text-md lg:text-lg font-bold",
+                            noPromotionPrice ? 'text-red-600' : 'text-maingold-original'
+                        )}
+                    >
+                        ${numToPriceStr(price)}
+                    </div>
                 </div>
             </div>
         </div>

@@ -5,6 +5,7 @@ export interface CatalogItemFields {
   title: EntryFieldTypes.Text;
   descriptionList: EntryFieldTypes.Array<EntryFieldTypes.Symbol>;
   price: EntryFieldTypes.Number;
+  noPromotionPrice?: EntryFieldTypes.Number;
   images: EntryFieldTypes.Array<EntryFieldTypes.AssetLink>;
   slug: EntryFieldTypes.Text;
   category: EntryFieldTypes.Symbol<CatalogItemCategory>;

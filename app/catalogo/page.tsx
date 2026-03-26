@@ -1,16 +1,16 @@
 import Banner from "@/components/Banner";
-import BannerPromotions from "@/components/BannerPromotions";
-import { getCatalogItems, getCustomHomeoSerums, getCustomVitaSerums, getPromotions } from "@/lib/contentful-queries";
+import { getCatalogItems, getCustomHomeoSerums, getCustomVitaSerums } from "@/lib/contentful-queries";
 import CustomSerumContainer from "./components/CustomSerumContainer";
 import CatalogContainer from "./components/CatalogContainer";
+import PromotionsCarrousel from "@/components/PromotionsCarrousel";
 
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
 
 export default async function Catalog({ searchParams }: { searchParams: SearchParams }) {
     const catalogItems = await getCatalogItems();
+    const promotions = catalogItems.filter(el => el.noPromotionPrice)
     const customHomeoSerums = await getCustomHomeoSerums();
     const customVitaSerums = await getCustomVitaSerums();
-    const promotions = await getPromotions();
     const params = await searchParams;
 
     return (
@@ -23,7 +23,7 @@ export default async function Catalog({ searchParams }: { searchParams: SearchPa
         />
         {/* Mobile carrousel section */}
         <section className="lg:hidden h-[400px] px-6 py-12 bg-[#d5d5d5]">
-            <BannerPromotions
+            <PromotionsCarrousel
                 promotions={promotions}
                 className="h-full w-full mx-auto py-0 relative"
             />

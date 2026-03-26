@@ -1,10 +1,10 @@
 'use client'
 import PromotionsCarrousel from "@/components/PromotionsCarrousel"
 import { motion } from "motion/react"
-import { Promotion } from "@/lib/models/promotion"
 import Link from "next/link"
+import { CatalogItem } from "@/lib/models/catalogItem"
 
-const Hero = ({ promotions }: { promotions: Promotion[] }) => {
+const Hero = ({ promotions }: { promotions: CatalogItem[] }) => {
   return (
     <div className="
         h-[400px] lg:h-[620px] p-8 lg:p-10 relative
@@ -32,7 +32,7 @@ const Hero = ({ promotions }: { promotions: Promotion[] }) => {
         </div>
         {/* Right div */}
         <div className="relative flex flex-col justify-center items-center gap-8">
-            <h2 className="text-3xl font-bold text-black">Aprovecha nuestras promociones</h2>
+            <h2 className="text-3xl font-bold text-sky-700">Aprovecha nuestras promociones</h2>
             <PromotionsCarrousel
                 promotions={promotions}
                 className="w-[480px] h-[380px] relative"

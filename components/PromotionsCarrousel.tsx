@@ -1,18 +1,18 @@
 'use client'
 import numToPriceStr from "@/app/utils/numToPriceStr";
-import { Promotion } from "@/lib/models/promotion";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import PromotionsDot from "./PromotionsDot";
+import { CatalogItem } from "@/lib/models/catalogItem";
 
 type Interval = ReturnType<typeof setInterval>;
 
-interface BannerPromotionsProps {
-    promotions: Promotion[];
+interface PromotionsCarrouselProps {
+    promotions: CatalogItem[];
     className: string;
 }
 
-const PromotionsCarrousel = ({ promotions, className }: BannerPromotionsProps) => {
+const PromotionsCarrousel = ({ promotions, className }: PromotionsCarrouselProps) => {
     const [index, setIndex] = useState<number>(0);
     const intervalRef = useRef<Interval | null>(null);
 
@@ -73,7 +73,7 @@ const PromotionsCarrousel = ({ promotions, className }: BannerPromotionsProps) =
                         <div className="flex flex-col items-end lg:gap-1">
                             {/* Previous price */}
                             <div className="relative text-mg lg:text-lg text-gray-600">
-                                <div>${numToPriceStr(promotions[index].prevPrice)}</div>
+                                {promotions[index].noPromotionPrice && <div>${numToPriceStr(promotions[index].noPromotionPrice)}</div>}
                                 <div className="absolute h-[2px] w-full left-0 top-1/2 bg-gray-600/70"></div>
                             </div>
                             {/* Current price */}
@@ -82,7 +82,7 @@ const PromotionsCarrousel = ({ promotions, className }: BannerPromotionsProps) =
                                 bg-maingold-original text-lg lg:text-xl text-white-1 font-semibold
                                 rounded-lg"
                             >
-                                ${numToPriceStr(promotions[index].currPrice)}
+                                ${numToPriceStr(promotions[index].price)}
                             </div>
                         </div>
                         {/* Button */}
