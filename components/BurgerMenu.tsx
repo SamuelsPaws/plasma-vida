@@ -67,14 +67,27 @@ const BurgerMenu = () => {
                             href='/catalogo'
                             className="px-2"
                             onClick={toggleMenu}
-                        >Catálogo</Link>
+                        >
+                            Catálogo
+                        </Link>
+                    </li>
+                    <li>
+                        <Link
+                            href='/servicios-de-enfermeria'
+                            className="px-2"
+                            onClick={toggleMenu}
+                        >
+                            Servicios de Enfermería
+                        </Link>
                     </li>
                     <li>
                         <Link
                             href='/quienes-somos'
                             className="px-2"
                             onClick={toggleMenu}
-                        >Quiénes somos</Link>
+                        >
+                            Quiénes somos
+                        </Link>
                     </li>
                 </ul>
             </div>

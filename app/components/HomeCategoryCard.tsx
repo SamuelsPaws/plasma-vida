@@ -19,7 +19,7 @@ const HomeCategoryCard = ({ title, descriptionParagraphs, href, linkText, imageU
         >
             {/* Image */}
             <div className="
-                lg:flex-1 w-full lg:w-auto h-[300px] lg:h-[400px] lg:min-w-[400px]
+                lg:flex-1 w-full lg:w-auto h-[300px] lg:h-[400px] lg:min-w-[300px]
                 rounded-2xl overflow-hidden"
             >
                 <img
@@ -30,7 +30,7 @@ const HomeCategoryCard = ({ title, descriptionParagraphs, href, linkText, imageU
             </div>
             {/* Description */}
             <div className="
-                lg:flex-1 lg:min-w-[400px] px-6 lg:px-12
+                lg:flex-1 lg:min-w-[480px] px-6 lg:px-12
                 flex flex-col justify-center items-center gap-4
                 text-sky-800"
             >

@@ -2,6 +2,7 @@
 import { motion } from "motion/react"
 import BannerPromotions from "./BannerPromotions"
 import { Promotion } from "@/lib/models/promotion"
+import PromotionsCarrousel from "./PromotionsCarrousel";
 
 interface BannerProps {
     title: string;
@@ -39,7 +40,11 @@ const Banner = ({ title, subheadline, promotions }: BannerProps) => {
                 >Te escuchamos, te entendemos y cuidamos de ti de forma natural.</motion.p>
             }
         </div>
-        <BannerPromotions
+        {/* <BannerPromotions
+            promotions={promotions}
+            className="hidden lg:block h-full w-[60%] min-w-[400px] place-self-center relative"
+        /> */}
+        <PromotionsCarrousel
             promotions={promotions}
             className="hidden lg:block h-full w-[60%] min-w-[400px] place-self-center relative"
         />

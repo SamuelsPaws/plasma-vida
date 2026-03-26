@@ -25,7 +25,15 @@ export interface PromotionFields {
   images: EntryFieldTypes.Array<EntryFieldTypes.AssetLink>;
 }
 
+export interface NursingServiceFields {
+  title: EntryFieldTypes.Text;
+  description: EntryFieldTypes.Text;
+  benefitsList: EntryFieldTypes.Array<EntryFieldTypes.Symbol>;
+  slug: EntryFieldTypes.Text;
+}
+
 export type CatalogItemFieldsSkeleton = EntrySkeletonType<CatalogItemFields, 'item'>
 export type CustomHomeoSerumSkeleton = EntrySkeletonType<CustomSerumFields, 'homeoSerum'>
 export type CustomVitaSerumSkeleton = EntrySkeletonType<CustomSerumFields, 'vitaSerum'>
 export type PromotionSkeleton = EntrySkeletonType<PromotionFields, 'promotions'>
+export type NursingServiceSkeleton = EntrySkeletonType<NursingServiceFields, 'nursingService'>

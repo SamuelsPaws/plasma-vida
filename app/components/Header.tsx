@@ -22,27 +22,41 @@ const Header = () => {
       </Link>
       <nav className="
         hidden lg:block
-        text-white-1 text-lg"
+        text-white-1 text-md"
       >
         <ul className="flex gap-8">
-          <li><Link
-            href='/catalogo'
-            className="hover:text-white-1/80 duration-200"
-          >
-            Catálogo
-          </Link></li>
-          <li><Link
-            href='/nigga'
-            className="hover:text-white-1/80 duration-200"
-          >
-            Contacto
-          </Link></li>
-          <li><Link
-            href='/quienes-somos'
-            className="hover:text-white-1/80 duration-200"
-          >
-            Quiénes Somos
-          </Link></li>
+          <li>
+            <Link
+              href='/catalogo'
+              className="hover:text-white-1/80 duration-200"
+            >
+              Catálogo
+            </Link>
+          </li>
+          <li>
+            <Link
+              href='/servicios-de-enfermeria'
+              className="hover:text-white-1/80 duration-200"
+            >
+              Servicios de Enfermería
+            </Link>
+          </li>
+          <li className="hidden">
+            <Link
+              href='/'
+              className="hover:text-white-1/80 duration-200"
+            >
+              Contacto
+            </Link>
+          </li>
+          <li>
+            <Link
+              href='/quienes-somos'
+              className="hover:text-white-1/80 duration-200"
+            >
+              Quiénes Somos
+            </Link>
+          </li>
         </ul>
       </nav>
       <BurgerMenu />

@@ -58,7 +58,7 @@ const PromotionsCarrousel = ({ promotions, className }: BannerPromotionsProps) =
                 {/* Title */}
                 <p className="mb-2 text-xl font-bold">{promotions[index].title}</p>
                 {/* Div with image, price and button */}
-                <div className="h-[164px] lg:h-[260px] flex">
+                <div className="h-[200px] lg:h-[180px] flex">
                     {/* Image */}
                     <div className="w-[70%] h-full self-center rounded-2xl overflow-hidden">
                         <img

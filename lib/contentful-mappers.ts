@@ -1,8 +1,9 @@
 import type { Entry, Asset, UnresolvedLink } from 'contentful';
-import type { CatalogItemFieldsSkeleton, CustomHomeoSerumSkeleton, CustomVitaSerumSkeleton, PromotionSkeleton } from './contentful-types';
+import type { CatalogItemFieldsSkeleton, CustomHomeoSerumSkeleton, CustomVitaSerumSkeleton, NursingServiceSkeleton, PromotionSkeleton } from './contentful-types';
 import type { CatalogItem } from './models/catalogItem';
 import type { CustomSerum } from './models/customSerum';
 import { Promotion } from './models/promotion';
+import { NursingService } from './models/nursingService';
 
 function isAsset(
   item: UnresolvedLink<'Asset'> | Asset<undefined, 'en-US'>
@@ -73,6 +74,19 @@ export function mapPromotions(
     prevPrice: entry.fields.prevPrice,
     currPrice: entry.fields.currPrice,
     imageUrls: entry.fields.images.filter(isAsset).filter(hasFileUrl).map(img => img.fields.file.url),
+  };
+
+}
+
+export function mapNursingService(
+  entry: Entry<NursingServiceSkeleton, undefined, 'en-US'>
+): NursingService {
+
+  return {
+    title: entry.fields.title,
+    description: entry.fields.description,
+    benefitsList: entry.fields.benefitsList,
+    slug: entry.fields.slug,
   };
 
 }

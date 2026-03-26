@@ -1,9 +1,9 @@
 'use client'
 import { motion } from "motion/react";
 import { useState } from "react";
-import { CatalogItem } from "@/lib/models/catalogItem";
+import { NursingService } from "@/lib/models/nursingService";
 
-const ItemBuy = ({ item }: { item: CatalogItem }) => {
+const ItemRequest = ({ item }: { item: NursingService }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
@@ -17,7 +17,7 @@ const ItemBuy = ({ item }: { item: CatalogItem }) => {
           className="
             px-4 h-full
             bg-blue-700 text-md lg:text-lg text-white-1 rounded-full"
-        >Comprar</button>
+        >Solicitar</button>
       }
       {/* Options slider */}
       {isOpen &&
@@ -42,7 +42,7 @@ const ItemBuy = ({ item }: { item: CatalogItem }) => {
               <i className="fa fa-times"></i>
             </button>
             <a
-              href={`https://wa.me/+593978774224?text=¡Hola! Me interesa comprar: ${item ? item.title : ''}`}
+              href={`https://wa.me/+593978774224?text=¡Hola! Me interesa solicitar: ${item ? item.title : ''}`}
               target="_blank"
               className="
                 h-[80%] px-4
@@ -61,7 +61,7 @@ const ItemBuy = ({ item }: { item: CatalogItem }) => {
               <i className="fa fa-phone"></i>
             </a>
             <a
-              href={`mailto:cpaciente1626@gmail.com?subject=¡Hola! Me interesa comprar: ${item ? item.title : ''}`}
+              href={`mailto:cpaciente1626@gmail.com?subject=¡Hola! Me interesa solicitar: ${item ? item.title : ''}`}
               className="
                 h-[80%] px-4
                 grid place-content-center
@@ -77,4 +77,4 @@ const ItemBuy = ({ item }: { item: CatalogItem }) => {
   )
 }
 
-export default ItemBuy
+export default ItemRequest

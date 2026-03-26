@@ -1,6 +1,6 @@
 import { contentful } from './contentful';
-import { mapCatalogItem, mapCustomHomeoSerum, mapCustomVitaSerum, mapPromotions } from './contentful-mappers';
-import { CatalogItemFieldsSkeleton, CustomHomeoSerumSkeleton, CustomVitaSerumSkeleton, PromotionSkeleton } from './contentful-types';
+import { mapCatalogItem, mapCustomHomeoSerum, mapCustomVitaSerum, mapNursingService, mapPromotions } from './contentful-mappers';
+import { CatalogItemFieldsSkeleton, CustomHomeoSerumSkeleton, CustomVitaSerumSkeleton, NursingServiceSkeleton, PromotionSkeleton } from './contentful-types';
 
 export async function getCatalogItemEntry(id: string) {
   const entry = await contentful.getEntry<CatalogItemFieldsSkeleton>(id);
@@ -57,4 +57,19 @@ export async function getPromotions() {
     content_type: 'promotions'
   });
   return entries.items.map(mapPromotions);
+}
+
+export async function getNursingServices() {
+  const entries = await contentful.getEntries<NursingServiceSkeleton>({
+    content_type: 'nursingService'
+  });
+  return entries.items.map(mapNursingService);
+}
+
+export async function getNursingServiceBySlug(slug: string) {
+  const entries = await contentful.getEntries<NursingServiceSkeleton>({
+    content_type: 'nursingService',
+    'fields.slug': slug
+  });
+  return entries.items.map(mapNursingService)[0];
 }

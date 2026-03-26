@@ -24,7 +24,7 @@ export default async function Services() {
                     'Brindamos servicios profesionales de enfermería a domicilio para adultos mayores en Quito. Nos trasladamos hasta tu hogar o el lugar que prefieras, ofreciendo atención personalizada que garantiza comodidad, dignidad y bienestar en todo momento.',
                     'Nuestro compromiso es cuidar de tus seres queridos con calidez y responsabilidad, para que tú tengas la tranquilidad de que están en las mejores manos.'
                 ]}
-                href="/"
+                href="/servicios-de-enfermeria/adulto-mayor"
                 linkText="Ver más"
                 imageUrl="/assets/elderly.svg"
             />
@@ -35,7 +35,7 @@ export default async function Services() {
                     'Brindamos atención profesional y personalizada a domicilio para personas con discapacidad en Quito. Nos adaptamos a las necesidades de cada persona, ofreciendo acompañamiento, asistencia diaria y cuidado especializado.',
                     'Nuestro compromiso es promover la autonomía, el bienestar y la calidad de vida, con un trato humano, respetuoso y cercano, para que tú y tus seres queridos tengan total tranquilidad.'
                 ]}
-                href="/"
+                href="/servicios-de-enfermeria/cuidado-discapacidad"
                 linkText="Ver más"
                 imageUrl="/assets/disability.svg"
             />
@@ -46,7 +46,7 @@ export default async function Services() {
                     'Ofrecemos atención prehospitalaria oportuna y profesional en Quito, brindando asistencia inmediata antes del traslado a un centro de salud.',
                     'Nuestro equipo está capacitado para actuar con rapidez y precisión, estabilizando al paciente y asegurando su bienestar en momentos críticos, con un enfoque humano que brinda tranquilidad al paciente y sus familiares.',
                 ]}
-                href="/"
+                href="/servicios-de-enfermeria/cuidado-prehospitalario"
                 linkText="Ver más"
                 imageUrl="/assets/prehospital.svg"
             />
@@ -57,7 +57,7 @@ export default async function Services() {
                     'Ofrecemos cuidados posthospitalarios a domicilio en Quito, acompañando a cada paciente en su proceso de recuperación tras el alta médica.',
                     'Brindamos atención personalizada para asegurar una transición segura, cómoda y supervisada, reduciendo riesgos y favoreciendo una recuperación adecuada en casa.'
                 ]}
-                href="/"
+                href="/servicios-de-enfermeria/cuidado-posthospitalario"
                 linkText="Ver más"
                 imageUrl="/assets/posthospital.svg"
             />

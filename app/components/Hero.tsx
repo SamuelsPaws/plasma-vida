@@ -14,7 +14,7 @@ const Hero = ({ promotions }: { promotions: Promotion[] }) => {
         before:bg-[linear-gradient(to_right,#fffd_40%,#0000)]"
     >
         {/* Left div */}
-        <div className="lg:p-6 flex flex-col justify-center items-center gap-8 relative">
+        <div className="lg:p-6 flex flex-col justify-center items-center gap-12 relative">
             <motion.h1
                 className="text-5xl text-sky-700 text-center font-bold leading-16"
                 initial={{ opacity: 0, y: -10 }}
