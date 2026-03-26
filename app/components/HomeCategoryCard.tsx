@@ -39,7 +39,7 @@ const HomeCategoryCard = ({ title, descriptionParagraphs, href, linkText, imageU
         className="
             w-full lg:px-8
             flex flex-col lg:flex-row
-            items-center gap-y-8 lg:gap-y-8 flex-wrap"
+            items-center gap-y-6 lg:gap-y-8 flex-wrap"
         variants={containerVariants}
         initial='hidden'
         whileInView='visible'
@@ -54,7 +54,7 @@ const HomeCategoryCard = ({ title, descriptionParagraphs, href, linkText, imageU
         >
             {/* Title */}
             <h4 className="
-                text-2xl lg:text-4xl
+                text-3xl lg:text-4xl
                 text-sky-800 text-center font-bold"
             >
                 {title}
