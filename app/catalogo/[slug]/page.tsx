@@ -3,6 +3,7 @@ import { getCatalogItemBySlug } from "@/lib/contentful-queries";
 import ItemBuy from "../components/ItemBuy";
 import { Suspense } from "react";
 import SimilarContainer from "../components/SimilarContainer";
+import getSalePercent from "@/app/utils/getSalePercent";
 
 type Props = {
     params: Promise<{
@@ -27,14 +28,31 @@ export default async function CatalogItemPage({ params }: Props) {
                     bg-white-1 rounded-2xl"
                 >
                     {/* Title */}
-                    <h1 className="
-                        mb-4 lg:mb-8 text-2xl lg:text-5xl text-center lg:text-left font-bold"
-                    >{catalogItem.title}</h1>
+                    <div className="mb-4 lg:mb-8 flex gap-4 lg:gap-8">
+                        <h1 className="text-2xl lg:text-5xl text-center lg:text-left font-bold">
+                            {catalogItem.title}
+                        </h1>
+                        {catalogItem.noPromotionPrice &&
+                            <div className="
+                                px-2 py-0
+                                grid place-content-center
+                                bg-red-600 text-white-1 text-lg lg:text-3xl"
+                            >
+                                -{getSalePercent(catalogItem.noPromotionPrice, catalogItem.price)}%
+                            </div>
+                        }
+                    </div>
                     {/* Price */}
                     <p className="
                         mb-4 lg:mb-8
-                        text-xl lg:text-2xl text-maingold-original font-bold"
-                    >${numToPriceStr(catalogItem.price)}</p>
+                        flex gap-2 lg:gap-4
+                        text-xl lg:text-2xl"
+                    >
+                        <span className="text-maingold-original font-bold">${numToPriceStr(catalogItem.price)}</span>
+                        {catalogItem.noPromotionPrice &&
+                            <span className="text-gray-500 crossed-out">${numToPriceStr(catalogItem.noPromotionPrice)}</span>
+                        }
+                    </p>
                     {/* Div with image and info */}
                     <div className="
                         w-full relative

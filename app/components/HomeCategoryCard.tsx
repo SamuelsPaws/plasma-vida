@@ -14,7 +14,7 @@ const containerVariants = {
     hidden: {},
     visible: {
         transition: {
-            delayChildren: stagger(0.5)
+            delayChildren: stagger(0.4)
         }
     }
 }
@@ -48,7 +48,7 @@ const HomeCategoryCard = ({ title, descriptionParagraphs, href, linkText, imageU
         {/* Div with title and image */}
         <motion.div
             className="
-                flex-1 lg:min-w-[300px]
+                lg:flex-1 lg:min-w-[300px]
                 flex flex-col items-center justify-center gap-2"
             variants={itemVariants}
         >
@@ -87,7 +87,7 @@ const HomeCategoryCard = ({ title, descriptionParagraphs, href, linkText, imageU
         </motion.div>
         {/* Link */}
         <motion.div
-            className="flex-1 self-stretch grid place-content-center"
+            className="lg:flex-1 self-stretch grid place-content-center"
             variants={itemVariants}
         >
             <Link

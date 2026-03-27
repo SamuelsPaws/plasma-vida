@@ -1,6 +1,7 @@
 import Link from "next/link";
 import numToPriceStr from "../../utils/numToPriceStr";
 import clsx from "clsx";
+import getSalePercent from "@/app/utils/getSalePercent";
 
 interface CatalogItemCardProps {
     imgUrl: string;
@@ -12,6 +13,7 @@ interface CatalogItemCardProps {
 }
 
 const CatalogItemCard = ({ imgUrl, title, descriptionList, price, noPromotionPrice, slug }: CatalogItemCardProps) => {
+    const isOnSale = noPromotionPrice && noPromotionPrice > price;
 
   return (
     <div className="
@@ -35,7 +37,7 @@ const CatalogItemCard = ({ imgUrl, title, descriptionList, price, noPromotionPri
             {/* Div with title and benefits */}
             <div className="w-full">
                 <p className="lg:mb-2 text-lg lg:text-xl font-bold">{title}</p>
-                {descriptionList.map((el, index) => (
+                {descriptionList.slice(0, 3).map((el, index) => (
                     <p
                         key={index}
                         className="mt-1 text-xs lg:text-[0.85rem] text-gray-600"
@@ -53,25 +55,37 @@ const CatalogItemCard = ({ imgUrl, title, descriptionList, price, noPromotionPri
                 >
                     Ver producto
                 </Link>
-                <div className="flex items-end gap-2">
+                <div className="flex flex-col items-end gap-0">
                     {/* Previous price if it's on sale */}
-                    {noPromotionPrice &&
+                    {isOnSale &&
                         <div className="
-                            text-md lg:text-lg text-gray-600 relative
+                            text-md lg:text-lg text-gray-500 relative
                             after:content-[''] after:absolute after:top-1/2 after:left-0
-                            after:w-full after:h-[2px] after:bg-gray-600/70"
+                            after:w-full after:h-[2px] after:bg-gray-500/70"
                         >
                             ${numToPriceStr(noPromotionPrice)}
                         </div>
                     }
-                    {/* Current price */}
-                    <div
-                        className={clsx(
-                            "text-md lg:text-lg font-bold",
-                            noPromotionPrice ? 'text-red-600' : 'text-maingold-original'
-                        )}
-                    >
-                        ${numToPriceStr(price)}
+                    {/* Div with tag (if on sale) and curr price */}
+                    <div className="flex gap-3">
+                        {/* Sale % tag */}
+                        {isOnSale &&
+                            <div className="
+                                px-2 py-0 bg-red-600
+                                text-md lg:text-lg text-white-1 rounded-none"
+                            >
+                                -{getSalePercent(noPromotionPrice, price)}%
+                            </div>
+                        }
+                        {/* Current price */}
+                        <div
+                            className={clsx(
+                                "text-md lg:text-lg font-bold",
+                                noPromotionPrice ? 'text-maingold-original' : 'text-maingold-original'
+                            )}
+                        >
+                            ${numToPriceStr(price)}
+                        </div>
                     </div>
                 </div>
             </div>

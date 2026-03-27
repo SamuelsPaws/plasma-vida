@@ -4,6 +4,8 @@ import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import PromotionsDot from "./PromotionsDot";
 import { CatalogItem } from "@/lib/models/catalogItem";
+import Link from "next/link";
+import getSalePercent from "@/app/utils/getSalePercent";
 
 type Interval = ReturnType<typeof setInterval>;
 
@@ -40,8 +42,8 @@ const PromotionsCarrousel = ({ promotions, className }: PromotionsCarrouselProps
             {/* White part (card) */}
             <motion.div
                 className="
-                    w-full flex-1
-                    p-4 bg-white-1/70 backdrop-blur-md
+                    w-full flex-1 relative
+                    p-4 bg-white-1/80 backdrop-blur-md
                     flex flex-col justify-between
                     rounded-2xl shadow-none lg:shadow-md"
                 key={index}
@@ -50,11 +52,22 @@ const PromotionsCarrousel = ({ promotions, className }: PromotionsCarrouselProps
                 exit={{ opacity: 0, x: -30, y: 2 }}
                 transition={{ duration: 0.5 }}
             >
+                {promotions[index].noPromotionPrice &&
+                    <div className="
+                        absolute top-4 right-4
+                        px-2 py-1
+                        bg-red-600 text-white-1 text-md lg:text-lg"
+                    >
+                        -{getSalePercent(promotions[index].noPromotionPrice, promotions[index].price)}%
+                    </div>
+                }
                 <p className="
                     self-start px-2 py-0 mb-2
                     bg-red-700 -rotate-2
                     text-2xl text-white-1 font-bold rounded-sm"
-                >¡Promoción!</p>
+                >
+                    ¡Promoción!
+                </p>
                 {/* Title */}
                 <p className="mb-2 text-xl font-bold">{promotions[index].title}</p>
                 {/* Div with image, price and button */}
@@ -77,22 +90,20 @@ const PromotionsCarrousel = ({ promotions, className }: PromotionsCarrouselProps
                                 <div className="absolute h-[2px] w-full left-0 top-1/2 bg-gray-600/70"></div>
                             </div>
                             {/* Current price */}
-                            <div className="
-                                px-2 py-1
-                                bg-maingold-original text-lg lg:text-xl text-white-1 font-semibold
-                                rounded-lg"
-                            >
+                            <div className="text-lg lg:text-xl text-maingold-original font-semibold">
                                 ${numToPriceStr(promotions[index].price)}
                             </div>
                         </div>
                         {/* Button */}
-                        <button className="
-                            px-4 lg:px-6 py-2
-                            bg-blue-700
-                            text-sm lg:text-md text-white-1 rounded-full"
+                        <Link
+                            href={`/catalogo/${promotions[index].slug}`}
+                            className="
+                                px-4 lg:px-4 py-2
+                                bg-blue-700
+                                text-sm lg:text-md text-white-1 rounded-full"
                         >
-                            Ver
-                        </button>
+                            Ver<i className="fa fa-arrow-right scale-90 ml-2"></i>
+                        </Link>
                     </div>
                 </div>
             </motion.div>
