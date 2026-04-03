@@ -8,7 +8,8 @@
 @theme inline {
   --spacing-header-height: 4rem;
   --spacing-mob-header-height: 3.5rem;
-  --spacing-footer-height: 500px;
+  --spacing-footer-height: 400px;
+  --spacing-mob-footer-height: 640px;
   --spacing-section-py: 4rem;
   --spacing-section-px: 4rem;
   --spacing-mob-section-px: 1rem;

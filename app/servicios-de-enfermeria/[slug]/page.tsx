@@ -100,6 +100,7 @@ export default async function ServiceItemPage({ params }: Props) {
                 </Suspense>
             </div>
         </section>
+        <section className="h-mob-footer-height lg:h-footer-height bg-[#ececec]"></section>
     </main>
     )
 }

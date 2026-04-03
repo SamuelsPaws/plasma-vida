@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Poppins, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Footer from "@/components/Footer";
+import clsx from "clsx";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,7 +36,10 @@ export default function RootLayout({
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
       </head>
       <body
-        className={geistSans.className}
+        className={clsx(
+          geistSans.className,
+          'relative'
+        )}
       >
         <Header />
         {children}

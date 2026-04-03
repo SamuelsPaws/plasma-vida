@@ -56,6 +56,7 @@ export default async function Catalog({ searchParams }: { searchParams: SearchPa
                 categoryParam={params.category}
             />
         </section>
+        <section className="h-mob-footer-height lg:h-footer-height bg-[#ececec]"></section>
     </main>
     )
 }

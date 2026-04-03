@@ -62,6 +62,7 @@ export default async function Services() {
                 imageUrl="/assets/posthospital.svg"
             />
         </section>
+        <section className="h-mob-footer-height lg:h-footer-height bg-white-1"></section>
     </main>
     )
 }

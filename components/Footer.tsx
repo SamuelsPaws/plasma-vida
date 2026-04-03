@@ -1,9 +1,14 @@
 const Footer = () => {
   return (
-    <footer className='lg:h-[400px] px-6 lg:px-8 pb-6 lg:pb-8 bg-[#ececec]'>
+    <footer className='
+        h-mob-footer-height lg:h-footer-height w-full
+        absolute bottom-0 left-0
+        px-6 lg:px-8 pb-6 lg:pb-8
+        bg-transparent'
+    >
         <div className="
-            w-full lg:h-full py-12 lg:py-0 relative
-            flex flex-col lg:flex-row lg:justify-evenly items-center gap-16 lg:gap-0
+            w-full h-full lg:h-full py-12 lg:py-0 relative
+            flex flex-col lg:flex-row justify-center lg:justify-evenly items-center gap-12 lg:gap-0
             bg-maingold-dark-1 rounded-2xl"
         >
             <div className="flex flex-col gap-1 lg:gap-4 items-center lg:items-start">

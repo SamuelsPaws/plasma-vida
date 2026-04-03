@@ -14,7 +14,7 @@ const containerVariants = {
     hidden: {},
     visible: {
         transition: {
-            delayChildren: stagger(0.4)
+            delayChildren: stagger(0.2)
         }
     }
 }
@@ -28,7 +28,7 @@ const itemVariants = {
         opacity: 1,
         y: 0,
         transition: {
-            duration: 0.5
+            duration: 0.4
         }
     }
 }

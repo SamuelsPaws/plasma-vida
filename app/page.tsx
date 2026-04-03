@@ -58,6 +58,7 @@ export default async function Home() {
           imageUrl="/assets/nurse.png"
         />
       </section>
+      <section className="h-mob-footer-height lg:h-footer-height bg-white-1"></section>
     </main>
   );
 }
