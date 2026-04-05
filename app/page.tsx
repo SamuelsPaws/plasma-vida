@@ -3,6 +3,60 @@ import Hero from "./components/Hero";
 import HomeCategoryCard from "./components/HomeCategoryCard";
 import HeroMob from "./components/HeroMob";
 import PromotionsCarrousel from "@/components/PromotionsCarrousel";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Inicio - Plasma Vida Center",
+  description:
+    "Plasma Vida Center ofrece terapias avanzadas de bienestar como sueros intravenosos, plasma rico en plaquetas (PRP) y servicios de enfermería a domicilio. Mejora tu salud con atención profesional, segura y personalizada.",
+  keywords: [
+    "sueros intravenosos Ecuador",
+    "plasma rico en plaquetas PRP",
+    "terapias de bienestar",
+    "enfermería a domicilio",
+    "cuidado de adultos mayores",
+    "salud y bienestar quito",
+    "salud y bienestar ecuador",
+    "salud y bienestar premium",
+    "Plasma Vida Center"
+  ],
+  applicationName: "Plasma Vida Center",
+  authors: [{ name: "Plasma Vida Center" }],
+  creator: "Plasma Vida Center",
+  publisher: "Plasma Vida Center",
+
+  openGraph: {
+    title: "Inicio - Plasma Vida Center",
+    description:
+      "Terapias avanzadas de bienestar: sueros IV, PRP y atención de enfermería a domicilio con enfoque profesional y personalizado.",
+    url: "https://plasma-vida.vercel.app/", // Canonical
+    siteName: "Plasma Vida Center",
+    locale: "es_EC",
+    type: "website",
+    images: [
+      {
+        url: "/og-image.jpg", // ← tu asset aquí
+        width: 1200,
+        height: 630,
+        alt: "Plasma Vida Center - Bienestar y salud avanzada",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Inicio - Plasma Vida Center",
+    description:
+      "Sueros IV, PRP y servicios de enfermería a domicilio con enfoque clínico y personalizado.",
+    images: ["/og-image.jpg"], // ← mismo asset o uno específico
+  },
+
+  alternates: {
+    canonical: "https://plasma-vida.vercel.app/",
+  },
+
+  metadataBase: new URL("https://plasma-vida.vercel.app/"), // ← útil para rutas relativas
+};
 
 export default async function Home() {
   const catalogItems = await getCatalogItems();
