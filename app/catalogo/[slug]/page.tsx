@@ -30,9 +30,9 @@ export default async function CatalogItemPage({ params }: Props) {
                 {/* Title */}
                 <div className="mb-4 lg:mb-8 flex gap-4 lg:gap-8">
                     <h1 className="text-2xl lg:text-5xl text-center lg:text-left font-bold">
-                        {catalogItem.title}
+                        {catalogItem ? catalogItem.title : 'Título'}
                     </h1>
-                    {catalogItem.noPromotionPrice &&
+                    {catalogItem && catalogItem.noPromotionPrice &&
                         <div className="
                             px-2 py-0
                             grid place-content-center
@@ -48,8 +48,8 @@ export default async function CatalogItemPage({ params }: Props) {
                     flex gap-2 lg:gap-4
                     text-xl lg:text-2xl"
                 >
-                    <span className="text-maingold-original font-bold">${numToPriceStr(catalogItem.price)}</span>
-                    {catalogItem.noPromotionPrice &&
+                    <span className="text-maingold-original font-bold">${catalogItem ? numToPriceStr(catalogItem.price) : 'Precio'}</span>
+                    {catalogItem && catalogItem.noPromotionPrice &&
                         <span className="text-gray-500 crossed-out">${numToPriceStr(catalogItem.noPromotionPrice)}</span>
                     }
                 </p>
@@ -64,7 +64,7 @@ export default async function CatalogItemPage({ params }: Props) {
                         rounded-2xl overflow-hidden"
                     >
                         <img
-                            src={catalogItem.imageUrls[0]}
+                            src={catalogItem ? catalogItem.imageUrls[0] : '/assets/hero-img.webp'}
                             className="w-full h-full object-cover"
                             alt=""
                         />
@@ -72,18 +72,18 @@ export default async function CatalogItemPage({ params }: Props) {
                     {/* Right div / bump */}
                     <div className="pb-32 lg:pb-0 lg:flex-1">
                         {/* Long description */}
-                        <p className="text-md text-gray-600">{catalogItem.description}</p>
+                        <p className="text-md text-gray-600">{catalogItem ? catalogItem.description : 'Descripción'}</p>
                         {/* Benefits */}
                         <h2 className="
                             py-2 lg:py-4
                             text-xl lg:text-2xl text-sky-700 font-semibold"
                         >Beneficios:</h2>
-                        {catalogItem.descriptionList.map((el, index) => (
+                        {catalogItem ? catalogItem.descriptionList.map((el, index) => (
                             <p
                                 key={index}
                                 className="mb-1 text-md lg:text-md text-gray-600"
                             ><i className="fa fa-check mr-1 scale-[0.9]" aria-hidden="true"></i>{el}</p>
-                        ))}
+                        )) : 'Beneficios'}
                     </div>
                     <ItemBuy item={catalogItem} />
                 </div>
@@ -104,7 +104,7 @@ export default async function CatalogItemPage({ params }: Props) {
                         <i className="fa fa-clock-o"></i>
                     </div>
                 }>
-                    <SimilarContainer productSlug={slug} />
+                    <SimilarContainer productSlug={catalogItem ? slug : 'slug'} />
                 </Suspense>
             </div>
         </section>
