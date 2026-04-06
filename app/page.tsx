@@ -35,9 +35,9 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/og-image.jpg", // ← tu asset aquí
-        width: 1200,
-        height: 630,
+        url: "/opengraph-image.jpg",
+        width: 366,
+        height: 389,
         alt: "Plasma Vida Center - Bienestar y salud avanzada",
       },
     ],
@@ -48,14 +48,14 @@ export const metadata: Metadata = {
     title: "Inicio - Plasma Vida Center",
     description:
       "Sueros IV, PRP y servicios de enfermería a domicilio con enfoque clínico y personalizado.",
-    images: ["/og-image.jpg"], // ← mismo asset o uno específico
+    images: ["/opengraph-image.jpg"],
   },
 
   alternates: {
     canonical: "https://plasma-vida.vercel.app/",
   },
 
-  metadataBase: new URL("https://plasma-vida.vercel.app/"), // ← útil para rutas relativas
+  metadataBase: new URL("https://plasma-vida.vercel.app/"),
 };
 
 export default async function Home() {
