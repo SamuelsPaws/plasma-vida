@@ -3,6 +3,7 @@ import type { CatalogItemCategory } from '@/types/types';
 
 export interface CatalogItemFields {
   title: EntryFieldTypes.Text;
+  description: EntryFieldTypes.Text;
   descriptionList: EntryFieldTypes.Array<EntryFieldTypes.Symbol>;
   price: EntryFieldTypes.Number;
   noPromotionPrice?: EntryFieldTypes.Number;

@@ -72,7 +72,7 @@ export default async function CatalogItemPage({ params }: Props) {
                     {/* Right div */}
                     <div className="pb-32 lg:pb-0 lg:flex-1">
                         {/* Long description */}
-                        <p className="text-md text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto at, exercitationem ab magni non perspiciatis fugit harum commodi, fugiat molestias ducimus asperiores ex dolorum consequuntur quia! Nihil rem, consectetur, reprehenderit minima nesciunt voluptatum officia quo, cum quidem minus iste eos.</p>
+                        <p className="text-md text-gray-600">{catalogItem.description}</p>
                         {/* Benefits */}
                         <h2 className="
                             py-2 lg:py-4

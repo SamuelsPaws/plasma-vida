@@ -28,6 +28,7 @@ export function mapCatalogItem(
 ): CatalogItem {
   return {
     title: entry.fields.title,
+    description: entry.fields.description,
     descriptionList: entry.fields.descriptionList,
     price: entry.fields.price,
     noPromotionPrice: entry.fields.noPromotionPrice,
