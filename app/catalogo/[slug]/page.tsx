@@ -69,7 +69,7 @@ export default async function CatalogItemPage({ params }: Props) {
                             alt=""
                         />
                     </div>
-                    {/* Right div */}
+                    {/* Right div / bump */}
                     <div className="pb-32 lg:pb-0 lg:flex-1">
                         {/* Long description */}
                         <p className="text-md text-gray-600">{catalogItem.description}</p>
