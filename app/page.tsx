@@ -85,8 +85,8 @@ export default async function Home() {
             'Nuestros sueros son una forma rápida y efectiva de revitalizar tu cuerpo a través de vitaminas, minerales y nutrientes esenciales. De esta forma potenciamos tu energía, fortalecemos tus defensas y mejoramos tu bienestar general.',
             'Dale a tu cuerpo el impulso que merece y siéntete mejor, más fuerte y equilibrado desde la primera sesión.',
           ]}
-          href="/catalogo?category=suero"
-          linkText="Mira nuestro catálogo de sueros"
+          href="/catalogo"
+          linkText="Mira nuestro catálogo"
           imageUrl="/assets/serum.png"
         />
         <div className="h-12 lg:h-24"></div>
@@ -96,8 +96,8 @@ export default async function Home() {
             'El Plasma Rico en Plaquetas (PRP) es un tratamiento regenerativo que utiliza los factores de crecimiento de tu propia sangre para estimular la reparación natural de los tejidos. Ayuda a mejorar la calidad de la piel, acelerar la recuperación y promover la regeneración celular.',
             'Impulsa la capacidad de sanar natural de tu cuerpo, ayúdale a rejuvenecer y fortalecerse desde adentro.',
           ]}
-          href="/catalogo?category=plasma#productos"
-          linkText="Mira nuestro catálogo de plasma"
+          href="/catalogo#productos"
+          linkText="Mira nuestro catálogo"
           imageUrl="/assets/plasma.png"
         />
         <div className="h-12 lg:h-24"></div>

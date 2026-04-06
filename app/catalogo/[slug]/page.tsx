@@ -4,6 +4,8 @@ import ItemBuy from "../components/ItemBuy";
 import { Suspense } from "react";
 import SimilarContainer from "../components/SimilarContainer";
 import getSalePercent from "@/app/utils/getSalePercent";
+import ItemHealthTag from "../components/ItemHealthTag";
+import Component from "./components/Component";
 
 type Props = {
     params: Promise<{
@@ -14,8 +16,8 @@ type Props = {
 export default async function CatalogItemPage({ params }: Props) {
     const { slug } = await params;
     const catalogItem = await getCatalogItemBySlug(slug);
-    console.log(catalogItem);
-    
+    const descriptionParagraphs = catalogItem.description.split('\n').filter(el => el.length);
+    const longDescriptionParagraphs = catalogItem.longDescription.split('\n').filter(el => el.length);
 
     return (
     <main className="pt-mob-header-height lg:pt-header-height">
@@ -44,6 +46,20 @@ export default async function CatalogItemPage({ params }: Props) {
                         </div>
                     }
                 </div>
+                {/* Tags under title */}
+                {catalogItem && catalogItem.tags &&
+                    <div className="
+                        w-full h-12 mb-8
+                        flex gap-4 items-stretch"
+                    >
+                        {catalogItem.tags.map((el, index) =>
+                            <ItemHealthTag
+                                key={index}
+                                text={el}
+                            />
+                        )}
+                    </div>
+                }
                 {/* Price */}
                 <p className="
                     mb-4 lg:mb-8
@@ -71,15 +87,19 @@ export default async function CatalogItemPage({ params }: Props) {
                             alt=""
                         />
                     </div>
-                    {/* Right div / bump */}
+                    {/* Right div */}
                     <div className="pb-32 lg:pb-0 lg:flex-1">
                         {/* Long description */}
-                        <p className="text-md text-gray-600">{catalogItem ? catalogItem.description : 'Descripción'}</p>
+                        {descriptionParagraphs.map((el, index) =>
+                            <p key={index} className="mb-2 text-md lg:text-lg text-gray-600">{el}</p>
+                        )}
                         {/* Benefits */}
                         <h2 className="
                             py-2 lg:py-4
                             text-xl lg:text-2xl text-sky-700 font-semibold"
-                        >Beneficios:</h2>
+                        >
+                            Beneficios:
+                        </h2>
                         {catalogItem ? catalogItem.descriptionList.map((el, index) => (
                             <p
                                 key={index}
@@ -108,6 +128,38 @@ export default async function CatalogItemPage({ params }: Props) {
                 }>
                     <SimilarContainer productSlug={catalogItem ? slug : 'slug'} />
                 </Suspense>
+            </div>
+        </section>
+        <section className="
+            p-6 lg:p-16
+            bg-[#ececec]"
+        >
+            <h2 className="mb-8 text-4xl font-bold text-mainblue-dark-1">¿Quieres saber más?</h2>
+            <div className="p-8 bg-white-1 rounded-2xl">
+                {catalogItem &&
+                    longDescriptionParagraphs.map((el, index) =>
+                        <p
+                            key={index}
+                            className="mb-2 text-lg"
+                        >
+                            {el}
+                        </p>
+                    )
+                }
+            </div>
+            <h3 className="my-8 text-3xl font-bold text-mainblue-dark-1">Contiene:</h3>
+            <div className="
+                w-full
+                grid grid-cols-2 lg:flex gap-6 lg:gap-8 lg:flex-wrap"
+            >
+                {catalogItem &&
+                    catalogItem.components.map((el, index) =>
+                        <Component
+                            key={index}
+                            text={el}
+                        />
+                    )
+                }
             </div>
         </section>
         <section className="h-mob-footer-height lg:h-footer-height bg-[#ececec]"></section>
