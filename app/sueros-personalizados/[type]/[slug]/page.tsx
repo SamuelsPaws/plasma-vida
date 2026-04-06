@@ -60,7 +60,7 @@ export default async function CustomSerumPage({ params }: Props) {
                         rounded-2xl overflow-hidden"
                     >
                         <img
-                            src='/assets/hero-img.webp'
+                            src={serum.imageURLs[0]}
                             className="w-full h-full object-cover"
                             alt=""
                         />

@@ -46,6 +46,7 @@ export function mapCustomHomeoSerum(
   return {
     name: entry.fields.name,
     description: entry.fields.description,
+    imageURLs: entry.fields.images.filter(isAsset).filter(hasFileUrl).map(img => img.fields.file.url),
     price: entry.fields.price,
     slug: entry.fields.slug,
     benefitsList: entry.fields.benefitsList,
@@ -60,6 +61,7 @@ export function mapCustomVitaSerum(
   return {
     name: entry.fields.name,
     description: entry.fields.description,
+    imageURLs: entry.fields.images.filter(isAsset).filter(hasFileUrl).map(img => img.fields.file.url),
     price: entry.fields.price,
     slug: entry.fields.slug,
     benefitsList: entry.fields.benefitsList,

@@ -15,6 +15,7 @@ export interface CatalogItemFields {
 export interface CustomSerumFields {
   name: EntryFieldTypes.Text;
   description: EntryFieldTypes.Text;
+  images: EntryFieldTypes.Array<EntryFieldTypes.AssetLink>;
   price: EntryFieldTypes.Number;
   slug: EntryFieldTypes.Text;
   benefitsList: EntryFieldTypes.Array<EntryFieldTypes.Symbol>;
