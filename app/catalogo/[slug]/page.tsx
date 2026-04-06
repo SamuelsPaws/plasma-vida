@@ -14,6 +14,8 @@ type Props = {
 export default async function CatalogItemPage({ params }: Props) {
     const { slug } = await params;
     const catalogItem = await getCatalogItemBySlug(slug);
+    console.log(catalogItem);
+    
 
     return (
     <main className="pt-mob-header-height lg:pt-header-height">
