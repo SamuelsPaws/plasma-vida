@@ -46,7 +46,7 @@ export function mapCustomHomeoSerum(
   return {
     name: entry.fields.name,
     description: entry.fields.description,
-    imageURLs: entry.fields.images.filter(isAsset).filter(hasFileUrl).map(img => img.fields.file.url),
+    imageURLs: entry.fields.images ? entry.fields.images.filter(isAsset).filter(hasFileUrl).map(img => img.fields.file.url) : ['https://st4.depositphotos.com/9998432/24360/v/450/depositphotos_243600690-stock-illustration-person-gray-photo-placeholder-girl.jpg'],
     price: entry.fields.price,
     slug: entry.fields.slug,
     benefitsList: entry.fields.benefitsList,
