@@ -1,13 +1,13 @@
 'use client'
 import { Product } from "@/lib/models/product";
 import { ChangeEvent, SetStateAction, useEffect, useMemo, useRef, useState } from "react";
-import CatalogItemCard from "./CatalogItemCard";
+import ProductCard from "./ProductCard";
 import TableCategoryFilter from "./TableCategoryFilter";
 import { CategoryParam, Filters } from "../types/types";
 import TablePriceSortFilter from "./TablePriceSortFilter";
 import clsx from "clsx";
 
-interface CatalogItemsContainerProps {
+interface ProductsContainerProps {
     items: Product[];
     categoryParam: CategoryParam;
 }
@@ -28,7 +28,7 @@ type SortingFnsKey = keyof typeof sortingFns;
 
 const PRICE_CAP = 99999999;
 
-const CatalogContainer = ({ items, categoryParam }: CatalogItemsContainerProps) => {
+const CatalogContainer = ({ items, categoryParam }: ProductsContainerProps) => {
     const [filters, setFilters] = useState<Filters>({
         category: categoryParam,
         price: [0, PRICE_CAP],
@@ -256,7 +256,7 @@ const CatalogContainer = ({ items, categoryParam }: CatalogItemsContainerProps) 
         >
             {filteredItems.length ?
                 filteredItems.sort(sortingFns[sortingKey]).map((item, index) =>
-                    <CatalogItemCard
+                    <ProductCard
                         key={index}
                         title={item.title}
                         descriptionList={item.descriptionList}

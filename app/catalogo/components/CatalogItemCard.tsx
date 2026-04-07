@@ -3,7 +3,7 @@ import numToPriceStr from "../../utils/numToPriceStr";
 import clsx from "clsx";
 import getSalePercent from "@/app/utils/getSalePercent";
 
-interface CatalogItemCardProps {
+interface ProductCardProps {
     imgUrl: string;
     title: string;
     descriptionList: string[];
@@ -12,7 +12,7 @@ interface CatalogItemCardProps {
     slug: string;
 }
 
-const CatalogItemCard = ({ imgUrl, title, descriptionList, price, noPromotionPrice, slug }: CatalogItemCardProps) => {
+const ProductCard = ({ imgUrl, title, descriptionList, price, noPromotionPrice, slug }: ProductCardProps) => {
     const isOnSale = noPromotionPrice && noPromotionPrice > price;
 
   return (
@@ -94,4 +94,4 @@ const CatalogItemCard = ({ imgUrl, title, descriptionList, price, noPromotionPri
   )
 }
 
-export default CatalogItemCard
+export default ProductCard

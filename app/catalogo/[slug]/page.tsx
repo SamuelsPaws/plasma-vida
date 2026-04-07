@@ -14,7 +14,7 @@ type Props = {
     }>
 }
 
-export default async function CatalogItemPage({ params }: Props) {
+export default async function ProductPage({ params }: Props) {
     const { slug } = await params;
     const product = await getProductBySlug(slug);
     const descriptionParagraphs = product.description.split('\n').filter(el => el.length);
