@@ -1,4 +1,4 @@
-import { CatalogItemCategory } from "@/types/types";
+import { ProductCategory } from "@/types/types";
 import clsx from "clsx";
 import React from "react";
 import { Filters } from "../types/types";
@@ -7,7 +7,7 @@ interface TableFilterProps {
     filters: Filters;
     setFilters: React.Dispatch<React.SetStateAction<Filters>>;
     text: string;
-    category: CatalogItemCategory;
+    category: ProductCategory;
 }
 
 const TableCategoryFilter = ({ filters, setFilters, text, category }: TableFilterProps) => {

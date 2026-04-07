@@ -167,13 +167,13 @@ const CatalogContainer = ({ items, categoryParam }: CatalogItemsContainerProps) 
                     filters={filters}
                     setFilters={setFilters}
                     text="Sueros"
-                    category="suero"
+                    category="sueroCatalogo"
                 />
                 <TableCategoryFilter
                     filters={filters}
                     setFilters={setFilters}
                     text="Plasmas"
-                    category="plasma"
+                    category="plasmaCatalogo"
                 />
                 <p className="mt-4 mb-2 text-md text-gray-600">Filtrar por precio</p>
                 {/* Price input container */}
@@ -292,13 +292,13 @@ const CatalogContainer = ({ items, categoryParam }: CatalogItemsContainerProps) 
                     filters={filters}
                     setFilters={setFilters}
                     text="Sueros"
-                    category="suero"
+                    category="sueroCatalogo"
                 />
                 <TableCategoryFilter
                     filters={filters}
                     setFilters={setFilters}
                     text="Plasmas"
-                    category="plasma"
+                    category="plasmaCatalogo"
                 />
                 <p className="mt-4 mb-2 text-lg text-gray-600">Filtrar por precio</p>
                 {/* Price input container */}

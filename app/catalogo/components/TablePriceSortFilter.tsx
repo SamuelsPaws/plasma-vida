@@ -1,4 +1,3 @@
-import { CatalogItemCategory } from "@/types/types";
 import clsx from "clsx";
 import React from "react";
 import { Filters } from "../types/types";

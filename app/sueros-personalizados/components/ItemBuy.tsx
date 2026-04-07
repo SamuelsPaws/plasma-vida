@@ -1,9 +1,9 @@
 'use client'
 import { motion } from "motion/react";
 import { useState } from "react";
-import { CustomSerum } from "@/lib/models/customSerum";
+import { Product } from "@/lib/models/product";
 
-const ItemBuy = ({ item }: { item: CustomSerum }) => {
+const ItemBuy = ({ item }: { item: Product }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
@@ -43,7 +43,7 @@ const ItemBuy = ({ item }: { item: CustomSerum }) => {
                 <i className="fa fa-times"></i>
               </button>
               <a
-                href={`https://wa.me/+593978774224?text=¡Hola! Me interesa comprar: ${item ? item.name : ''}`}
+                href={`https://wa.me/+593978774224?text=¡Hola! Me interesa comprar: ${item ? item.title : ''}`}
                 target="_blank"
                 className="
                   h-[80%] px-4
@@ -62,7 +62,7 @@ const ItemBuy = ({ item }: { item: CustomSerum }) => {
                 <i className="fa fa-phone"></i>
               </a>
               <a
-                href={`mailto:cpaciente1626@gmail.com?subject=¡Hola! Me interesa comprar: ${item ? item.name : ''}`}
+                href={`mailto:cpaciente1626@gmail.com?subject=¡Hola! Me interesa comprar: ${item ? item.title : ''}`}
                 className="
                   h-[80%] px-4
                   grid place-content-center
