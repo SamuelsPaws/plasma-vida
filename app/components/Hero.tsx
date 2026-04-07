@@ -2,9 +2,9 @@
 import PromotionsCarrousel from "@/components/PromotionsCarrousel"
 import { motion } from "motion/react"
 import Link from "next/link"
-import { CatalogItem } from "@/lib/models/product"
+import { Product } from "@/lib/models/product"
 
-const Hero = ({ promotions }: { promotions: CatalogItem[] }) => {
+const Hero = ({ promotions }: { promotions: Product[] }) => {
   return (
     <div className="
         h-[400px] lg:h-[620px] p-8 lg:p-10 relative
