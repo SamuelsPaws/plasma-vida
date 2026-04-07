@@ -3,12 +3,12 @@ import { useState } from "react"
 import CustomSerumHorV from "./CustomSerumHorV";
 import { motion } from "motion/react";
 import CustomSerumHomeoOption from "./CustomSerumHomeoOption";
-import type { CustomSerum } from "@/lib/models/customSerum";
+import type { Product } from "@/lib/models/product";
 import CustomSerumVitaOption from "./CustomSerumVitaOption";
 
 interface CustomSerumContainerProps {
-    customHomeoSerums: CustomSerum[];
-    customVitaSerums: CustomSerum[];
+    customHomeoSerums: Product[];
+    customVitaSerums: Product[];
 }
 
 const CustomSerumContainer = ({ customHomeoSerums, customVitaSerums }: CustomSerumContainerProps ) => {
@@ -58,7 +58,7 @@ const CustomSerumContainer = ({ customHomeoSerums, customVitaSerums }: CustomSer
                         {customHomeoSerums.map((serum, index) => (
                             <CustomSerumHomeoOption
                                 key={index}
-                                name={serum.name}
+                                name={serum.title}
                                 description={serum.description}
                                 price={serum.price}
                                 slug={serum.slug}
@@ -72,7 +72,7 @@ const CustomSerumContainer = ({ customHomeoSerums, customVitaSerums }: CustomSer
                         {customVitaSerums.map((serum, index) => (
                             <CustomSerumVitaOption
                                 key={index}
-                                name={serum.name}
+                                name={serum.title}
                                 description={serum.description}
                                 price={serum.price}
                                 slug={serum.slug}

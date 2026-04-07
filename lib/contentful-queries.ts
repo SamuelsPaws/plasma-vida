@@ -1,55 +1,20 @@
 import { contentful } from './contentful';
-import { mapCatalogItem, mapCustomHomeoSerum, mapCustomVitaSerum, mapNursingService, mapPromotions } from './contentful-mappers';
-import { CatalogItemFieldsSkeleton, CustomHomeoSerumSkeleton, CustomVitaSerumSkeleton, NursingServiceSkeleton, PromotionSkeleton } from './contentful-types';
+import { mapProduct, mapNursingService } from './contentful-mappers';
+import { ProductSkeleton, NursingServiceSkeleton } from './contentful-types';
 
-export async function getCatalogItems() {
-  const entries = await contentful.getEntries<CatalogItemFieldsSkeleton>({
-    content_type: 'item'
+export async function getProducts() {
+  const entries = await contentful.getEntries<ProductSkeleton>({
+    content_type: 'product'
   });
-  return entries.items.map(mapCatalogItem);
+  return entries.items.map(mapProduct);
 }
 
-export async function getCatalogItemBySlug(slug: string) {
-  const entries = await contentful.getEntries<CatalogItemFieldsSkeleton>({
-    content_type: 'item',
+export async function getProductBySlug(slug: string) {
+  const entries = await contentful.getEntries<ProductSkeleton>({
+    content_type: 'product',
     'fields.slug': slug
   });
-  return entries.items.map(mapCatalogItem)[0];
-}
-
-export async function getCatalogItemEntry(id: string) {
-  const entry = await contentful.getEntry<CatalogItemFieldsSkeleton>(id);
-  return entry;
-}
-
-export async function getCustomHomeoSerumFromSlug(slug: string) {
-  const entries = await contentful.getEntries<CustomHomeoSerumSkeleton>({
-    content_type: 'homeoSerum',
-    'fields.slug': slug
-  });
-  return entries.items.map(mapCustomHomeoSerum)[0];
-}
-
-export async function getCustomVitaSerumFromSlug(slug: string) {
-  const entries = await contentful.getEntries<CustomVitaSerumSkeleton>({
-    content_type: 'vitaSerum',
-    'fields.slug': slug
-  });
-  return entries.items.map(mapCustomVitaSerum)[0];
-}
-
-export async function getCustomHomeoSerums() {
-  const entries = await contentful.getEntries<CustomHomeoSerumSkeleton>({
-    content_type: 'homeoSerum'
-  });
-  return entries.items.map(mapCustomHomeoSerum);
-}
-
-export async function getCustomVitaSerums() {
-  const entries = await contentful.getEntries<CustomVitaSerumSkeleton>({
-    content_type: 'vitaSerum'
-  });
-  return entries.items.map(mapCustomVitaSerum);
+  return entries.items.map(mapProduct)[0];
 }
 
 export async function getNursingServices() {

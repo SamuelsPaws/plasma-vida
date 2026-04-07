@@ -1,4 +1,4 @@
-import { getCatalogItems } from "@/lib/contentful-queries";
+import { getProducts } from "@/lib/contentful-queries";
 import Hero from "./components/Hero";
 import HomeCategoryCard from "./components/HomeCategoryCard";
 import HeroMob from "./components/HeroMob";
@@ -59,8 +59,8 @@ export const metadata: Metadata = {
 };
 
 export default async function Home() {
-  const catalogItems = await getCatalogItems();
-  const promotions = catalogItems.filter(el => el.noPromotionPrice);
+  const products = await getProducts();
+  const promotions = products.filter(el => el.noPromotionPrice);
 
   return (
     <main className="pt-mob-header-height lg:pt-header-height">

@@ -1,32 +1,19 @@
 import numToPriceStr from "@/app/utils/numToPriceStr";
-import { getCustomHomeoSerumFromSlug, getCustomVitaSerumFromSlug } from "@/lib/contentful-queries";
+import { getProductBySlug } from "@/lib/contentful-queries";
 import { Suspense } from "react";
 import SimilarContainer from "../../components/SimilarContainer";
 import ItemBuy from "../../components/ItemBuy";
-import { notFound } from "next/navigation";
-
-const queries = {
-    homeopaticos: getCustomHomeoSerumFromSlug,
-    vitaminicos: getCustomVitaSerumFromSlug,
-} as const;
-
-type ProductType = keyof typeof queries;
 
 type Props = {
     params: Promise<{
-        type: ProductType;
+        type: 'homeopaticos' | 'vitaminicos';
         slug: string;
     }>
 }
 
 export default async function CustomSerumPage({ params }: Props) {
-    const { slug, type } = await params;
-    const fn = queries[type];
-
-    if (!fn) {
-        notFound();
-    }
-    const serum = await fn(slug);
+    const { slug, type } = await params
+    const product = await getProductBySlug(slug)
 
     return (
     <main className="pt-mob-header-height lg:pt-header-height">
@@ -43,12 +30,12 @@ export default async function CustomSerumPage({ params }: Props) {
                 {/* Title */}
                 <h1 className="
                     mb-4 lg:mb-8 text-2xl lg:text-5xl text-center lg:text-left font-bold"
-                >{serum.name}</h1>
+                >{product.title}</h1>
                 {/* Price */}
                 <p className="
                     mb-4 lg:mb-8
                     text-xl lg:text-2xl text-maingold-original font-bold"
-                >${numToPriceStr(serum.price)}</p>
+                >${numToPriceStr(product.price)}</p>
                 {/* Div with image and info */}
                 <div className="
                     w-full relative
@@ -60,7 +47,7 @@ export default async function CustomSerumPage({ params }: Props) {
                         rounded-2xl overflow-hidden"
                     >
                         <img
-                            src={serum.imageURLs[0]}
+                            src={product.imageUrls[0]}
                             className="w-full h-full object-cover"
                             alt=""
                         />
@@ -68,20 +55,23 @@ export default async function CustomSerumPage({ params }: Props) {
                     {/* Right div */}
                     <div className="pb-32 lg:pb-0 lg:flex-1">
                         {/* Long description */}
-                        <p className="text-md text-gray-600">{serum.description}</p>
+                        <p className="text-md text-gray-600">{product.description}</p>
                         {/* Benefits */}
                         <h2 className="
                             py-2 lg:py-4
                             text-xl lg:text-2xl text-sky-700 font-semibold"
                         >Beneficios:</h2>
-                        {serum.benefitsList.map((el, index) => (
+                        {product.descriptionList.map((el, index) => (
                             <p
                                 key={index}
                                 className="mb-1 text-md lg:text-md text-gray-600"
-                            ><i className="fa fa-check mr-1 scale-[0.9]" aria-hidden="true"></i>{el}</p>
+                            >
+                                <i className="fa fa-check mr-1 scale-[0.9]" aria-hidden="true"></i>
+                                {el}
+                            </p>
                         ))}
                     </div>
-                    <ItemBuy item={serum} />
+                    <ItemBuy item={product} />
                 </div>
             </div>
             {/* Side bar */}

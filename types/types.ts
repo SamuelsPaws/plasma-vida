@@ -1,1 +1,1 @@
-export type CatalogItemCategory = 'suero' | 'plasma';
+export type ProductCategory = 'sueroCatalogo' | 'plasmaCatalogo' | 'sueroHomeo' | 'sueroVita';

@@ -1,17 +1,17 @@
 import numToPriceStr from "@/app/utils/numToPriceStr";
-import { getCatalogItems } from "@/lib/contentful-queries";
+import { getProducts } from "@/lib/contentful-queries";
 import Link from "next/link";
 
 export default async function SimilarContainer({ productSlug }: { productSlug: string }) {
-    const items = await getCatalogItems();
-    const similarItems = items.filter(item => item.slug !== productSlug).slice(0, 4);
+    const products = await getProducts();
+    const similarProducts = products.filter(item => item.slug !== productSlug).slice(0, 4);
 
     return (
         <div className="
             w-full flex-1
             flex flex-col justify-start gap-4 lg:gap-6"
         >
-            {similarItems.map((item, index) =>
+            {similarProducts.map((item, index) =>
                 <Link
                     key={index}
                     href={`/catalogo/${item.slug}`}

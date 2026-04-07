@@ -2,7 +2,7 @@
 import PromotionsCarrousel from "@/components/PromotionsCarrousel"
 import { motion } from "motion/react"
 import Link from "next/link"
-import { CatalogItem } from "@/lib/models/catalogItem"
+import { CatalogItem } from "@/lib/models/product"
 
 const Hero = ({ promotions }: { promotions: CatalogItem[] }) => {
   return (

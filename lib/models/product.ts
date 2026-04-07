@@ -1,11 +1,11 @@
-import { CatalogItemCategory } from "@/types/types";
+import { ProductCategory } from "@/types/types";
 
 interface ItemComponentsCategory {
   title: string;
   components: string[];
 }
 
-export interface CatalogItem {
+export interface Product {
   title: string;
   tags: string[];
   description: string;
@@ -16,5 +16,5 @@ export interface CatalogItem {
   noPromotionPrice: number | undefined;
   imageUrls: string[];
   slug: string;
-  category: CatalogItemCategory;
+  category: ProductCategory;
 }

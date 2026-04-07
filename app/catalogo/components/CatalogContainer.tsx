@@ -1,5 +1,5 @@
 'use client'
-import { CatalogItem } from "@/lib/models/catalogItem";
+import { Product } from "@/lib/models/product";
 import { ChangeEvent, SetStateAction, useEffect, useMemo, useRef, useState } from "react";
 import CatalogItemCard from "./CatalogItemCard";
 import TableCategoryFilter from "./TableCategoryFilter";
@@ -8,18 +8,18 @@ import TablePriceSortFilter from "./TablePriceSortFilter";
 import clsx from "clsx";
 
 interface CatalogItemsContainerProps {
-    items: CatalogItem[];
+    items: Product[];
     categoryParam: CategoryParam;
 }
 
 const sortingFns = {
-    ascendingPriceFn: (a: CatalogItem, b: CatalogItem) => {
+    ascendingPriceFn: (a: Product, b: Product) => {
         return a.price - b.price;
     },
-    descendingPriceFn: (a: CatalogItem, b: CatalogItem) => {
+    descendingPriceFn: (a: Product, b: Product) => {
         return b.price - a.price;
     },
-    noSortingFn: (a: CatalogItem, b:CatalogItem) => {
+    noSortingFn: (a: Product, b:Product) => {
         return 1;
     }
 } as const;
@@ -45,7 +45,7 @@ const CatalogContainer = ({ items, categoryParam }: CatalogItemsContainerProps) 
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
     const modalRef = useRef<HTMLDialogElement | null>(null)
 
-    const checkFilters = (el: CatalogItem, fil: Filters): boolean => {
+    const checkFilters = (el: Product, fil: Filters): boolean => {
         const conditions = [
             fil.category ? el.category === fil.category : true,
             el.price >= Math.min(...fil.price) && el.price <= Math.max(...fil.price)

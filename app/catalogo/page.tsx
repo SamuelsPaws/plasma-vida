@@ -1,5 +1,5 @@
 import Banner from "@/components/Banner";
-import { getCatalogItems, getCustomHomeoSerums, getCustomVitaSerums } from "@/lib/contentful-queries";
+import { getProducts } from "@/lib/contentful-queries";
 import CustomSerumContainer from "./components/CustomSerumContainer";
 import CatalogContainer from "./components/CatalogContainer";
 import PromotionsCarrousel from "@/components/PromotionsCarrousel";
@@ -7,10 +7,10 @@ import PromotionsCarrousel from "@/components/PromotionsCarrousel";
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
 
 export default async function Catalog({ searchParams }: { searchParams: SearchParams }) {
-    const catalogItems = await getCatalogItems();
-    const promotions = catalogItems.filter(el => el.noPromotionPrice)
-    const customHomeoSerums = await getCustomHomeoSerums();
-    const customVitaSerums = await getCustomVitaSerums();
+    const products = await getProducts();
+    const promotions = products.filter(el => el.noPromotionPrice)
+    const customHomeoSerums = products.filter(el => el.category === 'sueroHomeo');
+    const customVitaSerums = products.filter(el => el.category === 'sueroVita');
     const params = await searchParams;
 
     return (
@@ -36,7 +36,9 @@ export default async function Catalog({ searchParams }: { searchParams: SearchPa
             <h2 className="
                 mb-12 lg:mb-16
                 text-3xl lg:text-5xl text-center font-bold"
-            >Obtén tu suero personalizado</h2>
+            >
+                Obtén tu suero personalizado
+            </h2>
             <CustomSerumContainer customHomeoSerums={customHomeoSerums} customVitaSerums={customVitaSerums} />
         </section>
         {/* Catalog */}
@@ -52,7 +54,7 @@ export default async function Catalog({ searchParams }: { searchParams: SearchPa
                 text-3xl lg:text-5xl text-center lg:text-left font-semibold"
             >Todos los Productos</h3>
             <CatalogContainer
-                items={catalogItems}
+                items={products.filter(el => el.category !== 'sueroHomeo' && el.category !== 'sueroVita')}
                 categoryParam={params.category}
             />
         </section>

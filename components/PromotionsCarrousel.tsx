@@ -3,7 +3,7 @@ import numToPriceStr from "@/app/utils/numToPriceStr";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import PromotionsDot from "./PromotionsDot";
-import { CatalogItem } from "@/lib/models/catalogItem";
+import { CatalogItem } from "@/lib/models/product";
 import Link from "next/link";
 import getSalePercent from "@/app/utils/getSalePercent";
 

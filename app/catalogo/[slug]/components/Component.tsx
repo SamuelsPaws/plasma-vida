@@ -3,7 +3,7 @@ const Component = ({ text }: { text: string } ) => {
     <div className="
         p-6 lg:p-8
         flex flex-col items-center gap-4
-        bg-white-1 text-sky-600 rounded-2xl"
+        bg-white-1 text-pink-600 rounded-2xl"
     >
         <p className="text-4xl lg:text-5xl">
             <i className="fa fa-medkit" aria-hidden="true"></i>

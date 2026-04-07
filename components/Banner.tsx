@@ -1,7 +1,7 @@
 'use client'
 import { motion } from "motion/react"
 import PromotionsCarrousel from "./PromotionsCarrousel";
-import { CatalogItem } from "@/lib/models/catalogItem";
+import { CatalogItem } from "@/lib/models/product";
 
 interface BannerProps {
     title: string;

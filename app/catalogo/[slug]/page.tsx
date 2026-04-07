@@ -1,11 +1,12 @@
 import numToPriceStr from "@/app/utils/numToPriceStr";
-import { getCatalogItemBySlug } from "@/lib/contentful-queries";
+import { getProductBySlug } from "@/lib/contentful-queries";
 import ItemBuy from "../components/ItemBuy";
 import { Suspense } from "react";
 import SimilarContainer from "../components/SimilarContainer";
 import getSalePercent from "@/app/utils/getSalePercent";
 import ItemHealthTag from "../components/ItemHealthTag";
 import Component from "./components/Component";
+import clsx from "clsx";
 
 type Props = {
     params: Promise<{
@@ -15,11 +16,11 @@ type Props = {
 
 export default async function CatalogItemPage({ params }: Props) {
     const { slug } = await params;
-    const catalogItem = await getCatalogItemBySlug(slug);
-    const descriptionParagraphs = catalogItem.description.split('\n').filter(el => el.length);
-    const longDescriptionParagraphs = catalogItem.longDescription.split('\n').filter(el => el.length);
+    const product = await getProductBySlug(slug);
+    const descriptionParagraphs = product.description.split('\n').filter(el => el.length);
+    const longDescriptionParagraphs = product.longDescription.split('\n').filter(el => el.length);
 
-    console.log(catalogItem);
+    console.log(product);
     
 
     return (
@@ -31,15 +32,15 @@ export default async function CatalogItemPage({ params }: Props) {
             {/* Title */}
             <div className="mb-6 lg:mb-16 flex gap-4 lg:gap-8">
                 <h1 className="text-2xl lg:text-5xl text-center lg:text-left font-bold">
-                    {catalogItem ? catalogItem.title : 'Título'}
+                    {product ? product.title : 'Título'}
                 </h1>
-                {catalogItem && catalogItem.noPromotionPrice &&
+                {product && product.noPromotionPrice &&
                     <div className="
                         px-2 py-0
                         grid place-content-center
                         bg-red-600 text-white-1 text-lg lg:text-3xl"
                     >
-                        -{getSalePercent(catalogItem.noPromotionPrice, catalogItem.price)}%
+                        -{getSalePercent(product.noPromotionPrice, product.price)}%
                     </div>
                 }
             </div>
@@ -51,12 +52,12 @@ export default async function CatalogItemPage({ params }: Props) {
                     bg-white-1 rounded-2xl"
                 >
                     {/* Tags under title */}
-                    {catalogItem && catalogItem.tags &&
+                    {product && product.tags &&
                         <div className="
                             w-full h-10 lg:h-12 mb-6 lg:mb-8
                             flex gap-4 items-stretch"
                         >
-                            {catalogItem.tags.map((el, index) =>
+                            {product.tags.map((el, index) =>
                                 <ItemHealthTag
                                     key={index}
                                     text={el}
@@ -70,9 +71,9 @@ export default async function CatalogItemPage({ params }: Props) {
                         flex gap-2 lg:gap-4
                         text-xl lg:text-2xl"
                     >
-                        <span className="text-maingold-original font-bold">${catalogItem ? numToPriceStr(catalogItem.price) : 'Precio'}</span>
-                        {catalogItem && catalogItem.noPromotionPrice &&
-                            <span className="text-gray-500 crossed-out">${numToPriceStr(catalogItem.noPromotionPrice)}</span>
+                        <span className="text-maingold-original font-bold">${product ? numToPriceStr(product.price) : 'Precio'}</span>
+                        {product && product.noPromotionPrice &&
+                            <span className="text-gray-500 crossed-out">${numToPriceStr(product.noPromotionPrice)}</span>
                         }
                     </p>
                     {/* Div with image and info */}
@@ -86,7 +87,7 @@ export default async function CatalogItemPage({ params }: Props) {
                             rounded-2xl overflow-hidden"
                         >
                             <img
-                                src={catalogItem ? catalogItem.imageUrls[0] : '/assets/hero-img.webp'}
+                                src={product ? product.imageUrls[0] : '/assets/hero-img.webp'}
                                 className="w-full h-full object-cover"
                                 alt=""
                             />
@@ -104,14 +105,14 @@ export default async function CatalogItemPage({ params }: Props) {
                             >
                                 Beneficios:
                             </h2>
-                            {catalogItem ? catalogItem.descriptionList.map((el, index) => (
+                            {product ? product.descriptionList.map((el, index) => (
                                 <p
                                     key={index}
                                     className="mb-1 text-md lg:text-md text-gray-600"
                                 ><i className="fa fa-check mr-1 scale-[0.9]" aria-hidden="true"></i>{el}</p>
                             )) : 'Beneficios'}
                         </div>
-                        <ItemBuy item={catalogItem} />
+                        <ItemBuy item={product} />
                     </div>
                 </div>
                 {/* Side bar */}
@@ -130,7 +131,7 @@ export default async function CatalogItemPage({ params }: Props) {
                             <i className="fa fa-clock-o"></i>
                         </div>
                     }>
-                        <SimilarContainer productSlug={catalogItem ? slug : 'slug'} />
+                        <SimilarContainer productSlug={product ? slug : 'slug'} />
                     </Suspense>
                 </div> 
             </div>
@@ -143,7 +144,7 @@ export default async function CatalogItemPage({ params }: Props) {
             {/* Learn more */}
             <h2 className="mb-8 text-3xl lg:text-4xl font-bold text-mainblue-dark-1">¿Quieres saber más?</h2>
             <div className="p-6 lg:p-8 bg-white-1 rounded-2xl">
-                {catalogItem &&
+                {product &&
                     longDescriptionParagraphs.map((el, index) =>
                         <p
                             key={index}
@@ -156,11 +157,14 @@ export default async function CatalogItemPage({ params }: Props) {
             </div>
             {/* Components */}
             <h3 className="my-8 text-2xl lg:text-3xl font-bold text-mainblue-dark-1">Contiene:</h3>
-            {catalogItem && catalogItem.componentsRefs.length > 1 ?
-                catalogItem.componentsRefs.map((el, index) =>
+            {product && product.componentsRefs.length > 1 ?
+                product.componentsRefs.map((el, index) =>
                     <div
                         key={index}
-                        className="w-full mb-8"
+                        className={clsx(
+                           "w-full",
+                           index !== product.componentsRefs.length - 1 ? 'mb-8' : 'mb-0'
+                        )}
                     >
                         <h4 className="mb-8 text-xl lg:text-2xl text-black font-semibold">{el.title}</h4>
                         <div className="
@@ -181,7 +185,7 @@ export default async function CatalogItemPage({ params }: Props) {
                     w-full
                     grid grid-cols-2 lg:flex gap-6 lg:gap-8 lg:flex-wrap"
                 >
-                    {catalogItem.componentsRefs[0].components.map((el, index) =>
+                    {product.componentsRefs[0].components.map((el, index) =>
                         <Component
                             key={index}
                             text={el}

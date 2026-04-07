@@ -1,5 +1,5 @@
 import type { EntryFieldTypes, EntrySkeletonType } from 'contentful';
-import type { CatalogItemCategory } from '@/types/types';
+import type { ProductCategory } from '@/types/types';
 
 interface ItemComponentsCategoryFields {
   title: EntryFieldTypes.Text;
@@ -8,7 +8,7 @@ interface ItemComponentsCategoryFields {
 
 export type ItemComponentsCategorySkeleton = EntrySkeletonType<ItemComponentsCategoryFields, 'componentCategory'>
 
-export interface CatalogItemFields {
+export interface ProductFields {
   title: EntryFieldTypes.Text;
   tags: EntryFieldTypes.Array<EntryFieldTypes.Symbol>;
   description: EntryFieldTypes.Text;
@@ -19,23 +19,7 @@ export interface CatalogItemFields {
   noPromotionPrice?: EntryFieldTypes.Number;
   images: EntryFieldTypes.Array<EntryFieldTypes.AssetLink>;
   slug: EntryFieldTypes.Text;
-  category: EntryFieldTypes.Symbol<CatalogItemCategory>;
-}
-
-export interface CustomSerumFields {
-  name: EntryFieldTypes.Text;
-  description: EntryFieldTypes.Text;
-  images: EntryFieldTypes.Array<EntryFieldTypes.AssetLink>;
-  price: EntryFieldTypes.Number;
-  slug: EntryFieldTypes.Text;
-  benefitsList: EntryFieldTypes.Array<EntryFieldTypes.Symbol>;
-}
-
-export interface PromotionFields {
-  title: EntryFieldTypes.Text;
-  prevPrice: EntryFieldTypes.Number;
-  currPrice: EntryFieldTypes.Number;
-  images: EntryFieldTypes.Array<EntryFieldTypes.AssetLink>;
+  category: EntryFieldTypes.Symbol<ProductCategory>;
 }
 
 export interface NursingServiceFields {
@@ -45,8 +29,5 @@ export interface NursingServiceFields {
   slug: EntryFieldTypes.Text;
 }
 
-export type CatalogItemFieldsSkeleton = EntrySkeletonType<CatalogItemFields, 'item'>
-export type CustomHomeoSerumSkeleton = EntrySkeletonType<CustomSerumFields, 'homeoSerum'>
-export type CustomVitaSerumSkeleton = EntrySkeletonType<CustomSerumFields, 'vitaSerum'>
-export type PromotionSkeleton = EntrySkeletonType<PromotionFields, 'promotions'>
+export type ProductSkeleton = EntrySkeletonType<ProductFields, 'product'>
 export type NursingServiceSkeleton = EntrySkeletonType<NursingServiceFields, 'nursingService'>

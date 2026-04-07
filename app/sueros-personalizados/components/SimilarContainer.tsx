@@ -1,35 +1,31 @@
 import numToPriceStr from "@/app/utils/numToPriceStr";
-import { getCustomHomeoSerums, getCustomVitaSerums } from "@/lib/contentful-queries";
+import { getProducts } from "@/lib/contentful-queries";
+import { ProductCategory } from "@/types/types";
 import Link from "next/link";
 
-const queries = {
-    homeopaticos: getCustomHomeoSerums,
-    vitaminicos: getCustomVitaSerums,
-} as const;
-
-type ProductType = keyof typeof queries;
+type ProductType = 'homeopaticos' | 'vitaminicos';
 
 interface SimilarContainerProps {
     productSlug: string;
     productType: ProductType;
 }
 
+function mapper(str: ProductType): ProductCategory {
+    if (str === 'homeopaticos') return 'sueroHomeo'
+    if (str === 'vitaminicos') return 'sueroVita'
+    return 'sueroHomeo'
+}
+
 export default async function SimilarContainer({ productSlug, productType }: SimilarContainerProps) {
-    const fn = queries[productType];
-
-    if (!fn) {
-        return <div></div>
-    }
-
-    const items = await fn();
-    const similarItems = items.filter(item => item.slug !== productSlug).slice(0, 4);
+    const products = await getProducts();
+    const similarProducts = products.filter(item => item.category === mapper(productType) && item.slug !== productSlug).slice(0, 4);
 
     return (
         <div className="
             w-full flex-1
             flex flex-col gap-4 lg:gap-4"
         >
-            {similarItems.map((item, index) =>
+            {similarProducts.map((item, index) =>
                 <Link
                     key={index}
                     href={`/sueros-personalizados/${productType}/${item.slug}`}
@@ -44,7 +40,7 @@ export default async function SimilarContainer({ productSlug, productType }: Sim
                         flex-1
                         flex flex-col justify-between"
                     >
-                        <p className="mb-2 text-md text-gray-700 font-semibold">{item.name}</p>
+                        <p className="mb-2 text-md text-gray-700 font-semibold">{item.title}</p>
                         <div className="text-md text-maingold-original font-semibold">${numToPriceStr(item.price)}</div>
                     </div>
                     {/* Image */}

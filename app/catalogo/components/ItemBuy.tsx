@@ -1,9 +1,9 @@
 'use client'
 import { motion } from "motion/react";
 import { useState } from "react";
-import { CatalogItem } from "@/lib/models/catalogItem";
+import { Product } from "@/lib/models/product";
 
-const ItemBuy = ({ item }: { item: CatalogItem }) => {
+const ItemBuy = ({ item }: { item: Product }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
