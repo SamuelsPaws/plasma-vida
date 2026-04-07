@@ -5,10 +5,10 @@ const Component = ({ text }: { text: string } ) => {
         flex flex-col items-center gap-4
         bg-white-1 text-sky-600 rounded-2xl"
     >
-        <p className="text-6xl">
-            <i className="fa fa-tint" aria-hidden="true"></i>
+        <p className="text-4xl lg:text-5xl">
+            <i className="fa fa-medkit" aria-hidden="true"></i>
         </p>
-        <p className="text-xl">{text}</p>
+        <p className="text-lg lg:text-xl">{text}</p>
     </div>
   )
 }

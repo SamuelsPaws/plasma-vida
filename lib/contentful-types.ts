@@ -1,13 +1,20 @@
 import type { EntryFieldTypes, EntrySkeletonType } from 'contentful';
 import type { CatalogItemCategory } from '@/types/types';
 
+interface ItemComponentsCategoryFields {
+  title: EntryFieldTypes.Text;
+  components: EntryFieldTypes.Array<EntryFieldTypes.Symbol>;
+}
+
+export type ItemComponentsCategorySkeleton = EntrySkeletonType<ItemComponentsCategoryFields, 'componentCategory'>
+
 export interface CatalogItemFields {
   title: EntryFieldTypes.Text;
   tags: EntryFieldTypes.Array<EntryFieldTypes.Symbol>;
   description: EntryFieldTypes.Text;
   longDescription: EntryFieldTypes.Text;
-  components: EntryFieldTypes.Array<EntryFieldTypes.Symbol>;
   descriptionList: EntryFieldTypes.Array<EntryFieldTypes.Symbol>;
+  componentsRefs: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<ItemComponentsCategorySkeleton>>;
   price: EntryFieldTypes.Number;
   noPromotionPrice?: EntryFieldTypes.Number;
   images: EntryFieldTypes.Array<EntryFieldTypes.AssetLink>;

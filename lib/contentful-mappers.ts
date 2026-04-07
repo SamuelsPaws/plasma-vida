@@ -1,5 +1,5 @@
 import type { Entry, Asset, UnresolvedLink } from 'contentful';
-import type { CatalogItemFieldsSkeleton, CustomHomeoSerumSkeleton, CustomVitaSerumSkeleton, NursingServiceSkeleton, PromotionSkeleton } from './contentful-types';
+import type { CatalogItemFieldsSkeleton, CustomHomeoSerumSkeleton, CustomVitaSerumSkeleton, ItemComponentsCategorySkeleton, NursingServiceSkeleton, PromotionSkeleton } from './contentful-types';
 import type { CatalogItem } from './models/catalogItem';
 import type { CustomSerum } from './models/customSerum';
 import { Promotion } from './models/promotion';
@@ -9,6 +9,12 @@ function isAsset(
   item: UnresolvedLink<'Asset'> | Asset<undefined, 'en-US'>
 ): item is Asset<undefined, 'en-US'> {
   return item.sys.type === 'Asset';
+}
+
+function isEntry(
+  item: UnresolvedLink<'Entry'> | Entry<ItemComponentsCategorySkeleton, undefined, "en-US">
+): item is Entry<ItemComponentsCategorySkeleton, undefined, "en-US"> {
+  return item.sys.type === 'Entry';
 }
 
 function hasFileUrl(
@@ -31,7 +37,7 @@ export function mapCatalogItem(
     tags: entry.fields.tags,
     description: entry.fields.description,
     longDescription: entry.fields.longDescription,
-    components: entry.fields.components,
+    componentsRefs: entry.fields.componentsRefs.filter(isEntry).map(ref => ref.fields),
     descriptionList: entry.fields.descriptionList,
     price: entry.fields.price,
     noPromotionPrice: entry.fields.noPromotionPrice,

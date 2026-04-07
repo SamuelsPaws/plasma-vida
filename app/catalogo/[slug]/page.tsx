@@ -19,6 +19,9 @@ export default async function CatalogItemPage({ params }: Props) {
     const descriptionParagraphs = catalogItem.description.split('\n').filter(el => el.length);
     const longDescriptionParagraphs = catalogItem.longDescription.split('\n').filter(el => el.length);
 
+    console.log(catalogItem);
+    
+
     return (
     <main className="pt-mob-header-height lg:pt-header-height">
         <section className="
@@ -134,33 +137,55 @@ export default async function CatalogItemPage({ params }: Props) {
             p-6 lg:p-16
             bg-[#ececec]"
         >
-            <h2 className="mb-8 text-4xl font-bold text-mainblue-dark-1">¿Quieres saber más?</h2>
-            <div className="p-8 bg-white-1 rounded-2xl">
+            {/* Learn more */}
+            <h2 className="mb-8 text-3xl lg:text-4xl font-bold text-mainblue-dark-1">¿Quieres saber más?</h2>
+            <div className="p-6 lg:p-8 bg-white-1 rounded-2xl">
                 {catalogItem &&
                     longDescriptionParagraphs.map((el, index) =>
                         <p
                             key={index}
-                            className="mb-2 text-lg"
+                            className="mb-2 text-md lg:text-lg"
                         >
                             {el}
                         </p>
                     )
                 }
             </div>
-            <h3 className="my-8 text-3xl font-bold text-mainblue-dark-1">Contiene:</h3>
-            <div className="
-                w-full
-                grid grid-cols-2 lg:flex gap-6 lg:gap-8 lg:flex-wrap"
-            >
-                {catalogItem &&
-                    catalogItem.components.map((el, index) =>
+            {/* Components */}
+            <h3 className="my-8 text-2xl lg:text-3xl font-bold text-mainblue-dark-1">Contiene:</h3>
+            {catalogItem && catalogItem.componentsRefs.length > 1 ?
+                catalogItem.componentsRefs.map((el, index) =>
+                    <div
+                        key={index}
+                        className="w-full mb-8"
+                    >
+                        <h4 className="mb-8 text-xl lg:text-2xl text-black font-semibold">{el.title}</h4>
+                        <div className="
+                            w-full
+                            grid grid-cols-2 lg:flex gap-6 lg:gap-8 lg:flex-wrap"
+                        >
+                            {el.components.map((compEl, compInd) =>
+                                <Component
+                                    key={compInd}
+                                    text={compEl}
+                                />
+                            )}
+                        </div>
+                    </div>
+                )
+                :
+                <div className="
+                    w-full
+                    grid grid-cols-2 lg:flex gap-6 lg:gap-8 lg:flex-wrap"
+                >
+                    {catalogItem.componentsRefs[0].components.map((el, index) =>
                         <Component
                             key={index}
                             text={el}
                         />
-                    )
-                }
-            </div>
+                    )}
+                </div>
+            }
         </section>
         <section className="h-mob-footer-height lg:h-footer-height bg-[#ececec]"></section>
     </main>
