@@ -54,8 +54,8 @@ export default async function ProductPage({ params }: Props) {
                     {/* Tags under title */}
                     {product && product.tags &&
                         <div className="
-                            w-full h-10 lg:h-12 mb-6 lg:mb-8
-                            flex gap-4 items-stretch"
+                            w-full mb-4 lg:mb-8
+                            flex gap-2 lg:gap-4 justify-start flex-wrap"
                         >
                             {product.tags.map((el, index) =>
                                 <ItemHealthTag
