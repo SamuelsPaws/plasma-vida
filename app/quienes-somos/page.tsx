@@ -2,6 +2,54 @@
 import BannerPages from "@/components/BannerPages"
 import AboutP from "./components/AboutP"
 import ImagesGrid from "./components/ImagesGrid"
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Quiénes Somos | Plasma Vida Center Quito",
+  description:
+    "Conoce Plasma Vida Center, un equipo comprometido con el bienestar integral en Quito. Ofrecemos sueros personalizados, terapias PRP y servicios de enfermería con un enfoque humano, ético y profesional.",
+
+  keywords: [
+    "Plasma Vida Center Quito",
+    "quienes somos Plasma Vida Center",
+    "centro de bienestar Quito",
+    "terapias intravenosas Ecuador",
+    "plasma rico en plaquetas Quito",
+    "enfermería a domicilio Quito"
+  ],
+
+  openGraph: {
+    title: "Quiénes Somos | Plasma Vida Center",
+    description:
+      "Un equipo comprometido con la salud, el bienestar y la atención personalizada en Quito.",
+    url: "https://plasma-vida.vercel.app/quienes-somos",
+    siteName: "Plasma Vida Center",
+    locale: "es_EC",
+    type: "website",
+    images: [
+      {
+        url: "https://plasma-vida.vercel.app/opengraph-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Equipo Plasma Vida Center",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Quiénes Somos | Plasma Vida Center",
+    description:
+      "Conoce nuestro equipo y compromiso con el bienestar integral.",
+    images: ["https://plasma-vida.vercel.app/opengraph-image.jpg"],
+  },
+
+  alternates: {
+    canonical: "https://plasma-vida.vercel.app/quienes-somos",
+  },
+
+  metadataBase: new URL("https://plasma-vida.vercel.app"),
+};
 
 export default function About() {
     return (

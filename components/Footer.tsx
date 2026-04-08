@@ -13,7 +13,7 @@ const Footer = () => {
         >
             <div className="flex flex-col gap-1 lg:gap-4 items-center lg:items-start">
                 <p className="mb-2 text-2xl lg:text-2xl font-bold text-white-1">
-                    Contacto
+                    Contáctanos
                 </p>
                 <p className="text-md lg:text-lg text-white-1/80">
                     Teléfono: <a href={`tel:+593978774224`} className="underline decoration-dotted">097 877 4224</a>
