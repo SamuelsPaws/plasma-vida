@@ -8,11 +8,39 @@ import ItemHealthTag from "../components/ItemHealthTag";
 import Component from "./components/Component";
 import clsx from "clsx";
 import { Metadata } from "next";
+import { Product } from "@/lib/models/product";
+import truncateText from "@/app/utils/truncateText";
 
 type Props = {
     params: Promise<{
         slug: string
     }>
+}
+
+function buildTitle(product: Product) {
+  const productName = product.title;
+
+  if (product.category === "sueroCatalogo") {
+    return `${productName} - Suero para ${product.tags?.[0] ?? "Bienestar"} | Plasma Vida Center`;
+  }
+
+  if (product.category === "plasmaCatalogo") {
+    return `${productName} - Terapia PRP en Ecuador | Plasma Vida Center`;
+  }
+
+  return `${productName} | Plasma Vida Center`;
+}
+
+function buildDescription(product: Product) {
+  const base = truncateText(product.description, 120)
+
+  const benefits = product.descriptionList?.slice(0, 2).join(", ")
+
+  if (benefits) {
+    return `${base} Beneficios clave: ${benefits}.`
+  }
+
+  return base
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -29,25 +57,41 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         };
     }
 
+    const title = buildTitle(product)
+    const description = buildDescription(product)
+    const url = `https://plasma-vida.vercel.app/catalogo/${slug}`
+    const productImg = product.imageUrls[0]
+    const defaultOGImg = 'https://plasma-vida.vercel.app/opengraph-image.jpg'
+
     return {
-        title: `${product.title} | Plasma Vida Center`,
-        description: product.description,
+        title,
+        description,
         openGraph: {
-            title: product.title,
-            description: product.description,
-            url: `https://plasma-vida.vercel.app/catalogo/${slug}`,
+            title,
+            description,
+            url,
+            siteName: 'Plasma Vida Center',
+            locale: 'es_EC',
+            type: 'website',
             images: [
-            {
-                url: product.imageUrls[0],
-                width: 1200,
-                height: 630,
-            },
+                {
+                    url: productImg ?? defaultOGImg,
+                    width: 1200,
+                    height: 630,
+                    alt: product.title
+                },
             ],
         },
-        alternates: {
-            canonical: `https://plasma-vida.vercel.app/catalogo/${slug}`,
+        twitter: {
+            card: "summary_large_image",
+            title,
+            description,
+            images: [productImg ?? defaultOGImg],
         },
-    };
+        alternates: {
+            canonical: url,
+        },
+    }
 }
 
 export default async function ProductPage({ params }: Props) {
