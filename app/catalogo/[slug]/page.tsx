@@ -59,7 +59,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     const title = buildTitle(product)
     const description = buildDescription(product)
-    console.log(description);
     const url = `https://plasma-vida.vercel.app/catalogo/${slug}`
     // const productImg = product.imageUrls[0]
     const defaultOGImg = 'https://plasma-vida.vercel.app/opengraph-image.jpg'
