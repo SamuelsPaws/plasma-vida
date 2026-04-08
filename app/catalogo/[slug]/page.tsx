@@ -18,26 +18,26 @@ type Props = {
 }
 
 function buildTitle(product: Product) {
-  const productName = product.title;
+  const productName = product.title
 
   if (product.category === "sueroCatalogo") {
-    return `${productName} - Suero para ${product.tags?.[0] ?? "Bienestar"} | Plasma Vida Center`;
+    return `${productName} - Suero para ${product.tags?.[0] ?? "Bienestar"} | Plasma Vida Center`
   }
 
   if (product.category === "plasmaCatalogo") {
-    return `${productName} - Terapia PRP en Ecuador | Plasma Vida Center`;
+    return `${productName} - Terapia PRP en Ecuador | Plasma Vida Center`
   }
 
-  return `${productName} | Plasma Vida Center`;
+  return `${productName} | Plasma Vida Center`
 }
 
 function buildDescription(product: Product) {
-  const base = truncateText(product.description, 120)
+  const base = truncateText(product.description, 100)
 
   const benefits = product.descriptionList?.slice(0, 2).join(", ")
 
   if (benefits) {
-    return `${base} Beneficios clave: ${benefits}.`
+    return `${base} ${benefits}.`
   }
 
   return base
@@ -54,7 +54,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
                 index: false,
                 follow: false,
             },
-        };
+        }
     }
 
     const title = buildTitle(product)
@@ -75,7 +75,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             type: 'website',
             images: [
                 {
-                    url: productImg ?? defaultOGImg,
+                    url: defaultOGImg,
                     width: 1200,
                     height: 630,
                     alt: product.title
@@ -86,7 +86,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             card: "summary_large_image",
             title,
             description,
-            images: [productImg ?? defaultOGImg],
+            images: [defaultOGImg],
         },
         alternates: {
             canonical: url,
