@@ -1,4 +1,3 @@
-'use client'
 import BannerPages from "@/components/BannerPages"
 import AboutP from "./components/AboutP"
 import ImagesGrid from "./components/ImagesGrid"
