@@ -7,6 +7,7 @@ import getSalePercent from "@/app/utils/getSalePercent";
 import ItemHealthTag from "../components/ItemHealthTag";
 import Component from "./components/Component";
 import clsx from "clsx";
+import { Metadata } from "next";
 
 type Props = {
     params: Promise<{
@@ -14,14 +15,46 @@ type Props = {
     }>
 }
 
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const { slug } = await params
+    const product = await getProductBySlug(slug)
+
+    if (!product) {
+        return {
+            title: "Producto no encontrado | Plasma Vida Center",
+            robots: {
+                index: false,
+                follow: false,
+            },
+        };
+    }
+
+    return {
+        title: `${product.title} | Plasma Vida Center`,
+        description: product.description,
+        openGraph: {
+            title: product.title,
+            description: product.description,
+            url: `https://plasma-vida.vercel.app/catalogo/${slug}`,
+            images: [
+            {
+                url: product.imageUrls[0],
+                width: 1200,
+                height: 630,
+            },
+            ],
+        },
+        alternates: {
+            canonical: `https://plasma-vida.vercel.app/catalogo/${slug}`,
+        },
+    };
+}
+
 export default async function ProductPage({ params }: Props) {
     const { slug } = await params;
     const product = await getProductBySlug(slug);
     const descriptionParagraphs = product.description.split('\n').filter(el => el.length);
     const longDescriptionParagraphs = product.longDescription.split('\n').filter(el => el.length);
-
-    console.log(product);
-    
 
     return (
     <main className="pt-mob-header-height lg:pt-header-height">
@@ -169,7 +202,7 @@ export default async function ProductPage({ params }: Props) {
                         <h4 className="mb-8 text-xl lg:text-2xl text-black font-semibold">{el.title}</h4>
                         <div className="
                             w-full
-                            grid grid-cols-2 lg:flex gap-6 lg:gap-8 lg:flex-wrap"
+                            grid grid-cols-2 lg:flex gap-6 lg:gap-4 lg:flex-wrap"
                         >
                             {el.components.map((compEl, compInd) =>
                                 <Component

@@ -1,13 +1,17 @@
 const Component = ({ text }: { text: string } ) => {
   return (
     <div className="
-        p-6 lg:p-8
+        p-6 lg:px-6 lg:py-4
         flex flex-col items-center gap-4
-        bg-white-1 text-pink-600 rounded-2xl"
+        bg-white-1 text-teal-600 font-semibold rounded-full"
     >
-        <p className="text-4xl lg:text-5xl">
-            <i className="fa fa-medkit" aria-hidden="true"></i>
-        </p>
+        {/* <div className="w-24 h-10 lg:h-24">
+          <img
+            src="/assets/dropper.png"
+            className="w-full h-full object-contain"
+            alt="ícono de suero"
+          />
+        </div> */}
         <p className="text-lg lg:text-xl">{text}</p>
     </div>
   )

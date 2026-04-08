@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   publisher: "Plasma Vida Center",
 
   openGraph: {
-    title: "Plasma Vida Center - Siéntete mejor y cuida tu salud.",
+    title: "Plasma Vida Center - Siéntete bien y cuida tu salud.",
     description:
       "Terapias avanzadas de bienestar: sueros IV, PRP y atención de enfermería a domicilio con enfoque profesional y personalizado.",
     url: "https://plasma-vida.vercel.app/", // Canonical
