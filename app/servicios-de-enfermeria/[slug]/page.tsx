@@ -3,11 +3,33 @@ import { getNursingServiceBySlug } from "@/lib/contentful-queries";
 import ItemRequest from "../components/ItemRequest";
 import { Suspense } from "react";
 import SimilarContainer from "../components/SimilarContainer";
+import { Metadata } from "next";
+import { elderlyMetadata } from "./metadata/elderlyMetadata";
+import { preHospMetadata } from "./metadata/preHospMetadata";
+import { postHospMetadata } from "./metadata/postHospMetadata";
+import { disabilityMetadata } from "./metadata/disabilityMetadata";
 
 type Props = {
     params: Promise<{
         slug: string
     }>
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const { slug } = await params
+
+    if (slug === 'adulto-mayor') return elderlyMetadata;
+    if (slug === 'cuidado-prehospitalario') return preHospMetadata;
+    if (slug === 'cuidado-posthospitalario') return postHospMetadata;
+    if (slug === 'cuidado-discapacidad') return disabilityMetadata;
+
+    return {
+        title: "Servicio no encontrado | Plasma Vida Center",
+        robots: {
+            index: false,
+            follow: false,
+        },
+    }
 }
 
 export default async function ServiceItemPage({ params }: Props) {
