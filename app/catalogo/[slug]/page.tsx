@@ -95,10 +95,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function ProductPage({ params }: Props) {
-    const { slug } = await params;
-    const product = await getProductBySlug(slug);
-    const descriptionParagraphs = product.description.split('\n').filter(el => el.length);
-    const longDescriptionParagraphs = product.longDescription.split('\n').filter(el => el.length);
+    const { slug } = await params
+    const product = await getProductBySlug(slug)
+    const descriptionParagraphs = product.description.split('\n').filter(el => el.length)
+    const longDescriptionParagraphs = product.longDescription.split('\n').filter(el => el.length)
 
     return (
     <main className="pt-mob-header-height lg:pt-header-height">
@@ -121,14 +121,14 @@ export default async function ProductPage({ params }: Props) {
                     </div>
                 }
             </div>
-            {/* White part and side bar */}
+            {/* Product and side bar */}
             <div className="flex flex-col lg:flex-row gap-8">
                 {/* White part with product */}
                 <div className="
                     w-full lg:w-[70%] p-4 lg:p-8
                     bg-white-1 rounded-2xl"
                 >
-                    {/* Tags under title */}
+                    {/* Tags */}
                     {product && product.tags &&
                         <div className="
                             w-full mb-4 lg:mb-8
@@ -214,8 +214,9 @@ export default async function ProductPage({ params }: Props) {
             </div>
             
         </section>
+        {/* More info section */}
         <section className="
-            p-6 lg:p-16
+            p-6 lg:px-16 lg:pt-8 lg:pb-16
             bg-[#ececec]"
         >
             {/* Learn more */}
