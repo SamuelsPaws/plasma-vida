@@ -7,16 +7,98 @@ import getSalePercent from "@/app/utils/getSalePercent";
 import ItemHealthTag from "@/app/catalogo/components/ItemHealthTag";
 import clsx from "clsx";
 import Component from "./components/Component";
+import { Product } from "@/lib/models/product";
+import truncateText from "@/app/utils/truncateText";
+import { Metadata } from "next";
+
+type ProductType = 'homeopaticos' | 'vitaminicos';
 
 type Props = {
     params: Promise<{
-        type: 'homeopaticos' | 'vitaminicos';
-        slug: string;
+        type: ProductType,
+        slug: string
     }>
 }
 
+function buildTitle(product: Product) {
+  const productName = product.title
+
+  if (product.category === 'sueroHomeo') {
+    return `${productName} - Suero homeopático para ${product.tags?.[0] ?? "Bienestar"} | Plasma Vida Center`
+  }
+
+  if (product.category === 'sueroVita') {
+    return `${productName} - Suero vitamínico para ${product.tags?.[0] ?? "Bienestar"} | Plasma Vida Center`
+  }
+
+  return `${productName} | Plasma Vida Center`
+}
+
+function buildDescription(product: Product) {
+  const base = truncateText(product.description, 100)
+
+  const benefits = product.descriptionList?.slice(0, 2).join(", ")
+
+  if (benefits) {
+    return `${base} ${benefits}.`
+  }
+
+  return base
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const { type, slug } = await params
+    const product = await getProductBySlug(slug)
+
+    if (!product) {
+        return {
+            title: "Producto no encontrado | Plasma Vida Center",
+            robots: {
+                index: false,
+                follow: false,
+            },
+        }
+    }
+
+    const title = buildTitle(product)
+    const description = buildDescription(product)
+    const url = `https://plasma-vida.vercel.app/sueros-personalizados/${type}/${slug}`
+    // const productImg = product.imageUrls[0]
+    const defaultOGImg = 'https://plasma-vida.vercel.app/opengraph-image.jpg'
+
+    return {
+        title,
+        description,
+        openGraph: {
+            title,
+            description,
+            url,
+            siteName: 'Plasma Vida Center',
+            locale: 'es_EC',
+            type: 'website',
+            images: [
+                {
+                    url: defaultOGImg,
+                    width: 1200,
+                    height: 630,
+                    alt: product.title
+                },
+            ],
+        },
+        twitter: {
+            card: "summary_large_image",
+            title,
+            description,
+            images: [defaultOGImg],
+        },
+        alternates: {
+            canonical: url,
+        },
+    }
+}
+
 export default async function CustomSerumPage({ params }: Props) {
-    const { slug, type } = await params
+    const { type, slug } = await params
     const product = await getProductBySlug(slug)
     const descriptionParagraphs = product.description.split('\n').filter(el => el.length)
     const longDescriptionParagraphs = product.longDescription.split('\n').filter(el => el.length)
