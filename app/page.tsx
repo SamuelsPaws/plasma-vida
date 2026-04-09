@@ -6,7 +6,7 @@ import PromotionsCarrousel from "@/components/PromotionsCarrousel";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Inicio - Plasma Vida Center",
+  title: "Mejora tu salud con terapias avanzadas de bienestar - Plasma Vida Center",
   description:
     "Plasma Vida Center ofrece terapias avanzadas de bienestar como sueros intravenosos, plasma rico en plaquetas (PRP) y servicios de enfermería a domicilio. Mejora tu salud con atención profesional, segura y personalizada.",
   keywords: [
