@@ -109,7 +109,7 @@ export default async function ProductPage({ params }: Props) {
         >
             {/* Title */}
             <div className="mb-6 lg:mb-16 flex gap-4 lg:gap-8">
-                <h1 className="text-2xl lg:text-5xl text-center lg:text-left font-bold">
+                <h1 className="text-2xl lg:text-5xl text-center lg:text-left font-semibold">
                     {product ? product.title : 'Título'}
                 </h1>
                 {product && product.noPromotionPrice &&
@@ -164,13 +164,13 @@ export default async function ProductPage({ params }: Props) {
                             {/* Price */}
                             <div className="
                                 w-full mb-4 lg:mb-8
-                                flex gap-2 lg:gap-4 lg:justify-start
+                                flex gap-2 lg:gap-4 lg:justify-start items-center
                                 text-xl lg:text-3xl"
                             >
                                 <span className="
                                     px-2 py-2
                                     bg-maingold-original
-                                    text-white-1 font-bold"
+                                    text-white-1 font-semibold"
                                 >
                                     ${product ? numToPriceStr(product.price) : 'Precio'}
                                 </span>
@@ -226,12 +226,13 @@ export default async function ProductPage({ params }: Props) {
         </section>
         {/* More info section */}
         <section className="
-            p-6 lg:px-16 lg:pt-8 lg:pb-16
+            p-6 lg:px-16 lg:pt-0 lg:pb-16
             bg-[#ececec]"
         >
             {/* Learn more */}
-            <h2 className="mb-8 text-3xl lg:text-4xl font-bold text-mainblue-dark-1">¿Quieres saber más?</h2>
+            <h2 className="mb-8 lg:mb-16 text-3xl lg:text-4xl font-semibold text-mainblue-dark-1">¿Quieres saber más?</h2>
             <div className="p-6 lg:p-8 bg-white-1 rounded-2xl">
+                <h3 className="mb-2 text-2xl font-bold">Información adicional</h3>
                 {product &&
                     longDescriptionParagraphs.map((el, index) =>
                         <p

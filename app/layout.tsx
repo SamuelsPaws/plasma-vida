@@ -1,24 +1,14 @@
 import type { Metadata } from "next";
-import { Poppins, Geist, Geist_Mono } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import clsx from "clsx";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
 const poppins = Poppins({
-  weight: '400',
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+  subsets: ['latin'],
+  weight: ['400', '600', '700'],
+})
 
 export const metadata: Metadata = {
   title: "Plasma Vida Center",
@@ -37,7 +27,7 @@ export default function RootLayout({
       </head>
       <body
         className={clsx(
-          geistSans.className,
+          poppins.className,
           'relative'
         )}
       >
