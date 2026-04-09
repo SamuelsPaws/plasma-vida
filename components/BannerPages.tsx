@@ -6,9 +6,9 @@ const BannerPages = ({ title }: { title: string }) => {
     <div className="
         h-[216px] lg:h-[380px] p-8 lg:p-10 relative
         grid grid-cols-[80%_1fr] lg:grid-cols-2 gap-0
-        bg-[url('/assets/hero-img.webp')] bg-cover lg:bg-position-[0_-164px]
+        bg-[url('/assets/banner.webp')] bg-cover lg:bg-position-[0_-164px]
         before:content-[''] before:absolute before:inset-0
-        before:bg-[linear-gradient(to_right,#0009_60%,#0004)] lg:before:bg-[linear-gradient(to_right,#0009_30%,#0000)]"
+        before:bg-[linear-gradient(to_right,#0009_60%,#0004)] lg:before:bg-[linear-gradient(to_right,#0008_30%,#0001)]"
     >
         {/* Left div */}
         <div className="lg:p-6 flex flex-col justify-end">

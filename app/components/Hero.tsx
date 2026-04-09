@@ -11,12 +11,12 @@ const Hero = ({ promotions }: { promotions: Product[] }) => {
         hidden lg:grid grid-cols-2 gap-0
         bg-[url('/assets/hero-img.webp')] bg-size-[120%] lg:bg-position-[0_-180px]
         before:content-[''] before:absolute before:inset-0
-        before:bg-[linear-gradient(to_right,#fffd_40%,#0000)]"
+        before:bg-[linear-gradient(to_right,#fffe_40%,#0000)]"
     >
         {/* Left div */}
-        <div className="lg:p-6 flex flex-col justify-center items-center gap-8 relative">
+        <div className="lg:p-6 flex flex-col justify-center items-center gap-6 relative">
             <motion.h1
-                className="text-5xl text-sky-700 text-left font-bold leading-16"
+                className="text-5xl text-sky-700 text-center font-bold leading-16"
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
@@ -24,7 +24,10 @@ const Hero = ({ promotions }: { promotions: Product[] }) => {
                 Te escuchamos, te entendemos y cuidamos de ti de forma natural.
             </motion.h1>
             <motion.p
-                className="text-md lg:text-lg text-gray-600"
+                className="w-[80%] text-md lg:text-lg text-gray-600 text-center"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
             >
                 Mejora tu salud con terapias avanzadas de bienestar utilizando sueros intravenosos y plasma rico en plaquetas (PRP). Explora nuestros servicios de enfermería a domicilio con atención profesional, segura y personalizada.
             </motion.p>
