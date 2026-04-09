@@ -21,11 +21,12 @@ function buildTitle(product: Product) {
   const productName = product.title
 
   if (product.category === "sueroCatalogo") {
-    return `${productName} - Suero para ${product.tags?.[0] ?? "Bienestar"} | Plasma Vida Center`
+    // return `${productName} - Suero para ${product.tags?.[0] ?? "Bienestar"} | Plasma Vida Center`
+    return `${productName} - Suero Intravenoso | Plasma Vida Center`
   }
 
   if (product.category === "plasmaCatalogo") {
-    return `${productName} - Terapia PRP en Ecuador | Plasma Vida Center`
+    return `${productName} - Terapia PRP en Quito | Plasma Vida Center`
   }
 
   return `${productName} | Plasma Vida Center`
@@ -121,6 +122,20 @@ export default async function ProductPage({ params }: Props) {
                     </div>
                 }
             </div>
+            {/* Tags */}
+            {product && product.tags &&
+                <div className="
+                    w-full mb-4 lg:mb-8
+                    flex gap-2 lg:gap-4 justify-start flex-wrap"
+                >
+                    {product.tags.map((el, index) =>
+                        <ItemHealthTag
+                            key={index}
+                            text={el}
+                        />
+                    )}
+                </div>
+            }
             {/* Product and side bar */}
             <div className="flex flex-col lg:flex-row gap-8">
                 {/* White part with product */}
@@ -128,31 +143,6 @@ export default async function ProductPage({ params }: Props) {
                     w-full lg:w-[70%] p-4 lg:p-8
                     bg-white-1 rounded-2xl"
                 >
-                    {/* Tags */}
-                    {product && product.tags &&
-                        <div className="
-                            w-full mb-4 lg:mb-8
-                            flex gap-2 lg:gap-4 justify-start flex-wrap"
-                        >
-                            {product.tags.map((el, index) =>
-                                <ItemHealthTag
-                                    key={index}
-                                    text={el}
-                                />
-                            )}
-                        </div>
-                    }
-                    {/* Price */}
-                    <p className="
-                        mb-4 lg:mb-8
-                        flex gap-2 lg:gap-4
-                        text-xl lg:text-2xl"
-                    >
-                        <span className="text-maingold-original font-bold">${product ? numToPriceStr(product.price) : 'Precio'}</span>
-                        {product && product.noPromotionPrice &&
-                            <span className="text-gray-500 crossed-out">${numToPriceStr(product.noPromotionPrice)}</span>
-                        }
-                    </p>
                     {/* Div with image and info */}
                     <div className="
                         w-full relative
@@ -171,6 +161,23 @@ export default async function ProductPage({ params }: Props) {
                         </div>
                         {/* Right div */}
                         <div className="pb-32 lg:pb-0 lg:flex-1">
+                            {/* Price */}
+                            <div className="
+                                w-full mb-4 lg:mb-8
+                                flex gap-2 lg:gap-4 justify-end
+                                text-xl lg:text-3xl"
+                            >
+                                <span className="
+                                    px-2 py-2
+                                    bg-maingold-original
+                                    text-white-1 font-bold"
+                                >
+                                    ${product ? numToPriceStr(product.price) : 'Precio'}
+                                </span>
+                                {product && product.noPromotionPrice &&
+                                    <span className="text-gray-500 crossed-out">${numToPriceStr(product.noPromotionPrice)}</span>
+                                }
+                            </div>
                             {/* Long description */}
                             {descriptionParagraphs.map((el, index) =>
                                 <p key={index} className="mb-2 text-md lg:text-lg text-gray-600">{el}</p>

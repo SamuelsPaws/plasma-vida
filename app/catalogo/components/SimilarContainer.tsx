@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default async function SimilarContainer({ productSlug }: { productSlug: string }) {
     const products = await getProducts();
-    const similarProducts = products.filter(item => item.slug !== productSlug).slice(0, 4);
+    const similarProducts = products.filter(item => item.slug !== productSlug).slice(0, 3);
 
     return (
         <div className="
