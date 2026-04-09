@@ -7,10 +7,7 @@ const ItemBuy = ({ item }: { item: Product }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
-    <div className="
-      absolute right-0 bottom-0
-      h-12 lg:h-12"
-    >
+    <div className="h-12 lg:h-12">
       {!isOpen &&
         <button
           onClick={() => setIsOpen(true)}
@@ -24,16 +21,16 @@ const ItemBuy = ({ item }: { item: Product }) => {
         <motion.div
           className="
             h-full pr-2
-            border border-gray-300 rounded-md"
+            border border-gray-600 rounded-md"
           initial={{ width: 0 }}
           animate={{ width: 'auto' }}
-          transition={{ duration: 0.4 }}
+          transition={{ duration: 0.3 }}
         >
           <motion.div
             className="w-full h-full flex items-center gap-2 lg:gap-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.2, delay: 0.4 }}
+            transition={{ duration: 0.2, delay: 0.3 }}
           >
             <button
               onClick={() => setIsOpen(false)}

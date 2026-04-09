@@ -137,7 +137,7 @@ export default async function ProductPage({ params }: Props) {
                 </div>
             }
             {/* Product and side bar */}
-            <div className="flex flex-col lg:flex-row gap-8">
+            <div className="flex flex-col lg:flex-row lg:items-start gap-8">
                 {/* White part with product */}
                 <div className="
                     w-full lg:w-[70%] p-4 lg:p-8
@@ -145,26 +145,26 @@ export default async function ProductPage({ params }: Props) {
                 >
                     {/* Div with image and info */}
                     <div className="
-                        w-full relative
+                        w-full mb-4 lg:mb-8
                         flex flex-col lg:flex-row gap-4 lg:gap-8"
                     >
                         {/* Image */}
                         <div className="
-                            w-full lg:w-1/2 h-[300px] lg:h-auto lg:aspect-square
+                            w-full h-[300px] lg:w-[400px] lg:h-[400px] 
                             rounded-2xl overflow-hidden"
                         >
                             <img
-                                src={product ? product.imageUrls[0] : '/assets/hero-img.webp'}
+                                src={product ? product.imageUrls[0] : '/assets/banner.webp'}
                                 className="w-full h-full object-cover"
                                 alt=""
                             />
                         </div>
                         {/* Right div */}
-                        <div className="pb-32 lg:pb-0 lg:flex-1">
+                        <div className="lg:flex-1">
                             {/* Price */}
                             <div className="
                                 w-full mb-4 lg:mb-8
-                                flex gap-2 lg:gap-4 justify-end
+                                flex gap-2 lg:gap-4 lg:justify-start
                                 text-xl lg:text-3xl"
                             >
                                 <span className="
@@ -196,6 +196,9 @@ export default async function ProductPage({ params }: Props) {
                                 ><i className="fa fa-check mr-1 scale-[0.9]" aria-hidden="true"></i>{el}</p>
                             )) : 'Beneficios'}
                         </div>
+                    </div>
+                    {/* Div contains itembuy for positioning */}
+                    <div className="w-full flex justify-end">
                         <ItemBuy item={product} />
                     </div>
                 </div>
