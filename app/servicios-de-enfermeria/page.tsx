@@ -67,7 +67,7 @@ export default async function Services() {
                     'Nuestro compromiso es cuidar de tus seres queridos con calidez y responsabilidad, para que tú tengas la tranquilidad de que están en las mejores manos.'
                 ]}
                 href="/servicios-de-enfermeria/adulto-mayor"
-                linkText="Ver más"
+                linkText="Solicitar"
                 imageUrl="/assets/elderly.svg"
             />
             <div className="h-12 lg:h-24"></div>
@@ -78,7 +78,7 @@ export default async function Services() {
                     'Nuestro compromiso es promover la autonomía, el bienestar y la calidad de vida, con un trato humano, respetuoso y cercano, para que tú y tus seres queridos tengan total tranquilidad.'
                 ]}
                 href="/servicios-de-enfermeria/cuidado-discapacidad"
-                linkText="Ver más"
+                linkText="Solicitar"
                 imageUrl="/assets/disability.svg"
             />
             <div className="h-12 lg:h-24"></div>
@@ -89,7 +89,7 @@ export default async function Services() {
                     'Nuestro equipo está capacitado para actuar con rapidez y precisión, estabilizando al paciente y asegurando su bienestar en momentos críticos, con un enfoque humano que brinda tranquilidad al paciente y sus familiares.',
                 ]}
                 href="/servicios-de-enfermeria/cuidado-prehospitalario"
-                linkText="Ver más"
+                linkText="Solicitar"
                 imageUrl="/assets/prehospital.svg"
             />
             <div className="h-12 lg:h-24"></div>
@@ -100,7 +100,7 @@ export default async function Services() {
                     'Brindamos atención personalizada para asegurar una transición segura, cómoda y supervisada, reduciendo riesgos y favoreciendo una recuperación adecuada en casa.'
                 ]}
                 href="/servicios-de-enfermeria/cuidado-posthospitalario"
-                linkText="Ver más"
+                linkText="Solicitar"
                 imageUrl="/assets/posthospital.svg"
             />
         </section>

@@ -94,7 +94,7 @@ const ServiceCategoryCard = ({ title, descriptionParagraphs, href, linkText, ima
                 href={href}
                 className="
                     px-6 py-4
-                    bg-teal-600
+                    bg-teal-500
                     text-md lg:text-xl text-white-1 rounded-full"
             >
                 {linkText}<i className="fa fa-arrow-right scale-90 ml-2"></i>

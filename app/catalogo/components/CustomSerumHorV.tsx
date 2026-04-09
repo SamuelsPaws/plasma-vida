@@ -16,11 +16,17 @@ const CustomSerumHorV = ({ name, isHomeo, setIsHomeo, thisHomeo }: CustomSerumHo
         setIsSelected(coincides);
     }, [isHomeo]);
 
+    const handleClick = () => {
+        if (isSelected) {
+            setIsHomeo(null)
+        } else {
+            setIsHomeo(thisHomeo)
+        }
+    }
+
   return (
     <div
-        onClick={() => {
-            setIsHomeo(thisHomeo);
-        }}
+        onClick={handleClick}
         className={clsx(
             'flex-1 text-md lg:text-xl',
             'grid place-content-center cursor-pointer duration-200',
