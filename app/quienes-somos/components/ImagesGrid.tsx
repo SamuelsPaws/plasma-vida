@@ -47,6 +47,27 @@ const ImagesGrid = () => {
                 alt="El equipo de Plasma Vida Center"
             />
         </motion.div>
+        <motion.div
+            className="w-[110%] h-[110%] place-self-start rounded-2xl overflow-hidden z-10"
+            initial={{
+                opacity: 0,
+                x: -20
+            }}
+            animate={{
+                opacity: 1,
+                x: 0
+            }}
+            transition={{
+                duration: 0.4,
+                delay: 0.4
+            }}
+        >
+            <img
+                src="/assets/scientist.svg"
+                className="w-full h-full object-contain"
+                alt="El equipo de Plasma Vida Center"
+            />
+        </motion.div>
     </div>
   )
 }
