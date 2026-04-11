@@ -19,9 +19,9 @@ const ImagesGrid = () => {
             }}
         >
             <img
-                src="/assets/hero-img.webp"
-                className="w-full h-full object-cover"
-                alt=""
+                src="/assets/elderly.svg"
+                className="w-full h-full object-contain"
+                alt="El equipo de Plasma Vida Center"
             />
         </motion.div>
         <div></div>
@@ -42,9 +42,9 @@ const ImagesGrid = () => {
             }}
         >
             <img
-                src="/assets/hero-img.webp"
-                className="w-full h-full object-cover"
-                alt=""
+                src="/assets/prehospital.svg"
+                className="w-full h-full object-contain"
+                alt="El equipo de Plasma Vida Center"
             />
         </motion.div>
     </div>
