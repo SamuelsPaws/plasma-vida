@@ -1,7 +1,6 @@
 import { getProducts } from "@/lib/contentful-queries";
 import Hero from "./components/Hero";
 import HomeCategoryCard from "./components/HomeCategoryCard";
-import HeroMob from "./components/HeroMob";
 import PromotionsCarrousel from "@/components/PromotionsCarrousel";
 import { Metadata } from "next";
 
@@ -65,14 +64,6 @@ export default async function Home() {
   return (
     <main className="pt-mob-header-height lg:pt-header-height">
       <Hero promotions={promotions} />
-      <HeroMob />
-      {/* Mobile carrousel section */}
-      <section className="lg:hidden h-[400px] px-6 py-12 bg-[#e2e2e2]">
-          <PromotionsCarrousel
-              promotions={promotions}
-              className="h-full w-full mx-auto py-0 relative"
-          />
-      </section>
       <section className="
         min-h-[300px] px-6 lg:px-12 py-12 lg:py-16 relative
         bg-white-1"
