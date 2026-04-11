@@ -185,17 +185,17 @@ export default async function ProductPage({ params }: Props) {
                                     <span className="text-gray-500 crossed-out">${numToPriceStr(product.noPromotionPrice)}</span>
                                 }
                             </div>
-                            {/* Long description */}
+                            {/* Short description */}
                             {descriptionParagraphs.map((el, index) =>
                                 <p key={index} className="mb-2 text-md lg:text-lg text-gray-600">{el}</p>
                             )}
                             {/* Benefits */}
-                            <h2 className="
+                            <h3 className="
                                 py-2 lg:py-4
                                 text-xl lg:text-2xl text-sky-700 font-bold"
                             >
                                 Beneficios:
-                            </h2>
+                            </h3>
                             {product ? product.descriptionList.map((el, index) => (
                                 <p
                                     key={index}
@@ -211,10 +211,12 @@ export default async function ProductPage({ params }: Props) {
                 </div>
                 {/* Side bar */}
                 <div className="
-                    lg:flex-1 p-4 lg:p-8 flex flex-col
+                    lg:flex-1 p-4 lg:p-4 flex flex-col
                     bg-white-1 rounded-2xl"
                 >
-                    <h3 className="mb-4 text-lg lg:text-xl font-bold">Explora productos similares</h3>
+                    <h4 className="mb-4 text-lg lg:text-2xl font-bold">
+                        Explora productos similares
+                    </h4>
                     <Suspense fallback={
                         <div className="
                             w-full h-16
@@ -237,7 +239,9 @@ export default async function ProductPage({ params }: Props) {
             bg-[#ececec]"
         >
             {/* Learn more */}
-            <h2 className="mb-8 lg:mb-16 text-3xl lg:text-4xl font-semibold text-mainblue-dark-1">¿Quieres saber más?</h2>
+            <h2 className="mb-8 lg:mb-16 text-3xl lg:text-4xl font-semibold text-mainblue-dark-1">
+                ¿Quieres saber más?
+            </h2>
             {/* Div with white blocks */}
             <div className="flex flex-col lg:flex-row justify-start gap-6 lg:gap-8">
                 <div className="
@@ -245,18 +249,26 @@ export default async function ProductPage({ params }: Props) {
                     p-6 lg:p-8
                     bg-white-1 rounded-2xl"
                 >
-                    <h3 className="mb-2 text-2xl font-bold">Información adicional</h3>
-                    <p className="text-md lg:text-lg text-gray-600">Nuestro suero pre y postquirúrgico cuenta con una combinación orientada a acompañar procesos funcionales relacionados con preparación quirúrgica, recuperación tisular, soporte físico y bienestar general, promoviendo una sensación de estabilidad y recuperación progresiva.</p>
+                    <h4 className="mb-2 text-2xl font-bold">
+                        Información adicional
+                    </h4>
+                    <p className="text-md lg:text-lg text-gray-600">
+                        {product.longDescription}
+                    </p>
                 </div>
                 <div className="w-full lg:w-[500px] p-6 lg:p-8 bg-white-1 rounded-2xl">
-                    <h3 className="mb-2 text-2xl font-bold">Ideal para:</h3>
+                    <h4 className="mb-2 text-2xl font-bold">
+                        Ideal para:
+                    </h4>
                     {product && product.idealFor.map((el, index) =>
                         <IdealItem key={index} text={el} />
                     )}
                 </div>
             </div>
             {/* Components */}
-            <h3 className="my-8 text-2xl lg:text-3xl font-bold text-mainblue-dark-1">Contiene:</h3>
+            <h3 className="my-8 text-2xl lg:text-3xl font-bold text-mainblue-dark-1">
+                Contiene:
+            </h3>
             {product && product.componentsRefs.length > 1 ?
                 product.componentsRefs.map((el, index) =>
                     <div
@@ -266,7 +278,9 @@ export default async function ProductPage({ params }: Props) {
                            index !== product.componentsRefs.length - 1 ? 'mb-8' : 'mb-0'
                         )}
                     >
-                        <h4 className="mb-8 text-xl lg:text-2xl text-black font-semibold">{el.title}</h4>
+                        <h4 className="mb-8 text-xl lg:text-2xl text-black font-semibold">
+                            {el.title}
+                        </h4>
                         <div className="
                             w-full
                             grid grid-cols-2 lg:flex gap-6 lg:gap-4 lg:flex-wrap"

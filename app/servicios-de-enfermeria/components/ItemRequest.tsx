@@ -7,10 +7,7 @@ const ItemRequest = ({ item }: { item: NursingService }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
-    <div className="
-      absolute right-0 bottom-0
-      h-12 lg:h-12"
-    >
+    <div className="h-12 lg:h-12">
       {!isOpen &&
         <button
           onClick={() => setIsOpen(true)}

@@ -53,7 +53,7 @@ export default async function ServiceItemPage({ params }: Props) {
             >
                 {/* Title */}
                 <h1 className="
-                    mb-4 lg:mb-4 text-2xl lg:text-5xl text-center lg:text-left font-bold"
+                    mb-4 lg:mb-8 text-2xl lg:text-5xl text-center lg:text-left font-bold"
                 >
                     {serviceItem.title}
                 </h1>
@@ -66,12 +66,14 @@ export default async function ServiceItemPage({ params }: Props) {
                 </p>
                 {/* Div with image and info */}
                 <div className="
-                    w-full relative
+                    w-full mb-4 lg:mb-8 relative
                     flex flex-col lg:flex-row gap-4 lg:gap-8"
                 >
                     {/* Image */}
                     <div className="
-                        w-full lg:w-1/2 lg:aspect-square h-[400px] lg:h-auto
+                        w-full h-[300px]
+                        lg:w-[360px] lg:h-[360px]
+                        xl:w-[440px] xl:h-[440px]
                         rounded-2xl overflow-hidden"
                     >
                         <img
@@ -84,22 +86,29 @@ export default async function ServiceItemPage({ params }: Props) {
                     <div className="pb-32 lg:pb-0 lg:flex-1">
                         {/* Long description */}
                         {descriptionParagraphs.map((el, index) =>
-                            <p key={index} className="mb-2 text-sm text-gray-600">{el}</p>
+                            <p key={index} className="mb-2 text-sm lg:text-lg text-gray-600">
+                                {el}
+                            </p>
                         )}
                         {/* Benefits */}
                         <h2 className="
-                            py-2 lg:py-2
-                            text-lg lg:text-xl text-sky-700 font-semibold"
-                        >Garantizamos:</h2>
+                            py-2 lg:py-4
+                            text-lg lg:text-2xl text-sky-700 font-semibold"
+                        >
+                            Garantizamos:
+                        </h2>
                         {serviceItem.benefitsList.map((el, index) => (
                             <p
                                 key={index}
-                                className="mb-1 text-sm lg:text-md text-gray-600"
+                                className="mb-1 text-sm lg:text-lg text-gray-600"
                             >
                                 <i className="fa fa-check mr-1 scale-[0.9]" aria-hidden="true"></i>{el}
                             </p>
                         ))}
                     </div>
+                </div>
+                {/* Div contains itemrequest for positioning */}
+                <div className="w-full flex justify-end">
                     <ItemRequest item={serviceItem} />
                 </div>
             </div>
@@ -107,7 +116,9 @@ export default async function ServiceItemPage({ params }: Props) {
                 lg:flex-1 p-4 lg:p-8 flex flex-col
                 bg-white-1 rounded-2xl"
             >
-                <h3 className="mb-4 text-lg lg:text-xl font-bold">Explora servicios similares</h3>
+                <h3 className="mb-4 lg:mb-8 text-lg lg:text-2xl font-bold">
+                    Explora servicios similares
+                </h3>
                 <Suspense fallback={
                     <div className="
                         w-full h-16

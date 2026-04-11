@@ -48,18 +48,18 @@ export default async function Services() {
     return (
     <main className="pt-mob-header-height lg:pt-header-height">
         <BannerPages
-            title="Servicios de Enfermería"
+            title="Servicios de Enfermería a Domicilio en Quito"
         />
         <section className="
             min-h-[300px] px-6 lg:px-12 py-12 lg:py-16 relative
             bg-white-1"
         >
-            <h3 className="
+            <h2 className="
                 mb-12 lg:mb-16
                 text-3xl lg:text-5xl text-center font-bold"
             >
                 Te ofrecemos servicios a domicilio en Quito
-            </h3>
+            </h2>
             <ServiceCategoryCard
                 title="Cuidado al adulto mayor"
                 descriptionParagraphs={[
@@ -70,7 +70,7 @@ export default async function Services() {
                 linkText="Solicitar"
                 imageUrl="/assets/elderly.svg"
             />
-            <div className="h-12 lg:h-24"></div>
+            <div className="h-12 lg:h-28"></div>
             <ServiceCategoryCard
                 title="Cuidado a personas con discapacidad"
                 descriptionParagraphs={[
@@ -81,7 +81,7 @@ export default async function Services() {
                 linkText="Solicitar"
                 imageUrl="/assets/disability.svg"
             />
-            <div className="h-12 lg:h-24"></div>
+            <div className="h-12 lg:h-28"></div>
             <ServiceCategoryCard
                 title="Cuidado prehospitalario"
                 descriptionParagraphs={[
@@ -92,7 +92,7 @@ export default async function Services() {
                 linkText="Solicitar"
                 imageUrl="/assets/prehospital.svg"
             />
-            <div className="h-12 lg:h-24"></div>
+            <div className="h-12 lg:h-28"></div>
             <ServiceCategoryCard
                 title="Cuidado posthospitalario"
                 descriptionParagraphs={[

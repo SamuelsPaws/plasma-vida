@@ -19,12 +19,12 @@ const CustomSerumContainer = ({ customHomeoSerums, customVitaSerums }: CustomSer
         w-full lg:w-[640px] p-6 lg:p-8 mx-auto
         bg-white-1 rounded-2xl"
     >
-        <p className="
+        <h3 className="
             mb-6 lg:mb-8
             font-semibold text-center text-xl lg:text-2xl text-gray-800"
         >
             Escoge las opciones que se adaptan a tus necesidades
-        </p>
+        </h3>
         <p className="mb-4 text-gray-600 text-md lg:text-lg">Me interesa un suero:</p>
         {/* Div with HorV */}
         <div className="w-full h-12 lg:h-16 flex gap-4 lg:gap-8">

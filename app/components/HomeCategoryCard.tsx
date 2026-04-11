@@ -54,12 +54,12 @@ const HomeCategoryCard = ({ title, descriptionParagraphs, href, linkText, imageU
             variants={itemVariants}
         >
             {/* Title */}
-            <h4 className="
+            <h3 className="
                 text-3xl lg:text-4xl
                 text-sky-800 text-center font-bold"
             >
                 {title}
-            </h4>
+            </h3>
             {/* Image */}
             <div className="
                 w-full h-[300px]

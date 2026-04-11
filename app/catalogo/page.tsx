@@ -55,7 +55,7 @@ export default async function Catalog({ searchParams }: { searchParams: SearchPa
     <main className="pt-mob-header-height lg:pt-header-height">
         {/* Banner */}
         <Banner
-            title="Nuestro Catálogo"
+            title="Catálogo de Sueros y Plasma Rico en Plaquetas"
             subheadline={null}
             promotions={promotions}
         />
@@ -73,7 +73,7 @@ export default async function Catalog({ searchParams }: { searchParams: SearchPa
         >
             <h2 className="
                 mb-12 lg:mb-16
-                text-3xl lg:text-5xl text-center font-bold"
+                text-3xl lg:text-4xl text-center font-bold"
             >
                 Obtén tu suero personalizado
             </h2>
@@ -87,10 +87,12 @@ export default async function Catalog({ searchParams }: { searchParams: SearchPa
             {/* Navigation target */}
             <div id="productos" className="absolute left-0 -top-header-height"></div>
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[1px] bg-black/20"></div>
-            <h3 className="
+            <h2 className="
                 mb-12 lg:mb-16
                 text-3xl lg:text-5xl text-center lg:text-left font-semibold"
-            >Todos los Productos</h3>
+            >
+                Todos los Productos
+            </h2>
             <CatalogContainer
                 items={products.filter(el => el.category !== 'sueroHomeo' && el.category !== 'sueroVita')}
                 categoryParam={params.category}

@@ -26,7 +26,9 @@ export default async function SimilarContainer({ productSlug }: { productSlug: s
                         flex-1
                         flex flex-col justify-between"
                     >
-                        <p className="mb-2 text-md text-gray-700 font-semibold">{item.title}</p>
+                        <h4 className="mb-2 text-md text-gray-700 font-semibold">
+                            {item.title}
+                        </h4>
                     </div>
                     {/* Image */}
                     <div className="

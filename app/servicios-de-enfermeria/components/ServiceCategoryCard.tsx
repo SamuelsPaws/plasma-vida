@@ -49,21 +49,20 @@ const ServiceCategoryCard = ({ title, descriptionParagraphs, href, linkText, ima
         <motion.div
             className="
                 flex-1 lg:min-w-[300px]
-                flex flex-col items-center justify-center gap-4"
+                flex flex-col items-center justify-center gap-4 lg:gap-8"
             variants={itemVariants}
         >
             {/* Title */}
-            <h4 className="
+            <h3 className="
                 text-2xl lg:text-4xl
                 text-sky-800 text-center font-bold"
             >
                 {title}
-            </h4>
+            </h3>
             {/* Image */}
             <div className="
-                w-full lg:w-auto
-                h-[300px] lg:h-auto
-                lg:w-full lg:max-w-[380px] lg:aspect-square
+                w-full h-[300px]
+                lg:w-[380px] lg:h-[380px]
                 rounded-2xl overflow-hidden"
             >
                 <img

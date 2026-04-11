@@ -21,7 +21,7 @@ const CustomSerumVitaOption = ({ name, description, price, slug }: CustomSerumVi
             flex-1 lg:group-hover:pl-2 duration-200
             flex flex-col gap-1 lg:gap-2"
         >
-            <p className="text-md lg:text-lg text-sky-600 font-semibold">{name}</p>
+            <h3 className="text-md lg:text-lg text-sky-600 font-semibold">{name}</h3>
             <p className="text-md lg:text-md text-maingold-original font-semibold">${numToPriceStr(price)}</p>
             <p className="text-sm text-gray-600">{description}</p>
         </div>

@@ -23,7 +23,7 @@ const Banner = ({ title, subheadline, promotions }: BannerProps) => {
             <motion.h1
                 className="
                     relative
-                    text-4xl lg:text-7xl text-white-1 font-bold"
+                    text-2xl lg:text-5xl text-white-1 font-bold leading-16"
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}

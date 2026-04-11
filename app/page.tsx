@@ -68,7 +68,9 @@ export default async function Home() {
         min-h-[300px] px-6 lg:px-12 py-12 lg:py-16 relative
         bg-white-1"
       >
-        <h3 className="mb-12 lg:mb-24 text-3xl lg:text-5xl text-center font-bold">En Plasma Vida Center encontrarás:</h3>
+        <h2 className="mb-12 lg:mb-24 text-3xl lg:text-5xl text-center font-bold">
+          En Plasma Vida Center encontrarás:
+        </h2>
         {/* Service types (suero, plasma, enfermería) */}
         <HomeCategoryCard
           title="Sueroterapia"

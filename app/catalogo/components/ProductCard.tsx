@@ -43,7 +43,9 @@ const ProductCard = ({ imgUrl, title, descriptionList, price, noPromotionPrice, 
         >
             {/* Div with title and benefits */}
             <div className="w-full">
-                <p className="lg:mb-2 text-lg lg:text-xl font-bold">{title}</p>
+                <h3 className="lg:mb-2 text-lg lg:text-xl font-bold">
+                    {title}
+                </h3>
                 {descriptionList.slice(0, 3).map((el, index) => (
                     <p
                         key={index}
