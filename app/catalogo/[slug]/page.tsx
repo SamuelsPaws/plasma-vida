@@ -12,6 +12,7 @@ import { Product } from "@/lib/models/product";
 import truncateText from "@/app/utils/truncateText";
 import IdealItem from "./components/IdealItem";
 import Image from "next/image";
+import Link from "next/link";
 
 type Props = {
     params: Promise<{
@@ -101,16 +102,43 @@ export default async function ProductPage({ params }: Props) {
     const { slug } = await params
     const product = await getProductBySlug(slug)
     const descriptionParagraphs = product.description.split('\n').filter(el => el.length)
-    const longDescriptionParagraphs = product.longDescription.split('\n').filter(el => el.length)
+    // const longDescriptionParagraphs = product.longDescription.split('\n').filter(el => el.length)
+
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        name: product.title,
+        description: product.description,
+        audience: "Usuarios de suero IV y terapias PRP",
+        offers: {
+            "@type": "Offer",
+            price: product.price / 100,
+            priceCurrency: "USD",
+            availability: "https://schema.org/InStock",
+        },
+    }
 
     return (
     <main className="pt-mob-header-height lg:pt-header-height">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <section className="
-            min-h-[400px] p-6 lg:p-16
+            min-h-[400px] p-6 lg:px-16 lg:py-8
             bg-[#ececec]"
         >
+            <Link
+                href="/catalogo#productos"
+                className="
+                    flex items-center gap-4
+                    text-2xl text-gray-600"
+            >
+                <i className="fa fa-arrow-left"></i>
+                <span>Volver al Catálogo</span>
+            </Link>
             {/* Title */}
-            <div className="mb-6 lg:mb-16 flex gap-4 lg:gap-8">
+            <div className="mb-6 lg:my-16 flex gap-4 lg:gap-8">
                 <h1 className="text-2xl lg:text-5xl text-center lg:text-left font-bold">
                     {product ? product.title : 'Título'}
                 </h1>

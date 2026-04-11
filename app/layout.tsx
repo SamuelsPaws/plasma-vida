@@ -15,6 +15,14 @@ export const metadata: Metadata = {
   description: "Cuidamos tu salud de forma natural.",
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Plasma Vida Center",
+  url: "https://plasma-vida.vercel.app",
+  logo: "https://plasma-vida.vercel.app/assets/logo.png",
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -31,6 +39,10 @@ export default function RootLayout({
           'relative'
         )}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <Header />
         {children}
         <Footer />
