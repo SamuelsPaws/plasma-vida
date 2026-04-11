@@ -2,6 +2,7 @@ import Link from "next/link";
 import numToPriceStr from "../../utils/numToPriceStr";
 import clsx from "clsx";
 import getSalePercent from "@/app/utils/getSalePercent";
+import Image from "next/image";
 
 interface ProductCardProps {
     imgUrl: string;
@@ -17,16 +18,22 @@ const ProductCard = ({ imgUrl, title, descriptionList, price, noPromotionPrice, 
 
   return (
     <div className="
-        w-full h-[420px] lg:h-[540px] p-4 lg:p-6 place-self-center
+        w-full h-[420px] lg:h-[540px] place-self-center
+        p-4 lg:p-6
         flex flex-col gap-2 lg:gap-6
         bg-white-1 rounded-2xl shadow-sm"
     >
         {/* Div with image */}
-        <div className="h-[50%] lg:h-[55%] rounded-2xl overflow-hidden">
-            <img
-            src={imgUrl}
-            className="w-full h-full object-cover drag-none"
-            alt=""
+        <div className="
+            w-full h-[50%] lg:h-[55%] relative
+            rounded-2xl overflow-hidden"
+        >
+            <Image
+                src={imgUrl}
+                fill
+                sizes="100%"
+                className="object-cover drag-none"
+                alt={title}
             />
         </div>
         {/* Div with title, desc, price and button */}

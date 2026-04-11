@@ -10,6 +10,8 @@ import clsx from "clsx";
 import { Metadata } from "next";
 import { Product } from "@/lib/models/product";
 import truncateText from "@/app/utils/truncateText";
+import IdealItem from "./components/IdealItem";
+import Image from "next/image";
 
 type Props = {
     params: Promise<{
@@ -109,7 +111,7 @@ export default async function ProductPage({ params }: Props) {
         >
             {/* Title */}
             <div className="mb-6 lg:mb-16 flex gap-4 lg:gap-8">
-                <h1 className="text-2xl lg:text-5xl text-center lg:text-left font-semibold">
+                <h1 className="text-2xl lg:text-5xl text-center lg:text-left font-bold">
                     {product ? product.title : 'Título'}
                 </h1>
                 {product && product.noPromotionPrice &&
@@ -150,13 +152,18 @@ export default async function ProductPage({ params }: Props) {
                     >
                         {/* Image */}
                         <div className="
-                            w-full h-[300px] lg:w-[400px] lg:h-[400px] 
-                            rounded-2xl overflow-hidden"
+                            w-full h-[300px]
+                            lg:w-[320px] lg:h-[320px]
+                            xl:w-[400px] xl:h-[400px]
+                            rounded-2xl overflow-hidden relative"
                         >
-                            <img
+                            <Image
                                 src={product ? product.imageUrls[0] : '/assets/banner.webp'}
-                                className="w-full h-full object-cover"
-                                alt=""
+                                fill
+                                sizes="(min-width: 1280px) 320px, (min-width: 1024px) 400px, 100%"
+                                priority
+                                className="object-cover"
+                                alt={product ? product.title : 'Imagen no disponible'}
                             />
                         </div>
                         {/* Right div */}
@@ -185,7 +192,7 @@ export default async function ProductPage({ params }: Props) {
                             {/* Benefits */}
                             <h2 className="
                                 py-2 lg:py-4
-                                text-xl lg:text-2xl text-sky-700 font-semibold"
+                                text-xl lg:text-2xl text-sky-700 font-bold"
                             >
                                 Beneficios:
                             </h2>
@@ -231,18 +238,22 @@ export default async function ProductPage({ params }: Props) {
         >
             {/* Learn more */}
             <h2 className="mb-8 lg:mb-16 text-3xl lg:text-4xl font-semibold text-mainblue-dark-1">¿Quieres saber más?</h2>
-            <div className="p-6 lg:p-8 bg-white-1 rounded-2xl">
-                <h3 className="mb-2 text-2xl font-bold">Información adicional</h3>
-                {product &&
-                    longDescriptionParagraphs.map((el, index) =>
-                        <p
-                            key={index}
-                            className="mb-2 text-md lg:text-lg"
-                        >
-                            {el}
-                        </p>
-                    )
-                }
+            {/* Div with white blocks */}
+            <div className="flex flex-col lg:flex-row justify-start gap-6 lg:gap-8">
+                <div className="
+                    w-full lg:w-[500px]
+                    p-6 lg:p-8
+                    bg-white-1 rounded-2xl"
+                >
+                    <h3 className="mb-2 text-2xl font-bold">Información adicional</h3>
+                    <p className="text-md lg:text-lg text-gray-600">Nuestro suero pre y postquirúrgico cuenta con una combinación orientada a acompañar procesos funcionales relacionados con preparación quirúrgica, recuperación tisular, soporte físico y bienestar general, promoviendo una sensación de estabilidad y recuperación progresiva.</p>
+                </div>
+                <div className="w-full lg:w-[500px] p-6 lg:p-8 bg-white-1 rounded-2xl">
+                    <h3 className="mb-2 text-2xl font-bold">Ideal para:</h3>
+                    {product && product.idealFor.map((el, index) =>
+                        <IdealItem key={index} text={el} />
+                    )}
+                </div>
             </div>
             {/* Components */}
             <h3 className="my-8 text-2xl lg:text-3xl font-bold text-mainblue-dark-1">Contiene:</h3>

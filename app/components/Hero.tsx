@@ -40,7 +40,7 @@ const Hero = ({ promotions }: { promotions: Product[] }) => {
         </div>
         {/* Right div */}
         <div className="relative flex flex-col justify-center items-center gap-8">
-            <h2 className="text-3xl font-bold text-sky-700">Aprovecha nuestras promociones</h2>
+            <h2 className="text-3xl font-bold text-black">Aprovecha nuestras promociones</h2>
             <PromotionsCarrousel
                 promotions={promotions}
                 className="w-[480px] h-[380px] relative"

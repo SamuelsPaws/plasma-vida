@@ -12,6 +12,7 @@ export interface Product {
   longDescription: string;
   componentsRefs: ItemComponentsCategory[];
   descriptionList: string[];
+  idealFor: string[];
   price: number;
   noPromotionPrice: number | undefined;
   imageUrls: string[];

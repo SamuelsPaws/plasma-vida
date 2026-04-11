@@ -14,6 +14,7 @@ export interface ProductFields {
   description: EntryFieldTypes.Text;
   longDescription: EntryFieldTypes.Text;
   descriptionList: EntryFieldTypes.Array<EntryFieldTypes.Symbol>;
+  idealFor: EntryFieldTypes.Array<EntryFieldTypes.Symbol>;
   componentsRefs: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<ItemComponentsCategorySkeleton>>;
   price: EntryFieldTypes.Number;
   noPromotionPrice?: EntryFieldTypes.Number;

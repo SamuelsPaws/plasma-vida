@@ -6,6 +6,7 @@ import PromotionsDot from "./PromotionsDot";
 import { Product } from "@/lib/models/product";
 import Link from "next/link";
 import getSalePercent from "@/app/utils/getSalePercent";
+import Image from "next/image";
 
 type Interval = ReturnType<typeof setInterval>;
 
@@ -73,11 +74,17 @@ const PromotionsCarrousel = ({ promotions, className }: PromotionsCarrouselProps
                 {/* Div with image, price and button */}
                 <div className="h-[200px] lg:h-[180px] flex">
                     {/* Image */}
-                    <div className="w-[70%] h-full self-center rounded-2xl overflow-hidden">
-                        <img
+                    <div className="
+                        w-[70%] h-full
+                        self-center relative
+                        rounded-2xl overflow-hidden"
+                    >
+                        <Image
                             src={promotions[index].imageUrls[0]}
-                            className="w-full h-full object-cover"
-                            alt=""
+                            fill
+                            sizes="70%"
+                            className="object-cover"
+                            alt={promotions[index].title}
                         />
                     </div>
                     {/* Div with price and button */}

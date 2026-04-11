@@ -38,9 +38,10 @@ export function mapProduct(
     longDescription: entry.fields.longDescription,
     componentsRefs: entry.fields.componentsRefs.filter(isEntry).map(ref => ref.fields),
     descriptionList: entry.fields.descriptionList,
+    idealFor: entry.fields.idealFor,
     price: entry.fields.price,
     noPromotionPrice: entry.fields.noPromotionPrice,
-    imageUrls: entry.fields.images.filter(isAsset).filter(hasFileUrl).map(img => img.fields.file.url),
+    imageUrls: entry.fields.images.filter(isAsset).filter(hasFileUrl).map(img => `https:${img.fields.file.url}`),
     slug: entry.fields.slug,
     category: productCategoryMapper(entry.fields.category)
   };

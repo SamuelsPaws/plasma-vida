@@ -1,5 +1,6 @@
 'use client'
 import { motion, stagger } from "motion/react";
+import Image from "next/image";
 import Link from "next/link";
 
 interface HomeCategoryCardProps {
@@ -61,15 +62,16 @@ const HomeCategoryCard = ({ title, descriptionParagraphs, href, linkText, imageU
             </h4>
             {/* Image */}
             <div className="
-                w-full lg:w-auto
-                h-[300px] lg:h-auto
-                lg:w-full lg:max-w-[340px] lg:aspect-square
-                rounded-2xl overflow-hidden"
+                w-full h-[300px]
+                lg:w-full lg:h-auto lg:max-w-[340px] lg:aspect-square
+                rounded-2xl relative"
             >
-                <img
+                <Image
                     src={imageUrl}
-                    className="w-full h-full object-contain"
-                    alt=""
+                    fill
+                    sizes="(min-width: 1024px) 340px, 100%)"
+                    className="object-contain"
+                    alt={title}
                 />
             </div>
         </motion.div>

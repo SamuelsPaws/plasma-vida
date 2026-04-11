@@ -1,10 +1,13 @@
 import numToPriceStr from "@/app/utils/numToPriceStr";
 import { getProducts } from "@/lib/contentful-queries";
+import Image from "next/image";
 import Link from "next/link";
 
 export default async function SimilarContainer({ productSlug }: { productSlug: string }) {
     const products = await getProducts();
-    const similarProducts = products.filter(item => item.slug !== productSlug).slice(0, 3);
+    const similarProducts = products.filter(item =>
+        item.category !== 'sueroHomeo' && item.category !== 'sueroVita' && item.slug !== productSlug
+    ).slice(0, 4);
 
     return (
         <div className="
@@ -31,11 +34,13 @@ export default async function SimilarContainer({ productSlug }: { productSlug: s
                     </div>
                     {/* Image */}
                     <div className="
-                        h-20 lg:h-24 aspect-square
-                        rounded-2xl overflow-hidden"
+                        w-20 lg:w-20 aspect-square
+                        rounded-2xl overflow-hidden relative"
                     >
-                        <img
+                        <Image
                             src={item.imageUrls[0]}
+                            fill
+                            sizes="(min-width: 1024px) 80px, 80px"
                             className="w-full h-full object-cover"
                             alt=""
                         />

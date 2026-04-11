@@ -7,7 +7,7 @@ import clsx from "clsx";
 
 const poppins = Poppins({
   subsets: ['latin'],
-  weight: ['400', '600', '700'],
+  weight: ['400', '600'],
 })
 
 export const metadata: Metadata = {
