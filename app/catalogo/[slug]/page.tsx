@@ -131,20 +131,20 @@ export default async function ProductPage({ params }: Props) {
             <Link
                 href="/catalogo#productos"
                 className="
-                    flex items-center gap-4
-                    text-2xl text-gray-600"
+                    flex items-center gap-2 lg:gap-4
+                    text-md lg:text-2xl text-gray-600"
             >
                 <i className="fa fa-arrow-left"></i>
                 <span>Volver al Catálogo</span>
             </Link>
             {/* Title */}
-            <div className="mb-6 lg:my-16 flex gap-4 lg:gap-8">
-                <h1 className="text-2xl lg:text-5xl text-center lg:text-left font-bold">
+            <div className="my-8 lg:my-16 flex gap-4 lg:gap-8">
+                <h1 className="text-2xl lg:text-5xl text-left font-bold">
                     {product ? product.title : 'Título'}
                 </h1>
                 {product && product.noPromotionPrice &&
                     <div className="
-                        px-2 py-0
+                        px-2 py-2 self-center
                         grid place-content-center
                         bg-red-600 text-white-1 text-lg lg:text-3xl"
                     >
