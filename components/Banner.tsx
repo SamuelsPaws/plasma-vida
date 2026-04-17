@@ -23,7 +23,7 @@ const Banner = ({ title, subheadline, promotions }: BannerProps) => {
             <motion.h1
                 className="
                     relative
-                    text-2xl lg:text-5xl text-white-1 font-bold leading-10 lg:leading-16"
+                    text-2xl lg:text-5xl text-white-1 font-bold leading-8 lg:leading-16"
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
@@ -36,7 +36,9 @@ const Banner = ({ title, subheadline, promotions }: BannerProps) => {
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.3 }}
-                >Te escuchamos, te entendemos y cuidamos de ti de forma natural.</motion.p>
+                >
+                    Te escuchamos, te entendemos y cuidamos de ti de forma natural.
+                </motion.p>
             }
         </div>
         {/* <BannerPromotions

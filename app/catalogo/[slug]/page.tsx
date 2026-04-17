@@ -134,17 +134,17 @@ export default async function ProductPage({ params }: Props) {
                     flex items-center gap-2 lg:gap-4
                     text-md lg:text-2xl text-gray-600"
             >
-                <i className="fa fa-arrow-left"></i>
+                <i className="fa fa-arrow-left scale-75"></i>
                 <span>Volver al Catálogo</span>
             </Link>
             {/* Title */}
-            <div className="my-8 lg:my-16 flex gap-4 lg:gap-8">
+            <div className="my-8 lg:my-16 flex gap-4 lg:gap-8 items-center">
                 <h1 className="text-2xl lg:text-5xl text-left font-bold">
                     {product ? product.title : 'Título'}
                 </h1>
                 {product && product.noPromotionPrice &&
                     <div className="
-                        px-2 py-2 self-center
+                        px-2 py-2
                         grid place-content-center
                         bg-red-600 text-white-1 text-lg lg:text-3xl"
                     >
@@ -215,7 +215,7 @@ export default async function ProductPage({ params }: Props) {
                             </div>
                             {/* Short description */}
                             {descriptionParagraphs.map((el, index) =>
-                                <p key={index} className="mb-2 text-md lg:text-lg text-gray-600">{el}</p>
+                                <p key={index} className="mb-2 text-sm lg:text-lg text-gray-600">{el}</p>
                             )}
                             {/* Benefits */}
                             <h3 className="
@@ -227,7 +227,7 @@ export default async function ProductPage({ params }: Props) {
                             {product ? product.descriptionList.map((el, index) => (
                                 <p
                                     key={index}
-                                    className="mb-1 text-md lg:text-md text-gray-600"
+                                    className="mb-1 text-sm lg:text-lg text-gray-600"
                                 ><i className="fa fa-check mr-1 scale-[0.9]" aria-hidden="true"></i>{el}</p>
                             )) : 'Beneficios'}
                         </div>
@@ -277,7 +277,7 @@ export default async function ProductPage({ params }: Props) {
                     p-6 lg:p-8
                     bg-white-1 rounded-2xl"
                 >
-                    <h4 className="mb-2 text-2xl font-bold">
+                    <h4 className="mb-2 text-xl lg:text-2xl font-bold">
                         Información adicional
                     </h4>
                     <p className="text-md lg:text-lg text-gray-600">
@@ -285,7 +285,7 @@ export default async function ProductPage({ params }: Props) {
                     </p>
                 </div>
                 <div className="w-full lg:w-[500px] p-6 lg:p-8 bg-white-1 rounded-2xl">
-                    <h4 className="mb-2 text-2xl font-bold">
+                    <h4 className="mb-2 text-xl lg:text-2xl font-bold">
                         Ideal para:
                     </h4>
                     {product && product.idealFor.map((el, index) =>
