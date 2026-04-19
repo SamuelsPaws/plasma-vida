@@ -1,7 +1,7 @@
 import { getProducts } from "@/lib/contentful-queries";
 import Hero from "./components/Hero";
 import HomeCategoryCard from "./components/HomeCategoryCard";
-import PromotionsCarrousel from "@/components/PromotionsCarrousel";
+import PromotionsCarousel from "@/components/PromotionsCarousel";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

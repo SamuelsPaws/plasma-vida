@@ -2,7 +2,7 @@ import Banner from "@/components/Banner";
 import { getProducts } from "@/lib/contentful-queries";
 import CustomSerumContainer from "./components/CustomSerumContainer";
 import CatalogContainer from "./components/CatalogContainer";
-import PromotionsCarrousel from "@/components/PromotionsCarrousel";
+import PromotionsCarousel from "@/components/PromotionsCarousel";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -61,7 +61,7 @@ export default async function Catalog({ searchParams }: { searchParams: SearchPa
         />
         {/* Mobile carrousel section */}
         <section className="lg:hidden h-[400px] px-6 py-12 bg-[#d5d5d5]">
-            <PromotionsCarrousel
+            <PromotionsCarousel
                 promotions={promotions}
                 className="h-full w-full mx-auto py-0 relative"
             />

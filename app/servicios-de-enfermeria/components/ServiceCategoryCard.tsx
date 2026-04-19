@@ -39,7 +39,7 @@ const ServiceCategoryCard = ({ title, descriptionParagraphs, href, linkText, ima
         className="
             w-full lg:px-8
             flex flex-col lg:flex-row
-            items-center gap-y-8 lg:gap-y-8 flex-wrap"
+            items-center gap-y-6 lg:gap-y-8 flex-wrap"
         variants={containerVariants}
         initial='hidden'
         whileInView='visible'
@@ -54,16 +54,16 @@ const ServiceCategoryCard = ({ title, descriptionParagraphs, href, linkText, ima
         >
             {/* Title */}
             <h3 className="
-                text-2xl lg:text-4xl
+                mb-4 text-2xl lg:text-4xl
                 text-sky-800 text-center font-bold"
             >
                 {title}
             </h3>
             {/* Image */}
             <div className="
-                w-full h-[300px]
+                w-full h-[240px]
                 lg:w-[380px] lg:h-[380px]
-                rounded-2xl overflow-hidden"
+                overflow-hidden"
             >
                 <img
                     src={imageUrl}
@@ -75,13 +75,13 @@ const ServiceCategoryCard = ({ title, descriptionParagraphs, href, linkText, ima
         {/* Description */}
         <motion.div
             className="
-                lg:flex-1 lg:min-w-[340px] px-6 lg:px-12
+                lg:flex-1 lg:min-w-[340px] px-4 lg:px-12
                 flex flex-col justify-center items-center gap-4
                 text-sky-800"
             variants={itemVariants}
         >
             {descriptionParagraphs.map((el, index) =>
-                <p key={index} className="text-lg lg:text-xl text-center">{el}</p>
+                <p key={index} className="text-md lg:text-xl text-center">{el}</p>
             )}
         </motion.div>
         {/* Link */}

@@ -1,5 +1,5 @@
 'use client'
-import PromotionsCarrousel from "@/components/PromotionsCarrousel"
+import PromotionsCarousel from "@/components/PromotionsCarousel"
 import { motion } from "motion/react"
 import Link from "next/link"
 import { Product } from "@/lib/models/product"
@@ -89,7 +89,7 @@ const Hero = ({ promotions }: { promotions: Product[] }) => {
             <h4 className="text-xl lg:text-3xl font-bold text-gray-700">
                 Aprovecha nuestras promociones
             </h4>
-            <PromotionsCarrousel
+            <PromotionsCarousel
                 promotions={promotions}
                 className="
                     w-full h-[340px]

@@ -10,12 +10,12 @@ import Image from "next/image";
 
 type Interval = ReturnType<typeof setInterval>;
 
-interface PromotionsCarrouselProps {
+interface PromotionsCarouselProps {
     promotions: Product[];
     className: string;
 }
 
-const PromotionsCarrousel = ({ promotions, className }: PromotionsCarrouselProps) => {
+const PromotionsCarousel = ({ promotions, className }: PromotionsCarouselProps) => {
     const [index, setIndex] = useState<number>(0);
     const intervalRef = useRef<Interval | null>(null);
 
@@ -70,7 +70,13 @@ const PromotionsCarrousel = ({ promotions, className }: PromotionsCarrouselProps
                     ¡Promoción!
                 </p>
                 {/* Title */}
-                <p className="mb-2 text-xl font-bold">{promotions[index].title}</p>
+                <p className="
+                    mb-2
+                    text-xl font-bold
+                    whitespace-nowrap overflow-hidden text-ellipsis"
+                >
+                    {promotions[index].title}
+                </p>
                 {/* Div with image, price and button */}
                 <div className="h-[200px] lg:h-[180px] flex">
                     {/* Image */}
@@ -133,4 +139,4 @@ const PromotionsCarrousel = ({ promotions, className }: PromotionsCarrouselProps
   )
 }
 
-export default PromotionsCarrousel
+export default PromotionsCarousel

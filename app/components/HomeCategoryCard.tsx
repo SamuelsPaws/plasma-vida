@@ -49,20 +49,21 @@ const HomeCategoryCard = ({ title, descriptionParagraphs, href, linkText, imageU
         {/* Div with title and image */}
         <motion.div
             className="
-                lg:flex-1 lg:min-w-[300px]
+                w-full
+                lg:w-auto lg:flex-1 lg:min-w-[300px]
                 flex flex-col items-center justify-center gap-2"
             variants={itemVariants}
         >
             {/* Title */}
             <h3 className="
-                text-3xl lg:text-4xl
+                mb-4 lg:mb-0 text-2xl lg:text-4xl
                 text-sky-800 text-center font-bold"
             >
                 {title}
             </h3>
             {/* Image */}
             <div className="
-                w-full h-[300px]
+                w-full h-[240px]
                 lg:w-full lg:h-auto lg:max-w-[340px] lg:aspect-square
                 rounded-2xl relative"
             >
@@ -84,7 +85,7 @@ const HomeCategoryCard = ({ title, descriptionParagraphs, href, linkText, imageU
             variants={itemVariants}
         >
             {descriptionParagraphs.map((el, index) =>
-                <p key={index} className="text-md lg:text-xl text-center">{el}</p>
+                <p key={index} className="text-sm lg:text-xl text-center">{el}</p>
             )}
         </motion.div>
         {/* Link */}
@@ -95,9 +96,9 @@ const HomeCategoryCard = ({ title, descriptionParagraphs, href, linkText, imageU
             <Link
                 href={href}
                 className="
-                    px-6 py-4
+                    px-4 lg:px-6 py-4 lg:py-4
                     bg-teal-500
-                    text-md lg:text-xl text-white-1 rounded-full"
+                    text-sm lg:text-xl text-white-1 rounded-full"
             >
                 {linkText}<i className="fa fa-arrow-right scale-90 ml-2"></i>
             </Link>

@@ -1,6 +1,6 @@
 'use client'
 import { motion } from "motion/react"
-import PromotionsCarrousel from "./PromotionsCarrousel";
+import PromotionsCarousel from "./PromotionsCarousel";
 import { Product } from "@/lib/models/product";
 
 interface BannerProps {
@@ -45,7 +45,7 @@ const Banner = ({ title, subheadline, promotions }: BannerProps) => {
             promotions={promotions}
             className="hidden lg:block h-full w-[60%] min-w-[400px] place-self-center relative"
         /> */}
-        <PromotionsCarrousel
+        <PromotionsCarousel
             promotions={promotions}
             className="hidden lg:block h-full w-[60%] min-w-[400px] place-self-center relative"
         />
