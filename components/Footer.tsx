@@ -7,7 +7,9 @@ const Footer = () => {
         bg-transparent'
     >
         <div className="
-            w-full h-full lg:h-full py-12 lg:py-0 relative
+            w-full h-full relative
+            px-4 py-12 
+            lg:px-0 lg:py-0
             flex flex-col lg:flex-row justify-center lg:justify-evenly items-center gap-12 lg:gap-0
             bg-maingold-dark-1 rounded-2xl"
         >
