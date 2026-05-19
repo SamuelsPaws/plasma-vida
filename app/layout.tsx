@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import clsx from "clsx";
+import WhatsappFloat from "@/components/WhatsappFloat";
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -20,7 +21,7 @@ const jsonLd = {
   "@type": "Organization",
   name: "Plasma Vida Center",
   url: "https://plasma-vida.vercel.app",
-  logo: "https://plasma-vida.vercel.app/assets/logo.png",
+  logo: "https://plasmavidacenter.com/assets/logo.png",
 }
 
 export default function RootLayout({
@@ -45,6 +46,7 @@ export default function RootLayout({
         />
         <Header />
         {children}
+        <WhatsappFloat />
         <Footer />
       </body>
     </html>

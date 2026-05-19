@@ -18,13 +18,13 @@ export const elderlyMetadata: Metadata = {
     title: "Cuidado de Adultos Mayores en Quito | Atención Profesional en Casa",
     description:
       "Atención domiciliaria para adultos mayores con cuidado profesional, humano y personalizado en Quito.",
-    url: "https://plasma-vida.vercel.app/servicios-de-enfermeria/adulto-mayor",
+    url: "https://plasmavidacenter.com/servicios-de-enfermeria/adulto-mayor",
     siteName: "Plasma Vida Center",
     locale: "es_EC",
     type: "website",
     images: [
       {
-        url: "https://plasma-vida.vercel.app/opengraph-image.jpg",
+        url: "https://plasmavidacenter.com/opengraph-image.jpg",
         width: 1200,
         height: 630,
         alt: "Cuidado de adultos mayores en Quito",
@@ -37,13 +37,13 @@ export const elderlyMetadata: Metadata = {
     title: "Cuidado de Adultos Mayores en Quito",
     description:
       "Servicio de enfermería a domicilio con atención profesional y personalizada.",
-    images: ["https://plasma-vida.vercel.app/opengraph-image.jpg"],
+    images: ["https://plasmavidacenter.com/opengraph-image.jpg"],
   },
 
   alternates: {
     canonical:
-      "https://plasma-vida.vercel.app/servicios-de-enfermeria/adulto-mayor",
+      "https://plasmavidacenter.com/servicios-de-enfermeria/adulto-mayor",
   },
 
-  metadataBase: new URL("https://plasma-vida.vercel.app/"),
+  metadataBase: new URL("https://plasmavidacenter.com/"),
 };

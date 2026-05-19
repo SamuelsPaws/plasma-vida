@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     title: "Plasma Vida Center - Siéntete bien y cuida tu salud.",
     description:
       "Terapias avanzadas de bienestar: sueros IV, PRP y atención de enfermería a domicilio con enfoque profesional y personalizado.",
-    url: "https://plasma-vida.vercel.app/", // Canonical
+    url: "https://plasmavidacenter.com/", // Canonical
     siteName: "Plasma Vida Center",
     locale: "es_EC",
     type: "website",
@@ -51,10 +51,10 @@ export const metadata: Metadata = {
   },
 
   alternates: {
-    canonical: "https://plasma-vida.vercel.app/",
+    canonical: "https://plasmavidacenter.com/",
   },
 
-  metadataBase: new URL("https://plasma-vida.vercel.app/"),
+  metadataBase: new URL("https://plasmavidacenter.com/"),
 };
 
 export default async function Home() {

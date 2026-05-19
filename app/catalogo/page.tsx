@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     title: "Catálogo de Sueros IV y Terapias PRP | Plasma Vida Center",
     description:
       "Sueros IV personalizados y PRP diseñados para mejorar tu bienestar, energía y recuperación.",
-    url: "https://plasma-vida.vercel.app/catalogo",
+    url: "https://plasmavidacenter.com/catalogo",
     siteName: "Plasma Vida Center",
     locale: "es_EC",
     type: "website",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     images: ["/opengraph-image.jpg"],
   },
   alternates: {
-    canonical: "https://plasma-vida.vercel.app/catalogo",
+    canonical: "https://plasmavidacenter.com/catalogo",
   },
 
   metadataBase: new URL("https://plasma-vida.vercel.app"),

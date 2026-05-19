@@ -18,13 +18,13 @@ export const postHospMetadata: Metadata = {
     title: "Cuidados Posthospitalarios en Quito | Recuperación Segura en Casa",
     description:
       "Apoyo profesional en casa tras el alta médica, con atención personalizada en Quito.",
-    url: "https://plasma-vida.vercel.app/servicios-de-enfermeria/cuidado-posthospitalario",
+    url: "https://plasmavidacenter.com/servicios-de-enfermeria/cuidado-posthospitalario",
     siteName: "Plasma Vida Center",
     locale: "es_EC",
     type: "website",
     images: [
       {
-        url: "https://plasma-vida.vercel.app/opengraph-image.jpg", // ← tu asset aquí
+        url: "https://plasmavidacenter.com/opengraph-image.jpg", // ← tu asset aquí
         width: 1200,
         height: 630,
         alt: "Cuidados posthospitalarios en Quito",
@@ -37,12 +37,12 @@ export const postHospMetadata: Metadata = {
     title: "Cuidados Posthospitalarios en Quito",
     description:
       "Recuperación segura en casa con atención profesional y seguimiento continuo.",
-    images: ["https://plasma-vida.vercel.app/opengraph-image.jpg"],
+    images: ["https://plasmavidacenter.com/opengraph-image.jpg"],
   },
 
   alternates: {
     canonical:
-      "https://plasma-vida.vercel.app/servicios-de-enfermeria/cuidado-posthospitalario",
+      "https://plasmavidacenter.com/servicios-de-enfermeria/cuidado-posthospitalario",
   },
 
   metadataBase: new URL("https://plasma-vida.vercel.app"),

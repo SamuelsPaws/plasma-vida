@@ -21,13 +21,13 @@ export const metadata: Metadata = {
     title: "Quiénes Somos | Plasma Vida Center",
     description:
       "Un equipo comprometido con la salud, el bienestar y la atención personalizada en Quito.",
-    url: "https://plasma-vida.vercel.app/quienes-somos",
+    url: "https://plasmavidacenter.com/quienes-somos",
     siteName: "Plasma Vida Center",
     locale: "es_EC",
     type: "website",
     images: [
       {
-        url: "https://plasma-vida.vercel.app/opengraph-image.jpg",
+        url: "https://plasmavidacenter.com/opengraph-image.jpg",
         width: 1200,
         height: 630,
         alt: "Equipo Plasma Vida Center",
@@ -40,11 +40,11 @@ export const metadata: Metadata = {
     title: "Quiénes Somos | Plasma Vida Center",
     description:
       "Conoce nuestro equipo y compromiso con el bienestar integral.",
-    images: ["https://plasma-vida.vercel.app/opengraph-image.jpg"],
+    images: ["https://plasmavidacenter.com/opengraph-image.jpg"],
   },
 
   alternates: {
-    canonical: "https://plasma-vida.vercel.app/quienes-somos",
+    canonical: "https://plasmavidacenter.com/quienes-somos",
   },
 
   metadataBase: new URL("https://plasma-vida.vercel.app"),

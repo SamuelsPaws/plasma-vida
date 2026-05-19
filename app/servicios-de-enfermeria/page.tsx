@@ -18,13 +18,13 @@ export const metadata: Metadata = {
     title: "Enfermería a Domicilio en Quito | Cuidado Profesional y Humano",
     description:
       "Atención de enfermería en casa para adultos mayores y pacientes en recuperación en Quito.",
-    url: "https://plasma-vida.vercel.app/servicios-de-enfermeria",
+    url: "https://plasmavidacenter.com/servicios-de-enfermeria",
     siteName: "Plasma Vida Center",
     locale: "es_EC",
     type: "website",
     images: [
       {
-        url: 'https://plasma-vida.vercel.app/opengraph-image.jpg',
+        url: 'https://plasmavidacenter.com/opengraph-image.jpg',
         width: 1200,
         height: 630,
         alt: "Servicios de enfermería a domicilio en Quito",
@@ -36,10 +36,10 @@ export const metadata: Metadata = {
     title: "Enfermería a Domicilio en Quito",
     description:
       "Cuidado profesional en casa para adultos mayores y pacientes en recuperación.",
-    images: ['https://plasma-vida.vercel.app/opengraph-image.jpg'],
+    images: ['https://plasmavidacenter.com/opengraph-image.jpg'],
   },
   alternates: {
-    canonical: "https://plasma-vida.vercel.app/servicios-de-enfermeria",
+    canonical: "https://plasmavidacenter.com/servicios-de-enfermeria",
   },
   metadataBase: new URL("https://plasma-vida.vercel.app"),
 };

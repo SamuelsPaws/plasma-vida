@@ -62,9 +62,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     const title = buildTitle(product)
     const description = buildDescription(product)
-    const url = `https://plasma-vida.vercel.app/sueros-personalizados/${type}/${slug}`
+    const url = `https://plasmavidacenter.com/sueros-personalizados/${type}/${slug}`
     // const productImg = product.imageUrls[0]
-    const defaultOGImg = 'https://plasma-vida.vercel.app/opengraph-image.jpg'
+    const defaultOGImg = 'https://plasmavidacenter.com/opengraph-image.jpg'
 
     return {
         title,

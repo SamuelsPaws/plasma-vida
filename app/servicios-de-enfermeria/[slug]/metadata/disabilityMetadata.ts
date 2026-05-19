@@ -18,13 +18,13 @@ export const disabilityMetadata: Metadata = {
     title: "Cuidado para Personas con Discapacidad en Quito | Atención en Casa",
     description:
       "Servicio de cuidado domiciliario con atención personalizada, promoviendo autonomía y bienestar.",
-    url: "https://plasma-vida.vercel.app/servicios-de-enfermeria/cuidado-discapacidad",
+    url: "https://plasmavidacenter.com/servicios-de-enfermeria/cuidado-discapacidad",
     siteName: "Plasma Vida Center",
     locale: "es_EC",
     type: "website",
     images: [
       {
-        url: "https://plasma-vida.vercel.app/opengraph-image.jpg",
+        url: "https://plasmavidacenter.com/opengraph-image.jpg",
         width: 1200,
         height: 630,
         alt: "Cuidado para personas con discapacidad en Quito",
@@ -37,12 +37,12 @@ export const disabilityMetadata: Metadata = {
     title: "Cuidado para Personas con Discapacidad en Quito",
     description:
       "Atención domiciliaria profesional que promueve autonomía y calidad de vida.",
-    images: ["https://plasma-vida.vercel.app/opengraph-image.jpg"],
+    images: ["https://plasmavidacenter.com/opengraph-image.jpg"],
   },
 
   alternates: {
     canonical:
-      "https://plasma-vida.vercel.app/servicios-de-enfermeria/cuidado-discapacidad",
+      "https://plasmavidacenter.com/servicios-de-enfermeria/cuidado-discapacidad",
   },
 
   metadataBase: new URL("https://plasma-vida.vercel.app"),
