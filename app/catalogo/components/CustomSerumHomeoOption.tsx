@@ -1,4 +1,5 @@
 import numToPriceStr from "@/app/utils/numToPriceStr";
+import truncateMidText from "@/app/utils/truncateMidText";
 import Link from "next/link";
 
 interface CustomSerumHomeoOptionProps {
@@ -23,7 +24,7 @@ const CustomSerumHomeoOption = ({ name, description, price, slug }: CustomSerumH
         >
             <h3 className="text-md lg:text-lg text-sky-600 font-semibold">{name}</h3>
             <p className="text-md lg:text-md text-maingold-original font-semibold">${numToPriceStr(price)}</p>
-            <p className="text-sm lg:text-sm text-gray-600">{description}</p>
+            <p className="text-xs lg:text-sm text-gray-600">{truncateMidText(description, 100)}</p>
         </div>
         <div className="
             w-[10%] self-stretch lg:group-hover:pl-2 duration-200
