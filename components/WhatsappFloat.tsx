@@ -6,7 +6,7 @@ const WhatsappFloat = () => {
         rel="noopener noreferrer"
         className="
             fixed right-8 bottom-8 z-40
-            w-12 h-12
+            w-16 h-16
             lg:w-16 lg:h-16
             grid place-content-center
             text-white-1 text-4xl lg:text-5xl
