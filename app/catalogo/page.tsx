@@ -55,7 +55,7 @@ export default async function Catalog({ searchParams }: { searchParams: SearchPa
     <main className="pt-mob-header-height lg:pt-header-height">
         {/* Banner */}
         <Banner
-            title="Catálogo de Sueros y Plasma Rico en Plaquetas"
+            title="Sueros y Plasma Rico en Plaquetas en Quito"
             subheadline={null}
             promotions={promotions}
         />
