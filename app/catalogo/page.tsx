@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     canonical: "https://plasmavidacenter.com/catalogo",
   },
 
-  metadataBase: new URL("https://plasma-vida.vercel.app"),
+  metadataBase: new URL("https://plasmavidacenter.com"),
 };
 
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;

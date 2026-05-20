@@ -45,5 +45,5 @@ export const preHospMetadata: Metadata = {
       "https://plasmavidacenter.com/servicios-de-enfermeria/cuidado-prehospitalario",
   },
 
-  metadataBase: new URL("https://plasma-vida.vercel.app"),
+  metadataBase: new URL("https://plasmavidacenter.com"),
 };

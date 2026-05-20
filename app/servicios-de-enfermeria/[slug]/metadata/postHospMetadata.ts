@@ -45,5 +45,5 @@ export const postHospMetadata: Metadata = {
       "https://plasmavidacenter.com/servicios-de-enfermeria/cuidado-posthospitalario",
   },
 
-  metadataBase: new URL("https://plasma-vida.vercel.app"),
+  metadataBase: new URL("https://plasmavidacenter.com"),
 };

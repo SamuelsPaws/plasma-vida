@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://plasmavidacenter.com/servicios-de-enfermeria",
   },
-  metadataBase: new URL("https://plasma-vida.vercel.app"),
+  metadataBase: new URL("https://plasmavidacenter.com"),
 };
 
 export default async function Services() {

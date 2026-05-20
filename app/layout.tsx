@@ -20,7 +20,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Plasma Vida Center",
-  url: "https://plasma-vida.vercel.app",
+  url: "https://plasmavidacenter.com",
   logo: "https://plasmavidacenter.com/assets/logo.png",
 }
 

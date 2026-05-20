@@ -4,7 +4,7 @@ import { Product } from '@/lib/models/product'
 import { MetadataRoute } from 'next'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://plasma-vida.vercel.app'
+  const baseUrl = 'https://plasmavidacenter.com'
 
   const staticPages = [
     '',
