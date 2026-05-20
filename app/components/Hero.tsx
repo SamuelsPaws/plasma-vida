@@ -67,7 +67,7 @@ const Hero = ({ promotions }: { promotions: Product[] }) => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
             >
-                Echa un vistazo a nuestras terapias avanzadas de bienestar con sueros intravenosos y plasma rico en plaquetas (PRP). Explora nuestros servicios de enfermería a domicilio con atención profesional, segura y personalizada.
+                Echa un vistazo a nuestras terapias avanzadas de bienestar con sueros intravenosos y plasma rico en plaquetas (PRP) en Quito, Ecuador. Explora nuestros servicios de enfermería a domicilio con atención profesional, segura y personalizada.
             </motion.p>
             <Link
                 href='/catalogo'
