@@ -16,10 +16,10 @@ const Header = () => {
       >
         <Image
           src="/assets/logo.webp"
-          alt=""
           width={371}
           height={389}
           className="w-[32px] h-[32px]"
+          alt="Logo de Plasma Vida Center"
         />
       </Link>
       <nav className="
