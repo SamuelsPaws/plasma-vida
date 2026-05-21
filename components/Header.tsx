@@ -1,5 +1,6 @@
 import Link from "next/link"
 import BurgerMenu from "@/components/BurgerMenu"
+import Image from "next/image"
 
 const Header = () => {
   return (
@@ -13,11 +14,12 @@ const Header = () => {
         href="/"
         className="text-white-1"
       >
-        <img
-          src="/assets/logo.png"
+        <Image
+          src="/assets/logo.webp"
           alt=""
-          width={32}
-          height={32}
+          width={371}
+          height={389}
+          className="w-[32px] h-[32px]"
         />
       </Link>
       <nav className="
