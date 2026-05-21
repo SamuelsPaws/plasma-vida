@@ -12,6 +12,7 @@ const PromotionsDot = ({ keyProp, index, handleClick }: PromotionsDotProps) => {
     <button
         onClick={handleClick}
         className="h-[60%] w-4 aspect-square grid place-content-center"
+        name="Cambiar elemento de carrusel"
     >
       <div className={clsx(
            "w-1.5 aspect-square rounded-full shadow-sm duration-500 cursor-pointer",

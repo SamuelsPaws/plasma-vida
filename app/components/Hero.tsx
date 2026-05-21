@@ -4,6 +4,7 @@ import { motion } from "motion/react"
 import Link from "next/link"
 import { Product } from "@/lib/models/product"
 import Image from "next/image"
+import InlineIcon from "@/components/InlineIcon"
 
 const Hero = ({ promotions }: { promotions: Product[] }) => {
     // lg:h-[620px] p-8 lg:p-10 relative
@@ -76,7 +77,7 @@ const Hero = ({ promotions }: { promotions: Product[] }) => {
                     bg-teal-500 rounded-full
                     text-white-1 text-lg xl:text-2xl"
             >
-                Mira nuestro catálogo<i className="fa fa-arrow-right ml-4"></i>
+                Mira nuestro catálogo<i className="fa fa-arrow-right ml-2" aria-hidden="true"></i>
             </Link>
         </div>
         {/* Right div */}
@@ -86,9 +87,9 @@ const Hero = ({ promotions }: { promotions: Product[] }) => {
             bg-gray-200 lg:bg-transparent
             flex flex-col justify-center items-center gap-8 lg:gap-8"
         >
-            <h4 className="text-xl lg:text-3xl font-bold text-gray-700">
+            <h2 className="text-xl lg:text-3xl font-bold text-gray-700">
                 Aprovecha nuestras promociones
-            </h4>
+            </h2>
             <PromotionsCarousel
                 promotions={promotions}
                 className="
