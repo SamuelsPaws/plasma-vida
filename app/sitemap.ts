@@ -21,7 +21,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     const dynamicProductPages = products.map((el: Product) => {
         const isCatalog = el.category === 'plasmaCatalogo' || el.category === 'sueroCatalogo'
-        const subUrl = isCatalog ? 'catalogo' : 'sueros-personalizados'
+        const subUrl = isCatalog ? 'catalogo' : 'sueros-personalizados/homeopaticos'
 
         return {
             url: `${baseUrl}/${subUrl}/${el.slug}`,

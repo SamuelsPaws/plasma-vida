@@ -72,7 +72,7 @@ const Hero = ({ promotions }: { promotions: Product[] }) => {
             <Link
                 href='/catalogo'
                 className="
-                    px-6 py-4 z-20
+                    px-6 lg:px-8 py-4 z-20
                     bg-teal-500 rounded-full
                     text-white-1 text-lg xl:text-2xl"
             >
