@@ -57,7 +57,7 @@ const HomeCategoryCard = ({ title, descriptionParagraphs, href, linkText, imageU
             {/* Title */}
             <h3 className="
                 mb-4 lg:mb-0 text-2xl lg:text-4xl
-                text-sky-800 text-center font-bold"
+                text-sky-800 text-center font-bold leading-12"
             >
                 {title}
             </h3>

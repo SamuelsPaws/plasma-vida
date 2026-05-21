@@ -75,7 +75,7 @@ export default async function Home() {
         <HomeCategoryCard
           title="Sueroterapia"
           descriptionParagraphs={[
-            'Nuestros sueros son una forma rápida y efectiva de revitalizar tu cuerpo a través de vitaminas, minerales y nutrientes esenciales. De esta forma potenciamos tu energía, fortalecemos tus defensas y mejoramos tu bienestar general.',
+            'Nuestros sueros homeopáticos y vitaminados son una forma rápida y efectiva de revitalizar tu cuerpo a través de vitaminas, minerales y nutrientes esenciales. De esta forma potenciamos tu energía, fortalecemos tus defensas y mejoramos tu bienestar general.',
             'Dale a tu cuerpo el impulso que merece y siéntete mejor, más fuerte y equilibrado desde la primera sesión.',
           ]}
           href="/catalogo"
