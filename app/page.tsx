@@ -32,14 +32,6 @@ export const metadata: Metadata = {
     siteName: "Plasma Vida Center",
     locale: "es_EC",
     type: "website",
-    // images: [
-    //   {
-    //     url: "/opengraph-image",
-    //     width: 366,
-    //     height: 389,
-    //     alt: "Plasma Vida Center - Bienestar y salud avanzada",
-    //   },
-    // ],
   },
 
   twitter: {

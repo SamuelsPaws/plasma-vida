@@ -68,7 +68,7 @@ export default async function Catalog({ searchParams }: { searchParams: SearchPa
         </section>
         {/* Custom serum */}
         <section className="
-            min-h-[300px] px-6 lg:px-12 py-12 lg:py-16 relative
+            hidden min-h-[300px] px-6 lg:px-12 py-12 lg:py-16 relative
             bg-[#ececec]"
         >
             <h2 className="
