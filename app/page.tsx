@@ -86,18 +86,18 @@ export default async function Home() {
           imageUrl="/assets/plasma.png"
         />
         <div className="h-12 lg:h-24"></div>
-        <HomeCategoryCard
-          title="Servicios de Enfermería"
-          descriptionParagraphs={[
-            'Nuestros servicios de enfermería están diseñados para brindar atención profesional y humana a quienes más lo necesitan, incluyendo cuidado de adultos mayores, personas con discapacidad y acompañamiento antes y después de procedimientos de hospital.',
-            'Ofrecemos un apoyo cercano y confiable que garantiza bienestar, seguridad y tranquilidad tanto para el paciente como para su familia.',
-          ]}
-          href="/servicios-de-enfermeria"
-          linkText="Mira nuestros servicios de enfermería"
-          imageUrl="/assets/nurse.png"
-        />
-      </section>
-      <section className="h-mob-footer-height lg:h-footer-height bg-white-1"></section>
+			<HomeCategoryCard
+				title="Servicios de Enfermería"
+				descriptionParagraphs={[
+					'Nuestros servicios de enfermería están diseñados para brindar atención profesional y humana a quienes más lo necesitan, incluyendo cuidado de adultos mayores, personas con discapacidad y acompañamiento antes y después de procedimientos de hospital.',
+					'Ofrecemos un apoyo cercano y confiable que garantiza bienestar, seguridad y tranquilidad tanto para el paciente como para su familia.',
+				]}
+				href="/servicios-de-enfermeria"
+				linkText="Mira nuestros servicios"
+				imageUrl="/assets/nurse.png"
+			/>
+      	</section>
+      	<section className="h-mob-footer-height lg:h-footer-height bg-white-1"></section>
     </main>
-  );
+  	);
 }

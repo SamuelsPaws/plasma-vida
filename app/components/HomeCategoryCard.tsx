@@ -1,4 +1,5 @@
 'use client'
+import CustomIcon from "@/components/CustomIcon";
 import { motion, stagger } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -31,7 +32,7 @@ const itemVariants = {
         transition: {
             duration: 0.4
         }
-    }
+    },
 }
 
 const HomeCategoryCard = ({ title, descriptionParagraphs, href, linkText, imageUrl }: HomeCategoryCardProps) => {
@@ -98,9 +99,14 @@ const HomeCategoryCard = ({ title, descriptionParagraphs, href, linkText, imageU
                 className="
                     px-4 lg:px-6 py-4 lg:py-4
                     bg-teal-500
-                    text-sm lg:text-xl text-white-1 rounded-full"
+                    text-sm lg:text-xl text-white-1 rounded-full
+                    btn-hover"
             >
-                {linkText}<i className="fa fa-arrow-right scale-90 ml-2"></i>
+                {linkText}
+                <CustomIcon
+                    iconId="arrowR"
+                    className="ml-2"
+                />
             </Link>
         </motion.div>
     </motion.div>

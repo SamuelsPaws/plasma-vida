@@ -21,7 +21,7 @@ const PromotionsCarousel = ({ promotions, className }: PromotionsCarouselProps) 
 
     const startInterval = () => {
         clearInterval(intervalRef.current!);
-        intervalRef.current =  setInterval(() => {
+        intervalRef.current = setInterval(() => {
             setIndex((i) => (i + 1) % promotions.length);
         }, 4500);
     };
@@ -48,10 +48,10 @@ const PromotionsCarousel = ({ promotions, className }: PromotionsCarouselProps) 
                     flex flex-col justify-between
                     rounded-2xl shadow-none lg:shadow-md"
                 key={index}
-                initial={{ opacity: 0, x: 30, y: 2 }}
-                animate={{ opacity: 1, x: 0, y: 0 }}
-                exit={{ opacity: 0, x: -30, y: 2 }}
-                transition={{ duration: 0.5 }}
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -30, }}
+                transition={{ duration: 0.6 }}
             >
                 {promotions[index].noPromotionPrice &&
                     <div className="

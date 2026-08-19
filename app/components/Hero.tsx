@@ -1,10 +1,9 @@
-'use client'
 import PromotionsCarousel from "@/components/PromotionsCarousel"
 import { motion } from "motion/react"
 import Link from "next/link"
 import { Product } from "@/lib/models/product"
 import Image from "next/image"
-import InlineIcon from "@/components/InlineIcon"
+import CustomIcon from "@/components/CustomIcon"
 
 const Hero = ({ promotions }: { promotions: Product[] }) => {
     // lg:h-[620px] p-8 lg:p-10 relative
@@ -51,33 +50,35 @@ const Hero = ({ promotions }: { promotions: Product[] }) => {
 
                 </div>
             </div>
-            <motion.h1
-                className="
-                    text-sky-700 text-center font-bold z-20
-                    text-3xl leading-12
-                    xl:text-5xl xl:leading-16"
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
+            <h1 className="
+                text-sky-700 text-center font-bold z-20
+                text-3xl leading-12
+                xl:text-5xl xl:leading-16
+                opacity-0 animate-fade-in-up-0"
             >
                 Mejora tu salud con sueroterapia, terapia de plasma rico en plaquetas y más.
-            </motion.h1>
-            <motion.p
-                className="w-[80%] z-20 text-sm lg:text-lg text-gray-600 text-center"
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
+            </h1>
+            <p className="
+                w-[80%] z-20
+                text-sm lg:text-lg text-gray-600 text-center
+                opacity-0 animate-fade-in-up-300"
             >
                 Echa un vistazo a nuestras terapias avanzadas de bienestar con sueros intravenosos y plasma rico en plaquetas (PRP) en Quito, Ecuador. Explora nuestros servicios de enfermería a domicilio con atención profesional, segura y personalizada.
-            </motion.p>
+            </p>
             <Link
                 href='/catalogo'
                 className="
                     px-6 lg:px-8 py-4 z-20
                     bg-teal-500 rounded-full
-                    text-white-1 text-lg xl:text-2xl"
+                    text-white-1 text-md md:text-lg xl:text-xl
+                    opacity-0 animate-fade-in-600
+                    md:hover:scale-105 duration-300"
             >
-                Mira nuestro catálogo<i className="fa fa-arrow-right ml-2" aria-hidden="true"></i>
+                <span>Mira nuestro catálogo</span>
+                <CustomIcon
+                    iconId="arrowR"
+                    className="ml-2"
+                />
             </Link>
         </div>
         {/* Right div */}
