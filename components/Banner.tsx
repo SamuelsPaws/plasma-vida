@@ -25,6 +25,7 @@ const Banner = ({ title, subheadline, promotions, bgSrc }: BannerProps) => {
             sizes="100%"
             className="w-full h-full object-cover z-0"
             alt="Banner de la empresa"
+            priority
         />
         {/* Dark overlay */}
         <div className="absolute inset-0 z-10 bg-black/50"></div>
