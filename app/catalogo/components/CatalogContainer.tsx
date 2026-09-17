@@ -247,7 +247,8 @@ const CatalogContainer = ({ items, categoryParam }: ProductsContainerProps) => {
         {/* Left div with items */}
         <div className="
             w-full lg:w-[75%] lg:min-w-[1000px] lg:pr-4
-            flex flex-col lg:grid grid-cols-3 gap-6 lg:gap-8"
+            flex flex-col gap-6
+            lg:grid grid-cols-3 lg:place-content-stretch lg:gap-8"
         >
             {filteredItems.length ?
                 filteredItems.sort(sortingFns[sortingKey]).map((item) =>

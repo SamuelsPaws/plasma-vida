@@ -72,7 +72,7 @@ const HomeCategoryCard = ({
             {/* Title */}
             <h3 className="
                 mb-4 md:mb-8 text-2xl lg:text-4xl
-                text-black text-center font-bold leading-12"
+                text-black text-center font-semibold leading-12"
             >
                 {title}
             </h3>
@@ -86,7 +86,7 @@ const HomeCategoryCard = ({
                     "w-full h-[240px] relative",
                     "object-cover media-zoom",
                     "md:w-full md:h-auto md:max-w-[340px] md:aspect-square",
-                    "rounded-4xl overflow-hidden",
+                    "rounded-4xl overflow-hidden shadow-md",
                     imgClassName
                 )}
                 alt={title}

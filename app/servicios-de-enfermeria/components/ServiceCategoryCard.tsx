@@ -78,11 +78,11 @@ const ServiceCategoryCard = ({ title, descriptionParagraphs, href, linkText, ima
             className="
                 lg:flex-1 lg:min-w-[340px] px-4 lg:px-12
                 flex flex-col justify-center items-center gap-4
-                text-sky-800"
+                text-gray-600 text-my-md"
             variants={itemVariants}
         >
             {descriptionParagraphs.map((el, index) =>
-                <p key={index} className="text-md lg:text-xl text-center">{el}</p>
+                <p key={index} className="text-center">{el}</p>
             )}
         </motion.div>
         {/* Link */}
@@ -94,7 +94,7 @@ const ServiceCategoryCard = ({ title, descriptionParagraphs, href, linkText, ima
                 href={href}
                 className="
                     px-6 py-4
-                    bg-teal-500 pressable btn-hover
+                    bg-br-gold-main pressable btn-hover
                     text-md lg:text-xl text-white-1 rounded-full"
             >
                 {linkText}<i className="fa fa-arrow-right scale-90 ml-2"></i>

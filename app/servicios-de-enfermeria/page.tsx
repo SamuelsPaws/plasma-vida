@@ -50,6 +50,7 @@ export default async function Services() {
     <main className="pt-mob-header-height lg:pt-header-height">
         <BannerPages
             title="Servicios de Enfermería a Domicilio en Quito"
+            bgSrc="/assets/nursing-banner.jpg"
         />
         <section className="
             min-h-[300px] px-6 lg:px-12 py-12 lg:py-16 relative

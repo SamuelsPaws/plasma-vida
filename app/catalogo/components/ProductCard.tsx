@@ -28,27 +28,24 @@ const ProductCard = ({ title, descriptionList, price, noPromotionPrice, slug }: 
         animate={{ opacity: 1, transform: 'translateY(0)' }}
         transition={{ duration: 0.36, ease: [0.23, 1, 0.32, 1] }}
         className="interactive-card group
-        w-full h-[420px] lg:h-[540px] place-self-center
+        w-full h-full place-self-center
         p-4 lg:p-6
         flex flex-col gap-2 lg:gap-6
         bg-white-1 rounded-2xl shadow-sm"
     >
         {/* Div with image */}
         <div className="
-            w-full h-[50%] md:h-[55%] relative
+            w-full h-80 md:h-80 relative
             rounded-2xl overflow-hidden"
         >
             <ProductSvg
                 productCategory={splitTitle[0]}
                 productName={[splitTitle.slice(1).join(' ')]}
-                className="w-full h-full object-cover"
+                className="w-full h-full"
             />
         </div>
         {/* Div with title, desc, price and button */}
-        <div className="
-            flex-1
-            flex flex-col justify-between"
-        >
+        <div className="flex-1 flex flex-col gap-8 justify-between">
             {/* Div with title and benefits */}
             <div className="w-full">
                 <h3 className="lg:mb-2 text-lg lg:text-xl font-bold">

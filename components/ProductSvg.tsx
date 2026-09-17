@@ -8,6 +8,7 @@ const ProductSvg = ({ productCategory, productName, className }: Props) => {
     return (
     <svg
         viewBox="0 0 1200 1200"
+        preserveAspectRatio="xMidYMid slice" 
         role="img"
         aria-labelledby="title desc"
         version="1.1"

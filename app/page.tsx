@@ -91,9 +91,9 @@ export default async function Home() {
 				]}
 				href="/catalogo#productos"
 				linkText="Mira nuestro catálogo"
-				imageUrl="/assets/plasma.png"
-				imgW={200}
-				imgH={200}
+				imageUrl="/assets/plasma-cover.jpg"
+				imgW={1254}
+				imgH={1254}
 			/>
 			<div className="h-12 lg:h-24"></div>
 			<HomeCategoryCard
@@ -104,10 +104,10 @@ export default async function Home() {
 				]}
 				href="/servicios-de-enfermeria"
 				linkText="Mira nuestros servicios"
-				imageUrl="/assets/nurse.png"
-				imgW={100}
-				imgH={100}
-				imgClassName="object-[10%_50%]"
+				imageUrl="/assets/nursing-cover.jpg"
+				imgW={20}
+				imgH={20}
+				imgClassName="object-center"
 			/>
       	</section>
       	<section className="h-mob-footer-height lg:h-footer-height bg-white-1"></section>

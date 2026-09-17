@@ -57,6 +57,7 @@ export default function About() {
         {/* Banner */}
         <BannerPages
             title="¿Quiénes somos?"
+            bgSrc="/assets/catalog-banner.jpg"
         />
         <section className="
             lg:min-h-[400px] p-6 lg:p-12
