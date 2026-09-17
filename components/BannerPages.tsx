@@ -16,17 +16,17 @@ const BannerPages = ({ title }: { title: string }) => {
                 className="
                     relative
                     text-2xl lg:text-5xl text-white-1 font-bold leading-8 lg:leading-16"
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
+                initial={{ opacity: 0, transform: 'translateY(14px)' }}
+                animate={{ opacity: 1, transform: 'translateY(0)' }}
+                transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
             >
                 {title}
             </motion.h1>
             <motion.p
                 className="mt-1 lg:mt-4 text-md lg:text-2xl text-white-1 font-semibold relative"
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.3, delay: 0.1 }}
             ></motion.p>
         </div>
     </div>

@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import clsx from "clsx";
 import WhatsappFloat from "@/components/WhatsappFloat";
+import MotionProvider from "@/components/MotionProvider";
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -44,10 +45,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <Header />
-        {children}
-        <WhatsappFloat />
-        <Footer />
+        <MotionProvider>
+          <Header />
+          {children}
+          <WhatsappFloat />
+          <Footer />
+        </MotionProvider>
       </body>
     </html>
   );

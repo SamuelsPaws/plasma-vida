@@ -2,6 +2,7 @@ import nursingSlugImageMapper from "@/app/utils/nursingSlugImageMapper";
 import { getNursingServiceBySlug } from "@/lib/contentful-queries";
 import ItemRequest from "../components/ItemRequest";
 import { Suspense } from "react";
+import Reveal from "@/components/Reveal";
 import SimilarContainer from "../components/SimilarContainer";
 import { Metadata } from "next";
 import { elderlyMetadata } from "./metadata/elderlyMetadata";
@@ -52,11 +53,11 @@ export default async function ServiceItemPage({ params }: Props) {
                 bg-white-1 rounded-2xl"
             >
                 {/* Title */}
-                <h1 className="
-                    mb-4 lg:mb-8 text-2xl lg:text-5xl text-center lg:text-left font-bold"
-                >
-                    {serviceItem.title}
-                </h1>
+                <Reveal>
+                    <h1 className="mb-4 lg:mb-8 text-2xl lg:text-5xl text-center lg:text-left font-bold">
+                        {serviceItem.title}
+                    </h1>
+                </Reveal>
                 {/* Price disclaimer */}
                 <p className="
                     mb-4 lg:mb-8

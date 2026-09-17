@@ -1,5 +1,5 @@
 'use client'
-import { motion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import { Product } from "@/lib/models/product";
 
@@ -7,34 +7,34 @@ const ItemBuy = ({ item }: { item: Product }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
-    <div className="h-12 lg:h-12">
-      {!isOpen &&
-        <button
+    <motion.div layout className="h-12 lg:h-12" transition={{ type: 'spring', duration: 0.35, bounce: 0.08 }}>
+      <AnimatePresence mode="wait" initial={false}>
+      {!isOpen ?
+        <motion.button
+          key="buy"
           onClick={() => setIsOpen(true)}
           className="
             px-4 h-full
-            bg-blue-700 text-md lg:text-lg text-white-1 rounded-full"
-        >Comprar</button>
-      }
-      {/* Options slider */}
-      {isOpen &&
+            bg-blue-700 text-md lg:text-lg text-white-1 rounded-full pressable"
+          initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+        >Comprar</motion.button>
+      : /* Options slider */
         <motion.div
+          key="actions"
           className="
             h-full pr-2
             border border-gray-600 rounded-md"
-          initial={{ width: 0 }}
-          animate={{ width: 'auto' }}
-          transition={{ duration: 0.3 }}
+          initial={{ opacity: 0, transform: 'translateX(10px) scale(0.97)' }}
+          animate={{ opacity: 1, transform: 'translateX(0) scale(1)' }}
+          exit={{ opacity: 0, transform: 'translateX(6px) scale(0.98)' }}
+          transition={{ duration: 0.2, ease: [0.23, 1, 0.32, 1] }}
         >
-          <motion.div
+          <div
             className="w-full h-full flex items-center gap-2 lg:gap-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.2, delay: 0.3 }}
           >
             <button
               onClick={() => setIsOpen(false)}
-              className="h-full aspect-square text-xl lg:text-2xl text-gray-700"
+              className="pressable h-full aspect-square text-xl lg:text-2xl text-gray-700"
             >
               <i className="fa fa-times"></i>
             </button>
@@ -45,7 +45,7 @@ const ItemBuy = ({ item }: { item: Product }) => {
                 h-[80%] px-4
                 grid place-content-center
                 text-white-1 text-sm lg:text-md
-                bg-green-600 rounded-full"
+                bg-green-600 rounded-full pressable"
             >WhatsApp</a>
             <a
               href="tel:+593978774224"
@@ -53,7 +53,7 @@ const ItemBuy = ({ item }: { item: Product }) => {
                 h-[80%] px-4
                 grid place-content-center
                 text-white-1 text-sm lg:text-md
-                bg-black rounded-full"
+                bg-black rounded-full pressable"
             >
               <i className="fa fa-phone"></i>
             </a>
@@ -63,14 +63,15 @@ const ItemBuy = ({ item }: { item: Product }) => {
                 h-[80%] px-4
                 grid place-content-center
                 text-white-1 text-sm lg:text-md
-                bg-black rounded-full"
+                bg-black rounded-full pressable"
             >
               <i className="fa fa-envelope"></i>
             </a>
-          </motion.div>
+          </div>
         </motion.div>
       }
-    </div>
+      </AnimatePresence>
+    </motion.div>
   )
 }
 

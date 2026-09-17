@@ -1,11 +1,14 @@
+"use client";
+
 import Link from "next/link";
 import numToPriceStr from "../../utils/numToPriceStr";
 import clsx from "clsx";
 import getSalePercent from "@/app/utils/getSalePercent";
 import Image from "next/image";
+import { motion } from "motion/react";
+import ProductSvg from "@/components/ProductSvg";
 
 interface ProductCardProps {
-    imgUrl: string;
     title: string;
     descriptionList: string[];
     price: number;
@@ -13,11 +16,18 @@ interface ProductCardProps {
     slug: string;
 }
 
-const ProductCard = ({ imgUrl, title, descriptionList, price, noPromotionPrice, slug }: ProductCardProps) => {
+const ProductCard = ({ title, descriptionList, price, noPromotionPrice, slug }: ProductCardProps) => {
     const isOnSale = noPromotionPrice && noPromotionPrice > price;
 
-  return (
-    <div className="
+    const splitTitle = title.split(' ')
+
+    return (
+    <motion.article
+        layout
+        initial={{ opacity: 0, transform: 'translateY(12px)' }}
+        animate={{ opacity: 1, transform: 'translateY(0)' }}
+        transition={{ duration: 0.36, ease: [0.23, 1, 0.32, 1] }}
+        className="interactive-card group
         w-full h-[420px] lg:h-[540px] place-self-center
         p-4 lg:p-6
         flex flex-col gap-2 lg:gap-6
@@ -25,15 +35,13 @@ const ProductCard = ({ imgUrl, title, descriptionList, price, noPromotionPrice, 
     >
         {/* Div with image */}
         <div className="
-            w-full h-[50%] lg:h-[55%] relative
+            w-full h-[50%] md:h-[55%] relative
             rounded-2xl overflow-hidden"
         >
-            <Image
-                src={imgUrl}
-                fill
-                sizes="100%"
-                className="object-cover drag-none"
-                alt={title}
+            <ProductSvg
+                productCategory={splitTitle[0]}
+                productName={[splitTitle.slice(1).join(' ')]}
+                className="w-full h-full object-cover"
             />
         </div>
         {/* Div with title, desc, price and button */}
@@ -59,7 +67,7 @@ const ProductCard = ({ imgUrl, title, descriptionList, price, noPromotionPrice, 
                     href={`/catalogo/${slug}`}
                     className="
                         px-4 py-2
-                        bg-blue-700 lg:hover:bg-blue-800 duration-200
+                        bg-blue-700 lg:hover:bg-blue-800 pressable
                         text-white-1 text-sm lg:text-md rounded-full"
                 >
                     Ver producto
@@ -99,7 +107,7 @@ const ProductCard = ({ imgUrl, title, descriptionList, price, noPromotionPrice, 
                 </div>
             </div>
         </div>
-    </div>
+    </motion.article>
   )
 }
 

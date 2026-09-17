@@ -8,14 +8,15 @@ const ImagesGrid = () => {
             className="w-[110%] h-[110%] rounded-2xl overflow-hidden z-0"
             initial={{
                 opacity: 0,
-                x: -20
+                transform: 'translateX(-16px)'
             }}
             animate={{
                 opacity: 1,
-                x: 0
+                transform: 'translateX(0)'
             }}
             transition={{
-                duration: 0.4
+                duration: 0.42,
+                ease: [0.23, 1, 0.32, 1]
             }}
         >
             <img
@@ -30,15 +31,16 @@ const ImagesGrid = () => {
             className="w-[110%] h-[110%] place-self-end rounded-2xl overflow-hidden z-10"
             initial={{
                 opacity: 0,
-                x: 20
+                transform: 'translateX(16px)'
             }}
             animate={{
                 opacity: 1,
-                x: 0
+                transform: 'translateX(0)'
             }}
             transition={{
-                duration: 0.4,
-                delay: 0.2
+                duration: 0.42,
+                delay: 0.07,
+                ease: [0.23, 1, 0.32, 1]
             }}
         >
             <img
@@ -51,15 +53,16 @@ const ImagesGrid = () => {
             className="w-[110%] h-[110%] place-self-start rounded-2xl overflow-hidden z-10"
             initial={{
                 opacity: 0,
-                x: -20
+                transform: 'translateX(-16px)'
             }}
             animate={{
                 opacity: 1,
-                x: 0
+                transform: 'translateX(0)'
             }}
             transition={{
-                duration: 0.4,
-                delay: 0.4
+                duration: 0.42,
+                delay: 0.14,
+                ease: [0.23, 1, 0.32, 1]
             }}
         >
             <img

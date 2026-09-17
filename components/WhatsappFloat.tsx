@@ -10,7 +10,7 @@ const WhatsappFloat = () => {
             lg:w-16 lg:h-16
             grid place-content-center
             text-white-1 text-4xl lg:text-5xl
-            bg-green-500 rounded-full"
+            bg-green-500 rounded-full shadow-lg whatsapp-float"
         aria-label="Chat on WhatsApp"
     >
         <i className="fa fa-whatsapp"></i>

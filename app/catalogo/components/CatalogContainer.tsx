@@ -19,7 +19,7 @@ const sortingFns = {
     descendingPriceFn: (a: Product, b: Product) => {
         return b.price - a.price;
     },
-    noSortingFn: (a: Product, b:Product) => {
+    noSortingFn: () => {
         return 1;
     }
 } as const;
@@ -36,7 +36,6 @@ const CatalogContainer = ({ items, categoryParam }: ProductsContainerProps) => {
     });
     const [fromPriceValue, setFromPriceValue] = useState<string>('');
     const [toPriceValue, setToPriceValue] = useState<string>('');
-    const [sortingKey, setSortingKey] = useState<SortingFnsKey>('ascendingPriceFn');
     const [isPriceRangeApplied, setIsPriceRangeApplied] = useState<boolean>(false);
     const fromInputRef = useRef<HTMLInputElement | null>(null);
     const fromInputMobRef = useRef<HTMLInputElement | null>(null);
@@ -114,15 +113,11 @@ const CatalogContainer = ({ items, categoryParam }: ProductsContainerProps) => {
         setIsModalOpen(false);
     }
 
-    useEffect(() => {
-        if (filters.ascendingPrice === true) {
-            setSortingKey('ascendingPriceFn');
-        } else if (filters.ascendingPrice === false) {
-            setSortingKey('descendingPriceFn');
-        } else {
-            setSortingKey('noSortingFn');
-        }
-    }, [filters.ascendingPrice]);
+    const sortingKey: SortingFnsKey = filters.ascendingPrice === true
+        ? 'ascendingPriceFn'
+        : filters.ascendingPrice === false
+            ? 'descendingPriceFn'
+            : 'noSortingFn';
 
     useEffect(() => {
         if (isModalOpen) {
@@ -142,7 +137,7 @@ const CatalogContainer = ({ items, categoryParam }: ProductsContainerProps) => {
     <div className="w-full flex flex-col lg:flex-row items-start gap-6 lg:gap-8">
         <button
             onClick={() => setIsModalOpen(true)}
-            className="lg:hidden text-lg text-gray-600"
+            className="pressable lg:hidden text-lg text-gray-600"
         >
             <i className="fa fa-sliders mr-2"></i>
             Filtros
@@ -154,11 +149,11 @@ const CatalogContainer = ({ items, categoryParam }: ProductsContainerProps) => {
                     fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2
                     w-full p-6
                     flex flex-col items-start gap-2
-                    rounded-2xl shadow-sm"
+                    rounded-2xl shadow-xl filter-dialog"
             >
                 <button
                     onClick={() => setIsModalOpen(false)}
-                    className="absolute top-3 right-3 w-8 aspect-square text-xl text-black"
+                    className="pressable absolute top-3 right-3 w-8 aspect-square text-xl text-black"
                 >
                     <i className="fa fa-times"></i>
                 </button>
@@ -207,7 +202,7 @@ const CatalogContainer = ({ items, categoryParam }: ProductsContainerProps) => {
                                 className="
                                     w-10 aspect-square
                                     bg-teal-600
-                                    text-xl text-white-1 rounded-md"
+                                    text-xl text-white-1 rounded-md pressable"
                             >
                                 <i className="fa fa-times"></i>
                             </button>
@@ -243,7 +238,7 @@ const CatalogContainer = ({ items, categoryParam }: ProductsContainerProps) => {
                 />
                 <button
                     onClick={handleMobApplyFiltersClick}
-                    className="self-center mt-4 px-4 py-2 bg-sky-600 text-white-1 rounded-md"
+                    className="pressable self-center mt-4 px-4 py-2 bg-sky-600 text-white-1 rounded-md"
                 >
                     Aplicar filtros
                 </button>
@@ -255,14 +250,13 @@ const CatalogContainer = ({ items, categoryParam }: ProductsContainerProps) => {
             flex flex-col lg:grid grid-cols-3 gap-6 lg:gap-8"
         >
             {filteredItems.length ?
-                filteredItems.sort(sortingFns[sortingKey]).map((item, index) =>
+                filteredItems.sort(sortingFns[sortingKey]).map((item) =>
                     <ProductCard
-                        key={index}
+                        key={item.slug}
                         title={item.title}
                         descriptionList={item.descriptionList}
                         price={item.price}
                         noPromotionPrice={item.noPromotionPrice}
-                        imgUrl={item.imageUrls[0]}
                         slug={item.slug}
                     />
                 )
@@ -328,7 +322,7 @@ const CatalogContainer = ({ items, categoryParam }: ProductsContainerProps) => {
                                 className="
                                     w-10 aspect-square
                                     bg-teal-600
-                                    text-xl text-white-1 rounded-md"
+                                    text-xl text-white-1 rounded-md pressable"
                             >
                                 <i className="fa fa-times"></i>
                             </button>
@@ -354,7 +348,7 @@ const CatalogContainer = ({ items, categoryParam }: ProductsContainerProps) => {
                     className="
                         mt-2 mb-4 px-3 py-1
                         text-md text-white-1
-                        bg-teal-600 rounded-md"
+                        bg-teal-600 rounded-md pressable"
                 >
                     Aplicar
                 </button>

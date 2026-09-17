@@ -3,12 +3,15 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+	--ease-out-premium: cubic-bezier(0.23, 1, 0.32, 1);
+	--ease-in-out-premium: cubic-bezier(0.77, 0, 0.175, 1);
+	--ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
 }
 
 @theme inline {
 	--spacing-header-height: 4rem;
 	--spacing-mob-header-height: 3.5rem;
-	--spacing-footer-height: 400px;
+	--spacing-footer-height: 480px;
 	--spacing-mob-footer-height: 640px;
 	--spacing-section-py: 4rem;
 	--spacing-section-px: 4rem;
@@ -32,8 +35,8 @@
 	--color-maingold-dark-2: #9C8814;
 
 	--color-br-gold-main: #b4a017;
-	--color-br-gold-700: #AB9816;
-	--color-br-gold-800: #9C8814;
+	--color-br-gold-700: #9e8c13;
+	--color-br-gold-800: #7a6a0b;
 
 	--text-md: 1rem;
 	--text-section-title: 4rem;
@@ -41,11 +44,11 @@
 	--font-sans: var(--font-geist-sans);
 	--font-mono: var(--font-geist-mono);
 
-	--animate-fade-in-600: fade-in 600ms ease-out 600ms forwards;
-	--animate-fade-in-scale-600: fade-in-scale 600ms ease-out 600ms forwards;
-	--animate-fade-in-up-0: fade-in-up 600ms ease-out forwards;
-	--animate-fade-in-up-300: fade-in-up 600ms ease-out 300ms forwards;
-	--animate-fade-in-up-600: fade-in-up 600ms ease-out 600ms forwards;
+	--animate-fade-in-600: fade-in 480ms var(--ease-out-premium) 360ms forwards;
+	--animate-fade-in-scale-600: fade-in-scale 480ms var(--ease-out-premium) 360ms forwards;
+	--animate-fade-in-up-0: fade-in-up 520ms var(--ease-out-premium) forwards;
+	--animate-fade-in-up-300: fade-in-up 520ms var(--ease-out-premium) 100ms forwards;
+	--animate-fade-in-up-600: fade-in-up 520ms var(--ease-out-premium) 200ms forwards;
 
 	@keyframes fade-in {
 		from {
@@ -108,17 +111,35 @@ button:hover {
   cursor: pointer;
 }
 
+:where(a, button, input):focus-visible {
+	outline: 3px solid color-mix(in srgb, #1d72e2 55%, transparent);
+	outline-offset: 3px;
+}
+
 @layer {
 	.crossed-out {
 		@apply relative after:content-[''] after:absolute after:top-1/2 after:left-0 after:w-full after:h-[2px] after:bg-gray-500/70;
 	}
 
 	.btn-hover {
-		@apply md:hover:scale-105 duration-300;
+		transition: transform 160ms var(--ease-out-premium), box-shadow 200ms ease;
 	}
 
 	.hover-animated-underline {
-		@apply after:content-[''] after:w-0 hover:after:w-[90%] after:duration-200 after:ease-out after:h-[2px] after:absolute after:-bottom-0 after:left-1/2 after:-translate-x-1/2 after:bg-black;
+		@apply after:content-[''] after:w-0 after:h-[1px] after:absolute after:bottom-1 after:left-1/2 after:-translate-x-1/2 after:bg-white-1;
+	}
+
+	.pressable {
+		transition: transform 140ms var(--ease-out-premium), background-color 180ms ease, color 180ms ease, box-shadow 200ms ease, opacity 180ms ease;
+		-webkit-tap-highlight-color: transparent;
+	}
+
+	.interactive-card {
+		transition: transform 220ms var(--ease-out-premium), box-shadow 220ms ease, border-color 180ms ease, background-color 180ms ease;
+	}
+
+	.media-zoom {
+		transition: transform 500ms var(--ease-out-premium);
 	}
 
 	.text-my-sm {
@@ -147,5 +168,80 @@ button:hover {
 
 	.text-most-h2 {
 		@apply text-3xl md:text-5xl;
+	}
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.btn-hover:hover {
+		transform: translateY(-2px) scale(1.02);
+		box-shadow: 0 10px 24px rgb(0 0 0 / 0.14);
+	}
+
+	.hover-animated-underline:hover::after {
+		width: 90%;
+		transition: width 200ms var(--ease-out-premium);
+	}
+
+	.interactive-card:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 16px 36px rgb(15 59 115 / 0.12);
+	}
+
+	.interactive-card:hover .media-zoom {
+		transform: scale(1.035);
+	}
+
+	.whatsapp-float:hover {
+		transform: translateY(-4px) scale(1.04);
+		box-shadow: 0 14px 30px rgb(22 163 74 / 0.3);
+	}
+}
+
+.pressable:active,
+.btn-hover:active,
+.interactive-card:active {
+	transform: scale(0.97);
+}
+
+.whatsapp-float {
+	animation: float-enter 520ms var(--ease-out-premium) 500ms both;
+	transition: transform 180ms var(--ease-out-premium), box-shadow 200ms ease;
+}
+
+.filter-dialog {
+	animation: dialog-enter 240ms var(--ease-out-premium) both;
+}
+
+.filter-dialog::backdrop {
+	background: rgb(0 0 0 / 0.36);
+	backdrop-filter: blur(3px);
+	animation: fade-in 180ms ease-out both;
+}
+
+@keyframes dialog-enter {
+	from { opacity: 0; transform: translate(-50%, calc(-50% + 12px)) scale(0.97); }
+	to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+@keyframes float-enter {
+	from { opacity: 0; transform: translateY(12px) scale(0.94); }
+	to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*, *::before, *::after {
+		scroll-behavior: auto !important;
+		animation-duration: 1ms !important;
+		animation-delay: 0ms !important;
+		animation-iteration-count: 1 !important;
+	}
+
+	.btn-hover,
+	.pressable,
+	.interactive-card,
+	.media-zoom,
+	.whatsapp-float {
+		transform: none !important;
+		transition-property: opacity, color, background-color, border-color, box-shadow;
 	}
 }

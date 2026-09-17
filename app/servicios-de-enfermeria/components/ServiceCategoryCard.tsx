@@ -1,5 +1,5 @@
 'use client'
-import { motion, stagger } from "motion/react";
+import { motion } from "motion/react";
 import Link from "next/link";
 
 interface HomeCategoryCardProps {
@@ -14,7 +14,7 @@ const containerVariants = {
     hidden: {},
     visible: {
         transition: {
-            delayChildren: stagger(0.2)
+            staggerChildren: 0.065
         }
     }
 }
@@ -22,13 +22,14 @@ const containerVariants = {
 const itemVariants = {
     hidden: {
         opacity: 0,
-        y: 20
+        transform: 'translateY(16px)'
     },
     visible: {
         opacity: 1,
-        y: 0,
+        transform: 'translateY(0)',
         transition: {
-            duration: 0.4
+            duration: 0.42,
+            ease: [0.23, 1, 0.32, 1] as [number, number, number, number]
         }
     }
 }
@@ -67,7 +68,7 @@ const ServiceCategoryCard = ({ title, descriptionParagraphs, href, linkText, ima
             >
                 <img
                     src={imageUrl}
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-contain media-zoom"
                     alt=""
                 />
             </div>
@@ -93,7 +94,7 @@ const ServiceCategoryCard = ({ title, descriptionParagraphs, href, linkText, ima
                 href={href}
                 className="
                     px-6 py-4
-                    bg-teal-500
+                    bg-teal-500 pressable btn-hover
                     text-md lg:text-xl text-white-1 rounded-full"
             >
                 {linkText}<i className="fa fa-arrow-right scale-90 ml-2"></i>

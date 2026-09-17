@@ -2,6 +2,7 @@ import BannerPages from "@/components/BannerPages"
 import AboutP from "./components/AboutP"
 import ImagesGrid from "./components/ImagesGrid"
 import type { Metadata } from "next";
+import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "Quiénes Somos | Plasma Vida Center Quito",
@@ -62,7 +63,7 @@ export default function About() {
             flex flex-col lg:flex-row gap-8
             bg-[#ececec]"
         >
-            <div className="
+            <Reveal className="
                 w-full lg:w-[60%] px-4 lg:px-12 py-4 lg:py-12
                 bg-white-1 rounded-2xl"
             >
@@ -91,7 +92,7 @@ export default function About() {
                 <AboutP margin={true}>Nuestra visión es consolidarnos como un referente en Quito en terapias de bienestar integral, destacándonos por nuestros sueros personalizados y un enfoque individualizado orientado a resultados reales. Aspiramos a expandir nuestros servicios a domicilio y a nivel nacional, facilitando el acceso a un cuidado profesional sin que la distancia sea una limitación.</AboutP>
                 <AboutP margin={true}>Buscamos fortalecer nuestras áreas especializadas, como el plasma articular y facial y el cuidado integral del adulto mayor, manteniendo siempre una atención humana, ética y cercana. Queremos ser reconocidos por nuestra calidad, compromiso y acompañamiento constante, generando un impacto positivo en cada paciente.</AboutP>
                 <AboutP margin={false}>Con el tiempo, buscamos convertirnos en un centro sólido, reconocido por su calidad humana y profesionalismo, generando oportunidades de empleo y crecimiento para personas que compartan nuestra filosofía de servicio y amor por la salud natural.</AboutP>
-            </div>
+            </Reveal>
             {/* Right div with images */}
             <ImagesGrid />
         </section>

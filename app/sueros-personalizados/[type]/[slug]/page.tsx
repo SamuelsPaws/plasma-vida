@@ -10,6 +10,7 @@ import Component from "./components/Component";
 import { Product } from "@/lib/models/product";
 import truncateText from "@/app/utils/truncateText";
 import { Metadata } from "next";
+import Reveal from "@/components/Reveal";
 
 type ProductType = 'homeopaticos' | 'vitaminicos';
 
@@ -111,9 +112,11 @@ export default async function CustomSerumPage({ params }: Props) {
         >
             {/* Title */}
             <div className="mb-6 lg:mb-16 flex gap-4 lg:gap-8">
-                <h1 className="text-2xl lg:text-5xl text-center lg:text-left font-bold">
-                    {product ? product.title : 'Título'}
-                </h1>
+                <Reveal>
+                    <h1 className="text-2xl lg:text-5xl text-center lg:text-left font-bold">
+                        {product ? product.title : 'Título'}
+                    </h1>
+                </Reveal>
                 {product && product.noPromotionPrice &&
                     <div className="
                         px-2 py-0

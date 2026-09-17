@@ -15,11 +15,11 @@ const CustomSerumHomeoOption = ({ name, description, price, slug }: CustomSerumH
         href={`/sueros-personalizados/homeopaticos/${slug}`}
         className="
             w-full p-4
-            flex gap-4 lg:gap-8 group cursor-pointer
+            flex gap-4 lg:gap-8 group cursor-pointer interactive-card
             border-2 border-sky-600 rounded-2xl"
     >
         <div className="
-            flex-1 lg:group-hover:pl-2 duration-200
+            flex-1 transition-transform duration-200 ease-[var(--ease-out-premium)] lg:group-hover:translate-x-1
             flex flex-col gap-1 lg:gap-2"
         >
             <h3 className="text-md lg:text-lg text-sky-600 font-semibold">{name}</h3>
@@ -27,7 +27,7 @@ const CustomSerumHomeoOption = ({ name, description, price, slug }: CustomSerumH
             <p className="text-xs lg:text-sm text-gray-600">{truncateMidText(description, 100)}</p>
         </div>
         <div className="
-            w-[10%] self-stretch lg:group-hover:pl-2 duration-200
+            w-[10%] self-stretch transition-transform duration-200 ease-[var(--ease-out-premium)] lg:group-hover:translate-x-1
             grid place-content-center
             text-xl lg:text-2xl text-sky-600"
         >

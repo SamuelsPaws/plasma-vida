@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <footer className='
-        h-mob-footer-height lg:h-footer-height w-full
+        h-mob-footer-height md:h-footer-height w-full
         absolute bottom-0 left-0
         px-4 md:px-4 pb-4 md:pb-4
         bg-transparent'
@@ -11,17 +11,17 @@ const Footer = () => {
             px-4 py-12 
             lg:px-0 lg:py-0
             flex flex-col lg:flex-row justify-center lg:justify-evenly items-center gap-12 lg:gap-0
-            bg-maingold-dark-1 rounded-2xl"
+            bg-[#7a6a0b] rounded-2xl"
         >
             <div className="flex flex-col gap-1 lg:gap-4 items-center lg:items-start">
                 <p className="mb-2 text-2xl lg:text-2xl font-bold text-white-1">
                     Contáctanos
                 </p>
                 <p className="text-md lg:text-lg text-white-1/90">
-                    Teléfono: <a href={`tel:+593978774224`} className="underline decoration-dotted">097 877 4224</a>
+                    Teléfono: <a href={`tel:+593978774224`} className="pressable inline-block underline decoration-dotted">097 877 4224</a>
                 </p>
                 <p className="text-md lg:text-lg text-white-1/90">
-                    E-mail: <a href="mailto:cpaciente1626@gmail.com" className="underline decoration-dotted">cpaciente1626@gmail.com</a>
+                    E-mail: <a href="mailto:cpaciente1626@gmail.com" className="pressable inline-block underline decoration-dotted">cpaciente1626@gmail.com</a>
                 </p>
             </div>
             <div className="flex flex-col gap-1 lg:gap-4 items-center lg:items-start">
@@ -32,7 +32,7 @@ const Footer = () => {
                     <i className="fa fa-instagram scale-[1.1] mr-2"></i>
                     <a
                         href="https://www.instagram.com/plasma_vida_center/"
-                        className="underline underline-offset-2"
+                        className="pressable inline-block underline underline-offset-2"
                         target="_blank"
                     >@plasma_vida_center</a>
                 </p>
@@ -45,13 +45,13 @@ const Footer = () => {
                 <a
                     href="https://maps.app.goo.gl/YGjuE4BiDqd9mkiM6"
                     target="_blank"
-                    className="w-[60%] text-md lg:text-lg text-white-1/90 text-center underline underline-offset-2"
+                    className="pressable w-[60%] text-md lg:text-lg text-white-1/90 text-center underline underline-offset-2"
                 >
                     Av. La Prensa y Edmundo Carvajal, Quito, Ecuador
                 </a>
             </div>
             <div className="
-                lg:absolute bottom-4 left-1/2 lg:-translate-x-1/2
+                md:absolute bottom-8 left-1/2 lg:-translate-x-1/2
                 text-center text-sm lg:text-md text-white-1/90"
             >
                 © 2026 Plasma Vida Center. Todos los derechos reservados.

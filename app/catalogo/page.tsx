@@ -4,6 +4,7 @@ import CustomSerumContainer from "./components/CustomSerumContainer";
 import CatalogContainer from "./components/CatalogContainer";
 import PromotionsCarousel from "@/components/PromotionsCarousel";
 import type { Metadata } from "next";
+import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "Catálogo de Sueros IV y Terapias PRP | Plasma Vida Center",
@@ -58,6 +59,7 @@ export default async function Catalog({ searchParams }: { searchParams: SearchPa
             title="Sueros y Plasma Rico en Plaquetas en Quito"
             subheadline={null}
             promotions={promotions}
+            bgSrc="/assets/catalog-banner.jpg"
         />
         {/* Mobile carrousel section */}
         <section className="lg:hidden h-[400px] px-6 py-12 bg-[#d5d5d5]">
@@ -86,13 +88,11 @@ export default async function Catalog({ searchParams }: { searchParams: SearchPa
         >
             {/* Navigation target */}
             <div id="productos" className="absolute left-0 -top-header-height"></div>
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[1px] bg-black/20"></div>
-            <h2 className="
-                mb-12 lg:mb-16
-                text-3xl lg:text-5xl text-center lg:text-left font-semibold"
-            >
-                Todos los Productos
-            </h2>
+            <Reveal>
+                <h2 className="mb-12 lg:mb-16 text-3xl lg:text-5xl text-center lg:text-left font-semibold">
+                    Todos los Productos
+                </h2>
+            </Reveal>
             <CatalogContainer
                 items={products.filter(el => el.category !== 'sueroHomeo' && el.category !== 'sueroVita')}
                 categoryParam={params.category}

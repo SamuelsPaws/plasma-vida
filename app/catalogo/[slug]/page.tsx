@@ -8,11 +8,13 @@ import ItemHealthTag from "../components/ItemHealthTag";
 import Component from "./components/Component";
 import clsx from "clsx";
 import { Metadata } from "next";
+import Reveal from "@/components/Reveal";
 import { Product } from "@/lib/models/product";
 import truncateText from "@/app/utils/truncateText";
 import IdealItem from "./components/IdealItem";
 import Image from "next/image";
 import Link from "next/link";
+import ProductSvg from "@/components/ProductSvg";
 
 type Props = {
     params: Promise<{
@@ -103,6 +105,7 @@ export default async function ProductPage({ params }: Props) {
     const product = await getProductBySlug(slug)
     const descriptionParagraphs = product.description.split('\n').filter(el => el.length)
     // const longDescriptionParagraphs = product.longDescription.split('\n').filter(el => el.length)
+    const splitTitle = product.title.split(' ')
 
     const jsonLd = {
         "@context": "https://schema.org",
@@ -139,9 +142,11 @@ export default async function ProductPage({ params }: Props) {
             </Link>
             {/* Title */}
             <div className="my-8 lg:my-16 flex gap-4 lg:gap-8 items-center">
-                <h1 className="text-2xl lg:text-5xl text-left font-bold">
-                    {product ? product.title : 'Título'}
-                </h1>
+                <Reveal>
+                    <h1 className="text-2xl lg:text-5xl text-left font-bold">
+                        {product ? product.title : 'Título'}
+                    </h1>
+                </Reveal>
                 {product && product.noPromotionPrice &&
                     <div className="
                         px-2 py-2
@@ -185,13 +190,10 @@ export default async function ProductPage({ params }: Props) {
                             xl:w-[400px] xl:h-[400px]
                             rounded-2xl overflow-hidden relative"
                         >
-                            <Image
-                                src={product ? product.imageUrls[0] : '/assets/banner.webp'}
-                                fill
-                                sizes="(min-width: 1280px) 320px, (min-width: 1024px) 400px, 100%"
-                                priority
-                                className="object-cover"
-                                alt={product ? product.title : 'Imagen no disponible'}
+                            <ProductSvg
+                                productCategory={splitTitle[0]}
+                                productName={[splitTitle.slice(1).join(' ')]}
+                                className="w-full h-full object-cover"
                             />
                         </div>
                         {/* Right div */}

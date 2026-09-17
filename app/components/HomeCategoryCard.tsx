@@ -1,6 +1,7 @@
 'use client'
 import CustomIcon from "@/components/CustomIcon";
-import { motion, stagger } from "motion/react";
+import clsx from "clsx";
+import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -10,13 +11,16 @@ interface HomeCategoryCardProps {
     href: string;
     linkText: string;
     imageUrl: string;
+    imgW: number;
+    imgH: number;
+    imgClassName?: string;
 }
 
 const containerVariants = {
     hidden: {},
     visible: {
         transition: {
-            delayChildren: stagger(0.2)
+            staggerChildren: 0.065
         }
     }
 }
@@ -24,18 +28,28 @@ const containerVariants = {
 const itemVariants = {
     hidden: {
         opacity: 0,
-        y: 20
+        transform: 'translateY(16px)'
     },
     visible: {
         opacity: 1,
-        y: 0,
+        transform: 'translateY(0)',
         transition: {
-            duration: 0.4
+            duration: 0.42,
+            ease: [0.23, 1, 0.32, 1] as [number, number, number, number]
         }
     },
 }
 
-const HomeCategoryCard = ({ title, descriptionParagraphs, href, linkText, imageUrl }: HomeCategoryCardProps) => {
+const HomeCategoryCard = ({
+    title,
+    descriptionParagraphs,
+    href,
+    linkText,
+    imageUrl,
+    imgW,
+    imgH,
+    imgClassName
+}: HomeCategoryCardProps) => {
   return (
     <motion.div
         className="
@@ -57,25 +71,26 @@ const HomeCategoryCard = ({ title, descriptionParagraphs, href, linkText, imageU
         >
             {/* Title */}
             <h3 className="
-                mb-4 lg:mb-0 text-2xl lg:text-4xl
-                text-sky-800 text-center font-bold leading-12"
+                mb-4 md:mb-8 text-2xl lg:text-4xl
+                text-black text-center font-bold leading-12"
             >
                 {title}
             </h3>
             {/* Image */}
-            <div className="
-                w-full h-[240px]
-                lg:w-full lg:h-auto lg:max-w-[340px] lg:aspect-square
-                rounded-2xl relative"
-            >
-                <Image
-                    src={imageUrl}
-                    fill
-                    sizes="(min-width: 1024px) 340px, 100%)"
-                    className="object-contain"
-                    alt={title}
-                />
-            </div>
+            <Image
+                src={imageUrl}
+                width={imgW}
+                height={imgH}
+                sizes="(min-width: 1024px) 340px, 100%)"
+                className={clsx(
+                    "w-full h-[240px] relative",
+                    "object-cover media-zoom",
+                    "md:w-full md:h-auto md:max-w-[340px] md:aspect-square",
+                    "rounded-4xl overflow-hidden",
+                    imgClassName
+                )}
+                alt={title}
+            />
         </motion.div>
         {/* Description */}
         <motion.div
@@ -102,10 +117,11 @@ const HomeCategoryCard = ({ title, descriptionParagraphs, href, linkText, imageU
             <Link
                 href={href}
                 className="
-                    px-4 lg:px-6 py-4 lg:py-4
+                    px-6 py-4
+                    md:px-8 md:py-4
                     bg-br-gold-main
-                    text-sm lg:text-xl text-white-1 rounded-full
-                    btn-hover"
+                    text-my-md text-white-1 whitespace-nowrap
+                    rounded-full btn-hover pressable"
             >
                 {linkText}
                 <CustomIcon

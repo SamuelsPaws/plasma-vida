@@ -12,7 +12,7 @@ const Header = () => {
     >
       <Link
         href="/"
-        className="text-white-1"
+        className="pressable text-white-1"
       >
         <Image
           src="/assets/logo.webp"
@@ -30,7 +30,7 @@ const Header = () => {
           <li>
             <Link
               href='/catalogo'
-              className="hover:text-white-1/80 duration-200"
+              className="pressable relative py-2 hover:text-white-1/80"
             >
               Catálogo
             </Link>
@@ -38,7 +38,7 @@ const Header = () => {
           <li>
             <Link
               href='/servicios-de-enfermeria'
-              className="hover:text-white-1/80 duration-200"
+              className="pressable relative py-2 hover:text-white-1/80"
             >
               Servicios de Enfermería
             </Link>
@@ -46,7 +46,7 @@ const Header = () => {
           <li className="hidden">
             <Link
               href='/'
-              className="hover:text-white-1/80 duration-200"
+              className="pressable relative py-2 hover:text-white-1/80"
             >
               Contacto
             </Link>
@@ -54,7 +54,7 @@ const Header = () => {
           <li>
             <Link
               href='/quienes-somos'
-              className="hover:text-white-1/80 duration-200"
+              className="pressable relative py-2 hover:text-white-1/80"
             >
               Quiénes Somos
             </Link>

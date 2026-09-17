@@ -1,18 +1,11 @@
 import PromotionsCarousel from "@/components/PromotionsCarousel"
-import { motion } from "motion/react"
 import Link from "next/link"
 import { Product } from "@/lib/models/product"
 import Image from "next/image"
 import CustomIcon from "@/components/CustomIcon"
 
 const Hero = ({ promotions }: { promotions: Product[] }) => {
-    // lg:h-[620px] p-8 lg:p-10 relative
-    // grid grid-cols-1 lg:grid-cols-2 gap-0
-    // bg-[url('/assets/hero-img.webp')] bg-size-[120%] lg:bg-position-[0_-180px]
-    // before:content-[''] before:absolute before:inset-0
-    // before:bg-[linear-gradient(to_right,#fffe_40%,#0000)]
-
-  return (
+    return (
     <section className="
         lg:h-[620px] p-0 lg:p-10 relative
         flex flex-col lg:flex-row gap-0 lg:gap-0"
@@ -72,7 +65,7 @@ const Hero = ({ promotions }: { promotions: Product[] }) => {
                     bg-br-gold-main rounded-full
                     text-white-1 text-md md:text-lg xl:text-xl
                     opacity-0 animate-fade-in-600
-                    md:hover:scale-105 duration-300"
+                    btn-hover pressable"
             >
                 <span>Mira nuestro catálogo</span>
                 <CustomIcon

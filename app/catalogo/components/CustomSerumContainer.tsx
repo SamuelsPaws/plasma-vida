@@ -1,7 +1,7 @@
 'use client'
 import { useState } from "react"
 import CustomSerumHorV from "./CustomSerumHorV";
-import { motion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import CustomSerumHomeoOption from "./CustomSerumHomeoOption";
 import type { Product } from "@/lib/models/product";
 import CustomSerumVitaOption from "./CustomSerumVitaOption";
@@ -41,12 +41,15 @@ const CustomSerumContainer = ({ customHomeoSerums, customVitaSerums }: CustomSer
                 thisHomeo={false}
             />
         </div>
+        <AnimatePresence mode="wait">
         {isHomeo !== null && (
             <motion.div
+                key={isHomeo ? 'homeopathic' : 'vitamin'}
                 className="w-full mt-6 lg:mt-8"
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: 'auto', opacity: 1 }}
-                transition={{ duration: 0.2, opacity: { delay: 0.2 } }}
+                initial={{ opacity: 0, transform: 'translateY(10px)', filter: 'blur(2px)' }}
+                animate={{ opacity: 1, transform: 'translateY(0)', filter: 'blur(0px)' }}
+                exit={{ opacity: 0, transform: 'translateY(-6px)', filter: 'blur(2px)' }}
+                transition={{ duration: 0.22, ease: [0.23, 1, 0.32, 1] }}
             >
                 <p className="
                     mb-6 lg:mb-8
@@ -82,6 +85,7 @@ const CustomSerumContainer = ({ customHomeoSerums, customVitaSerums }: CustomSer
                 }
             </motion.div>
         )}
+        </AnimatePresence>
     </div>
   )
 }

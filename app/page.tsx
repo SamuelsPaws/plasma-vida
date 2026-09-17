@@ -2,6 +2,8 @@ import { getProducts } from "@/lib/contentful-queries";
 import Hero from "./components/Hero";
 import HomeCategoryCard from "./components/HomeCategoryCard";
 import { Metadata } from "next";
+import Reveal from "@/components/Reveal";
+import ProductSvg from "@/components/ProductSvg";
 
 export const metadata: Metadata = {
 	title: "Plasma Vida Center | Mejora tu salud al instante",
@@ -54,39 +56,46 @@ export default async function Home() {
 
   return (
     <main className="pt-mob-header-height lg:pt-header-height">
-      <Hero promotions={promotions} />
-      <section className="
-        min-h-[300px]
-		px-4 py-12
-		md:px-16 md:py-24 relative
-        bg-white-1"
-      >
-        <h2 className="mb-12 lg:mb-24 text-3xl lg:text-5xl text-center font-bold">
-          En Plasma Vida Center encontrarás:
-        </h2>
-        {/* Service types (suero, plasma, enfermería) */}
-        <HomeCategoryCard
-          title="Sueroterapia"
-          descriptionParagraphs={[
-            'Nuestros sueros homeopáticos y vitaminados son una forma rápida y efectiva de revitalizar tu cuerpo a través de vitaminas, minerales y nutrientes esenciales. De esta forma potenciamos tu energía, fortalecemos tus defensas y mejoramos tu bienestar general.',
-            'Dale a tu cuerpo el impulso que merece y siéntete mejor, más fuerte y equilibrado desde la primera sesión.',
-          ]}
-          href="/catalogo"
-          linkText="Mira nuestro catálogo"
-          imageUrl="/assets/serum.png"
-        />
-        <div className="h-12 lg:h-24"></div>
-        <HomeCategoryCard
-          title="Plasma Rico en Plaquetas (PRP)"
-          descriptionParagraphs={[
-            'El Plasma Rico en Plaquetas (PRP) es un tratamiento regenerativo que utiliza los factores de crecimiento de tu propia sangre para estimular la reparación natural de los tejidos. Ayuda a mejorar la calidad de la piel, acelerar la recuperación y promover la regeneración celular.',
-            'Impulsa la capacidad de sanar natural de tu cuerpo, ayúdale a rejuvenecer y fortalecerse desde adentro.',
-          ]}
-          href="/catalogo#productos"
-          linkText="Mira nuestro catálogo"
-          imageUrl="/assets/plasma.png"
-        />
-        <div className="h-12 lg:h-24"></div>
+		<Hero promotions={promotions} />
+		<section className="
+			min-h-[300px]
+			px-4 py-12
+			md:px-16 md:py-24 relative
+			bg-white-1"
+		>
+			<Reveal>
+				<h2 className="mb-12 lg:mb-24 text-3xl lg:text-5xl text-center font-bold">
+					En Plasma Vida Center encontrarás:
+				</h2>
+			</Reveal>
+			{/* Service types (suero, plasma, enfermería) */}
+			<HomeCategoryCard
+				title="Sueroterapia"
+				descriptionParagraphs={[
+					'Nuestros sueros homeopáticos y vitaminados son una forma rápida y efectiva de revitalizar tu cuerpo a través de vitaminas, minerales y nutrientes esenciales. De esta forma potenciamos tu energía, fortalecemos tus defensas y mejoramos tu bienestar general.',
+					'Dale a tu cuerpo el impulso que merece y siéntete mejor, más fuerte y equilibrado desde la primera sesión.',
+				]}
+				href="/catalogo"
+				linkText="Mira nuestro catálogo"
+				imageUrl="/assets/iv-cover.jpg"
+				imgW={1672}
+				imgH={941}
+				imgClassName="object-[35%_50%]"
+			/>
+			<div className="h-12 lg:h-24"></div>
+			<HomeCategoryCard
+				title="Plasma Rico en Plaquetas (PRP)"
+				descriptionParagraphs={[
+					'El Plasma Rico en Plaquetas (PRP) es un tratamiento regenerativo que utiliza los factores de crecimiento de tu propia sangre para estimular la reparación natural de los tejidos. Ayuda a mejorar la calidad de la piel, acelerar la recuperación y promover la regeneración celular.',
+					'Impulsa la capacidad de sanar natural de tu cuerpo, ayúdale a rejuvenecer y fortalecerse desde adentro.',
+				]}
+				href="/catalogo#productos"
+				linkText="Mira nuestro catálogo"
+				imageUrl="/assets/plasma.png"
+				imgW={200}
+				imgH={200}
+			/>
+			<div className="h-12 lg:h-24"></div>
 			<HomeCategoryCard
 				title="Servicios de Enfermería"
 				descriptionParagraphs={[
@@ -96,6 +105,9 @@ export default async function Home() {
 				href="/servicios-de-enfermeria"
 				linkText="Mira nuestros servicios"
 				imageUrl="/assets/nurse.png"
+				imgW={100}
+				imgH={100}
+				imgClassName="object-[10%_50%]"
 			/>
       	</section>
       	<section className="h-mob-footer-height lg:h-footer-height bg-white-1"></section>

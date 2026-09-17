@@ -32,7 +32,7 @@ export default async function SimilarContainer({ productSlug, productType }: Sim
                     className="
                         w-full px-3 lg:px-4 py-2 lg:py-3
                         flex gap-4
-                        bg-white-1 lg:hover:bg-gray-100 cursor-pointer duration-200
+                        bg-white-1 lg:hover:bg-gray-100 cursor-pointer interactive-card
                         border border-gray-300 shadow-sm lg:hover:shadow-md rounded-2xl"
                 >
                     {/* Div with left part */}

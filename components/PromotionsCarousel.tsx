@@ -1,12 +1,13 @@
 'use client'
 import numToPriceStr from "@/app/utils/numToPriceStr";
 import { AnimatePresence, motion } from "motion/react";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import PromotionsDot from "./PromotionsDot";
 import { Product } from "@/lib/models/product";
 import Link from "next/link";
 import getSalePercent from "@/app/utils/getSalePercent";
 import Image from "next/image";
+import CustomIcon from "./CustomIcon";
 
 type Interval = ReturnType<typeof setInterval>;
 
@@ -17,29 +18,34 @@ interface PromotionsCarouselProps {
 
 const PromotionsCarousel = ({ promotions, className }: PromotionsCarouselProps) => {
     const [index, setIndex] = useState<number>(0);
+    const [direction, setDirection] = useState<1 | -1>(1);
     const intervalRef = useRef<Interval | null>(null);
 
-    const startInterval = () => {
+    const startInterval = useCallback(() => {
         clearInterval(intervalRef.current!);
         intervalRef.current = setInterval(() => {
+            setDirection(1);
             setIndex((i) => (i + 1) % promotions.length);
         }, 4500);
-    };
+    }, [promotions.length]);
 
     useEffect(() => {
         startInterval();
 
         return () => clearInterval(intervalRef.current!);
-    }, [promotions.length]);
+    }, [startInterval]);
 
     const handleDotClick = (i: number) => {
+        setDirection(i > index ? 1 : -1);
         setIndex(i);
         startInterval();
     }
 
+    if (!promotions.length) return null;
+
   return (
     <div className={className}>
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="wait" custom={direction}>
             {/* White part (card) */}
             <motion.div
                 className="
@@ -48,10 +54,11 @@ const PromotionsCarousel = ({ promotions, className }: PromotionsCarouselProps) 
                     flex flex-col justify-between
                     rounded-2xl shadow-none lg:shadow-md"
                 key={index}
-                initial={{ opacity: 0, x: 30 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -30, }}
-                transition={{ duration: 0.6 }}
+                custom={direction}
+                initial={{ opacity: 0, transform: `translateX(${direction * 18}px) scale(0.985)`, filter: 'blur(2px)' }}
+                animate={{ opacity: 1, transform: 'translateX(0) scale(1)', filter: 'blur(0px)' }}
+                exit={{ opacity: 0, transform: `translateX(${direction * -12}px) scale(0.99)`, filter: 'blur(2px)' }}
+                transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
             >
                 {promotions[index].noPromotionPrice &&
                     <div className="
@@ -89,7 +96,7 @@ const PromotionsCarousel = ({ promotions, className }: PromotionsCarouselProps) 
                             src={promotions[index].imageUrls[0]}
                             fill
                             sizes="70%"
-                            className="object-cover"
+                            className="object-cover media-zoom"
                             alt={promotions[index].title}
                         />
                     </div>
@@ -112,10 +119,14 @@ const PromotionsCarousel = ({ promotions, className }: PromotionsCarouselProps) 
                             href={`/catalogo/${promotions[index].slug}`}
                             className="
                                 px-4 lg:px-4 py-2
-                                bg-blue-700
+                                flex items-center gap-2
+                                bg-blue-700 pressable btn-hover
                                 text-sm lg:text-md text-white-1 rounded-full"
                         >
-                            Ver<i className="fa fa-arrow-right scale-90 ml-2"></i>
+                            <span>Ver</span>
+                            <CustomIcon
+                                iconId="arrowR"
+                            />
                         </Link>
                     </div>
                 </div>

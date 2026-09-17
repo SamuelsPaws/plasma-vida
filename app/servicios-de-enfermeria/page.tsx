@@ -1,6 +1,7 @@
 import BannerPages from "@/components/BannerPages";
 import ServiceCategoryCard from "./components/ServiceCategoryCard";
 import type { Metadata } from "next";
+import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "Servicios de Enfermería a Domicilio en Quito | Cuidado Profesional",
@@ -54,12 +55,11 @@ export default async function Services() {
             min-h-[300px] px-6 lg:px-12 py-12 lg:py-16 relative
             bg-white-1"
         >
-            <h2 className="
-                mb-12 lg:mb-16
-                text-3xl lg:text-5xl text-center font-bold"
-            >
-                Te ofrecemos servicios a domicilio en Quito
-            </h2>
+            <Reveal>
+                <h2 className="mb-12 lg:mb-16 text-3xl lg:text-5xl text-center font-bold">
+                    Te ofrecemos servicios a domicilio en Quito
+                </h2>
+            </Reveal>
             <ServiceCategoryCard
                 title="Cuidado al adulto mayor"
                 descriptionParagraphs={[
