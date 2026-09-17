@@ -3,7 +3,7 @@ const Footer = () => {
     <footer className='
         h-mob-footer-height lg:h-footer-height w-full
         absolute bottom-0 left-0
-        px-6 lg:px-8 pb-6 lg:pb-8
+        px-4 md:px-4 pb-4 md:pb-4
         bg-transparent'
     >
         <div className="

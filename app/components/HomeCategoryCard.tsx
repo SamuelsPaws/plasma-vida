@@ -85,9 +85,14 @@ const HomeCategoryCard = ({ title, descriptionParagraphs, href, linkText, imageU
                 text-sky-800"
             variants={itemVariants}
         >
-            {descriptionParagraphs.map((el, index) =>
-                <p key={index} className="text-sm lg:text-xl text-center">{el}</p>
-            )}
+            {descriptionParagraphs.map((el, index) => (
+                <p
+                    key={index}
+                    className="text-gray-600 text-center leading-6 md:leading-8"
+                >
+                    {el}
+                </p>
+            ))}
         </motion.div>
         {/* Link */}
         <motion.div
@@ -98,7 +103,7 @@ const HomeCategoryCard = ({ title, descriptionParagraphs, href, linkText, imageU
                 href={href}
                 className="
                     px-4 lg:px-6 py-4 lg:py-4
-                    bg-teal-500
+                    bg-br-gold-main
                     text-sm lg:text-xl text-white-1 rounded-full
                     btn-hover"
             >

@@ -1,52 +1,51 @@
 import { getProducts } from "@/lib/contentful-queries";
 import Hero from "./components/Hero";
 import HomeCategoryCard from "./components/HomeCategoryCard";
-import PromotionsCarousel from "@/components/PromotionsCarousel";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Plasma Vida Center | Mejora tu salud al instante",
-  description:
-    "Plasma Vida Center ofrece terapias avanzadas de bienestar como sueros intravenosos, plasma rico en plaquetas (PRP) y servicios de enfermería a domicilio. Mejora tu salud con atención profesional, segura y personalizada.",
-  keywords: [
-    "sueros intravenosos Ecuador",
-    "plasma rico en plaquetas PRP",
-    "terapias de bienestar",
-    "enfermería a domicilio",
-    "cuidado de adultos mayores",
-    "salud y bienestar quito",
-    "salud y bienestar ecuador",
-    "salud y bienestar premium",
-    "Plasma Vida Center"
-  ],
-  applicationName: "Plasma Vida Center",
-  authors: [{ name: "Plasma Vida Center" }],
-  creator: "Plasma Vida Center",
-  publisher: "Plasma Vida Center",
+	title: "Plasma Vida Center | Mejora tu salud al instante",
+	description:
+		"Plasma Vida Center ofrece terapias avanzadas de bienestar como sueros intravenosos, plasma rico en plaquetas (PRP) y servicios de enfermería a domicilio. Mejora tu salud con atención profesional, segura y personalizada.",
+	keywords: [
+		"sueros intravenosos Ecuador",
+		"plasma rico en plaquetas PRP",
+		"terapias de bienestar",
+		"enfermería a domicilio",
+		"cuidado de adultos mayores",
+		"salud y bienestar quito",
+		"salud y bienestar ecuador",
+		"salud y bienestar premium",
+		"Plasma Vida Center"
+	],
+	applicationName: "Plasma Vida Center",
+	authors: [{ name: "Plasma Vida Center" }],
+	creator: "Plasma Vida Center",
+	publisher: "Plasma Vida Center",
 
-  openGraph: {
-    title: "Plasma Vida Center - Siéntete bien y cuida tu salud.",
-    description:
-      "Terapias avanzadas de bienestar: sueros IV, PRP y atención de enfermería a domicilio con enfoque profesional y personalizado.",
-    url: "https://plasmavidacenter.com/", // Canonical
-    siteName: "Plasma Vida Center",
-    locale: "es_EC",
-    type: "website",
-  },
+	openGraph: {
+		title: "Plasma Vida Center - Siéntete bien y cuida tu salud.",
+		description:
+		"Terapias avanzadas de bienestar: sueros IV, PRP y atención de enfermería a domicilio con enfoque profesional y personalizado.",
+		url: "https://plasmavidacenter.com/", // Canonical
+		siteName: "Plasma Vida Center",
+		locale: "es_EC",
+		type: "website",
+	},
 
-  twitter: {
-    card: "summary_large_image",
-    title: "Inicio - Plasma Vida Center",
-    description:
-      "Sueros IV, PRP y servicios de enfermería a domicilio con enfoque clínico y personalizado.",
-    images: ["/opengraph-image.jpg"],
-  },
+	twitter: {
+		card: "summary_large_image",
+		title: "Inicio - Plasma Vida Center",
+		description:
+		"Sueros IV, PRP y servicios de enfermería a domicilio con enfoque clínico y personalizado.",
+		images: ["/opengraph-image.jpg"],
+	},
 
-  alternates: {
-    canonical: "https://plasmavidacenter.com/",
-  },
+	alternates: {
+		canonical: "https://plasmavidacenter.com/",
+	},
 
-  metadataBase: new URL("https://plasmavidacenter.com/"),
+	metadataBase: new URL("https://plasmavidacenter.com/"),
 };
 
 export default async function Home() {
@@ -57,7 +56,9 @@ export default async function Home() {
     <main className="pt-mob-header-height lg:pt-header-height">
       <Hero promotions={promotions} />
       <section className="
-        min-h-[300px] px-6 lg:px-12 py-12 lg:py-16 relative
+        min-h-[300px]
+		px-4 py-12
+		md:px-16 md:py-24 relative
         bg-white-1"
       >
         <h2 className="mb-12 lg:mb-24 text-3xl lg:text-5xl text-center font-bold">

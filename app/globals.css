@@ -30,7 +30,14 @@
 	--color-maingold-original: #b4a017;
 	--color-maingold-dark-1: #AB9816;
 	--color-maingold-dark-2: #9C8814;
+
+	--color-br-gold-main: #b4a017;
+	--color-br-gold-700: #AB9816;
+	--color-br-gold-800: #9C8814;
+
+	--text-md: 1rem;
 	--text-section-title: 4rem;
+
 	--font-sans: var(--font-geist-sans);
 	--font-mono: var(--font-geist-mono);
 
@@ -102,11 +109,43 @@ button:hover {
 }
 
 @layer {
-  .crossed-out {
-    @apply relative after:content-[''] after:absolute after:top-1/2 after:left-0 after:w-full after:h-[2px] after:bg-gray-500/70;
-  }
+	.crossed-out {
+		@apply relative after:content-[''] after:absolute after:top-1/2 after:left-0 after:w-full after:h-[2px] after:bg-gray-500/70;
+	}
 
-  .btn-hover {
-	@apply md:hover:scale-105 duration-300;
-  }
+	.btn-hover {
+		@apply md:hover:scale-105 duration-300;
+	}
+
+	.hover-animated-underline {
+		@apply after:content-[''] after:w-0 hover:after:w-[90%] after:duration-200 after:ease-out after:h-[2px] after:absolute after:-bottom-0 after:left-1/2 after:-translate-x-1/2 after:bg-black;
+	}
+
+	.text-my-sm {
+		@apply text-sm md:text-sm xl:text-md;
+	}
+
+	.text-my-md {
+		@apply text-md md:text-md xl:text-lg;
+	}
+
+	.text-my-lg {
+		@apply text-md md:text-lg xl:text-xl;
+	}
+
+	.text-myf-lg {
+		@apply text-md md:text-lg xl:text-lg;
+	}
+
+	.text-my-xl {
+		@apply text-lg md:text-xl xl:text-2xl;
+	}
+
+	.text-my-2xl {
+		@apply text-xl md:text-2xl xl:text-3xl;
+	}
+
+	.text-most-h2 {
+		@apply text-3xl md:text-5xl;
+	}
 }

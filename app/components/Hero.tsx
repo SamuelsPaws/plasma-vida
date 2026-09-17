@@ -69,7 +69,7 @@ const Hero = ({ promotions }: { promotions: Product[] }) => {
                 href='/catalogo'
                 className="
                     px-6 lg:px-8 py-4 z-20
-                    bg-teal-500 rounded-full
+                    bg-br-gold-main rounded-full
                     text-white-1 text-md md:text-lg xl:text-xl
                     opacity-0 animate-fade-in-600
                     md:hover:scale-105 duration-300"
