@@ -37,13 +37,6 @@ const ProductSvg = ({ productCategory, productName, className }: Props) => {
                 />
             </mask>
         </defs>
-        <title
-            id="title">Suero Gastrointestinal</title>
-        <desc
-            id="desc">
-            Product cover for Suero Gastrointestinal with stomach icon and
-            Plasma Vida monochrome brand mark.
-        </desc>
         <rect
             width="1200"
             height="1200"
@@ -59,7 +52,7 @@ const ProductSvg = ({ productCategory, productName, className }: Props) => {
         />
         <path
             d="m 0,1025 c 205,-80 436.31266,-79.8507 601.31266,-14.8507 195,77 335.94649,101.0347 600.94654,-48.96535 L 1200,1200 H 0 Z"
-            fill="#9e8c13"
+            fill="#b29f16"
             id="path3"
         />
         <g

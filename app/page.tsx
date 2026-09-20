@@ -4,6 +4,11 @@ import HomeCategoryCard from "./components/HomeCategoryCard";
 import { Metadata } from "next";
 import Reveal from "@/components/Reveal";
 import ProductSvg from "@/components/ProductSvg";
+import SectionSec from "@/components/SectionSec";
+import { p } from "motion/react-client";
+import Image from "next/image";
+import CustomIcon from "@/components/CustomIcon";
+import AttentionItem from "./components/AttentionItem";
 
 export const metadata: Metadata = {
 	title: "Plasma Vida Center | Mejora tu salud al instante",
@@ -110,6 +115,58 @@ export default async function Home() {
 				imgClassName="object-center"
 			/>
       	</section>
+		<SectionSec
+			title="Atención que se adapta a ti"
+			eyebrow="NUESTRA FORMA DE CUIDARTE"
+			bgColor="bg-white-1"
+			underLeft={(
+				<>
+				<p className="
+					mb-4 md:mb-8
+					text-my-md text-gray-600"
+				>
+					Cada persona tiene necesidades diferentes. Por eso, creemos en una atención cercana, donde escucharte y comprender lo que necesitas es parte fundamental de tu cuidado.
+				</p>
+				<div className="
+					w-full h-[1px]
+					mb-4 md:mb-8
+					bg-gray-300"
+				></div>
+				<div className="flex flex-col gap-4 md:gap-8">
+					<AttentionItem
+						iconId="handshake-heart"
+						title="Un trato cercano"
+						copy="Queremos que te sientas escuchado y acompañado, con un trato humano y respetuoso durante tu atención."
+					/>
+					<AttentionItem
+						iconId="people"
+						title="Atención personalizada"
+						copy="Nos tomamos el tiempo de conocer tus necesidades para brindarte orientación y atención de acuerdo con tu situación."
+					/>
+					<AttentionItem
+						iconId="house"
+						title="Cuidado donde lo necesitas"
+						copy="Te atendemos en nuestro centro y ofrecemos servicios a domicilio, según el tipo de atención que necesites y su disponibilidad."
+					/>
+				</div>
+				</>
+			)}
+			rightNode={(
+				<Image
+					src="/assets/content/face-injection.jpg"
+					width={1200}
+					height={800}
+					sizes="(max-width: 768px) 100vw, 45vw"
+					className="
+						w-full md:w-[40%] aspect-square min-w-80
+						object-cover object-top
+						rounded-4xl"
+					alt="Inyección facial"
+				/>
+			)}
+		>
+
+		</SectionSec>
       	<section className="h-mob-footer-height lg:h-footer-height bg-white-1"></section>
     </main>
   	);

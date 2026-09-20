@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Poppins, Roboto } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -10,6 +10,11 @@ import MotionProvider from "@/components/MotionProvider";
 const poppins = Poppins({
   subsets: ['latin'],
   weight: ['400', '600'],
+})
+
+const roboto = Roboto({
+  subsets: ['latin'],
+  variable: '--font-roboto'
 })
 
 export const metadata: Metadata = {
@@ -37,7 +42,7 @@ export default function RootLayout({
       </head>
       <body
         className={clsx(
-          poppins.className,
+          roboto.className,
           'relative'
         )}
       >
