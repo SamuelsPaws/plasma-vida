@@ -1,12 +1,14 @@
 import clsx from "clsx";
+import Eyebrow from "./reusable-ui/Eyebrow";
 
 interface Props {
     title?: string;
+    eyebrow?: string;
     bgColor: string;
     children?: React.ReactNode;
 }
 
-const SectionSt = ({ title, bgColor, children }: Props) => {
+const SectionSt = ({ title, eyebrow, bgColor, children }: Props) => {
     return (
     <section className={clsx(
         "px-8 py-16 relative",
@@ -15,6 +17,12 @@ const SectionSt = ({ title, bgColor, children }: Props) => {
         bgColor,
         "overflow-hidden"
     )}>
+        {eyebrow && (
+            <Eyebrow
+                text={eyebrow}
+                centered
+            />
+        )}
         {title && (
             <h2 className="
                 w-full md:w-2/3 mx-auto

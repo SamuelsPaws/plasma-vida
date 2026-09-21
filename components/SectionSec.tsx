@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import Eyebrow from "./reusable-ui/Eyebrow";
 
 interface Props {
     title: string;
@@ -21,13 +22,12 @@ const SectionSec = ({ title, eyebrow, bgColor, children, underLeft, rightNode }:
         {/* Upper part (base) */}
         <div className="flex flex-col md:flex-row items-start justify-center gap-8 md:gap-16">
             {/* Left part */}
-            <div className="w-full md:w-[60%]">
-                <span className="
-                    block mb-2 md:mb-4
-                    text-my-md text-br-gold-main"
-                >
-                    {eyebrow}
-                </span>
+            <div className="w-full md:w-auto md:flex-1">
+                {eyebrow && (
+                    <Eyebrow
+                        text={eyebrow}
+                    />
+                )}
                 <h2 className="
                     mb-4 md:mb-4
                     text-most-h2 text-mainblue-original dark:text-br-white

@@ -14,6 +14,8 @@ import CenteredP from "@/components/reusable-ui/CenteredP";
 import StepCard from "@/components/reusable-ui/step-card/StepCard";
 import Link from "next/link";
 import PillCtaBtn from "@/components/reusable-ui/PillCtaBtn";
+import TestimonialCard from "./components/testimonial-card/TestimonialCard";
+import FaqCard from "./components/FaqCard";
 
 export const metadata: Metadata = {
 	title: "Plasma Vida Center | Mejora tu salud al instante",
@@ -182,7 +184,7 @@ export default async function Home() {
 				w-full md:w-fit
 				mx-auto
 				mb-16 md:mb-16
-				flex flex-col md:flex-row justify-between flex-wrap gap-8 md:gap-16"
+				flex flex-col md:flex-row justify-between flex-wrap gap-8 md:gap-8"
 			>
 				<StepCard
 					num={1}
@@ -210,6 +212,111 @@ export default async function Home() {
 				external
 			/>
 		</SectionSt>
+		{/* <SectionSt
+			eyebrow="EXPERIENCIAS DE NUESTROS PACIENTES"
+			title="Tu experiencia nos importa"
+			bgColor="bg-white-1"
+		>
+			<CenteredP
+				text="Cada persona vive su atención de una manera diferente. Conoce las experiencias de quienes nos han confiado su cuidado y lo que comparten sobre su paso por Plasma Vida Center."
+			/>
+			<div className="
+				w-full md:w-fit
+				mx-auto
+				mb-16 md:mb-16
+				flex flex-col md:flex-row justify-between flex-wrap gap-8 md:gap-8"
+			>
+				<TestimonialCard
+					name="María R."
+					descriptor="Paciente de sueroterapia"
+					message="Hola."
+				/>
+			</div>
+		</SectionSt> */}
+		<SectionSec
+			eyebrow="PREGUNTAS FRECUENTES"
+			title="¿Tienes alguna pregunta?"
+			bgColor="bg-white-1"
+			underLeft={(
+				<>
+				<p className="
+					mb-4 md:mb-8
+					text-my-md text-gray-600"
+				>
+					Encuentra respuestas a algunas de las dudas más comunes sobre nuestros servicios, atención y cómo empezar.
+				</p>
+				<Image
+					src="/assets/content/thinking-woman-2.webp"
+					width={1900}
+					height={1000}
+					sizes="(max-width: 768px) 100vw, 40vw"
+					className="w-full object-contain"
+					alt="Una mujer pensando"
+				/>
+				<div className="
+					w-full -translate-y-0
+					p-8
+					flex items-center gap-8
+					bg-white-1
+					border-x border-b border-gray-300 rounded-b-2xl"
+				>
+					<div className="
+						w-25 aspect-square
+						flex justify-center items-center
+						bg-lightblue-200
+						text-6xl text-mainblue-light-2
+						rounded-full"
+					>
+						<CustomIcon
+							iconId="message-bubble"
+						/>
+					</div>
+					<div className="flex-1">
+						<h2 className="
+							mb-2
+							text-my-md text-mainblue-original font-semibold tracking-wide"
+						>
+							Resolvemos tus dudas
+						</h2>
+						<p className="
+							mb-4
+							text-my-sm text-gray-600"
+						>
+							Nuestro equipo está listo para escucharte y brindarte la información que necesitas
+						</p>
+						<PillCtaBtn
+							href="https://wa.me/593978774224?text=%C2%A1Hola!%20Tengo%20una%20consulta%20sobre%20los%20productos%20o%20servicios%20de%20Plasma%20Vida%20Center."
+							label="Contáctanos"
+							external
+						/>
+					</div>
+				</div>
+				</>
+			)}
+			rightNode={(
+				<div className="
+					w-full md:w-[60%]
+					flex flex-col gap-4"
+				>
+					<FaqCard
+						question="¿Cómo puedo solicitar una cita o recibir información?"
+						answer="Puedes ponerte en contacto con nuestro equipo para consultar sobre nuestros servicios, disponibilidad y los detalles necesarios para coordinar tu atención."
+					/>
+					<FaqCard
+						question="¿Ofrecen atención a domicilio?"
+						answer="Sí. Plasma Vida Center ofrece atención a domicilio para determinados servicios. Puedes consultarnos sobre la disponibilidad según el tipo de atención que necesites."
+					/>
+					<FaqCard
+						question="¿Necesito saber qué servicio necesito antes de contactarlos?"
+						answer="No. Puedes contarnos qué necesitas o qué servicio te interesa y te brindaremos información para orientarte sobre las opciones disponibles."
+					/>
+					<FaqCard
+						question="¿Cómo sé qué tratamiento es adecuado para mí?"
+						answer="La elección de un tratamiento depende de tus necesidades y situación particular. Nuestro equipo puede brindarte información sobre las opciones disponibles y orientarte sobre los pasos a seguir según el servicio."
+					/>
+				</div>
+			)}
+		/>
       	<section className="h-mob-footer-height lg:h-footer-height bg-white-1"></section>
     </main>
   	);
