@@ -11,7 +11,7 @@ const Footer = () => {
             px-4 py-12 
             lg:px-0 lg:py-0
             flex flex-col lg:flex-row justify-center lg:justify-evenly items-center gap-12 lg:gap-0
-            bg-br-gold-700 rounded-2xl"
+            bg-[#121216] rounded-2xl"
         >
             <div className="flex flex-col gap-1 lg:gap-4 items-center lg:items-start">
                 <p className="mb-2 text-2xl lg:text-2xl font-bold text-white-1">

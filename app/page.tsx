@@ -9,6 +9,11 @@ import { p } from "motion/react-client";
 import Image from "next/image";
 import CustomIcon from "@/components/CustomIcon";
 import AttentionItem from "./components/AttentionItem";
+import SectionSt from "@/components/SectionSt";
+import CenteredP from "@/components/reusable-ui/CenteredP";
+import StepCard from "@/components/reusable-ui/step-card/StepCard";
+import Link from "next/link";
+import PillCtaBtn from "@/components/reusable-ui/PillCtaBtn";
 
 export const metadata: Metadata = {
 	title: "Plasma Vida Center | Mejora tu salud al instante",
@@ -66,7 +71,7 @@ export default async function Home() {
 			min-h-[300px]
 			px-4 py-12
 			md:px-16 md:py-24 relative
-			bg-white-1"
+			bg-[#e2e2e9]"
 		>
 			<Reveal>
 				<h2 className="mb-12 lg:mb-24 text-3xl lg:text-5xl text-center font-bold">
@@ -165,8 +170,46 @@ export default async function Home() {
 				/>
 			)}
 		>
-
 		</SectionSec>
+		<SectionSt
+			title="Cómo puedes recibir nuestra atención"
+			bgColor="bg-[#e2e2e9]"
+		>
+			<CenteredP
+				text="Desde conocer nuestros servicios hasta coordinar tu atención, queremos que cada paso sea claro y sencillo para ti."
+			/>
+			<div className="
+				w-full md:w-fit
+				mx-auto
+				mb-16 md:mb-16
+				flex flex-col md:flex-row justify-between flex-wrap gap-8 md:gap-16"
+			>
+				<StepCard
+					num={1}
+					iconId="file-search"
+					title="Explora nuestros servicios"
+					copy="Conoce nuestras opciones de sueroterapia, plasma rico en plaquetas y enfermería para encontrar el servicio que te interesa."
+				/>
+				<StepCard
+					num={2}
+					iconId="message-bubble"
+					title="Cuéntanos qué necesitas"
+					copy="Ponte en contacto con nosotros. Te brindaremos información sobre nuestros servicios y te orientaremos según tus necesidades."
+				/>
+				<StepCard
+					num={3}
+					iconId="calendar-check"
+					title="Coordina tu atención"
+					copy="Consulta la disponibilidad y los detalles de tu atención, ya sea en nuestro centro o a domicilio, según el servicio que necesites."
+				/>
+			</div>
+			<PillCtaBtn
+				href="https://wa.me/593978774224?text=%C2%A1Hola!%20Tengo%20una%20consulta%20sobre%20los%20productos%20o%20servicios%20de%20Plasma%20Vida%20Center."
+				label="Solicitar información"
+				centered
+				external
+			/>
+		</SectionSt>
       	<section className="h-mob-footer-height lg:h-footer-height bg-white-1"></section>
     </main>
   	);

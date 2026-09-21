@@ -86,7 +86,7 @@ const HomeCategoryCard = ({
                     "w-full h-[240px] relative",
                     "object-cover media-zoom",
                     "md:w-full md:h-auto md:max-w-[340px] md:aspect-square",
-                    "rounded-4xl overflow-hidden shadow-md",
+                    "rounded-4xl overflow-hidden",
                     imgClassName
                 )}
                 alt={title}
