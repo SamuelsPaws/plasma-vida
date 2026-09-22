@@ -20,9 +20,9 @@ const SectionSec = ({ title, eyebrow, bgColor, children, underLeft, rightNode }:
         "overflow-hidden"
     )}>
         {/* Upper part (base) */}
-        <div className="flex flex-col md:flex-row items-start justify-center gap-8 md:gap-16">
+        <div className="flex flex-col md:flex-row items-start justify-center gap-8 md:gap-16 flex-wrap">
             {/* Left part */}
-            <div className="w-full md:w-auto md:flex-1">
+            <div className="w-full md:w-auto md:flex-1 md:max-w-180">
                 {eyebrow && (
                     <Eyebrow
                         text={eyebrow}

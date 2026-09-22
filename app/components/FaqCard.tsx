@@ -20,7 +20,7 @@ const FaqCard = ({ question, answer }: Props) => {
     <button
         onClick={toggleExpanded}
         className="
-            w-full group
+            w-full md:min-w-130 group
             p-4
             md:px-8 md:py-6
             text-left
@@ -30,7 +30,7 @@ const FaqCard = ({ question, answer }: Props) => {
         {/* Upper part */}
         <div className="
             w-full
-            flex items-center justify-between"
+            flex items-center justify-between gap-4"
         >
             <h3 className="
                 flex-1
