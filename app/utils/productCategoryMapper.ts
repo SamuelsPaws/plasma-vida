@@ -1,4 +1,4 @@
-import { ProductCategory } from "@/types/types"
+import { ProductCategory } from "@/lib/types/product"
 
 export default function productCategoryMapper(str: string): ProductCategory {
     if (str === 'Suero (de catálogo)') {

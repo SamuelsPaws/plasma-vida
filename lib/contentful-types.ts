@@ -1,5 +1,5 @@
 import type { EntryFieldTypes, EntrySkeletonType } from 'contentful';
-import type { ProductCategory } from '@/types/types';
+import type { ProductCategory } from '@/lib/types/product';
 
 interface ItemComponentsCategoryFields {
   title: EntryFieldTypes.Text;

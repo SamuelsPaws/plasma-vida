@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Poppins, Roboto } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import Header from "@/components/header/Header";
+import Footer from "@/components/footer/Footer";
 import clsx from "clsx";
 import WhatsappFloat from "@/components/WhatsappFloat";
 import MotionProvider from "@/components/MotionProvider";

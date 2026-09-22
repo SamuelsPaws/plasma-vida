@@ -1,6 +1,6 @@
 import numToPriceStr from "@/app/utils/numToPriceStr";
 import { getProducts } from "@/lib/contentful-queries";
-import { ProductCategory } from "@/types/types";
+import { ProductCategory } from "@/lib/types/product";
 import Link from "next/link";
 
 type ProductType = 'homeopaticos' | 'vitaminicos';

@@ -1,6 +1,6 @@
 'use client'
 import { motion } from "motion/react"
-import PromotionsCarousel from "./PromotionsCarousel";
+import PromotionsCarousel from "./promotions-carousel/PromotionsCarousel";
 import { Product } from "@/lib/models/product";
 import Image from "next/image";
 

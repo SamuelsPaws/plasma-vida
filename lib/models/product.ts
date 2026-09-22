@@ -1,4 +1,4 @@
-import { ProductCategory } from "@/types/types";
+import { ProductCategory } from "@/lib/types/product";
 
 interface ItemComponentsCategory {
   title: string;

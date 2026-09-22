@@ -1,4 +1,4 @@
-import PromotionsCarousel from "@/components/PromotionsCarousel"
+import PromotionsCarousel from "@/components/promotions-carousel/PromotionsCarousel"
 import Link from "next/link"
 import { Product } from "@/lib/models/product"
 import Image from "next/image"
@@ -7,11 +7,12 @@ import CustomIcon from "@/components/CustomIcon"
 const Hero = ({ promotions }: { promotions: Product[] }) => {
     return (
     <section className="
-        lg:h-[620px] p-0 lg:p-10 relative
-        flex flex-col lg:flex-row gap-0 lg:gap-0"
+        p-0
+        md:px-12 md:py-20 relative
+        flex flex-col md:flex-row md:flex-wrap md:justify-center gap-0 md:gap-0"
     >
         {/* Desktop bg */}
-        <div className="absolute inset-0 hidden lg:block">
+        <div className="absolute inset-0 hidden md:block">
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#fffe_40%,#fff0)] z-10"></div>
             <Image
                 src='/assets/hero-img.webp'
@@ -24,12 +25,13 @@ const Hero = ({ promotions }: { promotions: Product[] }) => {
         </div>
         {/* Left div */}
         <div className="
-            w-full lg:w-1/2
-            px-10 py-10 lg:p-4 relative
+            w-full lg:w-1/2 relative
+            px-10 py-10
+            md:p-8
             flex flex-col justify-center items-center gap-6"
         >
             {/* Mobile bg */}
-            <div className="absolute inset-0 p-4 lg:hidden">
+            <div className="absolute inset-0 p-4 md:hidden">
                 <div className="w-full h-full relative rounded-2xl overflow-hidden">
                     <div className="absolute inset-0 bg-[linear-gradient(to_bottom,#fffd_80%,#fff9)] z-10"></div>
                     <Image
@@ -78,18 +80,15 @@ const Hero = ({ promotions }: { promotions: Product[] }) => {
         <div className="
             w-full lg:w-1/2
             px-6 py-6 relative z-20
-            bg-gray-200 lg:bg-transparent
-            flex flex-col justify-center items-center gap-8 lg:gap-8"
+            bg-[#e2e2e9] md:bg-transparent
+            flex flex-col justify-center items-center gap-8 md:gap-8"
         >
-            <h2 className="text-xl lg:text-3xl font-bold text-gray-700">
+            <h2 className="text-xl lg:text-3xl font-bold text-mainblue-original">
                 Aprovecha nuestras promociones
             </h2>
             <PromotionsCarousel
                 promotions={promotions}
-                className="
-                    w-full h-[340px]
-                    lg:w-[480px] lg:h-[380px]
-                    relative"
+                className="w-full md:w-100 xl:w-120 relative"
             />
         </div>
     </section>

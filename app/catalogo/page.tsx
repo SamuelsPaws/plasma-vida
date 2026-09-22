@@ -2,7 +2,7 @@ import Banner from "@/components/Banner";
 import { getProducts } from "@/lib/contentful-queries";
 import CustomSerumContainer from "./components/CustomSerumContainer";
 import CatalogContainer from "./components/CatalogContainer";
-import PromotionsCarousel from "@/components/PromotionsCarousel";
+import PromotionsCarousel from "@/components/promotions-carousel/PromotionsCarousel";
 import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
 

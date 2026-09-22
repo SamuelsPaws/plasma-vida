@@ -1,4 +1,4 @@
-import { ProductCategory } from "@/types/types";
+import { ProductCategory } from "@/lib/types/product";
 import clsx from "clsx";
 import React from "react";
 import { Filters } from "../types/types";
