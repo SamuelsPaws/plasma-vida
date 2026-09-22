@@ -8,7 +8,7 @@ const Header = () => {
       w-full h-mob-header-height lg:h-header-height px-8
       fixed top-0 left-0
       flex justify-between items-center
-      bg-[#0f3b73] z-[999]"
+      bg-mainblue-original z-[999]"
     >
       <Link
         href="/"

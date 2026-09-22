@@ -31,7 +31,7 @@ const ProductCard = ({ title, descriptionList, price, noPromotionPrice, slug }: 
         w-full h-full place-self-center
         p-4 lg:p-6
         flex flex-col gap-2 lg:gap-6
-        bg-white-1 rounded-2xl shadow-sm"
+        bg-white-1 rounded-2xl"
     >
         {/* Div with image */}
         <div className="
@@ -64,7 +64,7 @@ const ProductCard = ({ title, descriptionList, price, noPromotionPrice, slug }: 
                     href={`/catalogo/${slug}`}
                     className="
                         px-4 py-2
-                        bg-blue-700 lg:hover:bg-blue-800 pressable
+                        bg-mainblue-original lg:hover:bg-mainblue-dark-1 pressable
                         text-white-1 text-sm lg:text-md rounded-full"
                 >
                     Ver producto
