@@ -134,10 +134,10 @@ const CatalogContainer = ({ items, categoryParam }: ProductsContainerProps) => {
     }, [isModalOpen]);
 
   return (
-    <div className="w-full flex flex-col lg:flex-row items-start gap-6 lg:gap-8">
+    <div className="w-full flex flex-col md:flex-row items-start gap-4 md:gap-8">
         <button
             onClick={() => setIsModalOpen(true)}
-            className="pressable lg:hidden text-lg text-gray-600"
+            className="pressable md:hidden text-lg text-gray-600"
         >
             <i className="fa fa-sliders mr-2"></i>
             Filtros
@@ -147,7 +147,7 @@ const CatalogContainer = ({ items, categoryParam }: ProductsContainerProps) => {
                 ref={modalRef}
                 className="
                     fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2
-                    w-full p-6
+                    w-full p-8
                     flex flex-col items-start gap-2
                     rounded-2xl shadow-xl filter-dialog"
             >
@@ -246,9 +246,9 @@ const CatalogContainer = ({ items, categoryParam }: ProductsContainerProps) => {
         }
         {/* Left div with items */}
         <div className="
-            w-full lg:w-[75%] lg:min-w-[1000px] lg:pr-4
-            flex flex-col gap-6
-            lg:grid grid-cols-3 lg:place-content-stretch lg:gap-8"
+            w-full md:w-[75%] md:pr-4
+            flex flex-col gap-4
+            md:flex-row md:flex-wrap md:gap-8"
         >
             {filteredItems.length ?
                 filteredItems.sort(sortingFns[sortingKey]).map((item) =>
@@ -272,8 +272,8 @@ const CatalogContainer = ({ items, categoryParam }: ProductsContainerProps) => {
         </div>
         {/* Right div with table */}
         <div className="
-            flex-1 lg:min-w-fit px-6 py-3 relative self-stretch
-            hidden lg:block
+            flex-1 md:min-w-fit px-6 py-3 relative self-stretch
+            hidden md:block
             bg-white-1 rounded-2xl"
         >
             {/* Stiky table content container */}

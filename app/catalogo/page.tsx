@@ -62,7 +62,7 @@ export default async function Catalog({ searchParams }: { searchParams: SearchPa
             bgSrc="/assets/catalog-banner.jpg"
         />
         {/* Mobile carrousel section */}
-        <section className="lg:hidden h-[400px] px-6 py-12 bg-[#d5d5d5]">
+        <section className="md:hidden px-8 py-16 bg-[#d5d5d5]">
             <PromotionsCarousel
                 promotions={promotions}
                 className="h-full w-full mx-auto py-0 relative"

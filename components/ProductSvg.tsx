@@ -46,7 +46,7 @@ const ProductSvg = ({ productCategory, productName, className }: Props) => {
             y="0"
         />
         <path
-            d="m 0,715.72036 c 180,-75 367.9088,-23.03632 517.9088,16.96368 180,50 329.51864,21.19164 454.51864,-83.80836 C 1092.4274,548.87568 1200,411.80788 1200,411.80788 V 1200 H 0 Z"
+            d="m 0,715.72036 c 180,-75 367.9088,-23.03632 517.9088,16.96368 180,50 329.51864,21.19164 454.51864,-83.80836 C 1092.4274,548.87568 1200,411.80788 1200,440.80788 V 1200 H 0 Z"
             fill="#b29f16"
             id="path1"
         />
@@ -111,7 +111,7 @@ const ProductSvg = ({ productCategory, productName, className }: Props) => {
                     key={index}
                     x="0"
                     y={(104 + (index * 90)).toString()}
-                    fill="#b29f16"
+                    fill="#666"
                     fontFamily="Arial, Helvetica, sans-serif"
                     fontSize="92px"
                     fontWeight="700"
@@ -127,13 +127,13 @@ const ProductSvg = ({ productCategory, productName, className }: Props) => {
             transform="matrix(0.70155887,0,0,0.70155887,635.98569,831.62371)"
         >
             <path
-                fill="#currentColor"
+                fill="#7a6a0b"
                 d="m 550,221 c -41,24 -66,70 -66,119 0,67 56,122 130,122 74,0 130,-55 130,-122 0,-49 -25,-95 -66,-119 l -12,-6 c 47,27 67,73 67,125 0,60 -51,110 -119,110 -68,0 -119,-50 -119,-110 0,-52 20,-98 67,-125 z"
                 id="path2-9"
             />
             <path
                 mask="url(#drop-cutout)"
-                fill="currentColor"
+                fill="#7a6a0b"
                 d="m 182,8 c -11,27 -32,57 -58,90 -23,29 -34,55 -34,79 0,51 40,91 92,91 52,0 92,-40 92,-91 0,-24 -11,-50 -34,-79 C 214,65 193,35 182,8 Z"
                 id="path3-2"
                 transform="translate(432,159)"

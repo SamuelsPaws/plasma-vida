@@ -14,9 +14,10 @@ interface BannerProps {
 const Banner = ({ title, subheadline, promotions, bgSrc }: BannerProps) => {
   return (
     <div className="
-        h-[216px] lg:h-[420px] relative
-        p-8 lg:p-10
-        grid grid-cols-[80%_1fr] lg:grid-cols-2 gap-0"
+        min-h-60 relative
+        p-8
+        md:px-12 md:py-16
+        grid grid-cols-[80%_1fr] md:grid-cols-2 gap-0"
     >
         {/* Image bg */}
         <Image
@@ -60,7 +61,8 @@ const Banner = ({ title, subheadline, promotions, bgSrc }: BannerProps) => {
             promotions={promotions}
             className="
                 hidden lg:block z-20
-                h-full w-[60%] min-w-[400px]
+                h-full w-full max-w-120
+                md:w-100 xl:w-120
                 place-self-center relative"
         />
     </div>

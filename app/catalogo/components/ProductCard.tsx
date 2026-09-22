@@ -27,15 +27,17 @@ const ProductCard = ({ title, descriptionList, price, noPromotionPrice, slug }: 
         initial={{ opacity: 0, transform: 'translateY(12px)' }}
         animate={{ opacity: 1, transform: 'translateY(0)' }}
         transition={{ duration: 0.36, ease: [0.23, 1, 0.32, 1] }}
-        className="interactive-card group
-        w-full h-full place-self-center
-        p-4 lg:p-6
-        flex flex-col gap-2 lg:gap-6
-        bg-white-1 rounded-2xl"
+        className="
+            interactive-card group
+            w-full
+            md:w-1/3 md:min-w-90
+            p-4 md:p-4
+            flex flex-col gap-2 lg:gap-6
+            bg-white-1 rounded-2xl"
     >
         {/* Div with image */}
         <div className="
-            w-full h-80 md:h-80 relative
+            w-full aspect-square relative
             rounded-2xl overflow-hidden"
         >
             <ProductSvg
