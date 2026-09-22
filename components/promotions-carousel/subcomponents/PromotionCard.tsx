@@ -41,7 +41,7 @@ const PromotionCard = ({ product, direction }: Props) => {
             </div>
         }
         <p className="
-            w-fit mb-2 md:mb-4
+            w-fit mb-4 md:mb-4
             px-2 py-0
             bg-red-700 -rotate-2
             text-2xl text-white-1 font-bold rounded-sm"
