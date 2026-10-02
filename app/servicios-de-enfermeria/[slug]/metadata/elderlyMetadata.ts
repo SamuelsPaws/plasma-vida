@@ -19,7 +19,7 @@ export const elderlyMetadata: Metadata = {
     title: "Cuidado de Adultos Mayores en Quito | Atención Profesional en Casa",
     description:
       "Atención domiciliaria para adultos mayores con cuidado profesional, humano y personalizado en Quito.",
-    url: organization.urlFor("/servicios-de-enfermeria/adulto-mayor"),
+    url: organization.urlFor("/servicios-de-enfermeria/cuidado-adulto-mayor"),
     siteName: organization.name,
     locale: "es_EC",
     type: "website",
@@ -42,7 +42,7 @@ export const elderlyMetadata: Metadata = {
   },
 
   alternates: {
-    canonical: organization.urlFor("/servicios-de-enfermeria/adulto-mayor"),
+    canonical: organization.urlFor("/servicios-de-enfermeria/cuidado-adulto-mayor"),
   },
 
   metadataBase: new URL(organization.url),

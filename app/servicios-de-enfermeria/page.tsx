@@ -5,6 +5,7 @@ import HeroMain from "@/components/HeroMain";
 import SectionSt from "@/components/SectionSt";
 import CenteredP from "@/components/reusable-ui/CenteredP";
 import ServiceOverviewCard from "./components/ServiceOverviewCard";
+import ServiceDetailSection from "./components/service-detail-section/ServiceDetailSection";
 
 export const metadata: Metadata = {
 	title: "Servicios de Enfermería a Domicilio en Quito | Cuidado Profesional",
@@ -51,7 +52,7 @@ const nursingServiceOverviewItems = [
     {
         title: "Cuidado al adulto mayor",
         description: "Atención de enfermería a domicilio para adultos mayores, con acompañamiento cercano, respetuoso y adaptado a sus necesidades.",
-        href: "/servicios-de-enfermeria/adulto-mayor",
+        href: "/servicios-de-enfermeria/cuidado-adulto-mayor",
         imageSrc: "/assets/elderly.svg",
         imageAlt: "Ilustración de cuidado para adultos mayores",
     },
@@ -126,6 +127,134 @@ export default async function Services() {
                 ))}
             </div>
         </SectionSt>
+        <ServiceDetailSection
+            id="cuidado-adulto-mayor"
+            eyebrow="SERVICIO DE ENFERMERÍA"
+            title="Cuidado al adulto mayor a domicilio"
+            introParagraphs={[
+                "Brindamos atención de enfermería a domicilio para adultos mayores en Quito, con un trato cercano, respetuoso y adaptado a las necesidades de cada persona.",
+                "Nuestro objetivo es acompañar al paciente en un entorno familiar y cómodo, ofreciendo apoyo profesional que también brinde tranquilidad a sus seres queridos.",
+            ]}
+            supportingPoints={[
+                {
+                    title: "Atención personalizada",
+                    description: "Adaptamos el acompañamiento a las necesidades, rutinas y nivel de asistencia que requiere cada paciente.",
+                },
+                {
+                    title: "Trato humano y respetuoso",
+                    description: "Cuidamos a cada persona con cercanía, dignidad y consideración durante todo el proceso de atención.",
+                },
+                {
+                    title: "Apoyo para la familia",
+                    description: "Brindamos una alternativa de cuidado profesional en casa para que la familia se sienta acompañada y respaldada.",
+                },
+            ]}
+            action={{
+                href: '/servicios-de-enfermeria/cuidado-adulto-mayor',
+                label: "Ver servicio",
+                external: true,
+            }}
+            imageSrc="/assets/elderly.svg"
+            imageAlt="Enfermera acompañando a una adulta mayor en su hogar"
+            imageSide="right"
+            backgroundTone="white"
+        />
+        <ServiceDetailSection
+            id="cuidado-discapacidad"
+            eyebrow="SERVICIO DE ENFERMERÍA"
+            title="Cuidado a personas con discapacidad a domicilio"
+            introParagraphs={[
+                "Brindamos atención de enfermería a domicilio para personas con discapacidad en Quito, con un enfoque personalizado, cercano y respetuoso.",
+                "Nos adaptamos a las necesidades de cada persona para ofrecer acompañamiento y apoyo profesional en casa, promoviendo su bienestar y brindando tranquilidad a sus familiares o cuidadores.",
+            ]}
+            supportingPoints={[
+                {
+                    title: "Atención adaptada a cada persona",
+                    description: "Cada paciente tiene necesidades diferentes. Por eso, ofrecemos una atención que considera su situación particular y el tipo de apoyo que requiere.",
+                },
+                {
+                    title: "Acompañamiento cercano y respetuoso",
+                    description: "Brindamos un trato humano, respetuoso y profesional, favoreciendo una experiencia de cuidado más cómoda y confiable.",
+                },
+                {
+                    title: "Apoyo para el bienestar diario",
+                    description: "Ofrecemos acompañamiento y asistencia en casa para contribuir al bienestar de la persona y facilitar el cuidado en su entorno cotidiano.",
+                },
+            ]}
+            action={{
+                href: "/servicios-de-enfermeria/cuidado-discapacidad",
+                label: "Ver servicio",
+                external: true,
+            }}
+            imageSrc="/assets/disability.svg"
+            imageAlt="Ilustración de cuidado a domicilio para personas con discapacidad"
+            imageSide="left"
+            backgroundTone="soft"
+        />
+        <ServiceDetailSection
+            id="cuidado-prehospitalario"
+            eyebrow="SERVICIO DE ENFERMERÍA"
+            title="Cuidado prehospitalario en Quito"
+            introParagraphs={[
+                "Brindamos atención prehospitalaria en Quito para personas que requieren asistencia antes de ser trasladadas a un centro de salud.",
+                "Nuestro equipo ofrece acompañamiento profesional y oportuno, con una atención cercana que busca responder a las necesidades del paciente y brindar tranquilidad a sus familiares durante el proceso.",
+            ]}
+            supportingPoints={[
+                {
+                    title: "Atención oportuna",
+                    description: "Actuamos con rapidez para brindar asistencia inicial antes del traslado a un centro de salud.",
+                },
+                {
+                    title: "Acompañamiento profesional",
+                    description: "Ofrecemos apoyo de enfermería durante esta etapa, de acuerdo con la situación y las necesidades del paciente.",
+                },
+                {
+                    title: "Trato humano en momentos delicados",
+                    description: "Mantenemos una atención cercana y respetuosa para acompañar tanto al paciente como a sus familiares.",
+                },
+            ]}
+            action={{
+                href: "/servicios-de-enfermeria/cuidado-prehospitalario",
+                label: "Ver servicio",
+                external: true,
+            }}
+            imageSrc="/assets/prehospital.svg"
+            imageAlt="Ilustración de atención prehospitalaria en Quito"
+            imageSide="right"
+            backgroundTone="white"
+        />
+        <ServiceDetailSection
+            id="cuidado-posthospitalario"
+            eyebrow="SERVICIO DE ENFERMERÍA"
+            title="Cuidado posthospitalario a domicilio"
+            introParagraphs={[
+                "Brindamos cuidados de enfermería a domicilio en Quito para pacientes que necesitan acompañamiento después de recibir el alta médica.",
+                "Nuestro objetivo es facilitar una transición más cómoda y organizada del centro de salud al hogar, ofreciendo atención personalizada de acuerdo con las necesidades de cada paciente y las indicaciones de su proceso de recuperación.",
+            ]}
+            supportingPoints={[
+                {
+                    title: "Acompañamiento durante la recuperación",
+                    description: "Ofrecemos apoyo profesional en casa para acompañar al paciente durante los días o etapas posteriores a su hospitalización.",
+                },
+                {
+                    title: "Atención según sus necesidades",
+                    description: "Adaptamos el cuidado al estado y requerimientos de cada persona, procurando una atención cómoda, cercana y supervisada.",
+                },
+                {
+                    title: "Mayor tranquilidad en casa",
+                    description: "Brindamos acompañamiento al paciente y su familia para que el proceso de recuperación se sienta más claro, cuidado y respaldado.",
+                },
+            ]}
+            action={{
+                href: "/servicios-de-enfermeria/cuidado-posthospitalario",
+                label: "Ver servicio",
+                external: true,
+            }}
+            imageSrc="/assets/posthospital.svg"
+            imageAlt="Ilustración de cuidado posthospitalario a domicilio"
+            imageSide="left"
+            backgroundTone="soft"
+        />
         <CtaAndWrapper />
     </main>
     )

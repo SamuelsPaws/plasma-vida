@@ -20,7 +20,7 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { slug } = await params
 
-    if (slug === 'adulto-mayor') return elderlyMetadata;
+    if (slug === 'cuidado-adulto-mayor') return elderlyMetadata;
     if (slug === 'cuidado-prehospitalario') return preHospMetadata;
     if (slug === 'cuidado-posthospitalario') return postHospMetadata;
     if (slug === 'cuidado-discapacidad') return disabilityMetadata;

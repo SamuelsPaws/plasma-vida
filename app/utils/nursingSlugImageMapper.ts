@@ -1,5 +1,5 @@
 export default function nursingSlugImageMapper(slug: string): string {
-    if (slug === 'adulto-mayor') {
+    if (slug === 'cuidado-adulto-mayor') {
         return 'elderly';
     }
 
