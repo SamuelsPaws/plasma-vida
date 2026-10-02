@@ -1,5 +1,6 @@
 'use client'
 import { motion } from "motion/react"
+import { organization } from "@/data/organization"
 
 const ImagesGrid = () => {
   return (
@@ -22,7 +23,7 @@ const ImagesGrid = () => {
             <img
                 src="/assets/elderly.svg"
                 className="w-full h-full object-contain"
-                alt="El equipo de Plasma Vida Center"
+                alt={`El equipo de ${organization.name}`}
             />
         </motion.div>
         <div></div>
@@ -46,7 +47,7 @@ const ImagesGrid = () => {
             <img
                 src="/assets/prehospital.svg"
                 className="w-full h-full object-contain"
-                alt="El equipo de Plasma Vida Center"
+                alt={`El equipo de ${organization.name}`}
             />
         </motion.div>
         <motion.div
@@ -68,7 +69,7 @@ const ImagesGrid = () => {
             <img
                 src="/assets/scientist.svg"
                 className="w-full h-full object-contain"
-                alt="El equipo de Plasma Vida Center"
+                alt={`El equipo de ${organization.name}`}
             />
         </motion.div>
     </div>

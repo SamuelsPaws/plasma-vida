@@ -1,4 +1,5 @@
 import type { IconId } from "@/components/CustomIcon";
+import { organization } from "@/data/organization";
 
 type FooterItem = {
     iconId: IconId;
@@ -9,25 +10,25 @@ type FooterItem = {
 }
 
 export const footerContent = {
-    brandName: "Plasma Vida Center",
-    tagline: "Salud y bienestar personalizados",
-    description: "Atención profesional y humana para acompañarte en cada etapa de tu bienestar.",
+    brandName: organization.name,
+    tagline: organization.tagline,
+    description: organization.description,
     whatsappLabel: "Escríbenos por WhatsApp",
-    whatsappHref: "https://wa.me/593978774224?text=%C2%A1Hola!%20Tengo%20una%20consulta%20sobre%20los%20productos%20o%20servicios%20de%20Plasma%20Vida%20Center.",
-    copyright: "© 2026 Plasma Vida Center. Todos los derechos reservados.",
+    whatsappHref: organization.whatsappUrl,
+    copyright: `© 2026 ${organization.name}. Todos los derechos reservados.`,
     closingMessage: "Cuidamos de ti con atención cercana y profesional.",
 } as const
 
 export const footerContactItems: FooterItem[] = [
     {
         iconId: "phone",
-        href: "tel:+593978774224",
-        label: "097 877 4224",
+        href: organization.phoneUrl,
+        label: organization.phoneLabel,
     },
     {
         iconId: "email",
-        href: "mailto:cpaciente1626@gmail.com",
-        label: "cpaciente1626@gmail.com",
+        href: organization.emailUrl,
+        label: organization.email,
         labelClassName: "break-all",
     },
 ]
@@ -35,14 +36,14 @@ export const footerContactItems: FooterItem[] = [
 export const footerVisitItems: FooterItem[] = [
     {
         iconId: "location",
-        href: "https://maps.app.goo.gl/YGjuE4BiDqd9mkiM6",
-        label: "Av. La Prensa y Edmundo Carvajal, Quito, Ecuador",
+        href: organization.mapUrl,
+        label: organization.address,
         external: true,
     },
     {
         iconId: "instagram",
-        href: "https://www.instagram.com/plasma_vida_center/",
-        label: "@plasma_vida_center",
+        href: organization.instagramUrl,
+        label: organization.instagramLabel,
         external: true,
     },
 ]

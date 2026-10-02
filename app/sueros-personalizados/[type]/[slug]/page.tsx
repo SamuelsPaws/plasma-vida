@@ -11,6 +11,7 @@ import { Product } from "@/lib/models/product";
 import truncateText from "@/app/utils/truncateText";
 import { Metadata } from "next";
 import Reveal from "@/components/Reveal";
+import { organization } from "@/data/organization";
 
 type ProductType = 'homeopaticos' | 'vitaminicos';
 
@@ -25,14 +26,14 @@ function buildTitle(product: Product) {
   const productName = product.title
 
   if (product.category === 'sueroHomeo') {
-    return `${productName} - Suero homeopático para ${product.tags?.[0] ?? "Bienestar"} | Plasma Vida Center`
+    return `${productName} - Suero homeopático para ${product.tags?.[0] ?? "Bienestar"} | ${organization.name}`
   }
 
   if (product.category === 'sueroVita') {
-    return `${productName} - Suero vitamínico para ${product.tags?.[0] ?? "Bienestar"} | Plasma Vida Center`
+    return `${productName} - Suero vitamínico para ${product.tags?.[0] ?? "Bienestar"} | ${organization.name}`
   }
 
-  return `${productName} | Plasma Vida Center`
+  return `${productName} | ${organization.name}`
 }
 
 function buildDescription(product: Product) {
@@ -53,7 +54,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     if (!product) {
         return {
-            title: "Producto no encontrado | Plasma Vida Center",
+            title: `Producto no encontrado | ${organization.name}`,
             robots: {
                 index: false,
                 follow: false,
@@ -63,9 +64,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     const title = buildTitle(product)
     const description = buildDescription(product)
-    const url = `https://plasmavidacenter.com/sueros-personalizados/${type}/${slug}`
+    const url = organization.urlFor(`/sueros-personalizados/${type}/${slug}`)
     // const productImg = product.imageUrls[0]
-    const defaultOGImg = 'https://plasmavidacenter.com/opengraph-image.jpg'
+    const defaultOGImg = organization.openGraphImageUrl
 
     return {
         title,
@@ -74,7 +75,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             title,
             description,
             url,
-            siteName: 'Plasma Vida Center',
+            siteName: organization.name,
             locale: 'es_EC',
             type: 'website',
             images: [

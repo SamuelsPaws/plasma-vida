@@ -2,21 +2,25 @@ import clsx from "clsx";
 import Eyebrow from "./reusable-ui/Eyebrow";
 
 interface Props {
+    id?: string;
     title?: string;
     eyebrow?: string;
     bgColor: string;
     children?: React.ReactNode;
 }
 
-const SectionSt = ({ title, eyebrow, bgColor, children }: Props) => {
+const SectionSt = ({ id, title, eyebrow, bgColor, children }: Props) => {
     return (
-    <section className={clsx(
-        "px-8 py-16 relative",
-        "md:px-16 md:py-24",
-        "xl:px-16 xl:py-24",
-        bgColor,
-        "overflow-hidden"
-    )}>
+    <section
+        id={id}
+        className={clsx(
+            "px-8 py-16 relative",
+            "md:px-16 md:py-24",
+            "xl:px-16 xl:py-24",
+            bgColor,
+            "overflow-hidden"
+        )}
+    >
         {eyebrow && (
             <Eyebrow
                 text={eyebrow}

@@ -1,7 +1,9 @@
+import { organization } from "@/data/organization"
+
 const WhatsappFloat = () => {
     return (
     <a
-        href="https://wa.me/593978774224?text=%C2%A1Hola!%20Tengo%20una%20consulta%20sobre%20los%20productos%20o%20servicios%20de%20Plasma%20Vida%20Center"
+        href={organization.whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
         className="

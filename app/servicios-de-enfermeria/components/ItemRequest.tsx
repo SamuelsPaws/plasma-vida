@@ -2,6 +2,7 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import { NursingService } from "@/lib/models/nursingService";
+import { organization } from "@/data/organization";
 
 const ItemRequest = ({ item }: { item: NursingService }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -38,7 +39,7 @@ const ItemRequest = ({ item }: { item: NursingService }) => {
               <i className="fa fa-times"></i>
             </button>
             <a
-              href={`https://wa.me/+593978774224?text=¡Hola! Me interesa solicitar: ${item ? item.title : ''}`}
+              href={organization.whatsappUrlFor(`¡Hola! Me interesa solicitar: ${item ? item.title : ''}`)}
               target="_blank"
               className="
                 h-[80%] px-4
@@ -47,7 +48,7 @@ const ItemRequest = ({ item }: { item: NursingService }) => {
                 bg-green-600 rounded-full pressable"
             >WhatsApp</a>
             <a
-              href="tel:+593978774224"
+              href={organization.phoneUrl}
               className="
                 h-[80%] px-4
                 grid place-content-center
@@ -57,7 +58,7 @@ const ItemRequest = ({ item }: { item: NursingService }) => {
               <i className="fa fa-phone"></i>
             </a>
             <a
-              href={`mailto:cpaciente1626@gmail.com?subject=¡Hola! Me interesa solicitar: ${item ? item.title : ''}`}
+              href={`${organization.emailUrl}?subject=${encodeURIComponent(`¡Hola! Me interesa solicitar: ${item ? item.title : ''}`)}`}
               className="
                 h-[80%] px-4
                 grid place-content-center

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { organization } from "@/data/organization";
 
 export const elderlyMetadata: Metadata = {
   title: "Cuidado de Adultos Mayores en Quito | Enfermería a Domicilio",
@@ -18,13 +19,13 @@ export const elderlyMetadata: Metadata = {
     title: "Cuidado de Adultos Mayores en Quito | Atención Profesional en Casa",
     description:
       "Atención domiciliaria para adultos mayores con cuidado profesional, humano y personalizado en Quito.",
-    url: "https://plasmavidacenter.com/servicios-de-enfermeria/adulto-mayor",
-    siteName: "Plasma Vida Center",
+    url: organization.urlFor("/servicios-de-enfermeria/adulto-mayor"),
+    siteName: organization.name,
     locale: "es_EC",
     type: "website",
     images: [
       {
-        url: "https://plasmavidacenter.com/opengraph-image.jpg",
+        url: organization.openGraphImageUrl,
         width: 1200,
         height: 630,
         alt: "Cuidado de adultos mayores en Quito",
@@ -37,13 +38,12 @@ export const elderlyMetadata: Metadata = {
     title: "Cuidado de Adultos Mayores en Quito",
     description:
       "Servicio de enfermería a domicilio con atención profesional y personalizada.",
-    images: ["https://plasmavidacenter.com/opengraph-image.jpg"],
+    images: [organization.openGraphImageUrl],
   },
 
   alternates: {
-    canonical:
-      "https://plasmavidacenter.com/servicios-de-enfermeria/adulto-mayor",
+    canonical: organization.urlFor("/servicios-de-enfermeria/adulto-mayor"),
   },
 
-  metadataBase: new URL("https://plasmavidacenter.com/"),
+  metadataBase: new URL(organization.url),
 };

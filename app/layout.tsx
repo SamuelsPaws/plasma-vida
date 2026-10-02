@@ -6,6 +6,7 @@ import Footer from "@/components/footer/Footer";
 import clsx from "clsx";
 import WhatsappFloat from "@/components/WhatsappFloat";
 import MotionProvider from "@/components/MotionProvider";
+import { organization } from "@/data/organization";
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -18,16 +19,16 @@ const roboto = Roboto({
 })
 
 export const metadata: Metadata = {
-  title: "Plasma Vida Center",
-  description: "Cuidamos tu salud de forma natural.",
+  title: organization.name,
+  description: organization.shortDescription,
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Plasma Vida Center",
-  url: "https://plasmavidacenter.com",
-  logo: "https://plasmavidacenter.com/assets/logo.png",
+  name: organization.name,
+  url: organization.url,
+  logo: organization.logoUrl,
 }
 
 export default function RootLayout({

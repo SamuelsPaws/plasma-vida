@@ -9,6 +9,7 @@ import { elderlyMetadata } from "./metadata/elderlyMetadata";
 import { preHospMetadata } from "./metadata/preHospMetadata";
 import { postHospMetadata } from "./metadata/postHospMetadata";
 import { disabilityMetadata } from "./metadata/disabilityMetadata";
+import { organization } from "@/data/organization";
 
 type Props = {
     params: Promise<{
@@ -25,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     if (slug === 'cuidado-discapacidad') return disabilityMetadata;
 
     return {
-        title: "Servicio no encontrado | Plasma Vida Center",
+        title: `Servicio no encontrado | ${organization.name}`,
         robots: {
             index: false,
             follow: false,

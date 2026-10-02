@@ -3,15 +3,16 @@ import AboutP from "./components/AboutP"
 import ImagesGrid from "./components/ImagesGrid"
 import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
+import { organization } from "@/data/organization";
 
 export const metadata: Metadata = {
-  title: "Quiénes Somos | Plasma Vida Center Quito",
+  title: `Quiénes Somos | ${organization.name} Quito`,
   description:
-    "Conoce Plasma Vida Center, un equipo comprometido con el bienestar integral en Quito. Ofrecemos sueros personalizados, terapias PRP y servicios de enfermería con un enfoque humano, ético y profesional.",
+    `Conoce ${organization.name}, un equipo comprometido con el bienestar integral en Quito. Ofrecemos sueros personalizados, terapias PRP y servicios de enfermería con un enfoque humano, ético y profesional.`,
 
   keywords: [
-    "Plasma Vida Center Quito",
-    "quienes somos Plasma Vida Center",
+    `${organization.name} Quito`,
+    `quienes somos ${organization.name}`,
     "centro de bienestar Quito",
     "terapias intravenosas Ecuador",
     "plasma rico en plaquetas Quito",
@@ -19,36 +20,36 @@ export const metadata: Metadata = {
   ],
 
   openGraph: {
-    title: "Quiénes Somos | Plasma Vida Center",
+    title: `Quiénes Somos | ${organization.name}`,
     description:
       "Un equipo comprometido con la salud, el bienestar y la atención personalizada en Quito.",
-    url: "https://plasmavidacenter.com/quienes-somos",
-    siteName: "Plasma Vida Center",
+    url: organization.urlFor("/quienes-somos"),
+    siteName: organization.name,
     locale: "es_EC",
     type: "website",
     images: [
       {
-        url: "https://plasmavidacenter.com/opengraph-image.jpg",
+        url: organization.openGraphImageUrl,
         width: 1200,
         height: 630,
-        alt: "Equipo Plasma Vida Center",
+        alt: `Equipo ${organization.name}`,
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Quiénes Somos | Plasma Vida Center",
+    title: `Quiénes Somos | ${organization.name}`,
     description:
       "Conoce nuestro equipo y compromiso con el bienestar integral.",
-    images: ["https://plasmavidacenter.com/opengraph-image.jpg"],
+    images: [organization.openGraphImageUrl],
   },
 
   alternates: {
-    canonical: "https://plasmavidacenter.com/quienes-somos",
+    canonical: organization.urlFor("/quienes-somos"),
   },
 
-  metadataBase: new URL("https://plasmavidacenter.com"),
+  metadataBase: new URL(organization.url),
 };
 
 export default function About() {
@@ -74,7 +75,7 @@ export default function About() {
                 >
                   Un equipo comprometido en ofrecer productos y servicios de calidad.
                 </h2>
-                <AboutP margin={true}>Plasma Vida Center nació en Quito del esfuerzo y la determinación de cuatro personas que, movidas por la necesidad de crecer y salir adelante, decidieron construir algo con propósito.</AboutP>
+                <AboutP margin={true}>{organization.name} nació en Quito del esfuerzo y la determinación de cuatro personas que, movidas por la necesidad de crecer y salir adelante, decidieron construir algo con propósito.</AboutP>
                 <AboutP margin={false}>Más que un emprendimiento, somos un equipo comprometido con el bienestar natural del paciente, convencidos de que la salud debe tratarse con responsabilidad, calidez humana y verdadera vocación de servicio.</AboutP>
                 <h3 className="
                     my-4
@@ -82,7 +83,7 @@ export default function About() {
                 >
                   <i className="fa fa-shield mr-2"></i>Nuestra Misión
                 </h3>
-                <AboutP margin={true}>En Plasma Vida Center brindamos atención personalizada, ética y humana, enfocada en el bienestar integral de cada paciente. Nos especializamos en sueros y terapias diseñadas según las necesidades individuales, priorizando la seguridad y el fortalecimiento natural del organismo.</AboutP>
+                <AboutP margin={true}>En {organization.name} brindamos atención personalizada, ética y humana, enfocada en el bienestar integral de cada paciente. Nos especializamos en sueros y terapias diseñadas según las necesidades individuales, priorizando la seguridad y el fortalecimiento natural del organismo.</AboutP>
                 <AboutP margin={false}>Complementamos nuestros servicios con tratamientos de plasma y cuidado al adulto mayor, ofreciendo acompañamiento cercano y seguimiento continuo. Trabajamos con responsabilidad, compromiso y mejora constante para ofrecer una atención accesible, confiable y de calidad.</AboutP>
                 <h3 className="
                     my-4

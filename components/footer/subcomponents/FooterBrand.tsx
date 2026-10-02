@@ -2,14 +2,15 @@ import { footerContent } from "@/data/footer";
 import Image from "next/image";
 import Link from "next/link";
 import FooterWhatsappLink from "./FooterWhatsappLink";
+import { organization } from "@/data/organization";
 
 const FooterBrand = () => {
     return (
     <div className="col-span-2 md:col-span-4 flex flex-col items-start gap-4">
-        <Link href="/" className="pressable flex items-center gap-4" aria-label="Plasma Vida Center, inicio">
+        <Link href="/" className="pressable flex items-center gap-4" aria-label={`${organization.name}, inicio`}>
             <span className="w-12 h-12 md:w-16 md:h-16 shrink-0 flex items-center justify-center bg-white-1 rounded-full shadow-lg">
                 <Image
-                    src="/assets/logo.webp"
+                    src={organization.logoPath}
                     width={371}
                     height={389}
                     className="w-8 h-8 md:w-12 md:h-12 object-contain"

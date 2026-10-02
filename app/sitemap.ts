@@ -2,17 +2,16 @@ import { getNursingServices, getProducts } from '@/lib/contentful-queries'
 import { NursingService } from '@/lib/models/nursingService'
 import { Product } from '@/lib/models/product'
 import { MetadataRoute } from 'next'
+import { organization } from '@/data/organization'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://plasmavidacenter.com'
-
   const staticPages = [
     '',
     '/catalogo',
     '/servicios-de-enfermeria',
     '/quienes-somos',
   ].map(path => ({
-    url: `${baseUrl}${path}`,
+    url: organization.urlFor(path),
     lastModified: new Date(),
   }))
 
@@ -24,14 +23,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         const subUrl = isCatalog ? 'catalogo' : 'sueros-personalizados/homeopaticos'
 
         return {
-            url: `${baseUrl}/${subUrl}/${el.slug}`,
+            url: organization.urlFor(`/${subUrl}/${el.slug}`),
             lastModified: new Date(),
         }
     })
 
     const dynamicNursingPages = nursingServices.map((el: NursingService) => (
         {
-            url: `${baseUrl}/servicios-de-enfermeria/${el.slug}`,
+            url: organization.urlFor(`/servicios-de-enfermeria/${el.slug}`),
             lastModified: new Date()
         }
     ))

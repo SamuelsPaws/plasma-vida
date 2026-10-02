@@ -3,6 +3,7 @@ import Link from "next/link"
 import { Product } from "@/lib/models/product"
 import Image from "next/image"
 import CustomIcon from "@/components/CustomIcon"
+import { organization } from "@/data/organization"
 
 const Hero = ({ promotions }: { promotions: Product[] }) => {
     return (
@@ -20,7 +21,7 @@ const Hero = ({ promotions }: { promotions: Product[] }) => {
                 sizes="100%"
                 priority
                 className="object-cover object-left z-0"
-                alt="Imagen publicitaria de Plasma Vida Center"
+                alt={`Imagen publicitaria de ${organization.name}`}
             />
         </div>
         {/* Left div */}
@@ -40,7 +41,7 @@ const Hero = ({ promotions }: { promotions: Product[] }) => {
                         sizes="100%"
                         priority
                         className="object-cover z-0"
-                        alt="Imagen publicitaria de Plasma Vida Center"
+                        alt={`Imagen publicitaria de ${organization.name}`}
                     />
 
                 </div>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { organization } from "@/data/organization";
 
 export const disabilityMetadata: Metadata = {
   title: "Cuidado para Personas con Discapacidad en Quito | Enfermería a Domicilio",
@@ -18,13 +19,13 @@ export const disabilityMetadata: Metadata = {
     title: "Cuidado para Personas con Discapacidad en Quito | Atención en Casa",
     description:
       "Servicio de cuidado domiciliario con atención personalizada, promoviendo autonomía y bienestar.",
-    url: "https://plasmavidacenter.com/servicios-de-enfermeria/cuidado-discapacidad",
-    siteName: "Plasma Vida Center",
+    url: organization.urlFor("/servicios-de-enfermeria/cuidado-discapacidad"),
+    siteName: organization.name,
     locale: "es_EC",
     type: "website",
     images: [
       {
-        url: "https://plasmavidacenter.com/opengraph-image.jpg",
+        url: organization.openGraphImageUrl,
         width: 1200,
         height: 630,
         alt: "Cuidado para personas con discapacidad en Quito",
@@ -37,13 +38,12 @@ export const disabilityMetadata: Metadata = {
     title: "Cuidado para Personas con Discapacidad en Quito",
     description:
       "Atención domiciliaria profesional que promueve autonomía y calidad de vida.",
-    images: ["https://plasmavidacenter.com/opengraph-image.jpg"],
+    images: [organization.openGraphImageUrl],
   },
 
   alternates: {
-    canonical:
-      "https://plasmavidacenter.com/servicios-de-enfermeria/cuidado-discapacidad",
+    canonical: organization.urlFor("/servicios-de-enfermeria/cuidado-discapacidad"),
   },
 
-  metadataBase: new URL("https://plasmavidacenter.com"),
+  metadataBase: new URL(organization.url),
 };

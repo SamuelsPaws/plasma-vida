@@ -3,6 +3,7 @@ import BurgerMenu from "@/components/BurgerMenu"
 import Image from "next/image"
 import { navLinks } from "@/data/nav"
 import NavLinkDesk from "./subcomponents/NavLinkDesk"
+import { organization } from "@/data/organization"
 
 const Header = () => {
   return (
@@ -17,11 +18,11 @@ const Header = () => {
 			className="pressable text-white-1"
 		>
 			<Image
-				src="/assets/logo.webp"
+				src={organization.logoPath}
 				width={371}
 				height={389}
 				className="w-[32px] h-[32px]"
-				alt="Logo de Plasma Vida Center"
+				alt={`Logo de ${organization.name}`}
 			/>
 		</Link>
 		<nav className="

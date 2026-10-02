@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { organization } from "@/data/organization";
 
 export const postHospMetadata: Metadata = {
   title: "Cuidados Posthospitalarios en Quito | Enfermería a Domicilio",
@@ -18,13 +19,13 @@ export const postHospMetadata: Metadata = {
     title: "Cuidados Posthospitalarios en Quito | Recuperación Segura en Casa",
     description:
       "Apoyo profesional en casa tras el alta médica, con atención personalizada en Quito.",
-    url: "https://plasmavidacenter.com/servicios-de-enfermeria/cuidado-posthospitalario",
-    siteName: "Plasma Vida Center",
+    url: organization.urlFor("/servicios-de-enfermeria/cuidado-posthospitalario"),
+    siteName: organization.name,
     locale: "es_EC",
     type: "website",
     images: [
       {
-        url: "https://plasmavidacenter.com/opengraph-image.jpg", // ← tu asset aquí
+        url: organization.openGraphImageUrl,
         width: 1200,
         height: 630,
         alt: "Cuidados posthospitalarios en Quito",
@@ -37,13 +38,12 @@ export const postHospMetadata: Metadata = {
     title: "Cuidados Posthospitalarios en Quito",
     description:
       "Recuperación segura en casa con atención profesional y seguimiento continuo.",
-    images: ["https://plasmavidacenter.com/opengraph-image.jpg"],
+    images: [organization.openGraphImageUrl],
   },
 
   alternates: {
-    canonical:
-      "https://plasmavidacenter.com/servicios-de-enfermeria/cuidado-posthospitalario",
+    canonical: organization.urlFor("/servicios-de-enfermeria/cuidado-posthospitalario"),
   },
 
-  metadataBase: new URL("https://plasmavidacenter.com"),
+  metadataBase: new URL(organization.url),
 };

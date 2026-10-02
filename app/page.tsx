@@ -3,26 +3,24 @@ import Hero from "./components/Hero";
 import HomeCategoryCard from "./components/HomeCategoryCard";
 import { Metadata } from "next";
 import Reveal from "@/components/Reveal";
-import ProductSvg from "@/components/ProductSvg";
 import SectionSec from "@/components/SectionSec";
-import { p } from "motion/react-client";
 import Image from "next/image";
 import CustomIcon from "@/components/CustomIcon";
 import AttentionItem from "./components/AttentionItem";
 import SectionSt from "@/components/SectionSt";
 import CenteredP from "@/components/reusable-ui/CenteredP";
 import StepCard from "@/components/reusable-ui/step-card/StepCard";
-import Link from "next/link";
 import PillCtaBtn from "@/components/reusable-ui/PillCtaBtn";
-import TestimonialCard from "./components/testimonial-card/TestimonialCard";
 import FaqCard from "./components/FaqCard";
-import Eyebrow from "@/components/reusable-ui/Eyebrow";
 import SectionCta from "@/components/SectionCta";
+import { organization } from "@/data/organization";
+import FooterWrapper from "@/components/FooterWrapper";
+import CtaAndWrapper from "@/components/CtaAndWrapper";
 
 export const metadata: Metadata = {
-	title: "Plasma Vida Center | Mejora tu salud al instante",
+	title: `${organization.name} | Mejora tu salud al instante`,
 	description:
-		"Plasma Vida Center ofrece terapias avanzadas de bienestar como sueros intravenosos, plasma rico en plaquetas (PRP) y servicios de enfermería a domicilio. Mejora tu salud con atención profesional, segura y personalizada.",
+		`${organization.name} ofrece terapias avanzadas de bienestar como sueros intravenosos, plasma rico en plaquetas (PRP) y servicios de enfermería a domicilio. Mejora tu salud con atención profesional, segura y personalizada.`,
 	keywords: [
 		"sueros intravenosos Ecuador",
 		"plasma rico en plaquetas PRP",
@@ -32,36 +30,36 @@ export const metadata: Metadata = {
 		"salud y bienestar quito",
 		"salud y bienestar ecuador",
 		"salud y bienestar premium",
-		"Plasma Vida Center"
+		organization.name
 	],
-	applicationName: "Plasma Vida Center",
-	authors: [{ name: "Plasma Vida Center" }],
-	creator: "Plasma Vida Center",
-	publisher: "Plasma Vida Center",
+	applicationName: organization.name,
+	authors: [{ name: organization.name }],
+	creator: organization.name,
+	publisher: organization.name,
 
 	openGraph: {
-		title: "Plasma Vida Center - Siéntete bien y cuida tu salud.",
+		title: `${organization.name} - Siéntete bien y cuida tu salud.`,
 		description:
 		"Terapias avanzadas de bienestar: sueros IV, PRP y atención de enfermería a domicilio con enfoque profesional y personalizado.",
-		url: "https://plasmavidacenter.com/", // Canonical
-		siteName: "Plasma Vida Center",
+		url: organization.url,
+		siteName: organization.name,
 		locale: "es_EC",
 		type: "website",
 	},
 
 	twitter: {
 		card: "summary_large_image",
-		title: "Inicio - Plasma Vida Center",
+		title: `Inicio - ${organization.name}`,
 		description:
 		"Sueros IV, PRP y servicios de enfermería a domicilio con enfoque clínico y personalizado.",
-		images: ["/opengraph-image.jpg"],
+		images: [organization.openGraphImageUrl],
 	},
 
 	alternates: {
-		canonical: "https://plasmavidacenter.com/",
+		canonical: organization.url,
 	},
 
-	metadataBase: new URL("https://plasmavidacenter.com/"),
+	metadataBase: new URL(organization.url),
 };
 
 export default async function Home() {
@@ -79,7 +77,7 @@ export default async function Home() {
 		>
 			<Reveal>
 				<h2 className="mb-12 lg:mb-24 text-3xl lg:text-5xl text-center font-bold">
-					En Plasma Vida Center encontrarás:
+					En {organization.name} encontrarás:
 				</h2>
 			</Reveal>
 			{/* Service types (suero, plasma, enfermería) */}
@@ -208,7 +206,7 @@ export default async function Home() {
 				/>
 			</div>
 			<PillCtaBtn
-				href="https://wa.me/593978774224?text=%C2%A1Hola!%20Tengo%20una%20consulta%20sobre%20los%20productos%20o%20servicios%20de%20Plasma%20Vida%20Center."
+				href={organization.whatsappUrl}
 				label="Solicitar información"
 				centered
 				external
@@ -220,7 +218,7 @@ export default async function Home() {
 			bgColor="bg-white-1"
 		>
 			<CenteredP
-				text="Cada persona vive su atención de una manera diferente. Conoce las experiencias de quienes nos han confiado su cuidado y lo que comparten sobre su paso por Plasma Vida Center."
+				text={`Cada persona vive su atención de una manera diferente. Conoce las experiencias de quienes nos han confiado su cuidado y lo que comparten sobre su paso por ${organization.name}.`}
 			/>
 			<div className="
 				w-full md:w-fit
@@ -287,7 +285,7 @@ export default async function Home() {
 							Nuestro equipo está listo para escucharte y brindarte la información que necesitas
 						</p>
 						<PillCtaBtn
-							href="https://wa.me/593978774224?text=%C2%A1Hola!%20Tengo%20una%20consulta%20sobre%20los%20productos%20o%20servicios%20de%20Plasma%20Vida%20Center."
+							href={organization.whatsappUrl}
 							label="Contáctanos"
 							external
 						/>
@@ -306,7 +304,7 @@ export default async function Home() {
 					/>
 					<FaqCard
 						question="¿Ofrecen atención a domicilio?"
-						answer="Sí. Plasma Vida Center ofrece atención a domicilio para determinados servicios. Puedes consultarnos sobre la disponibilidad según el tipo de atención que necesites."
+						answer={`Sí. ${organization.name} ofrece atención a domicilio para determinados servicios. Puedes consultarnos sobre la disponibilidad según el tipo de atención que necesites.`}
 					/>
 					<FaqCard
 						question="¿Necesito saber qué servicio necesito antes de contactarlos?"
@@ -319,8 +317,7 @@ export default async function Home() {
 				</div>
 			)}
 		/>
-		<SectionCta />
-      	<section className="h-mob-footer-height md:h-footer-height bg-mainblue-dark-1"></section>
+		<CtaAndWrapper />
     </main>
   	);
 }
