@@ -16,4 +16,9 @@ export const navLinks = [
         label: 'Quiénes Somos',
         external: false
     },
+    {
+        href: '/contacto',
+        label: 'Contacto',
+        external: false
+    },
 ] satisfies NavLinkType[]

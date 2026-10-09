@@ -10,6 +10,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/catalogo',
     '/servicios-de-enfermeria',
     '/quienes-somos',
+    '/contacto',
   ].map(path => ({
     url: organization.urlFor(path),
     lastModified: new Date(),
