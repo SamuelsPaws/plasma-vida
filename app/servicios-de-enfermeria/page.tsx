@@ -96,9 +96,9 @@ export default async function Services() {
                 label: "Conocer nuestros servicios",
                 type: "secondary",
             }}
-            imageSrc="/assets/nursing-banner.jpg"
+            imageSrc="/assets/nursing-cover.jpg"
             imageAlt="Enfermera atendiendo a una adulta mayor en su hogar"
-            imagePosition="left"
+            imagePosition="top"
         />
         <SectionSt
             id="servicios"

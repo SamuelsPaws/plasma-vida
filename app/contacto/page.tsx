@@ -68,7 +68,7 @@ export default function Contact() {
     <main className="pt-mob-header-height lg:pt-header-height">
         {/* Hero */}
         <HeroMain
-            eyebrow="CONTACTO · QUITO, ECUADOR"
+            eyebrow="CONTACTO | QUITO, ECUADOR"
             title="Tu bienestar empieza con una conversación"
             description="Estamos aquí para escucharte. Consulta sobre nuestros servicios, resuelve tus dudas o coordina tu atención con un equipo cercano y comprometido contigo."
             primaryAction={{

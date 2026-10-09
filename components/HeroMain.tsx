@@ -18,13 +18,15 @@ type HeroMainProps = {
     secondaryAction?: HeroAction;
     imageSrc: ImageProps["src"];
     imageAlt: string;
-    imagePosition?: "left" | "center" | "right";
+    imagePosition?: "left" | "center" | "right" | 'top' | 'bottom';
 };
 
 const imagePositionClasses = {
     left: "object-left",
     center: "object-center",
     right: "object-right",
+    top: "object-top",
+    bottom: "object-bottom",
 } as const;
 
 const HeroMain = ({
