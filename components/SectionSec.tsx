@@ -1,3 +1,4 @@
+import Reveal from "@/components/Reveal"
 import clsx from "clsx";
 import Eyebrow from "./reusable-ui/Eyebrow";
 
@@ -22,7 +23,7 @@ const SectionSec = ({ title, eyebrow, bgColor, children, underLeft, rightNode }:
         {/* Upper part (base) */}
         <div className="flex flex-col md:flex-row items-start justify-center gap-8 md:gap-16 flex-wrap">
             {/* Left part */}
-            <div className="w-full md:w-auto md:flex-1 md:max-w-180">
+            <Reveal className="w-full md:w-auto md:flex-1 md:max-w-180">
                 {eyebrow && (
                     <Eyebrow
                         text={eyebrow}
@@ -36,7 +37,7 @@ const SectionSec = ({ title, eyebrow, bgColor, children, underLeft, rightNode }:
                     {title}
                 </h2>
                 {underLeft}
-            </div>
+            </Reveal>
             {rightNode}
         </div>
         {children}

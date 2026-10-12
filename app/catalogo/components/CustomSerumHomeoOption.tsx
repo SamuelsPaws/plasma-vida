@@ -19,7 +19,7 @@ const CustomSerumHomeoOption = ({ name, description, price, slug }: CustomSerumH
             border-2 border-sky-600 rounded-2xl"
     >
         <div className="
-            flex-1 transition-transform duration-200 ease-[var(--ease-out-premium)] lg:group-hover:translate-x-1
+            flex-1 motion-transform lg:group-hover:translate-x-1
             flex flex-col gap-1 lg:gap-2"
         >
             <h3 className="text-md lg:text-lg text-sky-600 font-semibold">{name}</h3>
@@ -27,7 +27,7 @@ const CustomSerumHomeoOption = ({ name, description, price, slug }: CustomSerumH
             <p className="text-xs lg:text-sm text-gray-600">{truncateMidText(description, 100)}</p>
         </div>
         <div className="
-            w-[10%] self-stretch transition-transform duration-200 ease-[var(--ease-out-premium)] lg:group-hover:translate-x-1
+            w-[10%] self-stretch motion-transform lg:group-hover:translate-x-1
             grid place-content-center
             text-xl lg:text-2xl text-sky-600"
         >

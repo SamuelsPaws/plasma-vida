@@ -1,3 +1,5 @@
+import Reveal from "@/components/Reveal"
+import { motionTokens } from "@/lib/motion"
 import CustomIcon, { IconId } from "../../CustomIcon";
 import IconCircle from "./subcomponents/IconCircle";
 import NumberCircle from "./subcomponents/NumberCircle";
@@ -11,7 +13,9 @@ interface Props {
 
 const StepCard = ({ num, iconId, title, copy }: Props) => {
     return (
-    <div className="
+    <Reveal
+        delay={Math.min(Math.max(num - 1, 0), 3) * motionTokens.stagger}
+        className="
         w-full md:w-85 relative
         p-8
         flex flex-col items-center
@@ -30,7 +34,7 @@ const StepCard = ({ num, iconId, title, copy }: Props) => {
         <p className="text-my-sm text-gray-600 text-center">
             {copy}
         </p>
-    </div>
+    </Reveal>
     )
 }
 

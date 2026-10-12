@@ -14,7 +14,7 @@ const PromotionsDot = ({ keyProp, index, handleClick }: PromotionsDotProps) => {
         aria-label={`Mostrar promoción ${keyProp + 1}`}
         aria-current={index === keyProp ? 'true' : undefined}
         className={clsx(
-           "pressable w-1.5 aspect-square rounded-full shadow-sm transition-[transform,background-color] duration-200 ease-[var(--ease-out-premium)] cursor-pointer",
+           "pressable w-1.5 aspect-square rounded-full shadow-sm pressable cursor-pointer",
            index === keyProp ? 'bg-white-1 scale-125' : 'bg-white-1/60 scale-100'
         )}
         onClick={handleClick}

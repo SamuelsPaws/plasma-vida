@@ -6,6 +6,7 @@ import clsx from "clsx";
 import getSalePercent from "@/app/utils/getSalePercent";
 import Image from "next/image";
 import { motion } from "motion/react";
+import { motionTokens, motionTransitions } from "@/lib/motion"
 import ProductSvg from "@/components/ProductSvg";
 
 interface ProductCardProps {
@@ -24,9 +25,9 @@ const ProductCard = ({ title, descriptionList, price, noPromotionPrice, slug }: 
     return (
     <motion.article
         layout
-        initial={{ opacity: 0, transform: 'translateY(12px)' }}
-        animate={{ opacity: 1, transform: 'translateY(0)' }}
-        transition={{ duration: 0.36, ease: [0.23, 1, 0.32, 1] }}
+        initial={{ opacity: 0, y: motionTokens.distance }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ ...motionTransitions.ui, layout: motionTransitions.layout }}
         className="
             interactive-card group
             w-full
@@ -43,7 +44,7 @@ const ProductCard = ({ title, descriptionList, price, noPromotionPrice, slug }: 
             <ProductSvg
                 productCategory={splitTitle[0]}
                 productName={[splitTitle.slice(1).join(' ')]}
-                className="w-full h-full"
+                className="w-full h-full media-zoom"
             />
         </div>
         {/* Div with title, desc, price and button */}

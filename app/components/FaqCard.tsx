@@ -19,13 +19,14 @@ const FaqCard = ({ question, answer }: Props) => {
     return (
     <button
         onClick={toggleExpanded}
+        aria-expanded={isExpanded}
         className="
             w-full md:min-w-130 group
             p-4
             md:px-8 md:py-6
             text-left
             border border-gray-300 rounded-xl
-            md:hover:border-mainblue-original duration-200"
+            motion-colors hover:border-mainblue-original"
     >
         {/* Upper part */}
         <div className="
@@ -44,11 +45,11 @@ const FaqCard = ({ question, answer }: Props) => {
                 bg-lightblue-200
                 text-xl md:text-2xl text-mainblue-original
                 rounded-full
-                md:group-hover:bg-lightblue-300 duration-200"
+                motion-colors group-hover:bg-lightblue-300"
             >
                 <CustomIcon
                     iconId="plus"
-                    className={clsx(isExpanded ? "-rotate-45" : "rotate-0", "duration-400")}
+                    className={clsx(isExpanded ? "-rotate-45" : "rotate-0", "motion-transform")}
                 />
             </div>
         </div>

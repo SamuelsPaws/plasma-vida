@@ -1,5 +1,6 @@
 'use client'
 import { AnimatePresence, motion } from "motion/react";
+import { actionVariants, motionTransitions } from "@/lib/motion"
 import { useState } from "react";
 import { Product } from "@/lib/models/product";
 import { organization } from "@/data/organization";
@@ -8,7 +9,7 @@ const ItemBuy = ({ item }: { item: Product }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
-    <motion.div layout
+    <motion.div layout transition={motionTransitions.layout}
       className="
         absolute right-0 bottom-0
         h-12 lg:h-12"
@@ -28,10 +29,10 @@ const ItemBuy = ({ item }: { item: Product }) => {
             className="
               h-full pr-2
               border border-gray-300 rounded-md"
-            initial={{ opacity: 0, transform: 'translateX(10px) scale(0.97)' }}
-            animate={{ opacity: 1, transform: 'translateX(0) scale(1)' }}
-            exit={{ opacity: 0, transform: 'translateX(6px) scale(0.98)' }}
-            transition={{ duration: 0.2, ease: [0.23, 1, 0.32, 1] }}
+            variants={actionVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
           >
             <div
               className="w-full h-full flex items-center gap-2 lg:gap-4"

@@ -1,3 +1,4 @@
+import Reveal from "@/components/Reveal"
 import PromotionsCarousel from "@/components/promotions-carousel/PromotionsCarousel"
 import Link from "next/link"
 import { Product } from "@/lib/models/product"
@@ -50,14 +51,14 @@ const Hero = ({ promotions }: { promotions: Product[] }) => {
                 text-sky-700 text-center font-bold z-20
                 text-3xl leading-12
                 xl:text-5xl xl:leading-16
-                opacity-0 animate-fade-in-up-0"
+                motion-enter"
             >
                 Mejora tu salud con sueroterapia, terapia de plasma rico en plaquetas y más.
             </h1>
             <p className="
                 w-[80%] z-20
                 text-sm lg:text-lg text-gray-600 text-center
-                opacity-0 animate-fade-in-up-300"
+                motion-enter motion-delay-1"
             >
                 Echa un vistazo a nuestras terapias avanzadas de bienestar con sueros intravenosos y plasma rico en plaquetas (PRP) en Quito, Ecuador. Explora nuestros servicios de enfermería a domicilio con atención profesional, segura y personalizada.
             </p>
@@ -67,7 +68,7 @@ const Hero = ({ promotions }: { promotions: Product[] }) => {
                     px-6 lg:px-8 py-4 z-20
                     bg-br-gold-main rounded-full
                     text-white-1 text-md md:text-lg xl:text-xl
-                    opacity-0 animate-fade-in-600
+                    motion-enter motion-delay-2
                     btn-hover pressable"
             >
                 <span>Mira nuestro catálogo</span>
@@ -78,7 +79,7 @@ const Hero = ({ promotions }: { promotions: Product[] }) => {
             </Link>
         </div>
         {/* Right div */}
-        <div className="
+        <Reveal className="
             w-full lg:w-1/2
             px-6 py-6 relative z-20
             bg-[#e2e2e9] md:bg-transparent
@@ -91,7 +92,7 @@ const Hero = ({ promotions }: { promotions: Product[] }) => {
                 promotions={promotions}
                 className="w-full md:w-100 xl:w-120 relative"
             />
-        </div>
+        </Reveal>
     </section>
   )
 }

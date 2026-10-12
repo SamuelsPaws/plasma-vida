@@ -2,6 +2,7 @@
 import CustomIcon, { IconId } from "@/components/CustomIcon"
 import { smoothReveal } from "@/lib/motion-variants/smoothReveal";
 import { motion } from "motion/react";
+import { motionTokens } from "@/lib/motion"
 
 interface Props {
     iconId: IconId;
@@ -18,7 +19,7 @@ const AttentionItem = ({ iconId, title, copy }: Props) => {
         variants={smoothReveal}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: '-24px 0px' }}
+        viewport={motionTokens.viewport}
     >
         <div className="text-my-xl text-mainblue-original">
             <CustomIcon

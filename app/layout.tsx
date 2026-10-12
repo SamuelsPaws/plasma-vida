@@ -7,6 +7,7 @@ import clsx from "clsx";
 import WhatsappFloat from "@/components/WhatsappFloat";
 import MotionProvider from "@/components/MotionProvider";
 import { organization } from "@/data/organization";
+import { motionCssVariables } from "@/lib/motion"
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -42,6 +43,7 @@ export default function RootLayout({
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
       </head>
       <body
+        style={motionCssVariables}
         className={clsx(
           roboto.className,
           'relative'

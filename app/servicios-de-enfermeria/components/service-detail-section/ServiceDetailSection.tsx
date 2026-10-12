@@ -1,3 +1,4 @@
+import Reveal from "@/components/Reveal"
 import clsx from "clsx";
 import Image, { type ImageProps } from "next/image";
 import Eyebrow from "@/components/reusable-ui/Eyebrow";
@@ -51,7 +52,7 @@ const ServiceDetailSection = ({
                     max-w-7xl
                     grid items-center gap-12 md:grid-cols-2 md:gap-16"
             >
-                <div
+                <Reveal
                     className={clsx(
                         "flex flex-col items-start",
                         imageSide === "left" ? "md:order-2" : "md:order-1"
@@ -104,8 +105,8 @@ const ServiceDetailSection = ({
                             label={action.label}
                         />
                     </div>
-                </div>
-                <div
+                </Reveal>
+                <Reveal
                     className={clsx(
                         "w-full aspect-[4/3]",
                         "relative overflow-hidden",
@@ -120,7 +121,7 @@ const ServiceDetailSection = ({
                         sizes="(min-width: 768px) 50vw, 100vw"
                         className="object-contain object-center"
                     />
-                </div>
+                </Reveal>
             </div>
         </section>
     );

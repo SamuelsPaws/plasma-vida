@@ -1,3 +1,5 @@
+import Reveal from "@/components/Reveal"
+import { motionTokens } from "@/lib/motion"
 import clsx from "clsx";
 import Image, { type ImageProps } from "next/image";
 import Eyebrow from "@/components/reusable-ui/Eyebrow";
@@ -50,7 +52,7 @@ const HeroMain = ({
                 max-w-7xl
                 grid items-center gap-12 md:grid-cols-2 md:gap-16"
             >
-                <div className="flex flex-col items-start">
+                <Reveal className="flex flex-col items-start">
                     <Eyebrow
                         text={eyebrow}
                         noMargin
@@ -89,8 +91,10 @@ const HeroMain = ({
                             />
                         )}
                     </div>
-                </div>
-                <div className="
+                </Reveal>
+                <Reveal
+                    delay={motionTokens.stagger}
+                    className="
                     w-full h-80 md:h-96 xl:h-128
                     relative overflow-hidden
                     rounded-2xl"
@@ -106,7 +110,7 @@ const HeroMain = ({
                         )}
                         priority
                     />
-                </div>
+                </Reveal>
             </div>
         </section>
     );

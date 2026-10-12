@@ -22,7 +22,7 @@ const PillCtaBtn = ({ href, label, external = false, centered = false, type = 'm
         type === 'main' ? "text-white-1" : "text-black",
         "rounded-full",
         type === 'secondary' && 'border border-black',
-        "btn-hover pressable"
+        "btn-hover pressable motion-arrow"
     )
 
     if (external) {
@@ -35,7 +35,7 @@ const PillCtaBtn = ({ href, label, external = false, centered = false, type = 'm
             <span>{label}</span>
             <CustomIcon
                 iconId="arrowR"
-                className="scale-120"
+                className="scale-120 motion-arrow-icon"
             />
         </a>
         )
@@ -49,7 +49,7 @@ const PillCtaBtn = ({ href, label, external = false, centered = false, type = 'm
         <span>{label}</span>
         <CustomIcon
             iconId="arrowR"
-            className={clsx("scale-120", type === 'secondary' && "rotate-90")}
+            className={clsx("scale-120 motion-arrow-icon", type === 'secondary' && "rotate-90")}
         />
     </Link>
     )

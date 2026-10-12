@@ -1,3 +1,4 @@
+import Reveal from "@/components/Reveal"
 import CenteredP from "./reusable-ui/CenteredP"
 import Eyebrow from "./reusable-ui/Eyebrow"
 import PillCtaBtn from "./reusable-ui/PillCtaBtn"
@@ -5,7 +6,7 @@ import { organization } from "@/data/organization"
 
 const SectionCta = () => {
     return (
-    <section className="
+    <Reveal as="section" className="
         px-8 py-24
         md:px-16 md:py-32
         xl:px-32 xl:py-40
@@ -33,7 +34,7 @@ const SectionCta = () => {
             label="Contáctanos"
             centered
         />
-    </section>
+    </Reveal>
     )
 }
 

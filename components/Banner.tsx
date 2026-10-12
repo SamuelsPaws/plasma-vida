@@ -1,5 +1,6 @@
 'use client'
 import { motion } from "motion/react"
+import { revealVariants } from "@/lib/motion"
 import PromotionsCarousel from "./promotions-carousel/PromotionsCarousel";
 import { Product } from "@/lib/models/product";
 import Image from "next/image";
@@ -40,18 +41,18 @@ const Banner = ({ title, subheadline, promotions, bgSrc }: BannerProps) => {
                     relative
                     text-2xl lg:text-5xl text-white-1
                     font-semibold leading-8 md:leading-18"
-                initial={{ opacity: 0, transform: 'translateY(14px)' }}
-                animate={{ opacity: 1, transform: 'translateY(0)' }}
-                transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
+                variants={revealVariants}
+                initial="hidden"
+                animate="visible"
             >
                 {title}
             </motion.h1>
             {subheadline &&
                 <motion.p
                     className="mt-1 lg:mt-4 text-md lg:text-2xl text-white-1 font-semibold relative"
-                    initial={{ opacity: 0, transform: 'translateY(10px)' }}
-                    animate={{ opacity: 1, transform: 'translateY(0)' }}
-                    transition={{ duration: 0.45, delay: 0.1, ease: [0.23, 1, 0.32, 1] }}
+                    variants={revealVariants}
+                initial="hidden"
+                animate="visible"
                 >
                     Te escuchamos, te entendemos y cuidamos de ti de forma natural.
                 </motion.p>

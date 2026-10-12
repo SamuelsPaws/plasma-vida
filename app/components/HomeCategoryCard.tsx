@@ -2,6 +2,7 @@
 import CustomIcon from "@/components/CustomIcon";
 import clsx from "clsx";
 import { motion } from "motion/react";
+import { motionTokens, revealVariants, staggerVariants } from "@/lib/motion"
 import Image from "next/image";
 import Link from "next/link";
 
@@ -14,30 +15,6 @@ interface HomeCategoryCardProps {
     imgW: number;
     imgH: number;
     imgClassName?: string;
-}
-
-const containerVariants = {
-    hidden: {},
-    visible: {
-        transition: {
-            staggerChildren: 0.065
-        }
-    }
-}
-
-const itemVariants = {
-    hidden: {
-        opacity: 0,
-        transform: 'translateY(16px)'
-    },
-    visible: {
-        opacity: 1,
-        transform: 'translateY(0)',
-        transition: {
-            duration: 0.42,
-            ease: [0.23, 1, 0.32, 1] as [number, number, number, number]
-        }
-    },
 }
 
 const HomeCategoryCard = ({
@@ -56,10 +33,10 @@ const HomeCategoryCard = ({
             w-full lg:px-8
             flex flex-col lg:flex-row
             items-center gap-y-6 lg:gap-y-8 flex-wrap"
-        variants={containerVariants}
+        variants={staggerVariants}
         initial='hidden'
         whileInView='visible'
-        viewport={{ once: true, margin: '-80px 0px' }}
+        viewport={motionTokens.viewport}
     >
         {/* Div with title and image */}
         <motion.div
@@ -67,7 +44,7 @@ const HomeCategoryCard = ({
                 w-full
                 lg:w-auto lg:flex-1 lg:min-w-[300px]
                 flex flex-col items-center justify-center gap-2"
-            variants={itemVariants}
+            variants={revealVariants}
         >
             {/* Title */}
             <h3 className="
@@ -98,7 +75,7 @@ const HomeCategoryCard = ({
                 lg:flex-1 lg:min-w-[340px] px-4 lg:px-12
                 flex flex-col justify-center items-center gap-4
                 text-sky-800"
-            variants={itemVariants}
+            variants={revealVariants}
         >
             {descriptionParagraphs.map((el, index) => (
                 <p
@@ -112,7 +89,7 @@ const HomeCategoryCard = ({
         {/* Link */}
         <motion.div
             className="lg:flex-1 self-stretch grid place-content-center"
-            variants={itemVariants}
+            variants={revealVariants}
         >
             <Link
                 href={href}

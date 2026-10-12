@@ -20,16 +20,20 @@ const CustomSerumHorV = ({ name, isHomeo, setIsHomeo, thisHomeo }: CustomSerumHo
     }
 
   return (
-    <div
+    <button
+        type="button"
+        aria-pressed={isSelected}
         onClick={handleClick}
         className={clsx(
             'flex-1 text-md lg:text-xl',
-            'pressable grid place-content-center cursor-pointer transition-[background-color,border-color,color,transform] duration-200 ease-[var(--ease-out-premium)]',
+            'pressable grid place-content-center cursor-pointer',
             !isSelected && 'lg:hover:bg-[#b1cff6] lg:hover:border-[#b1cff6]',
             isSelected ? 'bg-mainblue-original text-white-1' : 'bg-white-1 text-gray-600',
             'border border-gray-400 rounded-2xl'
         )}
-    >{name}</div>
+    >
+        {name}
+    </button>
   )
 }
 

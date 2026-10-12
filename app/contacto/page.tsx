@@ -1,3 +1,4 @@
+import Reveal from "@/components/Reveal"
 import type { Metadata } from "next"
 import HeroMain from "@/components/HeroMain"
 import SectionSt from "@/components/SectionSt"
@@ -159,7 +160,7 @@ export default function Contact() {
         </SectionSt>
 
         {/* Frequently asked questions */}
-        <section className="
+        <Reveal as="section" className="
             px-8 py-16 md:px-16 md:py-24
             bg-white-1"
         >
@@ -198,7 +199,7 @@ export default function Contact() {
                     ))}
                 </div>
             </div>
-        </section>
+        </Reveal>
 
         {/* Shared call to action and footer spacing */}
         <CtaAndWrapper />

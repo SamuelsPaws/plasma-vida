@@ -3,9 +3,6 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-	--ease-out-premium: cubic-bezier(0.23, 1, 0.32, 1);
-	--ease-in-out-premium: cubic-bezier(0.77, 0, 0.175, 1);
-	--ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
 }
 
 @theme inline {
@@ -47,46 +44,6 @@
 
 	--font-sans: var(--font-geist-sans);
 	--font-mono: var(--font-geist-mono);
-
-	--animate-fade-in-600: fade-in 480ms var(--ease-out-premium) 360ms forwards;
-	--animate-fade-in-scale-600: fade-in-scale 480ms var(--ease-out-premium) 360ms forwards;
-	--animate-fade-in-up-0: fade-in-up 520ms var(--ease-out-premium) forwards;
-	--animate-fade-in-up-300: fade-in-up 520ms var(--ease-out-premium) 100ms forwards;
-	--animate-fade-in-up-600: fade-in-up 520ms var(--ease-out-premium) 200ms forwards;
-
-	@keyframes fade-in {
-		from {
-			opacity: 0;
-		}
-
-		to {
-			opacity: 1;
-		}
-	}
-
-	@keyframes fade-in-scale {
-		from {
-			opacity: 0;
-			scale: 0.95
-		}
-
-		to {
-			opacity: 1;
-			scale: 1
-		}
-	}
-
-	@keyframes fade-in-up {
-		from {
-			transform: translateY(16px);
-			opacity: 0;
-		}
-
-		to {
-			transform: translateY(0);
-			opacity: 1;
-		}
-	}
 }
 
 @media (prefers-color-scheme: dark) {
@@ -125,25 +82,43 @@ button:hover {
 		@apply relative after:content-[''] after:absolute after:top-1/2 after:left-0 after:w-full after:h-[2px] after:bg-gray-500/70;
 	}
 
-	.btn-hover {
-		transition: transform 160ms var(--ease-out-premium), box-shadow 200ms ease;
-	}
-
-	.hover-animated-underline {
-		@apply after:content-[''] after:w-0 after:h-[1px] after:absolute after:bottom-1 after:left-1/2 after:-translate-x-1/2 after:bg-white-1;
-	}
-
-	.pressable {
-		transition: transform 140ms var(--ease-out-premium), background-color 180ms ease, color 180ms ease, box-shadow 200ms ease, opacity 180ms ease;
+	/* Shared interaction primitives; timings come from lib/motion.ts. */
+	.btn-hover,
+	.pressable,
+	.interactive-card {
+		transition: translate var(--motion-ui) var(--ease-out-premium), scale var(--motion-press) var(--ease-out-premium), box-shadow var(--motion-ui) var(--ease-out-premium), border-color var(--motion-fast) ease, background-color var(--motion-fast) ease, color var(--motion-fast) ease, opacity var(--motion-fast) ease;
 		-webkit-tap-highlight-color: transparent;
 	}
 
-	.interactive-card {
-		transition: transform 220ms var(--ease-out-premium), box-shadow 220ms ease, border-color 180ms ease, background-color 180ms ease;
+	.motion-transform {
+		transition: transform var(--motion-ui) var(--ease-out-premium), translate var(--motion-ui) var(--ease-out-premium), scale var(--motion-ui) var(--ease-out-premium), rotate var(--motion-ui) var(--ease-out-premium);
+	}
+
+	.motion-opacity {
+		transition: opacity var(--motion-fast) ease;
+	}
+
+	.motion-colors {
+		transition: background-color var(--motion-fast) ease, border-color var(--motion-fast) ease, color var(--motion-fast) ease;
+	}
+
+	.motion-expand {
+		transition: grid-template-rows var(--motion-ui) var(--ease-out-premium), opacity var(--motion-fast) ease;
 	}
 
 	.media-zoom {
-		transition: transform 500ms var(--ease-out-premium);
+		transition: transform var(--motion-reveal) var(--ease-out-premium);
+	}
+
+	.hover-animated-underline::after {
+		content: "";
+		position: absolute;
+		inset: auto 0 0;
+		height: 1px;
+		background: currentColor;
+		transform: scaleX(0);
+		transform-origin: left;
+		transition: transform var(--motion-ui) var(--ease-out-premium);
 	}
 
 	.text-my-sm {
@@ -175,19 +150,20 @@ button:hover {
 	}
 }
 
+/* Hover movement is reserved for precise pointers. */
 @media (hover: hover) and (pointer: fine) {
 	.btn-hover:hover {
-		transform: translateY(-2px) scale(1.02);
-		box-shadow: 0 10px 24px rgb(0 0 0 / 0.14);
+		translate: 0 -2px;
+		box-shadow: 0 10px 24px rgb(15 59 115 / 0.14);
 	}
 
 	.hover-animated-underline:hover::after {
-		width: 90%;
-		transition: width 200ms var(--ease-out-premium);
+		transform: scaleX(1);
 	}
 
-	.interactive-card:hover {
-		transform: translateY(-4px);
+	.interactive-card:hover,
+	.interactive-card:focus-within {
+		translate: 0 -4px;
 		box-shadow: 0 16px 36px rgb(15 59 115 / 0.12);
 	}
 
@@ -196,56 +172,105 @@ button:hover {
 	}
 
 	.whatsapp-float:hover {
-		transform: translateY(-4px) scale(1.04);
+		translate: 0 -4px;
 		box-shadow: 0 14px 30px rgb(22 163 74 / 0.3);
 	}
+
+	.motion-arrow:hover .motion-arrow-icon {
+		translate: 3px 0;
+	}
+}
+
+.hover-animated-underline:focus-visible::after {
+	transform: scaleX(1);
+}
+
+.motion-arrow .motion-arrow-icon {
+	transition: translate var(--motion-ui) var(--ease-out-premium);
 }
 
 .pressable:active,
 .btn-hover:active,
-.interactive-card:active {
-	transform: scale(0.97);
+a.interactive-card:active,
+button.interactive-card:active {
+	scale: 0.97;
+	transition-duration: var(--motion-press);
 }
 
+/* Entrance effects use transforms only on their own layer, away from hover. */
+.motion-enter {
+	animation: content-enter var(--motion-reveal) var(--ease-out-premium) both;
+}
+
+.motion-delay-1 { animation-delay: var(--motion-stagger); }
+.motion-delay-2 { animation-delay: calc(var(--motion-stagger) * 2); }
+
 .whatsapp-float {
-	animation: float-enter 520ms var(--ease-out-premium) 500ms both;
-	transition: transform 180ms var(--ease-out-premium), box-shadow 200ms ease;
+	animation: content-enter var(--motion-reveal) var(--ease-out-premium) both;
+	transition: translate var(--motion-ui) var(--ease-out-premium), scale var(--motion-press) var(--ease-out-premium), box-shadow var(--motion-ui) ease;
 }
 
 .filter-dialog {
-	animation: dialog-enter 240ms var(--ease-out-premium) both;
+	animation: dialog-enter var(--motion-ui) var(--ease-out-premium) both;
 }
 
 .filter-dialog::backdrop {
 	background: rgb(0 0 0 / 0.36);
 	backdrop-filter: blur(3px);
-	animation: fade-in 180ms ease-out both;
+	animation: fade-in var(--motion-fast) ease both;
+}
+
+@keyframes fade-in {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+
+@keyframes content-enter {
+	from { opacity: 0; transform: translateY(var(--motion-distance)); }
+	to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes dialog-enter {
-	from { opacity: 0 }
-	to { opacity: 1 }
-}
-
-@keyframes float-enter {
-	from { opacity: 0; transform: translateY(12px) scale(0.94); }
+	from { opacity: 0; transform: translateY(var(--motion-distance)) scale(0.98); }
 	to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
+section[id] {
+	scroll-margin-top: calc(var(--spacing-header-height) + 1rem);
+}
+
 @media (prefers-reduced-motion: reduce) {
+	/* Keep server/client markup identical; reveal content immediately in CSS. */
+	[data-reveal] {
+		opacity: 1 !important;
+		transform: none !important;
+	}
+
+	.motion-autoplay-control { display: none; }
+
 	*, *::before, *::after {
 		scroll-behavior: auto !important;
 		animation-duration: 1ms !important;
 		animation-delay: 0ms !important;
 		animation-iteration-count: 1 !important;
+		transition-duration: 0ms !important;
+	}
+
+	.motion-enter,
+	.filter-dialog,
+	.whatsapp-float {
+		animation: none;
 	}
 
 	.btn-hover,
 	.pressable,
 	.interactive-card,
 	.media-zoom,
-	.whatsapp-float {
-		transform: none !important;
-		transition-property: opacity, color, background-color, border-color, box-shadow;
+	.whatsapp-float,
+	.motion-arrow .motion-arrow-icon {
+		translate: none !important;
+		scale: none !important;
 	}
+
+	.media-zoom { transform: none !important; }
 }

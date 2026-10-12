@@ -2,7 +2,8 @@ import getSalePercent from "@/app/utils/getSalePercent";
 import numToPriceStr from "@/app/utils/numToPriceStr";
 import CustomIcon from "@/components/CustomIcon";
 import { Product } from "@/lib/models/product"
-import { motion } from "motion/react";
+import { motion, type Variants } from "motion/react"
+import { motionTokens, motionTransitions } from "@/lib/motion"
 import Image from "next/image";
 import Link from "next/link";
 import PromotionCtaBtn from "./PromotionCtaBtn";
@@ -11,6 +12,17 @@ import ProductSvg from "@/components/ProductSvg";
 interface Props {
     product: Product;
     direction: -1 | 1;
+}
+
+// Direction is resolved by AnimatePresence, including an outgoing slide.
+const slideVariants: Variants = {
+    hidden: (direction: number) => ({ opacity: 0, x: direction * motionTokens.distance }),
+    visible: { opacity: 1, x: 0, transition: motionTransitions.ui },
+    exit: (direction: number) => ({
+        opacity: 0,
+        x: direction * -motionTokens.distance,
+        transition: motionTransitions.fast,
+    }),
 }
 
 const PromotionCard = ({ product, direction }: Props) => {
@@ -25,10 +37,10 @@ const PromotionCard = ({ product, direction }: Props) => {
             bg-white-1
             rounded-2xl"
         custom={direction}
-        initial={{ opacity: 0, transform: `translateX(${direction * 18}px) scale(0.985)`, filter: 'blur(2px)' }}
-        animate={{ opacity: 1, transform: 'translateX(0) scale(1)', filter: 'blur(0px)' }}
-        exit={{ opacity: 0, transform: `translateX(${direction * -12}px) scale(0.99)`, filter: 'blur(2px)' }}
-        transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
+        variants={slideVariants}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
     >
         {/* Promotion percent */}
         {product.noPromotionPrice &&

@@ -6,7 +6,7 @@ interface Props {
 }
 
 const NavLinkDesk = ({ item }: Props) => {
-    const cn = "pressable relative py-2 hover:text-white-1/80"
+    const cn = "pressable hover-animated-underline relative py-2 hover:text-white-1/80"
 
     if (item.external) {
         return (

@@ -2,6 +2,7 @@
 import { useState } from "react"
 import CustomSerumHorV from "./CustomSerumHorV";
 import { AnimatePresence, motion } from "motion/react";
+import { actionVariants } from "@/lib/motion"
 import CustomSerumHomeoOption from "./CustomSerumHomeoOption";
 import type { Product } from "@/lib/models/product";
 import CustomSerumVitaOption from "./CustomSerumVitaOption";
@@ -46,10 +47,10 @@ const CustomSerumContainer = ({ customHomeoSerums, customVitaSerums }: CustomSer
             <motion.div
                 key={isHomeo ? 'homeopathic' : 'vitamin'}
                 className="w-full mt-6 lg:mt-8"
-                initial={{ opacity: 0, transform: 'translateY(10px)', filter: 'blur(2px)' }}
-                animate={{ opacity: 1, transform: 'translateY(0)', filter: 'blur(0px)' }}
-                exit={{ opacity: 0, transform: 'translateY(-6px)', filter: 'blur(2px)' }}
-                transition={{ duration: 0.22, ease: [0.23, 1, 0.32, 1] }}
+                variants={actionVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
             >
                 <p className="
                     mb-6 lg:mb-8

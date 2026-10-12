@@ -1,3 +1,4 @@
+import Reveal from "@/components/Reveal"
 import clsx from "clsx";
 import Eyebrow from "./reusable-ui/Eyebrow";
 
@@ -21,22 +22,24 @@ const SectionSt = ({ id, title, eyebrow, bgColor, children }: Props) => {
             "overflow-hidden"
         )}
     >
-        {eyebrow && (
-            <Eyebrow
-                text={eyebrow}
-                centered
-            />
-        )}
-        {title && (
-            <h2 className="
-                w-full md:w-2/3 mx-auto
-                mb-4 md:mb-8
-                text-most-h2 text-center text-mainblue-original font-semibold
-                leading-10 md:leading-16"
-            >
-                {title}
-            </h2>
-        )}
+        <Reveal>
+            {eyebrow && (
+                <Eyebrow
+                    text={eyebrow}
+                    centered
+                />
+            )}
+            {title && (
+                <h2 className="
+                    w-full md:w-2/3 mx-auto
+                    mb-4 md:mb-8
+                    text-most-h2 text-center text-mainblue-original font-semibold
+                    leading-10 md:leading-16"
+                >
+                    {title}
+                </h2>
+            )}
+        </Reveal>
         {children}
     </section>
     )

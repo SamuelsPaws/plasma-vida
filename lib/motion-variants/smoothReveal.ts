@@ -1,68 +1,14 @@
-import { Variants } from "motion";
+import type { Variants } from "motion/react"
+import { motionTokens, motionTransitions, revealVariants } from "@/lib/motion"
 
-export const smoothReveal: Variants = {
-    hidden: {
-        y: 24,
-        opacity: 0
-    },
-    visible: {
-        y: 0,
-        opacity: 1,
-        transition: {
-            duration: 0.3,
-            ease: 'easeOut'
-        }
-    },
-}
-
+// Compatibility exports for existing consumers; new sections use Reveal.
+export const smoothReveal = revealVariants
+export const smoothRevealSm = revealVariants
 export const smoothRevealHover: Variants = {
-    hidden: {
-        y: 24,
-        opacity: 0
-    },
-    visible: {
-        y: 0,
-        opacity: 1,
-        transition: {
-            duration: 0.6,
-            ease: 'easeOut'
-        }
-    },
-    hovered: {
-        scale: 1.05,
-        transition: {
-            duration: 0.4,
-            ease: 'easeOut'
-        }
-    }
+    ...revealVariants,
+    hovered: { scale: 1.02, transition: motionTransitions.ui },
 }
-
-export const smoothRevealSm: Variants = {
-    hidden: {
-        y: 16,
-        opacity: 0
-    },
-    visible: {
-        y: 0,
-        opacity: 1,
-        transition: {
-            duration: 0.6,
-            ease: 'easeOut'
-        }
-    },
-}
-
 export const smoothRevealRight: Variants = {
-    hidden: {
-        x: -24,
-        opacity: 0
-    },
-    visible: {
-        x: 0,
-        opacity: 1,
-        transition: {
-            duration: 0.6,
-            ease: 'easeOut'
-        }
-    },
+    hidden: { opacity: 0, x: -motionTokens.distance },
+    visible: { opacity: 1, x: 0, transition: motionTransitions.reveal },
 }
