@@ -246,8 +246,6 @@ section[id] {
 		transform: none !important;
 	}
 
-	.motion-autoplay-control { display: none; }
-
 	*, *::before, *::after {
 		scroll-behavior: auto !important;
 		animation-duration: 1ms !important;
